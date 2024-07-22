@@ -1,0 +1,14 @@
+name: data-source-env
+
+channels:
+  - conda-forge
+
+dependencies:
+  - pip
+  - py7zr
+  - rdkit
+  - requests
+  - tqdm
+  - pip:
+      - ord-schema
+      - pqdm
