@@ -42,8 +42,12 @@ class MiscellaneousCompoundDataSource(AbstractBaseDataSource):
             "v_20201218_polykovskiy_d_et_al": "https://doi.org/10.3389/fphar.2020.565644",
         }
 
+    # ------------------------------------------------------------------------------------------------------------------
+    #  Version(s): v_20201218_polykovskiy_d_et_al
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
     def _download_v_20201218_polykovskiy_d_et_al(
-            self,
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
@@ -52,11 +56,41 @@ class MiscellaneousCompoundDataSource(AbstractBaseDataSource):
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        self._download_file(
+        AbstractBaseDataSource._download_file(
             file_url="https://media.githubusercontent.com/media/molecularsets/moses/master/data/dataset_v1.csv",
             file_name="dataset_v1.csv",
             output_directory_path=output_directory_path
         )
+
+    @staticmethod
+    def _format_v_20201218_polykovskiy_d_et_al(
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Format the data from the `v_20201218_polykovskiy_d_et_al` version of the chemical compound data source.
+
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        """
+
+        read_csv(
+            filepath_or_buffer=Path(input_directory_path, "dataset_v1.csv"),
+            header=0
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_miscellaneous_v_20201218_polykovskiy_d_et_al.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    )
+                )
+            ),
+            index=False
+        )
+
+    # ------------------------------------------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------------------------------------------
 
     def download(
             self,
@@ -162,33 +196,6 @@ class MiscellaneousCompoundDataSource(AbstractBaseDataSource):
                 )
 
             raise
-
-    @staticmethod
-    def _format_v_20201218_polykovskiy_d_et_al(
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Format the data from the `v_20201218_polykovskiy_d_et_al` version of the chemical compound data source.
-
-        :parameter input_directory_path: The path to the input directory where the data is extracted.
-        :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        """
-
-        read_csv(
-            filepath_or_buffer=Path(input_directory_path, "dataset_v1.csv"),
-            header=0
-        ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_miscellaneous_v_20201218_polykovskiy_d_et_al.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    )
-                )
-            ),
-            index=False
-        )
 
     def format(
             self,

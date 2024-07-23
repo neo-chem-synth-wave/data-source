@@ -8,7 +8,7 @@ from re import findall
 from shutil import copyfileobj
 from typing import Dict, Optional, Union
 
-from gzip import open as open_gz_archive_file
+from gzip import open as open_gzip_archive_file
 
 from pandas.io.parsers.readers import read_csv
 
@@ -70,8 +70,12 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
 
         return available_versions
 
+    # ------------------------------------------------------------------------------------------------------------------
+    #  Version(s): v_building_blocks_*
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
     def _download_v_building_blocks(
-            self,
             version: str,
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
@@ -82,7 +86,7 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        self._download_file(
+        AbstractBaseDataSource._download_file(
             file_url="https://files.docking.org/bb/current/{file_name:s}.smi.gz".format(
                 file_name=version.split(
                     sep="_",
@@ -98,8 +102,98 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
             output_directory_path=output_directory_path
         )
 
+    @staticmethod
+    def _extract_v_building_blocks(
+            version: str,
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Extract the data from a `v_building_blocks_*` version of the chemical compound database.
+
+        :parameter version: The version of the chemical compound database.
+        :parameter input_directory_path: The path to the input directory where the data is downloaded.
+        :parameter output_directory_path: The path to the output directory where the data should be extracted.
+        """
+
+        with open_gzip_archive_file(
+            filename=Path(
+                input_directory_path,
+                "{file_name:s}.smi.gz".format(
+                    file_name=version.split(
+                        sep="_",
+                        maxsplit=3
+                    )[-1]
+                )
+            )
+        ) as gz_archive_file_handle:
+            with open(
+                file=Path(
+                    output_directory_path,
+                    "{file_name:s}.smi".format(
+                        file_name=version.split(
+                            sep="_",
+                            maxsplit=3
+                        )[-1]
+                    )
+                ),
+                mode="wb"
+            ) as file_handle:
+                copyfileobj(
+                    fsrc=gz_archive_file_handle,
+                    fdst=file_handle
+                )
+
+    @staticmethod
+    def _format_v_building_blocks(
+            version: str,
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Format the data from a `v_building_blocks_*` version of the chemical compound database.
+
+        :parameter version: The version of the chemical compound database.
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        """
+
+        read_csv(
+            filepath_or_buffer=Path(
+                input_directory_path,
+                "{file_name:s}.smi".format(
+                    file_name=version.split(
+                        sep="_",
+                        maxsplit=3
+                    )[-1]
+                )
+            ),
+            sep=r"\s+",
+            header=None
+        ).rename(
+            columns={
+                0: "smiles",
+                1: "id",
+            }
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_zinc20_{version:s}.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    ),
+                    version=version.replace("-", "_")
+                )
+            ),
+            index=False
+        )
+
+    # ------------------------------------------------------------------------------------------------------------------
+    #  Version(s): v_catalog_*
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
     def _download_v_catalog(
-            self,
             version: str,
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
@@ -110,7 +204,7 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        self._download_file(
+        AbstractBaseDataSource._download_file(
             file_url="https://files.docking.org/catalogs/source/{file_name:s}.src.txt".format(
                 file_name=version.split(
                     sep="_",
@@ -125,6 +219,53 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
             ),
             output_directory_path=output_directory_path
         )
+
+    @staticmethod
+    def _format_v_catalog(
+            version: str,
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Format the data from a `v_catalog_*` version of the chemical compound database.
+
+        :parameter version: The version of the chemical compound database.
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        """
+
+        read_csv(
+            filepath_or_buffer=Path(
+                input_directory_path,
+                "{file_name:s}.src.txt".format(
+                    file_name=version.split(
+                        sep="_",
+                        maxsplit=2
+                    )[-1]
+                )
+            ),
+            sep=r"\s+",
+            header=None
+        ).rename(
+            columns={
+                0: "smiles",
+                1: "id",
+            }
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_zinc20_{version:s}.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    ),
+                    version=version.replace("-", "_")
+                )
+            ),
+            index=False
+        )
+
+    # ------------------------------------------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------------------------------------------
 
     def download(
             self,
@@ -187,48 +328,6 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
 
             raise
 
-    @staticmethod
-    def _extract_v_building_blocks(
-            version: str,
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Extract the data from a `v_building_blocks_*` version of the chemical compound database.
-
-        :parameter version: The version of the chemical compound database.
-        :parameter input_directory_path: The path to the input directory where the data is downloaded.
-        :parameter output_directory_path: The path to the output directory where the data should be extracted.
-        """
-
-        with open_gz_archive_file(
-            filename=Path(
-                input_directory_path,
-                "{file_name:s}.smi.gz".format(
-                    file_name=version.split(
-                        sep="_",
-                        maxsplit=3
-                    )[-1]
-                )
-            )
-        ) as gz_archive_file_handle:
-            with open(
-                file=Path(
-                    output_directory_path,
-                    "{file_name:s}.smi".format(
-                        file_name=version.split(
-                            sep="_",
-                            maxsplit=3
-                        )[-1]
-                    )
-                ),
-                mode="wb"
-            ) as file_handle:
-                copyfileobj(
-                    fsrc=gz_archive_file_handle,
-                    fdst=file_handle
-                )
-
     def extract(
             self,
             version: str,
@@ -286,94 +385,6 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
                 )
 
             raise
-
-    @staticmethod
-    def _format_v_building_blocks(
-            version: str,
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Format the data from a `v_building_blocks_*` version of the chemical compound database.
-
-        :parameter version: The version of the chemical compound database.
-        :parameter input_directory_path: The path to the input directory where the data is extracted.
-        :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        """
-
-        read_csv(
-            filepath_or_buffer=Path(
-                input_directory_path,
-                "{file_name:s}.smi".format(
-                    file_name=version.split(
-                        sep="_",
-                        maxsplit=3
-                    )[-1]
-                )
-            ),
-            sep=r"\s+",
-            header=None
-        ).rename(
-            columns={
-                0: "smiles",
-                1: "id",
-            }
-        ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_zinc20_{version:s}.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    ),
-                    version=version.replace("-", "_")
-                )
-            ),
-            index=False
-        )
-
-    @staticmethod
-    def _format_v_catalog(
-            version: str,
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Format the data from a `v_catalog_*` version of the chemical compound database.
-
-        :parameter version: The version of the chemical compound database.
-        :parameter input_directory_path: The path to the input directory where the data is extracted.
-        :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        """
-
-        read_csv(
-            filepath_or_buffer=Path(
-                input_directory_path,
-                "{file_name:s}.src.txt".format(
-                    file_name=version.split(
-                        sep="_",
-                        maxsplit=2
-                    )[-1]
-                )
-            ),
-            sep=r"\s+",
-            header=None
-        ).rename(
-            columns={
-                0: "smiles",
-                1: "id",
-            }
-        ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_zinc20_{version:s}.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    ),
-                    version=version.replace("-", "_")
-                )
-            ),
-            index=False
-        )
 
     def format(
             self,

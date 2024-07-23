@@ -8,7 +8,7 @@ from re import search
 from shutil import copyfileobj
 from typing import Dict, Optional, Union
 
-from gzip import open as open_gz_archive_file
+from gzip import open as open_gzip_archive_file
 
 from pandas.io.parsers.readers import read_csv
 
@@ -61,8 +61,12 @@ class ChEMBLCompoundDatabase(AbstractBaseDataSource):
             ) for release_number in range(25, latest_release_number + 1)
         }
 
+    # ------------------------------------------------------------------------------------------------------------------
+    #  Version(s): v_release_*
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
     def _download_v_release(
-            self,
             version: str,
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
@@ -73,7 +77,7 @@ class ChEMBLCompoundDatabase(AbstractBaseDataSource):
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        self._download_file(
+        AbstractBaseDataSource._download_file(
             file_url="https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/{file_url_suffix:s}".format(
                 file_url_suffix="chembl_{release_number:s}/chembl_{release_number:s}_chemreps.txt.gz".format(
                     release_number=version.split(
@@ -88,6 +92,87 @@ class ChEMBLCompoundDatabase(AbstractBaseDataSource):
             ),
             output_directory_path=output_directory_path
         )
+
+    @staticmethod
+    def _extract_v_release(
+            version: str,
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Extract the data from a `v_release_*` version of the chemical compound database.
+
+        :parameter version: The version of the chemical compound database.
+        :parameter input_directory_path: The path to the input directory where the data is downloaded.
+        :parameter output_directory_path: The path to the output directory where the data should be extracted.
+        """
+
+        with open_gzip_archive_file(
+            filename=Path(
+                input_directory_path,
+                "chembl_{release_number:s}_chemreps.txt.gz".format(
+                    release_number=version.split(
+                        sep="_"
+                    )[-1]
+                )
+            )
+        ) as gzip_archive_file_handle:
+            with open(
+                file=Path(
+                    output_directory_path,
+                    "chembl_{release_number:s}_chemreps.txt".format(
+                        release_number=version.split(
+                            sep="_"
+                        )[-1]
+                    )
+                ),
+                mode="wb"
+            ) as file_handle:
+                copyfileobj(
+                    fsrc=gzip_archive_file_handle,
+                    fdst=file_handle
+                )
+
+    @staticmethod
+    def _format_v_release(
+            version: str,
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Format the data from a `v_release_*` version of the chemical compound database.
+
+        :parameter version: The version of the chemical compound database.
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        """
+
+        read_csv(
+            filepath_or_buffer=Path(
+                input_directory_path,
+                "chembl_{release_number:s}_chemreps.txt".format(
+                    release_number=version.split(
+                        sep="_"
+                    )[-1]
+                )
+            ),
+            sep="\t",
+            header=0
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_chembl_{version:s}.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    ),
+                    version=version
+                )
+            ),
+            index=False
+        )
+
+    # ------------------------------------------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------------------------------------------
 
     def download(
             self,
@@ -143,46 +228,6 @@ class ChEMBLCompoundDatabase(AbstractBaseDataSource):
                 )
 
             raise
-
-    @staticmethod
-    def _extract_v_release(
-            version: str,
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Extract the data from a `v_release_*` version of the chemical compound database.
-
-        :parameter version: The version of the chemical compound database.
-        :parameter input_directory_path: The path to the input directory where the data is downloaded.
-        :parameter output_directory_path: The path to the output directory where the data should be extracted.
-        """
-
-        with open_gz_archive_file(
-            filename=Path(
-                input_directory_path,
-                "chembl_{release_number:s}_chemreps.txt.gz".format(
-                    release_number=version.split(
-                        sep="_"
-                    )[-1]
-                )
-            )
-        ) as gz_archive_file_handle:
-            with open(
-                file=Path(
-                    output_directory_path,
-                    "chembl_{release_number:s}_chemreps.txt".format(
-                        release_number=version.split(
-                            sep="_"
-                        )[-1]
-                    )
-                ),
-                mode="wb"
-            ) as file_handle:
-                copyfileobj(
-                    fsrc=gz_archive_file_handle,
-                    fdst=file_handle
-                )
 
     def extract(
             self,
@@ -241,44 +286,6 @@ class ChEMBLCompoundDatabase(AbstractBaseDataSource):
                 )
 
             raise
-
-    @staticmethod
-    def _format_v_release(
-            version: str,
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Format the data from a `v_release_*` version of the chemical compound database.
-
-        :parameter version: The version of the chemical compound database.
-        :parameter input_directory_path: The path to the input directory where the data is extracted.
-        :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        """
-
-        read_csv(
-            filepath_or_buffer=Path(
-                input_directory_path,
-                "chembl_{release_number:s}_chemreps.txt".format(
-                    release_number=version.split(
-                        sep="_"
-                    )[-1]
-                )
-            ),
-            sep="\t",
-            header=0
-        ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_chembl_{version:s}.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    ),
-                    version=version
-                )
-            ),
-            index=False
-        )
 
     def format(
             self,
