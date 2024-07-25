@@ -33,7 +33,7 @@ pip install --no-build-isolation -e .
 ```
 
 
-## Installation
+## Utilization
 The purpose of the [scripts](/scripts) directory is to illustrate how to download, extract, and format the following
 types of computer-assisted chemical synthesis data:
 
