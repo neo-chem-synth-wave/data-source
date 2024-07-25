@@ -1,15 +1,11 @@
 # Overview
 **Title:** Algorithm for Reaction Classification<br>
-**Authors:** Hans Kraut, Josef Eiblmaier, Guenter Grethe, Peter Löw, Heinz Matuszczyk, and Heinz Saller<br>
-**Keywords:** `chemical-reactions`, `data`
+**Authors:** Hans Kraut, Josef Eiblmaier, Guenter Grethe, Peter Löw, Heinz Matuszczyk, Heinz Saller<br>
+**Publication Date:** 2013/10/08<br>
+**Publication Link:** [ACS JCIM](https://pubs.acs.org/doi/abs/10.1021/ci400442f)
 
 
-# Publications
-**Main Publication Date:** 2013/10/08<br>
-**Main Publication Link:** [ACS JCIM](https://pubs.acs.org/doi/abs/10.1021/ci400442f)
-
-
-## Main Publication Abstract
+# Abstract
 Reaction classification has important applications, and many approaches to classification have been applied. Our own
 algorithm tests all maximum common substructures (MCS) between all reactant and product molecules in order to find an
 atom mapping containing the minimum chemical distance (MCD). Recent publications have concluded that new MCS algorithms
