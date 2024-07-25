@@ -115,10 +115,10 @@ class AbstractBaseDataSource(ABC):
         ) as file_download_stream_handle:
             with Path(output_directory_path, file_name).open(
                 mode="wb"
-            ) as file_handle:
+            ) as destination_file_handle:
                 copyfileobj(
                     fsrc=file_download_stream_handle,
-                    fdst=file_handle
+                    fdst=destination_file_handle
                 )
 
     @property
