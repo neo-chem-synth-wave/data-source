@@ -59,6 +59,8 @@ The following chemical reaction data sources are currently supported:
 - [United States Patent and Trademark Office Dataset](#united-states-patent-and-trademark-office-dataset)
 - [Rhea Database](#rhea-database)
 
+![chemical_reaction_data_sources.png](figures/chemical_reaction_data_sources.png)
+
 
 ### Chemical Reaction Rules
 The following chemical reaction rule data sources are currently supported:
