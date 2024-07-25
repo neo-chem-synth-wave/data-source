@@ -7,7 +7,7 @@ from pathlib import Path
 from shutil import copyfileobj
 from typing import Dict, Optional, Union
 
-from gzip import open as open_gz_archive_file
+from gzip import open as open_gzip_archive_file
 
 from pandas.core.reshape.concat import concat
 from pandas.io.parsers.readers import read_csv
@@ -55,14 +55,14 @@ class USPTOReactionDataset(AbstractBaseDataSource):
             "v_15k_by_20170418_coley_c_w_et_al": "https://doi.org/10.1021/acscentsci.7b00064",
             "v_1976_to_2016_by_20121009_lowe_d_m": "https://doi.org/10.6084/m9.figshare.5104873.v1",
             "v_50k_by_20171116_coley_c_w_et_al": "https://doi.org/10.1021/acscentsci.7b00355",
-            "v_480k_or_mit_by_20171229_jin_w_et_al": "https://doi.org/10.48550/arXiv.1709.04555",
+            "v_480k_or_mit_by_20171204_jin_w_et_al": "https://doi.org/10.48550/arXiv.1709.04555",
             "v_480k_or_mit_by_20180622_schwaller_p_et_al": "https://doi.org/10.1039/C8SC02339E",
             "v_stereo_by_20180622_schwaller_p_et_al": "https://doi.org/10.1039/C8SC02339E",
-            "v_1k_tpl_by_20210705_schwaller_p_et_al": "https://doi.org/10.1038/s42256-020-00284-w",
+            "v_1k_tpl_by_20210128_schwaller_p_et_al": "https://doi.org/10.1038/s42256-020-00284-w",
         }
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  USPTO (v_1976_to_2013_by_20121009_lowe_d_m)
+    #  Version: v_1976_to_2013_by_20121009_lowe_d_m
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -106,10 +106,10 @@ class USPTOReactionDataset(AbstractBaseDataSource):
                     with open(
                         file=Path(output_directory_path, seven_zip_archive_file_name),
                         mode="wb"
-                    ) as file_handle:
+                    ) as destination_file_handle:
                         copyfileobj(
                             fsrc=seven_zip_archive_file_handle,
-                            fdst=file_handle
+                            fdst=destination_file_handle
                         )
 
                 with SevenZipFile(
@@ -171,7 +171,7 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  USPTO (v_50k_by_20161122_schneider_n_et_al)
+    #  Version: v_50k_by_20161122_schneider_n_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -205,22 +205,22 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         with ZipFile(
             file=Path(input_directory_path, "ci6b00564_si_002.zip")
         ) as zip_archive_file_handle:
-            for csv_file_name in [
+            for file_name in [
                 "dataSetA.csv",
                 "dataSetB.csv",
             ]:
                 with zip_archive_file_handle.open(
-                    name="data/{csv_file_name:s}".format(
-                        csv_file_name=csv_file_name
+                    name="data/{file_name:s}".format(
+                        file_name=file_name
                     )
-                ) as csv_file_handle:
+                ) as source_file_handle:
                     with open(
-                        file=Path(output_directory_path, csv_file_name),
+                        file=Path(output_directory_path, file_name),
                         mode="wb"
-                    ) as file_handle:
+                    ) as destination_file_handle:
                         copyfileobj(
-                            fsrc=csv_file_handle,
-                            fdst=file_handle
+                            fsrc=source_file_handle,
+                            fdst=destination_file_handle
                         )
 
     @staticmethod
@@ -268,7 +268,7 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  USPTO (v_15k_by_20170418_coley_c_w_et_al)
+    #  Version: v_15k_by_20170418_coley_c_w_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -302,23 +302,23 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         with ZipFile(
             file=Path(input_directory_path, "data.zip")
         ) as zip_archive_file_handle:
-            for txt_file_name in [
+            for file_name in [
                 "train.txt",
                 "valid.txt",
                 "test.txt",
             ]:
                 with zip_archive_file_handle.open(
-                    name="data/{txt_file_name:s}".format(
-                        txt_file_name=txt_file_name
+                    name="data/{file_name:s}".format(
+                        file_name=file_name
                     )
-                ) as txt_file_handle:
+                ) as source_file_handle:
                     with open(
-                        file=Path(output_directory_path, txt_file_name),
+                        file=Path(output_directory_path, file_name),
                         mode="wb"
-                    ) as file_handle:
+                    ) as destination_file_handle:
                         copyfileobj(
-                            fsrc=txt_file_handle,
-                            fdst=file_handle
+                            fsrc=source_file_handle,
+                            fdst=destination_file_handle
                         )
 
     @staticmethod
@@ -371,7 +371,7 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  USPTO (v_1976_to_2016_by_20121009_lowe_d_m)
+    #  Version: v_1976_to_2016_by_20121009_lowe_d_m
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -415,10 +415,10 @@ class USPTOReactionDataset(AbstractBaseDataSource):
                     with open(
                         file=Path(output_directory_path, seven_zip_archive_file_name),
                         mode="wb"
-                    ) as file_handle:
+                    ) as destination_file_handle:
                         copyfileobj(
                             fsrc=seven_zip_archive_file_handle,
-                            fdst=file_handle
+                            fdst=destination_file_handle
                         )
 
                 with SevenZipFile(
@@ -474,7 +474,7 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  USPTO (v_50k_by_20171116_coley_c_w_et_al)
+    #  Version: v_50k_by_20171116_coley_c_w_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -524,15 +524,15 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  USPTO (v_50k_by_20171116_coley_c_w_et_al)
+    #  Version: v_480k_or_mit_by_20171204_jin_w_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
-    def _download_v_480k_or_mit_by_20171229_jin_w_et_al(
+    def _download_v_480k_or_mit_by_20171204_jin_w_et_al(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_480k_or_mit_by_20171229_jin_w_et_al` version of the chemical reaction dataset.
+        Download the data from the `v_480k_or_mit_by_20171204_jin_w_et_al` version of the chemical reaction dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -544,12 +544,12 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     @staticmethod
-    def _extract_v_480k_or_mit_by_20171229_jin_w_et_al(
+    def _extract_v_480k_or_mit_by_20171204_jin_w_et_al(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Extract the data from the `v_480k_or_mit_by_20171229_jin_w_et_al` version of the chemical reaction dataset.
+        Extract the data from the `v_480k_or_mit_by_20171204_jin_w_et_al` version of the chemical reaction dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
@@ -558,32 +558,32 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         with ZipFile(
             file=Path(input_directory_path, "data.zip")
         ) as zip_archive_file_handle:
-            for txt_file_name in [
+            for file_name in [
                 "train.txt",
                 "valid.txt",
                 "test.txt",
             ]:
                 with zip_archive_file_handle.open(
-                    name="data/{txt_file_name:s}".format(
-                        txt_file_name=txt_file_name
+                    name="data/{file_name:s}".format(
+                        file_name=file_name
                     )
-                ) as txt_file_handle:
+                ) as source_file_handle:
                     with open(
-                        file=Path(output_directory_path, txt_file_name),
+                        file=Path(output_directory_path, file_name),
                         mode="wb"
-                    ) as file_handle:
+                    ) as destination_file_handle:
                         copyfileobj(
-                            fsrc=txt_file_handle,
-                            fdst=file_handle
+                            fsrc=source_file_handle,
+                            fdst=destination_file_handle
                         )
 
     @staticmethod
-    def _format_v_480k_or_mit_by_20171229_jin_w_et_al(
+    def _format_v_480k_or_mit_by_20171204_jin_w_et_al(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_480k_or_mit_by_20171229_jin_w_et_al` version of the chemical reaction dataset.
+        Format the data from the `v_480k_or_mit_by_20171204_jin_w_et_al` version of the chemical reaction dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -627,7 +627,7 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  USPTO (v_480k_or_mit_by_20180622_schwaller_p_et_al)
+    #  Version: v_480k_or_mit_by_20180622_schwaller_p_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -670,23 +670,23 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         with ZipFile(
             file=Path(input_directory_path, "ReactionSeq2Seq_Dataset.zip")
         ) as zip_archive_file_handle:
-            for txt_file_name in [
+            for file_name in [
                 "Jin_USPTO_1product_train.txt",
                 "Jin_USPTO_1product_valid.txt",
                 "Jin_USPTO_1product_test.txt",
             ]:
                 with zip_archive_file_handle.open(
-                    name="ReactionSeq2Seq_Dataset/{txt_file_name:s}".format(
-                        txt_file_name=txt_file_name
+                    name="ReactionSeq2Seq_Dataset/{file_name:s}".format(
+                        file_name=file_name
                     )
-                ) as txt_file_handle:
+                ) as source_file_handle:
                     with open(
-                        file=Path(output_directory_path, txt_file_name),
+                        file=Path(output_directory_path, file_name),
                         mode="wb"
-                    ) as file_handle:
+                    ) as destination_file_handle:
                         copyfileobj(
-                            fsrc=txt_file_handle,
-                            fdst=file_handle
+                            fsrc=source_file_handle,
+                            fdst=destination_file_handle
                         )
 
     @staticmethod
@@ -740,7 +740,7 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  USPTO (v_stereo_by_20180622_schwaller_p_et_al)
+    #  Version: v_stereo_by_20180622_schwaller_p_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -753,7 +753,16 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        USPTOReactionDataset._download_v_480k_or_mit_by_20180622_schwaller_p_et_al(
+        AbstractBaseDataSource._download_file(
+            file_url=AbstractBaseDataSource._send_http_get_request(
+                http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+                    url="https://ibm.ent.box.com/index.php",
+                    folder_id="folder_id=40552708120",
+                    vanity_name="q[shared_item][vanity_name]=ReactionSeq2SeqDataset",
+                    rm="rm=box_v2_zip_shared_folder"
+                )
+            ).json()["download_url"],
+            file_name="ReactionSeq2Seq_Dataset.zip",
             output_directory_path=output_directory_path
         )
 
@@ -772,23 +781,23 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         with ZipFile(
             file=Path(input_directory_path, "ReactionSeq2Seq_Dataset.zip")
         ) as zip_archive_file_handle:
-            for csv_file_name in [
+            for file_name in [
                 "US_patents_1976-Sep2016_1product_reactions_train.csv",
                 "US_patents_1976-Sep2016_1product_reactions_valid.csv",
                 "US_patents_1976-Sep2016_1product_reactions_test.csv",
             ]:
                 with zip_archive_file_handle.open(
-                    name="ReactionSeq2Seq_Dataset/{csv_file_name:s}".format(
-                        csv_file_name=csv_file_name
+                    name="ReactionSeq2Seq_Dataset/{file_name:s}".format(
+                        file_name=file_name
                     )
-                ) as csv_file_handle:
+                ) as source_file_handle:
                     with open(
-                        file=Path(output_directory_path, csv_file_name),
+                        file=Path(output_directory_path, file_name),
                         mode="wb"
-                    ) as file_handle:
+                    ) as destination_file_handle:
                         copyfileobj(
-                            fsrc=csv_file_handle,
-                            fdst=file_handle
+                            fsrc=source_file_handle,
+                            fdst=destination_file_handle
                         )
 
     @staticmethod
@@ -842,15 +851,15 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  USPTO (v_stereo_by_20180622_schwaller_p_et_al)
+    #  Version: v_1k_tpl_by_20210128_schwaller_p_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
-    def _download_v_1k_tpl_by_20210705_schwaller_p_et_al(
+    def _download_v_1k_tpl_by_20210128_schwaller_p_et_al(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_1k_tpl_by_20210705_schwaller_p_et_al` version of the chemical reaction dataset.
+        Download the data from the `v_1k_tpl_by_20210128_schwaller_p_et_al` version of the chemical reaction dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -869,12 +878,12 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     @staticmethod
-    def _extract_v_1k_tpl_by_20210705_schwaller_p_et_al(
+    def _extract_v_1k_tpl_by_20210128_schwaller_p_et_al(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Extract the data from the `v_1k_tpl_by_20210705_schwaller_p_et_al` version of the chemical reaction dataset.
+        Extract the data from the `v_1k_tpl_by_20210128_schwaller_p_et_al` version of the chemical reaction dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
@@ -883,17 +892,29 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         with ZipFile(
             file=Path(input_directory_path, "MappingChemicalReactions.zip")
         ) as zip_archive_file_handle:
-            for gzip_archive_file_name in [
+            for file_name in [
                 "uspto_1k_TPL_test.tsv.gzip",
                 "uspto_1k_TPL_train_valid.tsv.gzip",
             ]:
                 with zip_archive_file_handle.open(
-                    name="data_set/{gzip_archive_file_name:s}".format(
-                        gzip_archive_file_name=gzip_archive_file_name
+                    name="data_set/{file_name:s}".format(
+                        file_name=file_name
                     )
+                ) as source_file_handle:
+                    with open(
+                        file=Path(output_directory_path, file_name),
+                        mode="wb"
+                    ) as destination_file_handle:
+                        copyfileobj(
+                            fsrc=source_file_handle,
+                            fdst=destination_file_handle
+                        )
+
+                with open_gzip_archive_file(
+                    filename=Path(input_directory_path, file_name)
                 ) as gzip_archive_file_handle:
                     with open(
-                        file=Path(output_directory_path, gzip_archive_file_name),
+                        file=Path(output_directory_path, file_name[:-5]),
                         mode="wb"
                     ) as file_handle:
                         copyfileobj(
@@ -901,25 +922,13 @@ class USPTOReactionDataset(AbstractBaseDataSource):
                             fdst=file_handle
                         )
 
-                with open_gz_archive_file(
-                    filename=Path(input_directory_path, gzip_archive_file_name)
-                ) as gz_archive_file_handle:
-                    with open(
-                        file=Path(output_directory_path, gzip_archive_file_name[:-5]),
-                        mode="wb"
-                    ) as file_handle:
-                        copyfileobj(
-                            fsrc=gz_archive_file_handle,
-                            fdst=file_handle
-                        )
-
     @staticmethod
-    def _format_v_1k_tpl_by_20210705_schwaller_p_et_al(
+    def _format_v_1k_tpl_by_20210128_schwaller_p_et_al(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_1k_tpl_by_20210705_schwaller_p_et_al` version of the chemical reaction dataset.
+        Format the data from the `v_1k_tpl_by_20210128_schwaller_p_et_al` version of the chemical reaction dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -1009,8 +1018,8 @@ class USPTOReactionDataset(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_480k_or_mit_by_20171229_jin_w_et_al":
-                    self._download_v_480k_or_mit_by_20171229_jin_w_et_al(
+                if version == "v_480k_or_mit_by_20171204_jin_w_et_al":
+                    self._download_v_480k_or_mit_by_20171204_jin_w_et_al(
                         output_directory_path=output_directory_path
                     )
 
@@ -1024,8 +1033,8 @@ class USPTOReactionDataset(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_1k_tpl_by_20210705_schwaller_p_et_al":
-                    self._download_v_1k_tpl_by_20210705_schwaller_p_et_al(
+                if version == "v_1k_tpl_by_20210128_schwaller_p_et_al":
+                    self._download_v_1k_tpl_by_20210128_schwaller_p_et_al(
                         output_directory_path=output_directory_path
                     )
 
@@ -1102,8 +1111,8 @@ class USPTOReactionDataset(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_480k_or_mit_by_20171229_jin_w_et_al":
-                    self._extract_v_480k_or_mit_by_20171229_jin_w_et_al(
+                if version == "v_480k_or_mit_by_20171204_jin_w_et_al":
+                    self._extract_v_480k_or_mit_by_20171204_jin_w_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -1120,8 +1129,8 @@ class USPTOReactionDataset(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_1k_tpl_by_20210705_schwaller_p_et_al":
-                    self._extract_v_1k_tpl_by_20210705_schwaller_p_et_al(
+                if version == "v_1k_tpl_by_20210128_schwaller_p_et_al":
+                    self._extract_v_1k_tpl_by_20210128_schwaller_p_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -1207,8 +1216,8 @@ class USPTOReactionDataset(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_480k_or_mit_by_20171229_jin_w_et_al":
-                    self._format_v_480k_or_mit_by_20171229_jin_w_et_al(
+                if version == "v_480k_or_mit_by_20171204_jin_w_et_al":
+                    self._format_v_480k_or_mit_by_20171204_jin_w_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -1225,8 +1234,8 @@ class USPTOReactionDataset(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_1k_tpl_by_20210705_schwaller_p_et_al":
-                    self._format_v_1k_tpl_by_20210705_schwaller_p_et_al(
+                if version == "v_1k_tpl_by_20210128_schwaller_p_et_al":
+                    self._format_v_1k_tpl_by_20210128_schwaller_p_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )

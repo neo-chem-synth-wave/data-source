@@ -49,28 +49,32 @@ class OpenReactionDatabase(AbstractBaseDataSource):
         """
 
         return {
-            "v_release_v_0_1_0": "https://doi.org/10.1021/jacs.1c09820",
-            "v_latest_release": "https://doi.org/10.1021/jacs.1c09820",
+            "v_release_0_1_0": "https://doi.org/10.1021/jacs.1c09820",
+            "v_release_main": "https://doi.org/10.1021/jacs.1c09820",
         }
+
+    # ------------------------------------------------------------------------------------------------------------------
+    #  Versions: v_release_*
+    # ------------------------------------------------------------------------------------------------------------------
 
     def _parse_reaction_message(
             self,
-            message: Reaction,
+            reaction_message: Reaction,
             **kwargs
     ) -> Tuple[Optional[str], Optional[str]]:
         """
-        Parse a chemical reaction `Protocol Buffer` message.
+        Parse a chemical reaction `Protocol Buffer` message object.
 
-        :parameter message: The chemical reaction `Protocol Buffer` message.
+        :parameter reaction_message: The chemical reaction `Protocol Buffer` message object.
         :parameter kwargs: The keyword arguments for the adjustment of the following underlying functions:
             { `ord_schema.message_helpers.get_reaction_smiles` }.
 
-        :returns: The chemical reaction identifier and `SMILES` string.
+        :returns: The chemical reaction identifier and `SMILES` strings.
         """
 
         try:
-            return message.reaction_id, get_reaction_smiles(
-                message=message,
+            return reaction_message.reaction_id, get_reaction_smiles(
+                message=reaction_message,
                 **kwargs
             )
 
@@ -85,19 +89,20 @@ class OpenReactionDatabase(AbstractBaseDataSource):
 
     def _parse_reaction_dataset_message_file(
             self,
-            file_path: str
+            reaction_dataset_message_file_path: str
     ) -> Tuple[Optional[str], Optional[List[Tuple[Optional[str], Optional[str]]]]]:
         """
         Parse a chemical reaction dataset `Protocol Buffer` message file.
 
-        :parameter file_path: The path to the chemical reaction dataset `Protocol Buffer` message file.
+        :parameter reaction_dataset_message_file_path: The path to the chemical reaction dataset `Protocol Buffer`
+            message file.
 
-        :returns: The chemical reaction dataset identifier, and chemical reaction identifiers and `SMILES` strings.
+        :returns: The chemical reaction dataset identifier, and the chemical reaction identifiers and `SMILES` strings.
         """
 
         try:
             reaction_dataset_message = load_message(
-                filename=file_path,
+                filename=reaction_dataset_message_file_path,
                 message_type=Dataset
             )
 
@@ -106,7 +111,7 @@ class OpenReactionDatabase(AbstractBaseDataSource):
             for reaction_message in reaction_dataset_message.reactions:
                 parsed_reaction_messages.append(
                     self._parse_reaction_message(
-                        message=reaction_message,
+                        reaction_message=reaction_message,
                         generate_if_missing=True,
                         canonical=False
                     )
@@ -123,16 +128,94 @@ class OpenReactionDatabase(AbstractBaseDataSource):
 
             return None, None
 
+    def _format_v_release(
+            self,
+            version: str,
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]],
+            number_of_processes: int = 1
+    ) -> None:
+        """
+        Format the data from a `v_release_*` version of the chemical reaction database.
+
+        :parameter version: The version of the chemical reaction database.
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        :parameter number_of_processes: The number of processes.
+        """
+
+        if version == "v_release_0_1_0":
+            input_directory_path = Path(input_directory_path, "ord-data-0.1.0", "data")
+
+        if version == "v_release_main":
+            input_directory_path = Path(input_directory_path, "ord-data-main", "data")
+
+        reaction_dataset_message_file_paths = list()
+
+        for directory_path, _, file_names in walk(
+            top=input_directory_path
+        ):
+            for file_name in file_names:
+                if file_name.endswith(".pb.gz"):
+                    reaction_dataset_message_file_paths.append(
+                        Path(directory_path, file_name).resolve().as_posix()
+                    )
+
+        dataframe_rows = list()
+
+        DisableLog(
+            spec="rdApp.*"
+        )
+
+        for reaction_dataset_message_identifier, parsed_reaction_messages in pqdm(
+            array=reaction_dataset_message_file_paths,
+            function=self._parse_reaction_dataset_message_file,
+            n_jobs=number_of_processes,
+            desc="Formatting the Open Reaction Database ({version:s}) files".format(
+                version=version
+            ),
+            total=len(reaction_dataset_message_file_paths),
+            ncols=150
+        ):
+            if parsed_reaction_messages is not None:
+                for reaction_message_identifier, reaction_smiles in parsed_reaction_messages:
+                    if reaction_smiles is not None:
+                        dataframe_rows.append((
+                            reaction_dataset_message_identifier,
+                            reaction_message_identifier,
+                            reaction_smiles,
+                        ))
+
+        DataFrame(
+            data=dataframe_rows,
+            columns=[
+                "dataset_id",
+                "reaction_id",
+                "reaction_smiles",
+            ]
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_ord_{version:s}.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    ),
+                    version=version
+                )
+            ),
+            index=False
+        )
+
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_release_v_0_1_0
+    #  Version: v_release_0_1_0
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
-    def _download_v_release_v_0_1_0(
+    def _download_v_release_0_1_0(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_release_v_0_1_0` version of the chemical reaction database.
+        Download the data from the `v_release_0_1_0` version of the chemical reaction database.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -144,12 +227,12 @@ class OpenReactionDatabase(AbstractBaseDataSource):
         )
 
     @staticmethod
-    def _extract_v_release_v_0_1_0(
+    def _extract_v_release_0_1_0(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Extract the data from the `v_release_v_0_1_0` version of the chemical reaction database.
+        Extract the data from the `v_release_0_1_0` version of the chemical reaction database.
 
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
@@ -158,87 +241,23 @@ class OpenReactionDatabase(AbstractBaseDataSource):
         with ZipFile(
             file=Path(input_directory_path, "ord-data-0.1.0.zip")
         ) as zip_archive_file_handle:
-            zip_archive_file_handle.extractall(
-                path=output_directory_path
-            )
-
-    def _format_v_release_v_0_1_0(
-            self,
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]],
-            number_of_cpu_cores: int = 1
-    ) -> None:
-        """
-        Format the data from the `v_release_v_0_1_0` version of the chemical reaction database.
-
-        :parameter input_directory_path: The path to the input directory where the data is extracted.
-        :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter number_of_cpu_cores: The number of CPU cores that should be utilized.
-        """
-
-        reaction_dataset_message_file_paths = list()
-
-        for directory_path, _, file_names in walk(
-            top=Path(input_directory_path, "ord-data-0.1.0", "data")
-        ):
-            for file_name in file_names:
-                if file_name.endswith(".pb.gz"):
-                    reaction_dataset_message_file_paths.append(
-                        Path(directory_path, file_name).resolve().as_posix()
+            for file_path in zip_archive_file_handle.namelist():
+                if file_path.startswith("ord-data-0.1.0/data"):
+                    zip_archive_file_handle.extract(
+                        file_path,
+                        path=output_directory_path
                     )
-
-        open_reaction_database_rows = list()
-
-        DisableLog(
-            spec="rdApp.*"
-        )
-
-        for reaction_dataset_message_identifier, parsed_reaction_messages in pqdm(
-            array=reaction_dataset_message_file_paths,
-            function=self._parse_reaction_dataset_message_file,
-            n_jobs=number_of_cpu_cores,
-            total=len(reaction_dataset_message_file_paths),
-            desc="Formatting the Open Reaction Database (v_release_v_0_1_0) files",
-            ncols=150
-        ):
-            if parsed_reaction_messages is not None:
-                for reaction_message_identifier, reaction_smiles in parsed_reaction_messages:
-                    if reaction_smiles is not None:
-                        open_reaction_database_rows.append((
-                            reaction_dataset_message_identifier,
-                            reaction_message_identifier,
-                            reaction_smiles,
-                        ))
-
-        DataFrame(
-            data=open_reaction_database_rows,
-            columns=[
-                "dataset_id",
-                "reaction_id",
-                "reaction_smiles",
-            ]
-        ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_ord_v_release_v_0_1_0.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    )
-                )
-            ),
-            index=False
-        )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_latest_release
+    #  Version: v_release_main
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
-    def _download_v_latest_release(
+    def _download_v_release_main(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_latest_release` version of the chemical reaction database.
+        Download the data from the `v_release_main` version of the chemical reaction database.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -250,12 +269,12 @@ class OpenReactionDatabase(AbstractBaseDataSource):
         )
 
     @staticmethod
-    def _extract_v_latest_release(
+    def _extract_v_release_main(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Extract the data from the `v_latest_release` version of the chemical reaction database.
+        Extract the data from the `v_release_main` version of the chemical reaction database.
 
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
@@ -264,76 +283,12 @@ class OpenReactionDatabase(AbstractBaseDataSource):
         with ZipFile(
             file=Path(input_directory_path, "ord-data-main.zip")
         ) as zip_archive_file_handle:
-            zip_archive_file_handle.extractall(
-                path=output_directory_path
-            )
-
-    def _format_v_latest_release(
-            self,
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]],
-            number_of_cpu_cores: int = 1
-    ) -> None:
-        """
-        Format the data from the `v_latest_release` version of the chemical reaction database.
-
-        :parameter input_directory_path: The path to the input directory where the data is extracted.
-        :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter number_of_cpu_cores: The number of CPU cores that should be utilized.
-        """
-
-        reaction_dataset_message_file_paths = list()
-
-        for directory_path, _, file_names in walk(
-            top=Path(input_directory_path, "ord-data-main", "data")
-        ):
-            for file_name in file_names:
-                if file_name.endswith(".pb.gz"):
-                    reaction_dataset_message_file_paths.append(
-                        Path(directory_path, file_name).resolve().as_posix()
+            for file_path in zip_archive_file_handle.namelist():
+                if file_path.startswith("ord-data-main/data"):
+                    zip_archive_file_handle.extract(
+                        file_path,
+                        path=output_directory_path
                     )
-
-        open_reaction_database_rows = list()
-
-        DisableLog(
-            spec="rdApp.*"
-        )
-
-        for reaction_dataset_message_identifier, parsed_reaction_messages in pqdm(
-            array=reaction_dataset_message_file_paths,
-            function=self._parse_reaction_dataset_message_file,
-            n_jobs=number_of_cpu_cores,
-            total=len(reaction_dataset_message_file_paths),
-            desc="Formatting the Open Reaction Database (v_latest_release) files",
-            ncols=150
-        ):
-            if parsed_reaction_messages is not None:
-                for reaction_message_identifier, reaction_smiles in parsed_reaction_messages:
-                    if reaction_smiles is not None:
-                        open_reaction_database_rows.append((
-                            reaction_dataset_message_identifier,
-                            reaction_message_identifier,
-                            reaction_smiles,
-                        ))
-
-        DataFrame(
-            data=open_reaction_database_rows,
-            columns=[
-                "dataset_id",
-                "reaction_id",
-                "reaction_smiles",
-            ]
-        ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_ord_v_latest_release.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    )
-                )
-            ),
-            index=False
-        )
 
     # ------------------------------------------------------------------------------------------------------------------
     # ------------------------------------------------------------------------------------------------------------------
@@ -361,13 +316,13 @@ class OpenReactionDatabase(AbstractBaseDataSource):
                         )
                     )
 
-                if version == "v_release_v_0_1_0":
-                    self._download_v_release_v_0_1_0(
+                if version == "v_release_0_1_0":
+                    self._download_v_release_0_1_0(
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_latest_release":
-                    self._download_v_latest_release(
+                if version == "v_release_main":
+                    self._download_v_release_main(
                         output_directory_path=output_directory_path
                     )
 
@@ -422,14 +377,14 @@ class OpenReactionDatabase(AbstractBaseDataSource):
                         )
                     )
 
-                if version == "v_release_v_0_1_0":
-                    self._extract_v_release_v_0_1_0(
+                if version == "v_release_0_1_0":
+                    self._extract_v_release_0_1_0(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_latest_release":
-                    self._extract_v_latest_release(
+                if version == "v_release_main":
+                    self._extract_v_release_main(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -465,7 +420,7 @@ class OpenReactionDatabase(AbstractBaseDataSource):
             version: str,
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]],
-            number_of_cpu_cores: int = 1
+            number_of_processes: int = 1
     ) -> None:
         """
         Format the data from the chemical reaction database.
@@ -473,7 +428,7 @@ class OpenReactionDatabase(AbstractBaseDataSource):
         :parameter version: The version of the chemical reaction database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter number_of_cpu_cores: The number of CPU cores that should be utilized.
+        :parameter number_of_processes: The number of processes.
         """
 
         try:
@@ -487,18 +442,12 @@ class OpenReactionDatabase(AbstractBaseDataSource):
                         )
                     )
 
-                if version == "v_release_v_0_1_0":
-                    self._format_v_release_v_0_1_0(
+                if version.startswith("v_release"):
+                    self._format_v_release(
+                        version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path,
-                        number_of_cpu_cores=number_of_cpu_cores
-                    )
-
-                if version == "v_latest_release":
-                    self._format_v_latest_release(
-                        input_directory_path=input_directory_path,
-                        output_directory_path=output_directory_path,
-                        number_of_cpu_cores=number_of_cpu_cores
+                        number_of_processes=number_of_processes
                     )
 
                 if self.logger is not None:

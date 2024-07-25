@@ -5,6 +5,7 @@ from logging import Logger
 from os import PathLike
 from pathlib import Path
 from re import search
+from shutil import copyfileobj
 from typing import Dict, Optional, Union
 
 from pandas.io.parsers.readers import read_csv
@@ -41,8 +42,6 @@ class RheaReactionDatabase(AbstractBaseDataSource):
         :returns: The available versions of the chemical reaction database.
         """
 
-        available_versions = dict()
-
         http_get_request_response = self._send_http_get_request(
             http_get_request_url="https://ftp.expasy.org/databases/rhea/rhea-release.properties"
         )
@@ -54,17 +53,15 @@ class RheaReactionDatabase(AbstractBaseDataSource):
             ).group(1)
         )
 
-        for release_number in range(126, latest_release_number + 1):
-            available_versions[
-                "v_release_{release_number:d}".format(
-                    release_number=release_number
-                )
-            ] = "https://doi.org/10.1021/acs.jcim.0c00675"
-
-        return available_versions
+        return {
+            "v_release_{release_number:d}".format(
+                release_number=release_number
+            ): "https://doi.org/10.1021/acs.jcim.0c00675"
+            for release_number in range(126, latest_release_number + 1)
+        }
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_release_*
+    #  Versions: v_release_*
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -118,9 +115,21 @@ class RheaReactionDatabase(AbstractBaseDataSource):
             ),
             mode="r:bz2"
         ) as tar_archive_file_handle:
-            tar_archive_file_handle.extractall(
-                path=output_directory_path
-            )
+            with tar_archive_file_handle.extractfile(
+                member="{release_number:s}/tsv/rhea-reaction-smiles.tsv".format(
+                    release_number=version.split(
+                        sep="_"
+                    )[-1]
+                )
+            ) as source_file_handle:
+                with open(
+                    file=Path(output_directory_path, "rhea-reaction-smiles.tsv"),
+                    mode="wb"
+                ) as destination_file_handle:
+                    copyfileobj(
+                        fsrc=source_file_handle,
+                        fdst=destination_file_handle
+                    )
 
     @staticmethod
     def _format_v_release(
@@ -137,14 +146,7 @@ class RheaReactionDatabase(AbstractBaseDataSource):
         """
 
         read_csv(
-            filepath_or_buffer=Path(
-                input_directory_path,
-                "{release_number:s}/tsv/rhea-reaction-smiles.tsv".format(
-                    release_number=version.split(
-                        sep="_"
-                    )[-1]
-                )
-            ),
+            filepath_or_buffer=Path(input_directory_path, "rhea-reaction-smiles.tsv"),
             sep="\t",
             header=None
         ).rename(
