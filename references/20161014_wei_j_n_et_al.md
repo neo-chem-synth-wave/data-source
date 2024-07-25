@@ -3,8 +3,6 @@
 **Authors:** Jennifer N. Wei, David Duvenaud, Alán Aspuru-Guzik<br>
 **Publication Date:** 2016/10/14<br>
 **Publication Link:** [ACS Central Science](https://pubs.acs.org/doi/full/10.1021/acscentsci.6b00219)<br>
-**Code and Data Link:** [GitHub](https://github.com/jnwei/neural_reaction_fingerprint)
-
 **Alternative Publication Links:** [arXiv](https://arxiv.org/abs/1608.06296) |
 [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5084081) |
 [ResearchGate](https://www.researchgate.net/publication/306397812_Neural_networks_for_the_prediction_organic_chemistry_reactions)

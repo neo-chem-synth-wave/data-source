@@ -1,17 +1,12 @@
 # Overview
 **Title:** RetroTransformDB: A Dataset of Generic Transforms for Retrosynthetic Analysis<br>
-**Authors:** Svetlana Avramova, Nikolay Kochev, and Plamen Angelov<br>
-**Keywords:** `chemical-reaction-rules`, `data`
+**Authors:** Svetlana Avramova, Nikolay Kochev, Plamen Angelov<br>
+**Publication Date:** 2018/04/21<br>
+**Publication Link:** [MDPI Data](https://www.mdpi.com/2306-5729/3/2/14)<br>
+**Alternative Publication Links:** [ResearchGate](https://www.researchgate.net/publication/324724046_RetroTransformDB_A_Dataset_of_Generic_Transforms_for_Retrosynthetic_Analysis)
 
 
-# Publications
-**Main Publication Date:** 2018/04/21<br>
-**Main Publication Link:** [MDPI Data](https://www.mdpi.com/2306-5729/3/2/14)<br>
-**Alternative Publication Links:** [ResearchGate](https://www.researchgate.net/publication/324724046_RetroTransformDB_A_Dataset_of_Generic_Transforms_for_Retrosynthetic_Analysis)<br>
-**Data Source Links:** [Zenodo Repository](https://zenodo.org/records/1209313)
-
-
-## Main Publication Abstract
+# Abstract
 Presently, software tools for retrosynthetic analysis are widely used by organic, medicinal, and computational chemists.
 Rule-based systems extensively use collections of retro-reactions (transforms). While there are many public datasets
 with reactions in synthetic direction (usually non-generic reactions), there are no publicly-available databases with

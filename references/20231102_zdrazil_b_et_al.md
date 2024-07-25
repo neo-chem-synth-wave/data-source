@@ -3,20 +3,14 @@
 Periods<br>
 **Authors:** Barbara Zdrazil, Eloy Felix, Fiona Hunter, Emma J. Manners, James Blackshaw, Sybilla Corbett, Marleen de
 Veij, Harris Ioannidis, David M. Lopez, Juan F. Mosquera, Maria P. Magarinos, Nicolas Bosc, Ricardo Arcila, Tevfik
-Kizilören, Anna Gaulton, Patrícia A. Bento, Melissa F. Adasme, Peter Monecke, Gregory A. Landrum, and Andrew R.
-Leach<br>
-**Keywords:** `chembl`, `chemical-compounds`, `data`
+Kizilören, Anna Gaulton, Patrícia A. Bento, Melissa F. Adasme, Peter Monecke, Gregory A. Landrum, Andrew R. Leach<br>
+**Publication Date:** 2023/11/02<br>
+**Publication Link:** [Nucleic Acids Research](https://academic.oup.com/nar/article/52/D1/D1180/7337608)<br>
+**Alternative Publication Links:** [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10767899) |
+[ResearchGate](https://www.researchgate.net/publication/375456070_The_ChEMBL_Database_in_2023_a_drug_discovery_platform_spanning_multiple_bioactivity_data_types_and_time_periods)
 
 
-# Publications
-**Main Publication Date:** 2023/11/02<br>
-**Main Publication Link:** [Nucleic Acids Research](https://academic.oup.com/nar/article/52/D1/D1180/7337608)<br>
-**Alternative Publication Links:** [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10767899)<br>
-**Data Source Links:** [ChEMBL (Web Page)](https://www.ebi.ac.uk/chembl) |
-[ChEMBL (File Server)](https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb)
-
-
-## Main Publication Abstract
+# Abstract
 ChEMBL (https://www.ebi.ac.uk/chembl/) is a manually curated, high-quality, large-scale, open, FAIR and Global Core
 Biodata Resource of bioactive molecules with drug-like properties, previously described in the 2012, 2014, 2017 and 2019
 Nucleic Acids Research Database Issues. Since its introduction in 2009, ChEMBL’s content has changed dramatically in

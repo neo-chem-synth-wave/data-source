@@ -1,19 +1,15 @@
 # Overview
 **Title:** Reactants, Products, and Transition States of Elementary Chemical Reactions based on Quantum Chemistry<br>
-**Authors:** Colin A. Grambow, Lagnajit Pattanaik, and William H. Green<br>
-**Keywords:** `rdb7`, `chemical-reactions`, `data`
+**Authors:** Colin A. Grambow, Lagnajit Pattanaik, William H. Green<br>
+**Publication Date:** 2020/05/08<br>
+**Publication Link:** [Nature Scientific Data](https://www.nature.com/articles/s41597-020-0460-4)<br>
+**Alternative Publication Links:** [ChemRxiv](https://chemrxiv.org/engage/chemrxiv/article-details/60c7498dee301c82bfc79a87)
+| [DSpace@MIT](https://dspace.mit.edu/handle/1721.1/125672) |
+[PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7210263) |
+[ResearchGate](https://www.researchgate.net/publication/341240773_Reactants_products_and_transition_states_of_elementary_chemical_reactions_based_on_quantum_chemistry)
 
 
-# Publications
-**Main Publication Date:** 2020/05/08<br>
-**Main Publication Link:** [Nature Scientific Data](https://www.nature.com/articles/s41597-020-0460-4)<br>
-**Alternative Publication Links:** [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7210263) |
-[ResearchGate](https://www.researchgate.net/publication/341240773_Reactants_products_and_transition_states_of_elementary_chemical_reactions_based_on_quantum_chemistry)<br>
-**Data Source Links:** [RDB7 (Zenodo)](https://zenodo.org/doi/10.5281/zenodo.3581266) |
-[RDB7 Add-on (Zenodo)](https://zenodo.org/doi/10.5281/zenodo.3731553)
-
-
-## Main Publication Abstract
+# Abstract
 Reaction times, activation energies, branching ratios, yields, and many other quantitative attributes are important for
 precise organic syntheses and generating detailed reaction mechanisms. Often, it would be useful to be able to classify
 proposed reactions as fast or slow. However, quantitative chemical reaction data, especially for atom-mapped reactions,

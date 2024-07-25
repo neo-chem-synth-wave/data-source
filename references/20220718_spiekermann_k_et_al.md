@@ -1,18 +1,13 @@
 # Overview
 **Title:** High Accuracy Barrier Heights, Enthalpies, and Rate Coefficients for Chemical Reactions<br>
-**Authors:** Kevin Spiekermann, Lagnajit Pattanaik, and William H. Green<br>
-**Keywords:** `rdb7`, `chemical-reactions`, `data`
-
-
-# Publications
-**Main Publication Date:** 2022/07/18<br>
-**Main Publication Link:** [Nature Scientific Data](https://www.nature.com/articles/s41597-022-01529-6)<br>
+**Authors:** Kevin Spiekermann, Lagnajit Pattanaik, William H. Green<br>
+**Publication Date:** 2022/07/18<br>
+**Publication Link:** [Nature Scientific Data](https://www.nature.com/articles/s41597-022-01529-6)<br>
 **Alternative Publication Links:** [DSpace@MIT](https://dspace.mit.edu/handle/1721.1/144281) |
-[ResearchGate](https://www.researchgate.net/publication/362068912_High_accuracy_barrier_heights_enthalpies_and_rate_coefficients_for_chemical_reactions)<br>
-**Data Source Links:** [RDB7 (Zenodo)](https://zenodo.org/doi/10.5281/zenodo.5652097)
+[ResearchGate](https://www.researchgate.net/publication/362068912_High_accuracy_barrier_heights_enthalpies_and_rate_coefficients_for_chemical_reactions)
 
 
-## Main Publication Abstract
+# Abstract
 Quantitative chemical reaction data, including activation energies and reaction rates, are crucial for developing
 detailed kinetic mechanisms and accurately predicting reaction outcomes. However, such data are often difficult to find,
 and high-quality datasets are especially rare. Here, we use CCSD(T)-F12a/cc-pVDZ-F12//ωB97X-D3/def2-TZVP to obtain

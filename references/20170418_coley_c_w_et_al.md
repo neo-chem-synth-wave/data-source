@@ -3,9 +3,6 @@
 **Authors:** Connor W. Coley, Regina Barzilay, Tommi S. Jaakkola, William H. Green, Klavs F. Jensen<br>
 **Publication Date:** 2017/04/18<br>
 **Publication Link:** [ACS Central Science](https://pubs.acs.org/doi/10.1021/acscentsci.7b00064)<br>
-**Code Link:** [GitHub](https://github.com/connorcoley/ochem_predict_nn)<br>
-**Data Link:** [USPTO (15k)](https://github.com/wengong-jin/nips17-rexgen/tree/master/USPTO-15K)
-
 **Alternative Publication Links:** [DSpace@MIT](https://dspace.mit.edu/handle/1721.1/110706) |
 [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5445544) |
 [ResearchGate](https://www.researchgate.net/publication/316354788_Prediction_of_Organic_Reaction_Outcomes_Using_Machine_Learning)

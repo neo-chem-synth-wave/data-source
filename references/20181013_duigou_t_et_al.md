@@ -1,18 +1,13 @@
 # Overview
 **Title:** RetroRules: A Database of Reaction Rules for Engineering Biology<br>
-**Authors:** Thomas Duigou, Melchior du Lac, Pablo Carbonell, and Jean-Loup Faulon<br>
-**Keywords:** `retro-rules`, `chemical-reaction-rules`, `data`
-
-
-# Publications
-**Main Publication Date:** 2018/10/13<br>
-**Main Publication Link:** [Nucleic Acids Research](https://academic.oup.com/nar/article/47/D1/D1229/5128930)<br>
+**Authors:** Thomas Duigou, Melchior du Lac, Pablo Carbonell, Jean-Loup Faulon<br>
+**Publication Date:** 2018/10/13<br>
+**Publication Link:** [Nucleic Acids Research](https://academic.oup.com/nar/article/47/D1/D1229/5128930)<br>
 **Alternative Publication Links:** [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6323975) |
-[HAL INRAE](https://hal.inrae.fr/hal-02619044)<br>
-**Data Source Links:** [RetroRules (Web Page)](https://retrorules.org)
+[HAL INRAE](https://hal.inrae.fr/hal-02619044)
 
 
-## Main Publication Abstract
+# Abstract
 RetroRules is a database of reaction rules for metabolic engineering (https://retrorules.org). Reaction rules are
 generic descriptions of chemical reactions that can be used in retrosynthesis workflows in order to enumerate all
 possible biosynthetic routes connecting a target molecule to its precursors. The use of such rules is becoming

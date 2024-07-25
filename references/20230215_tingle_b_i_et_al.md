@@ -1,24 +1,19 @@
 # Overview
 **Title:** ZINC-22 - A Free Multi-billion-scale Database of Tangible Compounds for Ligand Discovery<br>
 **Authors:** Benjamin I. Tingle, Khanh G. Tang, Mar Castanon, John J. Gutierrez, Munkhzul Khurelbaatar, Chinzorig
-Dandarchuluun, Yurii S. Moroz, and John J. Irwin<br>
-**Keywords:** `zinc22`, `chemical-compounds`, `data`
-
-
-# Publications
-**Main Publication Date:** 2023/02/15<br>
-**Main Publication Link:** [ACS JCIM](https://pubs.acs.org/doi/10.1021/acs.jcim.2c01253)<br>
+Dandarchuluun, Yurii S. Moroz, John J. Irwin<br>
+**Publication Date:** 2023/02/15<br>
+**Publication Link:** [ACS JCIM](https://pubs.acs.org/doi/10.1021/acs.jcim.2c01253)<br>
 **Alternative Publication Links:** [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9976280) |
-[ResearchGate](https://www.researchgate.net/publication/364600619_ZINC-22_-_A_Free_Multi-Billion-Scale_Database_of_Tangible_Compounds_for_Ligand_Discovery)<br>
-**Data Source Links:** [ZINC22 (Web Page)](https://cartblanche22.docking.org) | [ZINC (File Server)](https://files.docking.org)
+[ResearchGate](https://www.researchgate.net/publication/364600619_ZINC-22_-_A_Free_Multi-Billion-Scale_Database_of_Tangible_Compounds_for_Ligand_Discovery)
 
 
-## Main Publication Abstract
+# Abstract
 Purchasable chemical space has grown rapidly into the tens of billions of molecules, providing unprecedented
 opportunities for ligand discovery but straining the tools that might exploit these molecules at scale. We have
 therefore developed ZINC-22, a database of commercially accessible small molecules derived from multi-billion-scale
 make-on-demand libraries. The new database and tools enable analog searching in this vast new space via a facile GUI,
-CartBlanche, drawing on similarity methods that scale sub-linearly in the number of molecules. The new library also uses
+CartBlanche, drawing on similarity methods that scale sublinearly in the number of molecules. The new library also uses
 data organization methods, enabling rapid lookup of molecules and their physical properties, including conformations,
 partial atomic charges, cLogP values, and solvation energies, all crucial for molecule docking, which had become slow
 with older database organizations in previous versions of ZINC. As the libraries have continued to grow, we have been
