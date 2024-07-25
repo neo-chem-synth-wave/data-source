@@ -62,7 +62,7 @@ class ChEMBLCompoundDatabase(AbstractBaseDataSource):
         }
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_release_*
+    #  Versions: v_release_*
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -127,10 +127,10 @@ class ChEMBLCompoundDatabase(AbstractBaseDataSource):
                     )
                 ),
                 mode="wb"
-            ) as file_handle:
+            ) as destination_file_handle:
                 copyfileobj(
                     fsrc=gzip_archive_file_handle,
-                    fdst=file_handle
+                    fdst=destination_file_handle
                 )
 
     @staticmethod

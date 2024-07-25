@@ -71,7 +71,7 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
         return available_versions
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_building_blocks_*
+    #  Versions: v_building_blocks_*
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -126,7 +126,7 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
                     )[-1]
                 )
             )
-        ) as gz_archive_file_handle:
+        ) as gzip_archive_file_handle:
             with open(
                 file=Path(
                     output_directory_path,
@@ -138,10 +138,10 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
                     )
                 ),
                 mode="wb"
-            ) as file_handle:
+            ) as destination_file_handle:
                 copyfileobj(
-                    fsrc=gz_archive_file_handle,
-                    fdst=file_handle
+                    fsrc=gzip_archive_file_handle,
+                    fdst=destination_file_handle
                 )
 
     @staticmethod
@@ -189,7 +189,7 @@ class ZINC20CompoundDatabase(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_catalog_*
+    #  Versions: v_catalog_*
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod

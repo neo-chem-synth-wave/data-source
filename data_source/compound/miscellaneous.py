@@ -39,11 +39,61 @@ class MiscellaneousCompoundDataSource(AbstractBaseDataSource):
         """
 
         return {
+            "v_20190701_button_a_et_al": "https://doi.org/10.24433/CO.6930970.v1",
             "v_20201218_polykovskiy_d_et_al": "https://doi.org/10.3389/fphar.2020.565644",
         }
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_20201218_polykovskiy_d_et_al
+    #  Version: v_20190701_button_a_et_al
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
+    def _download_v_20190701_button_a_et_al(
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Download the data from the `v_20190701_button_a_et_al` version of the chemical compound data source.
+
+        :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        """
+
+        AbstractBaseDataSource._download_file(
+            file_url="https://raw.githubusercontent.com/neo-chem-synth-wave/data-source/{file_url_suffix:s}".format(
+                file_url_suffix="main/data/compound/v_20190701_button_a_et_al/mol_set.txt"
+            ),
+            file_name="mol_set.txt",
+            output_directory_path=output_directory_path
+        )
+
+    @staticmethod
+    def _format_v_20190701_button_a_et_al(
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Format the data from the `v_20190701_button_a_et_al` version of the chemical compound data source.
+
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        """
+
+        read_csv(
+            filepath_or_buffer=Path(input_directory_path, "mol_set.txt"),
+            header=0
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_v_20190701_button_a_et_al.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    )
+                )
+            ),
+            index=False
+        )
+
+    # ------------------------------------------------------------------------------------------------------------------
+    #  Version: v_20201218_polykovskiy_d_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -80,7 +130,7 @@ class MiscellaneousCompoundDataSource(AbstractBaseDataSource):
         ).to_csv(
             path_or_buf=Path(
                 output_directory_path,
-                "{timestamp:s}_miscellaneous_v_20201218_polykovskiy_d_et_al.csv".format(
+                "{timestamp:s}_v_20201218_polykovskiy_d_et_al.csv".format(
                     timestamp=datetime.now().strftime(
                         format="%Y%m%d%H%M%S"
                     )
@@ -113,6 +163,11 @@ class MiscellaneousCompoundDataSource(AbstractBaseDataSource):
                                 version=version
                             )
                         )
+                    )
+
+                if version == "v_20190701_button_a_et_al":
+                    self._download_v_20190701_button_a_et_al(
+                        output_directory_path=output_directory_path
                     )
 
                 if version == "v_20201218_polykovskiy_d_et_al":
@@ -220,6 +275,12 @@ class MiscellaneousCompoundDataSource(AbstractBaseDataSource):
                                 version=version
                             )
                         )
+                    )
+
+                if version == "v_20190701_button_a_et_al":
+                    self._format_v_20190701_button_a_et_al(
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
                     )
 
                 if version == "v_20201218_polykovskiy_d_et_al":
