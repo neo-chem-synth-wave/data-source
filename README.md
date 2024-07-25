@@ -46,18 +46,18 @@ types of computer-assisted chemical synthesis data:
 The following chemical compound data sources are currently supported:
 
 - [ChEMBL Database](#chembl-database)
-- [Miscellaneous Chemical Compound Data Sources](#miscellaneous-chemical-compound-data-sources)
 - [ZINC20 Database](#zinc20-database)
+- [Miscellaneous Chemical Compound Data Sources](#miscellaneous-chemical-compound-data-sources)
 
 
 ### Chemical Reactions
 The following chemical reaction data sources are currently supported:
 
-- [Chemical Reaction Database](#chemical-reaction-database)
-- [Miscellaneous Chemical Reaction Data Sources](#miscellaneous-chemical-reaction-data-sources)
-- [Open Reaction Database](#open-reaction-database)
 - [United States Patent and Trademark Office Dataset](#united-states-patent-and-trademark-office-dataset)
+- [Open Reaction Database](#open-reaction-database)
+- [Chemical Reaction Database](#chemical-reaction-database)
 - [Rhea Database](#rhea-database)
+- [Miscellaneous Chemical Reaction Data Sources](#miscellaneous-chemical-reaction-data-sources)
 
 ![chemical_reaction_data_sources.png](figures/chemical_reaction_data_sources.png)
 
@@ -65,8 +65,8 @@ The following chemical reaction data sources are currently supported:
 ### Chemical Reaction Rules
 The following chemical reaction rule data sources are currently supported:
 
-- [Miscellaneous Chemical Reaction Rule Data Sources](#miscellaneous-chemical-reaction-rule-data-sources)
 - [RetroRules Database](#retrorules-database)
+- [Miscellaneous Chemical Reaction Rule Data Sources](#miscellaneous-chemical-reaction-rule-data-sources)
 
 
 ## License Information
