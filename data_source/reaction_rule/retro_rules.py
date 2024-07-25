@@ -4,6 +4,7 @@ from datetime import datetime
 from logging import Logger
 from os import PathLike
 from pathlib import Path
+from shutil import copyfileobj
 from typing import Dict, Optional, Union
 
 from pandas.io.parsers.readers import read_csv
@@ -48,7 +49,7 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
         }
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_release_rr01_rp2_hs
+    #  Version: v_release_rr01_rp2_hs
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -83,9 +84,17 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
             name=Path(input_directory_path, "retrorules_rr01_rp2.tar.gz"),
             mode="r:gz"
         ) as tar_archive_file_handle:
-            tar_archive_file_handle.extractall(
-                path=output_directory_path
-            )
+            with tar_archive_file_handle.extractfile(
+                member="retrorules_rr01_rp2/retrorules_rr01_rp2_flat_all.csv"
+            ) as source_file_handle:
+                with open(
+                    file=Path(output_directory_path, "retrorules_rr01_rp2_flat_all.csv"),
+                    mode="wb"
+                ) as destination_file_handle:
+                    copyfileobj(
+                        fsrc=source_file_handle,
+                        fdst=destination_file_handle
+                    )
 
     @staticmethod
     def _format_v_release_rr01_rp2_hs(
@@ -100,11 +109,7 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
         """
 
         read_csv(
-            filepath_or_buffer=Path(
-                input_directory_path,
-                "retrorules_rr01_rp2",
-                "retrorules_rr01_rp2_flat_all.csv"
-            ),
+            filepath_or_buffer=Path(input_directory_path, "retrorules_rr01_rp2_flat_all.csv"),
             header=0
         ).to_csv(
             path_or_buf=Path(
@@ -119,7 +124,7 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_release_rr02_rp2_hs
+    #  Version: v_release_rr02_rp2_hs
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -154,9 +159,17 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
             name=Path(input_directory_path, "retrorules_rr02_rp2_hs.tar.gz"),
             mode="r:gz"
         ) as tar_archive_file_handle:
-            tar_archive_file_handle.extractall(
-                path=output_directory_path
-            )
+            with tar_archive_file_handle.extractfile(
+                member="retrorules_rr02_rp2_hs/retrorules_rr02_rp2_flat_all.csv"
+            ) as source_file_handle:
+                with open(
+                    file=Path(output_directory_path, "retrorules_rr02_rp2_flat_all.csv"),
+                    mode="wb"
+                ) as destination_file_handle:
+                    copyfileobj(
+                        fsrc=source_file_handle,
+                        fdst=destination_file_handle
+                    )
 
     @staticmethod
     def _format_v_release_rr02_rp2_hs(
@@ -171,11 +184,7 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
         """
 
         read_csv(
-            filepath_or_buffer=Path(
-                input_directory_path,
-                "retrorules_rr02_rp2_hs",
-                "retrorules_rr02_rp2_flat_all.csv"
-            ),
+            filepath_or_buffer=Path(input_directory_path, "retrorules_rr02_rp2_flat_all.csv"),
             header=0
         ).to_csv(
             path_or_buf=Path(
@@ -190,7 +199,7 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_release_rr02_rp3_hs
+    #  Version: v_release_rr02_rp3_hs
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -225,9 +234,17 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
             name=Path(input_directory_path, "retrorules_rr02_rp3_hs.tar.gz"),
             mode="r:gz"
         ) as tar_archive_file_handle:
-            tar_archive_file_handle.extractall(
-                path=output_directory_path
-            )
+            with tar_archive_file_handle.extractfile(
+                member="retrorules_rr02_rp3_hs/retrorules_rr02_flat_all.tsv"
+            ) as source_file_handle:
+                with open(
+                    file=Path(output_directory_path, "retrorules_rr02_flat_all.tsv"),
+                    mode="wb"
+                ) as destination_file_handle:
+                    copyfileobj(
+                        fsrc=source_file_handle,
+                        fdst=destination_file_handle
+                    )
 
     @staticmethod
     def _format_v_release_rr02_rp3_hs(
@@ -242,11 +259,7 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
         """
 
         read_csv(
-            filepath_or_buffer=Path(
-                input_directory_path,
-                "retrorules_rr02_rp3_hs",
-                "retrorules_rr02_flat_all.tsv"
-            ),
+            filepath_or_buffer=Path(input_directory_path, "retrorules_rr02_flat_all.tsv"),
             sep="\t",
             header=0
         ).to_csv(
@@ -262,7 +275,7 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_release_rr02_rp3_nohs
+    #  Version: v_release_rr02_rp3_nohs
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -297,9 +310,17 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
             name=Path(input_directory_path, "retrorules_rr02_rp3_nohs.tar.gz"),
             mode="r:gz"
         ) as tar_archive_file_handle:
-            tar_archive_file_handle.extractall(
-                path=output_directory_path
-            )
+            with tar_archive_file_handle.extractfile(
+                member="retrorules_rr02_rp3_nohs/retrorules_rr02_flat_all.tsv"
+            ) as source_file_handle:
+                with open(
+                    file=Path(output_directory_path, "retrorules_rr02_flat_all.tsv"),
+                    mode="wb"
+                ) as destination_file_handle:
+                    copyfileobj(
+                        fsrc=source_file_handle,
+                        fdst=destination_file_handle
+                    )
 
     @staticmethod
     def _format_v_release_rr02_rp3_nohs(
@@ -314,11 +335,7 @@ class RetroRulesReactionRuleDatabase(AbstractBaseDataSource):
         """
 
         read_csv(
-            filepath_or_buffer=Path(
-                input_directory_path,
-                "retrorules_rr02_rp3_nohs",
-                "retrorules_rr02_flat_all.tsv"
-            ),
+            filepath_or_buffer=Path(input_directory_path, "retrorules_rr02_flat_all.tsv"),
             sep="\t",
             header=0
         ).to_csv(

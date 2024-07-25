@@ -39,20 +39,20 @@ class MiscellaneousReactionRuleDataSource(AbstractBaseDataSource):
         """
 
         return {
-            "v_20180421_avramova_s_et_al": "https://doi.org/10.5281/zenodo.1209313",
-            "v_20190701_button_a_et_al": "https://doi.org/10.1038/s42256-019-0067-7",
+            "v_20180421_avramova_s_et_al_1_0": "https://doi.org/10.5281/zenodo.1209313",
+            "v_20190701_button_a_et_al": "https://doi.org/10.24433/CO.6930970.v1",
         }
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_20180421_avramova_s_et_al
+    #  Version: v_20180421_avramova_s_et_al_1_0
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
-    def _download_v_20180421_avramova_s_et_al(
+    def _download_v_20180421_avramova_s_et_al_1_0(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_20180421_avramova_s_et_al` version of the chemical reaction rule data source.
+        Download the data from the `v_20180421_avramova_s_et_al_1_0` version of the chemical reaction rule data source.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -64,12 +64,12 @@ class MiscellaneousReactionRuleDataSource(AbstractBaseDataSource):
         )
 
     @staticmethod
-    def _format_v_20180421_avramova_s_et_al(
+    def _format_v_20180421_avramova_s_et_al_1_0(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_20180421_avramova_s_et_al` version of the chemical reaction rule data source.
+        Format the data from the `v_20180421_avramova_s_et_al_1_0` version of the chemical reaction rule data source.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -88,7 +88,7 @@ class MiscellaneousReactionRuleDataSource(AbstractBaseDataSource):
         ).to_csv(
             path_or_buf=Path(
                 output_directory_path,
-                "{timestamp:s}_miscellaneous_v_20180421_avramova_s_et_al.csv".format(
+                "{timestamp:s}_v_20180421_avramova_s_et_al_1_0.csv".format(
                     timestamp=datetime.now().strftime(
                         format="%Y%m%d%H%M%S"
                     )
@@ -98,7 +98,7 @@ class MiscellaneousReactionRuleDataSource(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version(s): v_20190701_button_a_et_al
+    #  Version: v_20190701_button_a_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -113,7 +113,7 @@ class MiscellaneousReactionRuleDataSource(AbstractBaseDataSource):
 
         AbstractBaseDataSource._download_file(
             file_url="https://raw.githubusercontent.com/neo-chem-synth-wave/data-source/{file_url_suffix:s}".format(
-                file_url_suffix="main/data/20190701_button_a_et_al/rxn_set.txt"
+                file_url_suffix="main/data/reaction_rule/v_20190701_button_a_et_al/rxn_set.txt"
             ),
             file_name="rxn_set.txt",
             output_directory_path=output_directory_path
@@ -144,7 +144,7 @@ class MiscellaneousReactionRuleDataSource(AbstractBaseDataSource):
         ).to_csv(
             path_or_buf=Path(
                 output_directory_path,
-                "{timestamp:s}_miscellaneous_v_20190701_button_a_et_al.csv".format(
+                "{timestamp:s}_v_20190701_button_a_et_al.csv".format(
                     timestamp=datetime.now().strftime(
                         format="%Y%m%d%H%M%S"
                     )
@@ -179,8 +179,8 @@ class MiscellaneousReactionRuleDataSource(AbstractBaseDataSource):
                         )
                     )
 
-                if version == "v_20180421_avramova_s_et_al":
-                    self._download_v_20180421_avramova_s_et_al(
+                if version == "v_20180421_avramova_s_et_al_1_0":
+                    self._download_v_20180421_avramova_s_et_al_1_0(
                         output_directory_path=output_directory_path
                     )
 
@@ -291,8 +291,8 @@ class MiscellaneousReactionRuleDataSource(AbstractBaseDataSource):
                         )
                     )
 
-                if version == "v_20201218_polykovskiy_d_et_al":
-                    self._format_v_20180421_avramova_s_et_al(
+                if version == "v_20180421_avramova_s_et_al_1_0":
+                    self._format_v_20180421_avramova_s_et_al_1_0(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
