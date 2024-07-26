@@ -79,7 +79,7 @@ The following ChEMBL chemical compound database versions are supported:
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|:--------------:|
 | v_release_[{release_number ≥ 25}](https://chembl.gitbook.io/chembl-interface-documentation/downloads) <sup>[[1]](/references/20231102_zdrazil_b_et_al.md)</sup> | `10.6019/CHEMBL.database.{release_number}` | :green_circle: |
 
-:green_circle: Completely Implemented
+<sub>:green_circle: Completely Implemented</sub>
 
 
 #### ZINC20
@@ -90,7 +90,7 @@ The following ZINC20 chemical compound database versions are supported:
 | v_building_blocks_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[[2]](/references/20201029_irwin_j_j_et_al.md)</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
 | v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[[2]](/references/20201029_irwin_j_j_et_al.md)</sup>                  | `10.1021/acs.jcim.0c00675` | :green_circle: |
 
-:green_circle: Completely Implemented
+<sub>:green_circle: Completely Implemented</sub>
 
 
 #### Miscellaneous Chemical Compound Data Sources
@@ -101,7 +101,7 @@ The following miscellaneous chemical compound data sources are supported:
 | v_20190701_button_a_et_al <sup>[[3]](/references/20190701_button_a_et_al.md)</sup>           | `10.24433/CO.6930970.v1`    | :green_circle: |
 | v_20201218_polykovskiy_d_et_al <sup>[[4]](/references/20201218_polykovskiy_d_et_al.md)</sup> | `10.3389/fphar.2020.565644` | :green_circle: |
 
-:green_circle: Completely Implemented
+<sub>:green_circle: Completely Implemented</sub>
 
 
 ### Chemical Reactions
@@ -131,8 +131,8 @@ The following United States Patent and Trademark Office (USPTO) chemical reactio
 | v_stereo_by_20180622_schwaller_p_et_al <sup>[[10]](/references/20180622_schwaller_p_et_al.md)</sup>      | `10.1039/C8SC02339E`              | :green_circle:  |
 | v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[[11]](/references/20210128_schwaller_p_et_al.md)</sup>      | `10.1038/s42256-020-00284-w`      | :green_circle:  |
 
-:green_circle: Completely Implemented
-:yellow_circle: Partially Implemented (Limited to Reaction SMILES files.)
+<sub>:green_circle: Completely Implemented</sub><br>
+<sub>:yellow_circle: Partially Implemented (Limited to Reaction SMILES files.)</sub>
 
 
 #### Open Reaction Database (ORD)
@@ -143,7 +143,7 @@ The following Open Reaction Database (ORD) versions are supported:
 | v_release_0_1_0 <sup>[[12]](/references/20211102_kearnes_s_m_et_al.md)</sup> | `10.1021/jacs.1c09820` | :yellow_circle: |
 | v_release_main <sup>[[12]](/references/20211102_kearnes_s_m_et_al.md)</sup>  | `10.1021/jacs.1c09820` | :yellow_circle: |
 
-:yellow_circle: Partially Implemented (Limited to Reaction SMILES strings.)
+<sub>:yellow_circle: Partially Implemented (Limited to Reaction SMILES strings.)</sub>
 
 
 #### Chemical Reaction Database (CRD)
@@ -155,7 +155,7 @@ The following Chemical Reaction Database (CRD) versions are supported:
 | v_reaction_smiles_2001_to_2023 <sup>[[13]](https://kmt.vander-lingen.nl)</sup> | `10.6084/m9.figshare.22491730.v1` | :green_circle: |
 | v_reaction_smiles_2023 <sup>[[13]](https://kmt.vander-lingen.nl)</sup>         | `10.6084/m9.figshare.24921555.v1` | :green_circle: |
 
-:green_circle: Completely Implemented
+<sub>:green_circle: Completely Implemented</sub>
 
 
 #### Rhea
@@ -165,7 +165,7 @@ The following Rhea chemical reaction database versions are supported:
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|:--------------:|
 | v_release_[{release_number ≥ 126}](https://ftp.expasy.org/databases/rhea/old%5Freleases) <sup>[**[14]**](/references/20211110_bansal_p_et_al.md)</sup> | `10.1093/nar/gkab1016` | :green_circle: |
 
-:green_circle: Completely Implemented
+<sub>:green_circle: Completely Implemented</sub>
 
 
 #### Miscellaneous Chemical Reaction Data Sources
@@ -181,7 +181,7 @@ The following miscellaneous chemical reaction data sources are supported:
 | v_20220718_spiekermann_k_et_al_1_0_0 <sup>[[18]](/references/20220718_spiekermann_k_et_al.md)</sup>  | `10.5281/zenodo.5652098`     | :green_circle: |
 | v_20220718_spiekermann_k_et_al_1_0_1 <sup>[[18]](/references/20220718_spiekermann_k_et_al.md)</sup>  | `10.5281/zenodo.6618262`     | :green_circle: |
 
-:green_circle: Completely Implemented
+<sub>:green_circle: Completely Implemented</sub>
 
 
 ### Chemical Reaction Rules
@@ -212,7 +212,7 @@ The following miscellaneous chemical reaction rule data sources are supported:
 | v_20180421_avramova_s_et_al_1_0 <sup>[[20]](/references/20180421_avramova_s_et_al.md)</sup> | `10.5281/zenodo.1209313` | :green_circle: |
 | v_20190701_button_a_et_al <sup>[[3]](/references/20190701_button_a_et_al.md)</sup>          | `10.24433/CO.6930970.v1` | :green_circle: |
 
-:green_circle: Completely Implemented
+<sub>:green_circle: Completely Implemented</sub>
 
 
 ## License Information
