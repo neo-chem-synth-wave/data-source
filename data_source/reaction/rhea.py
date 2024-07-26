@@ -56,7 +56,7 @@ class RheaReactionDatabase(AbstractBaseDataSource):
         return {
             "v_release_{release_number:d}".format(
                 release_number=release_number
-            ): "https://doi.org/10.1021/acs.jcim.0c00675"
+            ): "https://doi.org/10.1093/nar/gkab1016"
             for release_number in range(126, latest_release_number + 1)
         }
 
