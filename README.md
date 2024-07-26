@@ -75,27 +75,27 @@ The following chemical compound data sources are currently supported:
 #### ChEMBL
 The following **ChEMBL** chemical compound database versions are currently supported:
 
-| Version                                                                                                                                                              | DOI                                                        |      Status      |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|:----------------:|
-| v_release_[{release_number ≥ 25}](https://chembl.gitbook.io/chembl-interface-documentation/downloads#chembl-database-release-dois) <sup>[**[1]**](#references)</sup> | `https://doi.org/10.6019/CHEMBL.database.{release_number}` |  :green_circle:  |
+| Version                                                                                                                                                              | DOI                                        |     Status     |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|:--------------:|
+| v_release_[{release_number ≥ 25}](https://chembl.gitbook.io/chembl-interface-documentation/downloads#chembl-database-release-dois) <sup>[**[1]**](#references)</sup> | `10.6019/CHEMBL.database.{release_number}` | :green_circle: |
 
 
 #### ZINC20
 The following **ZINC20** chemical compound database versions are currently supported:
 
-| Version                                                                                                                   | DOI                                        |      Status      |
-|---------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|:----------------:|
-| v_building_blocks_[{building_blocks_subset_name}](https://files.docking.org/bb/current) <sup>[**[2]**](#references)</sup> | `https://doi.org/10.1021/acs.jcim.0c00675` |  :green_circle:  |
-| v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[**[2]**](#references)</sup>                   | `https://doi.org/10.1021/acs.jcim.0c00675` |  :green_circle:  |
+| Version                                                                                                                   | DOI                        |     Status     |
+|---------------------------------------------------------------------------------------------------------------------------|----------------------------|:--------------:|
+| v_building_blocks_[{building_blocks_subset_name}](https://files.docking.org/bb/current) <sup>[**[2]**](#references)</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
+| v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[**[2]**](#references)</sup>                   | `10.1021/acs.jcim.0c00675` | :green_circle: |
 
 
 #### Miscellaneous Chemical Compound Data Sources
 The following miscellaneous chemical compound data sources are currently supported:
 
-| Version                                                          | DOI                                         |     Status     |
-|------------------------------------------------------------------|---------------------------------------------|:--------------:|
-| v_20190701_button_a_et_al <sup>[**[3]**](#references)</sup>      | `https://doi.org/10.24433/CO.6930970.v1`    | :green_circle: |
-| v_20201218_polykovskiy_d_et_al <sup>[**[4]**](#references)</sup> | `https://doi.org/10.3389/fphar.2020.565644` | :green_circle: |
+| Version                                                          | DOI                         |     Status     |
+|------------------------------------------------------------------|-----------------------------|:--------------:|
+| v_20190701_button_a_et_al <sup>[**[3]**](#references)</sup>      | `10.24433/CO.6930970.v1`    | :green_circle: |
+| v_20201218_polykovskiy_d_et_al <sup>[**[4]**](#references)</sup> | `10.3389/fphar.2020.565644` | :green_circle: |
 
 
 ### Chemical Reactions
@@ -114,17 +114,17 @@ The following chemical reaction data sources are currently supported:
 The following **United States Patent and Trademark Office (USPTO)** chemical reaction dataset versions are currently
 supported:
 
-| Version                                                                    | DOI                                               | Status          |
-|----------------------------------------------------------------------------|---------------------------------------------------|-----------------|
-| v_1976_to_2013_by_20121009_lowe_d_m <sup>[[5]](#references)</sup>          | `https://doi.org/10.6084/m9.figshare.12084729.v1` | :yellow_circle: |
-| v_50k_by_20161122_schneider_n_et_al <sup>[[6]](#references)</sup>          | `https://doi.org/10.1021/acs.jcim.6b00564`        | :green_circle:  |
-| v_15k_by_20170418_coley_c_w_et_al <sup>[[7]](#references)</sup>            | `https://doi.org/10.1021/acscentsci.7b00064`      | :green_circle:  |
-| v_1976_to_2016_by_20121009_lowe_d_m <sup>[[5]](#references)</sup>          | `https://doi.org/10.6084/m9.figshare.5104873.v1`  | :yellow_circle: |
-| v_50k_by_20171116_coley_c_w_et_al <sup>[[8]](#references)</sup>            | `https://doi.org/10.1021/acscentsci.7b00355`      | :green_circle:  |
-| v_480k_or_mit_by_20171204_jin_w_et_al <sup>[[9]](#references)</sup>        | `https://doi.org/10.48550/arXiv.1709.04555`       | :green_circle:  |
-| v_480k_or_mit_by_20180622_schwaller_p_et_al <sup>[[10]](#references)</sup> | `https://doi.org/10.1039/C8SC02339E`              | :green_circle:  |
-| v_stereo_by_20180622_schwaller_p_et_al <sup>[[10]](#references)</sup>      | `https://doi.org/10.1039/C8SC02339E`              | :green_circle:  |
-| v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[[11]](#references)</sup>      | `https://doi.org/10.1038/s42256-020-00284-w`      | :green_circle:  |
+| Version                                                                        | DOI                               |     Status      |
+|--------------------------------------------------------------------------------|-----------------------------------|:---------------:|
+| v_1976_to_2013_by_20121009_lowe_d_m <sup>[**[5]**](#references)</sup>          | `10.6084/m9.figshare.12084729.v1` | :yellow_circle: |
+| v_50k_by_20161122_schneider_n_et_al <sup>[**[6]**](#references)</sup>          | `10.1021/acs.jcim.6b00564`        | :green_circle:  |
+| v_15k_by_20170418_coley_c_w_et_al <sup>[**[7]**](#references)</sup>            | `10.1021/acscentsci.7b00064`      | :green_circle:  |
+| v_1976_to_2016_by_20121009_lowe_d_m <sup>[**[5]**](#references)</sup>          | `10.6084/m9.figshare.5104873.v1`  | :yellow_circle: |
+| v_50k_by_20171116_coley_c_w_et_al <sup>[**[8]**](#references)</sup>            | `10.1021/acscentsci.7b00355`      | :green_circle:  |
+| v_480k_or_mit_by_20171204_jin_w_et_al <sup>[**[9]**](#references)</sup>        | `10.48550/arXiv.1709.04555`       | :green_circle:  |
+| v_480k_or_mit_by_20180622_schwaller_p_et_al <sup>[[**10]**](#references)</sup> | `10.1039/C8SC02339E`              | :green_circle:  |
+| v_stereo_by_20180622_schwaller_p_et_al <sup>[**[10]**](#references)</sup>      | `10.1039/C8SC02339E`              | :green_circle:  |
+| v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[**[11]**](#references)</sup>      | `10.1038/s42256-020-00284-w`      | :green_circle:  |
 
 
 ### Chemical Reaction Rules
