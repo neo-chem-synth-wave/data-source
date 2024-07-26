@@ -44,9 +44,9 @@ types of computer-assisted chemical synthesis data:
 The [download_extract_and_format_data](/scripts/download_extract_and_format_data.py) script can be utilized as follows:
 
 ```shell
-# Example #1: Get the chemical reaction data source information.
+# Example #1: Get the chemical reaction rule data source information.
 python scripts/download_extract_and_format_data.py \
-  --data_source_category "reaction" \
+  --data_source_category "reaction_rule" \
   --get_data_source_information
 
 # Example #2: Get the ZINC20 chemical compound dataset version information.
@@ -55,11 +55,11 @@ python scripts/download_extract_and_format_data.py \
   --data_source "zinc20" \
   --get_data_source_version_information
 
-# Example #3: Download, extract, and format the data from the RetroRules chemical reaction rule database.
+# Example #3: Download, extract, and format the data from the USPTO (50k) chemical reaction dataset.
 python scripts/download_extract_and_format_data.py \
-  --data_source_category "reaction_rule" \
-  --data_source "retro_rules" \
-  --data_source_version "v_release_rr02_rp3_nohs" \
+  --data_source_category "reaction" \
+  --data_source "uspto" \
+  --data_source_version "v_50k_by_20171116_coley_c_w_et_al" \
   --output_directory_path "path/to/the/output/directory"
 ```
 
@@ -75,18 +75,18 @@ The following chemical compound data sources are currently supported:
 #### ChEMBL
 The following **ChEMBL** chemical compound database versions are currently supported:
 
-| Version                                                                                                                                                              | DOI                                        |     Status     |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|:--------------:|
-| v_release_[{release_number ≥ 25}](https://chembl.gitbook.io/chembl-interface-documentation/downloads#chembl-database-release-dois) <sup>[**[1]**](#references)</sup> | `10.6019/CHEMBL.database.{release_number}` | :green_circle: |
+| Version                                                                                                                                 | DOI                                        |     Status     |
+|-----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|:--------------:|
+| v_release_[{release_number ≥ 25}](https://chembl.gitbook.io/chembl-interface-documentation/downloads) <sup>[**[1]**](#references)</sup> | `10.6019/CHEMBL.database.{release_number}` | :green_circle: |
 
 
 #### ZINC20
 The following **ZINC20** chemical compound database versions are currently supported:
 
-| Version                                                                                                                   | DOI                        |     Status     |
-|---------------------------------------------------------------------------------------------------------------------------|----------------------------|:--------------:|
-| v_building_blocks_[{building_blocks_subset_name}](https://files.docking.org/bb/current) <sup>[**[2]**](#references)</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
-| v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[**[2]**](#references)</sup>                   | `10.1021/acs.jcim.0c00675` | :green_circle: |
+| Version                                                                                                                  | DOI                        |     Status     |
+|--------------------------------------------------------------------------------------------------------------------------|----------------------------|:--------------:|
+| v_building_blocks_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[**[2]**](#references)</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
+| v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[**[2]**](#references)</sup>                  | `10.1021/acs.jcim.0c00675` | :green_circle: |
 
 
 #### Miscellaneous Chemical Compound Data Sources
@@ -101,16 +101,16 @@ The following miscellaneous chemical compound data sources are currently support
 ### Chemical Reactions
 The following chemical reaction data sources are currently supported:
 
-- [United States Patent and Trademark Office (USPTO) Dataset](#united-states-patent-and-trademark-office-uspto-dataset)
+- [United States Patent and Trademark Office (USPTO)](#united-states-patent-and-trademark-office-uspto)
 - [Open Reaction Database (ORD)](#open-reaction-database-ord)
 - [Chemical Reaction Database (CRD)](#chemical-reaction-database-crd)
-- [Rhea Database](#rhea-database)
+- [Rhea](#rhea)
 - [Miscellaneous Chemical Reaction Data Sources](#miscellaneous-chemical-reaction-data-sources)
 
 ![chemical_reaction_data_sources.png](figures/chemical_reaction_data_sources.png)
 
 
-#### United States Patent and Trademark Office (USPTO) Dataset
+#### United States Patent and Trademark Office (USPTO)
 The following **United States Patent and Trademark Office (USPTO)** chemical reaction dataset versions are currently
 supported:
 
@@ -127,11 +127,72 @@ supported:
 | v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[**[11]**](#references)</sup>      | `10.1038/s42256-020-00284-w`      | :green_circle:  |
 
 
+#### Open Reaction Database (ORD)
+The following **Open Reaction Database (ORD)** versions are currently supported:
+
+| Version                                            | DOI                    |     Status      |
+|----------------------------------------------------|------------------------|:---------------:|
+| v_release_0_1_0 <sup>[**[12]**](#references)</sup> | `10.1021/jacs.1c09820` | :yellow_circle: |
+| v_release_main <sup>[**[12]**](#references)</sup>  | `10.1021/jacs.1c09820` | :yellow_circle: |
+
+
+#### Chemical Reaction Database (CRD)
+The following **Chemical Reaction Database (CRD)** versions are currently supported:
+
+| Version                                                           | DOI                               |     Status     |
+|-------------------------------------------------------------------|-----------------------------------|:--------------:|
+| v_reaction_smiles_2001_to_2021 <sup>[**[13]**](#references)</sup> | `10.6084/m9.figshare.20279733.v1` | :green_circle: |
+| v_reaction_smiles_2001_to_2023 <sup>[**[13]**](#references)</sup> | `10.6084/m9.figshare.22491730.v1` | :green_circle: |
+| v_reaction_smiles_2023 <sup>[**[13]**](#references)</sup>         | `10.6084/m9.figshare.24921555.v1` | :green_circle: |
+
+
+#### Rhea
+The following **Rhea** chemical reaction database versions are currently supported:
+
+| Version                                                                                                                     | DOI                    |     Status     |
+|-----------------------------------------------------------------------------------------------------------------------------|------------------------|:--------------:|
+| v_release_[{release_number ≥ 126}](https://ftp.expasy.org/databases/rhea/old%5Freleases) <sup>[**[14]**](#references)</sup> | `10.1093/nar/gkab1016` | :green_circle: |
+
+
+#### Miscellaneous Chemical Reaction Data Sources
+The following miscellaneous chemical reaction data sources are currently supported:
+
+| Version                                                                    | DOI                          |     Status     |
+|----------------------------------------------------------------------------|------------------------------|:--------------:|
+| v_20131008_kraut_h_et_al <sup>[**[14]**](#references)</sup>                | `10.1021/ci400442f`          | :green_circle: |
+| v_20161014_wei_j_n_et_al <sup>[**[15]**](#references)</sup>                | `10.1021/acscentsci.6b00219` | :green_circle: |
+| v_20200508_grambow_c_et_al_1_0_0 <sup>[**[16]**](#references)</sup>        | `10.5281/zenodo.3581267`     | :green_circle: |
+| v_20200508_grambow_c_et_al_1_0_1 <sup>[**[16]**](#references)</sup>        | `10.5281/zenodo.3715478`     | :green_circle: |
+| v_20200508_grambow_c_et_al_add_on_1_0_0 <sup>[**[16]**](#references)</sup> | `10.5281/zenodo.3731554`     | :green_circle: |
+| v_20220718_spiekermann_k_et_al_1_0_0 <sup>[**[17]**](#references)</sup>    | `10.5281/zenodo.5652098`     | :green_circle: |
+| v_20220718_spiekermann_k_et_al_1_0_1 <sup>[**[17]**](#references)</sup>    | `10.5281/zenodo.6618262`     | :green_circle: |
+
+
 ### Chemical Reaction Rules
 The following chemical reaction rule data sources are currently supported:
 
-- [RetroRules Database](#retrorules-database)
+- [RetroRules](#retrorules)
 - [Miscellaneous Chemical Reaction Rule Data Sources](#miscellaneous-chemical-reaction-rule-data-sources)
+
+
+#### RetroRules
+The following **RetroRules** chemical reaction rule database versions are currently supported:
+
+| Version                                                    | DOI                      |     Status     |
+|------------------------------------------------------------|--------------------------|:--------------:|
+| v_release_rr01_rp2_hs <sup>[**[18]**](#references)</sup>   | `10.5281/zenodo.5827427` | :green_circle: |
+| v_release_rr02_rp2_hs <sup>[**[18]**](#references)</sup>   | `10.5281/zenodo.5828017` | :green_circle: |
+| v_release_rr02_rp3_hs <sup>[**[18]**](#references)</sup>   | `10.5281/zenodo.5827977` | :green_circle: |
+| v_release_rr02_rp3_nohs <sup>[**[18]**](#references)</sup> | `10.5281/zenodo.5827969` | :green_circle: |
+
+
+#### Miscellaneous Chemical Reaction Rule Data Sources
+The following miscellaneous chemical reaction rule data sources are currently supported:
+
+| Version                                                            | DOI                      |     Status     |
+|--------------------------------------------------------------------|--------------------------|:--------------:|
+| v_20180421_avramova_s_et_al_1_0 <sup>[**[19]**](#references)</sup> | `10.5281/zenodo.1209313` | :green_circle: |
+| v_20190701_button_a_et_al <sup>[**[3]**](#references)</sup>        | `10.24433/CO.6930970.v1` | :green_circle: |
 
 
 ## License Information
