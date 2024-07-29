@@ -50,6 +50,7 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
             "v_20200508_grambow_c_et_al_1_0_0": "https://doi.org/10.5281/zenodo.3581267",
             "v_20200508_grambow_c_et_al_1_0_1": "https://doi.org/10.5281/zenodo.3715478",
             "v_20200508_grambow_c_et_al_add_on_1_0_0": "https://doi.org/10.5281/zenodo.3731554",
+            "v_20211103_lin_a_et_al": "https://doi.org/10.1002/minf.202100138",
             "v_20220718_spiekermann_k_et_al_1_0_0": "https://doi.org/10.5281/zenodo.5652098",
             "v_20220718_spiekermann_k_et_al_1_0_1": "https://doi.org/10.5281/zenodo.6618262",
         }
@@ -440,6 +441,100 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
+    #  Version: v_20211103_lin_a_et_al
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
+    def _download_v_20211103_lin_a_et_al(
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Download the data from the `v_20211103_lin_a_et_al` version of the chemical reaction data source.
+
+        :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        """
+
+        AbstractBaseDataSource._download_file(
+            file_url="https://github.com/Laboratoire-de-Chemoinformatique/{file_url_suffix:s}".format(
+                file_url_suffix="Reaction_Data_Cleaning/raw/master/data/golden_dataset.zip"
+            ),
+            file_name="golden_dataset.zip",
+            output_directory_path=output_directory_path
+        )
+
+    @staticmethod
+    def _extract_v_20211103_lin_a_et_al(
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Extract the data from the `v_20211103_lin_a_et_al` version of the chemical reaction data source.
+
+        :parameter input_directory_path: The path to the input directory where the data is downloaded.
+        :parameter output_directory_path: The path to the output directory where the data should be extracted.
+        """
+
+        with ZipFile(
+            file=Path(input_directory_path, "golden_dataset.zip")
+        ) as zip_archive_file_handle:
+            zip_archive_file_handle.extractall(
+                path=output_directory_path
+            )
+
+    @staticmethod
+    def _format_v_20211103_lin_a_et_al(
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Format the data from the `v_20211103_lin_a_et_al` version of the chemical reaction data source.
+
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        """
+
+        dataframe_rows = list()
+
+        with open(
+            file=Path(input_directory_path, "golden_dataset.rdf")
+        ) as file_handle:
+            for reaction_rxn_block_without_identifier in file_handle.read().split(
+                sep="$RXN"
+            )[1:]:
+                reaction_rxn = ReactionFromRxnBlock(
+                    rxnblock="$RXN{reaction_rxn_block_without_identifier:s}".format(
+                        reaction_rxn_block_without_identifier=reaction_rxn_block_without_identifier
+                    )
+                )
+
+                if reaction_rxn is not None:
+                    reaction_smiles = ReactionToSmiles(
+                        reaction=reaction_rxn
+                    )
+
+                    if reaction_smiles is not None:
+                        dataframe_rows.append(
+                            reaction_smiles
+                        )
+
+        DataFrame(
+            data=dataframe_rows,
+            columns=[
+                "reaction_smiles",
+            ]
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_v_20211103_lin_a_et_al.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    )
+                )
+            ),
+            index=False
+        )
+
+    # ------------------------------------------------------------------------------------------------------------------
     #  Version: v_20220718_spiekermann_k_et_al_1_0_0
     # ------------------------------------------------------------------------------------------------------------------
 
@@ -638,6 +733,11 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
+                if version == "v_20211103_lin_a_et_al":
+                    self._download_v_20211103_lin_a_et_al(
+                        output_directory_path=output_directory_path
+                    )
+
                 if version == "v_20220718_spiekermann_k_et_al_1_0_0":
                     self._download_v_20220718_spiekermann_k_et_al_1_0_0(
                         output_directory_path=output_directory_path
@@ -701,6 +801,12 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
 
                 if version == "v_20131008_kraut_h_et_al":
                     self._extract_v_20131008_kraut_h_et_al(
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_20211103_lin_a_et_al":
+                    self._extract_v_20211103_lin_a_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -782,6 +888,12 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
 
                 if version == "v_20200508_grambow_c_et_al_add_on_1_0_0":
                     self._format_v_20200508_grambow_c_et_al_add_on_1_0_0(
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_20211103_lin_a_et_al":
+                    self._format_v_20211103_lin_a_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )

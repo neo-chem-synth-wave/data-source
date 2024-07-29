@@ -59,6 +59,9 @@ class USPTOReactionDataset(AbstractBaseDataSource):
             "v_480k_or_mit_by_20180622_schwaller_p_et_al": "https://doi.org/10.1039/C8SC02339E",
             "v_stereo_by_20180622_schwaller_p_et_al": "https://doi.org/10.1039/C8SC02339E",
             "v_1k_tpl_by_20210128_schwaller_p_et_al": "https://doi.org/10.1038/s42256-020-00284-w",
+            "v_1976_to_2016_by_20210407_schwaller_p_et_al": "https://doi.org/10.1126/sciadv.abe4166",
+            "v_1976_to_2016_by_20240313_chen_s_et_al": "https://doi.org/10.6084/m9.figshare.25046471.v1",
+            "v_50k_by_20240313_chen_s_et_al": "https://doi.org/10.6084/m9.figshare.25046471.v1",
         }
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -968,6 +971,208 @@ class USPTOReactionDataset(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
+    #  Version: v_1k_tpl_by_20210128_schwaller_p_et_al
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
+    def _download_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Download the data from the `v_1976_to_2016_by_20210407_schwaller_p_et_al` version of the chemical reaction
+        dataset.
+
+        :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        """
+
+        AbstractBaseDataSource._download_file(
+            file_url=AbstractBaseDataSource._send_http_get_request(
+                http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+                    url="https://ibm.ent.box.com/index.php",
+                    folder_id="folder_id=112951098080",
+                    vanity_name="q[shared_item][vanity_name]=RXNMapperData",
+                    rm="rm=box_v2_zip_shared_folder"
+                )
+            ).json()["download_url"],
+            file_name="USPTO_remapped.zip",
+            output_directory_path=output_directory_path
+        )
+
+    @staticmethod
+    def _extract_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Extract the data from the `v_1976_to_2016_by_20210407_schwaller_p_et_al` version of the chemical reaction
+        dataset.
+
+        :parameter input_directory_path: The path to the input directory where the data is downloaded.
+        :parameter output_directory_path: The path to the output directory where the data should be extracted.
+        """
+
+        with ZipFile(
+            file=Path(input_directory_path, "USPTO_remapped.zip")
+        ) as zip_archive_file_handle:
+            for file_name in [
+                "1976_Sep2016_USPTOgrants_smiles_mapped.tsv",
+                "2001_Sep2016_USPTOapplications_smiles_mapped.tsv",
+            ]:
+                with zip_archive_file_handle.open(
+                    name="USPTO_remapped/{file_name:s}".format(
+                        file_name=file_name
+                    )
+                ) as source_file_handle:
+                    with open(
+                        file=Path(output_directory_path, file_name),
+                        mode="wb"
+                    ) as destination_file_handle:
+                        copyfileobj(
+                            fsrc=source_file_handle,
+                            fdst=destination_file_handle
+                        )
+
+    @staticmethod
+    def _format_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Format the data from the `v_1976_to_2016_by_20210407_schwaller_p_et_al` version of the chemical reaction
+        dataset.
+
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        """
+
+        dataframes = list()
+
+        for file_name in [
+            "1976_Sep2016_USPTOgrants_smiles_mapped.tsv",
+            "2001_Sep2016_USPTOapplications_smiles_mapped.tsv",
+        ]:
+            dataframe = read_csv(
+                filepath_or_buffer=Path(input_directory_path, file_name),
+                sep="\t",
+                header=0,
+                index_col=0
+            )
+
+            dataframe["file_name"] = file_name
+
+            dataframes.append(
+                dataframe
+            )
+
+        concat(
+            objs=dataframes
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_uspto_v_1976_to_2016_by_20210407_schwaller_p_et_al.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    )
+                )
+            ),
+            index=False
+        )
+
+    # ------------------------------------------------------------------------------------------------------------------
+    #  Version: v_1976_to_2016_by_20240313_chen_s_et_al
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
+    def _download_v_1976_to_2016_by_20240313_chen_s_et_al(
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Download the data from the `v_1976_to_2016_by_20240313_chen_s_et_al` version of the chemical reaction dataset.
+
+        :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        """
+
+        AbstractBaseDataSource._download_file(
+            file_url="https://figshare.com/ndownloader/files/44192531",
+            file_name="remapped_USPTO_FULL.csv",
+            output_directory_path=output_directory_path
+        )
+
+    @staticmethod
+    def _format_v_1976_to_2016_by_20240313_chen_s_et_al(
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Format the data from the `v_1976_to_2016_by_20240313_chen_s_et_al` version of the chemical reaction dataset.
+
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        """
+
+        read_csv(
+            filepath_or_buffer=Path(input_directory_path, "remapped_USPTO_FULL.csv"),
+            header=0
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_uspto_v_1976_to_2016_by_20240313_chen_s_et_al.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    )
+                )
+            ),
+            index=False
+        )
+
+    # ------------------------------------------------------------------------------------------------------------------
+    #  Version: v_50k_by_20240313_chen_s_et_al
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
+    def _download_v_50k_by_20240313_chen_s_et_al(
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Download the data from the `v_50k_by_20240313_chen_s_et_al` version of the chemical reaction dataset.
+
+        :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        """
+
+        AbstractBaseDataSource._download_file(
+            file_url="https://figshare.com/ndownloader/files/44192528",
+            file_name="remapped_USPTO_50K.csv",
+            output_directory_path=output_directory_path
+        )
+
+    @staticmethod
+    def _format_v_50k_by_20240313_chen_s_et_al(
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Format the data from the `v_50k_by_20240313_chen_s_et_al` version of the chemical reaction dataset.
+
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        """
+
+        read_csv(
+            filepath_or_buffer=Path(input_directory_path, "remapped_USPTO_50K.csv"),
+            header=0
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_uspto_v_50k_by_20240313_chen_s_et_al.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    )
+                )
+            ),
+            index=False
+        )
+
+    # ------------------------------------------------------------------------------------------------------------------
     # ------------------------------------------------------------------------------------------------------------------
 
     def download(
@@ -1035,6 +1240,21 @@ class USPTOReactionDataset(AbstractBaseDataSource):
 
                 if version == "v_1k_tpl_by_20210128_schwaller_p_et_al":
                     self._download_v_1k_tpl_by_20210128_schwaller_p_et_al(
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_1976_to_2016_by_20210407_schwaller_p_et_al":
+                    self._download_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_1976_to_2016_by_20240313_chen_s_et_al":
+                    self._download_v_1976_to_2016_by_20240313_chen_s_et_al(
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_50k_by_20240313_chen_s_et_al":
+                    self._download_v_50k_by_20240313_chen_s_et_al(
                         output_directory_path=output_directory_path
                     )
 
@@ -1131,6 +1351,12 @@ class USPTOReactionDataset(AbstractBaseDataSource):
 
                 if version == "v_1k_tpl_by_20210128_schwaller_p_et_al":
                     self._extract_v_1k_tpl_by_20210128_schwaller_p_et_al(
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_1976_to_2016_by_20210407_schwaller_p_et_al":
+                    self._extract_v_1976_to_2016_by_20210407_schwaller_p_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -1236,6 +1462,24 @@ class USPTOReactionDataset(AbstractBaseDataSource):
 
                 if version == "v_1k_tpl_by_20210128_schwaller_p_et_al":
                     self._format_v_1k_tpl_by_20210128_schwaller_p_et_al(
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_1976_to_2016_by_20210407_schwaller_p_et_al":
+                    self._format_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_1976_to_2016_by_20240313_chen_s_et_al":
+                    self._format_v_1976_to_2016_by_20240313_chen_s_et_al(
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_50k_by_20240313_chen_s_et_al":
+                    self._format_v_50k_by_20240313_chen_s_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
