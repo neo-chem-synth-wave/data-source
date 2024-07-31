@@ -8,6 +8,7 @@ from typing import Dict, Optional, Union
 
 from pandas.core.frame import DataFrame
 from pandas.core.reshape.concat import concat
+from pandas.io.parquet import read_parquet
 from pandas.io.parsers.readers import read_csv
 
 from rdkit.Chem.rdChemReactions import ReactionFromRxnBlock, ReactionToSmiles
@@ -47,12 +48,11 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
         return {
             "v_20131008_kraut_h_et_al": "https://doi.org/10.1021/ci400442f",
             "v_20161014_wei_j_n_et_al": "https://doi.org/10.1021/acscentsci.6b00219",
-            "v_20200508_grambow_c_et_al_1_0_0": "https://doi.org/10.5281/zenodo.3581267",
-            "v_20200508_grambow_c_et_al_1_0_1": "https://doi.org/10.5281/zenodo.3715478",
-            "v_20200508_grambow_c_et_al_add_on_1_0_0": "https://doi.org/10.5281/zenodo.3731554",
+            "v_20200508_grambow_c_et_al": "https://zenodo.org/doi/10.5281/zenodo.3581266",
+            "v_20200508_grambow_c_et_al_add_on": "https://zenodo.org/doi/10.5281/zenodo.3731553",
             "v_20211103_lin_a_et_al": "https://doi.org/10.1002/minf.202100138",
-            "v_20220718_spiekermann_k_et_al_1_0_0": "https://doi.org/10.5281/zenodo.5652098",
-            "v_20220718_spiekermann_k_et_al_1_0_1": "https://doi.org/10.5281/zenodo.6618262",
+            "v_20220718_spiekermann_k_et_al": "https://zenodo.org/doi/10.5281/zenodo.5652097",
+            "v_20240422_wigh_d_s_et_al": "https://doi.org/10.6084/m9.figshare.23298467.v4"
         }
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -230,85 +230,15 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version: v_20200508_grambow_c_et_al_1_0_0
+    #  Version: v_20200508_grambow_c_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
-    def _download_v_20200508_grambow_c_et_al_1_0_0(
+    def _download_v_20200508_grambow_c_et_al(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_20200508_grambow_c_et_al_1_0_0` version of the chemical reaction data source.
-
-        :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        """
-
-        for file_name in [
-            "b97d3.csv",
-            "wb97xd3.csv",
-        ]:
-            AbstractBaseDataSource._download_file(
-                file_url="https://zenodo.org/records/3581267/files/{file_name:s}".format(
-                    file_name=file_name
-                ),
-                file_name=file_name,
-                output_directory_path=output_directory_path
-            )
-
-    @staticmethod
-    def _format_v_20200508_grambow_c_et_al_1_0_0(
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Format the data from the `v_20200508_grambow_c_et_al_1_0_0` version of the chemical reaction data source.
-
-        :parameter input_directory_path: The path to the input directory where the data is extracted.
-        :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        """
-
-        dataframes = list()
-
-        for file_name in [
-            "b97d3.csv",
-            "wb97xd3.csv",
-        ]:
-            dataframe = read_csv(
-                filepath_or_buffer=Path(input_directory_path, file_name),
-                header=0
-            )
-
-            dataframe["reaction_smiles"] = dataframe["rsmi"] + ">>" + dataframe["psmi"]
-            dataframe["file_name"] = file_name
-
-            dataframes.append(
-                dataframe
-            )
-
-        concat(
-            objs=dataframes
-        ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_v_20200508_grambow_c_et_al_1_0_0.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    )
-                )
-            ),
-            index=False
-        )
-
-    # ------------------------------------------------------------------------------------------------------------------
-    #  Version: v_20200508_grambow_c_et_al_1_0_1
-    # ------------------------------------------------------------------------------------------------------------------
-
-    @staticmethod
-    def _download_v_20200508_grambow_c_et_al_1_0_1(
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Download the data from the `v_20200508_grambow_c_et_al_1_0_1` version of the chemical reaction data source.
+        Download the data from the `v_20200508_grambow_c_et_al` version of the chemical reaction data source.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -326,12 +256,12 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
             )
 
     @staticmethod
-    def _format_v_20200508_grambow_c_et_al_1_0_1(
+    def _format_v_20200508_grambow_c_et_al(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_20200508_grambow_c_et_al_1_0_1` version of the chemical reaction data source.
+        Format the data from the `v_20200508_grambow_c_et_al` version of the chemical reaction data source.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -360,7 +290,7 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
         ).to_csv(
             path_or_buf=Path(
                 output_directory_path,
-                "{timestamp:s}_miscellaneous_v_20200508_grambow_c_et_al_1_0_1.csv".format(
+                "{timestamp:s}_miscellaneous_v_20200508_grambow_c_et_al.csv".format(
                     timestamp=datetime.now().strftime(
                         format="%Y%m%d%H%M%S"
                     )
@@ -370,16 +300,15 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version: v_20200508_grambow_c_et_al_add_on_1_0_0
+    #  Version: v_20200508_grambow_c_et_al_add_on
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
-    def _download_v_20200508_grambow_c_et_al_add_on_1_0_0(
+    def _download_v_20200508_grambow_c_et_al_add_on(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_20200508_grambow_c_et_al_add_on_1_0_0` version of the chemical reaction data
-        source.
+        Download the data from the `v_20200508_grambow_c_et_al_add_on` version of the chemical reaction data source.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -397,12 +326,12 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
             )
 
     @staticmethod
-    def _format_v_20200508_grambow_c_et_al_add_on_1_0_0(
+    def _format_v_20200508_grambow_c_et_al_add_on(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_20200508_grambow_c_et_al_add_on_1_0_0` version of the chemical reaction data source.
+        Format the data from the `v_20200508_grambow_c_et_al_add_on` version of the chemical reaction data source.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -431,7 +360,7 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
         ).to_csv(
             path_or_buf=Path(
                 output_directory_path,
-                "{timestamp:s}_v_20200508_grambow_c_et_al_add_on_1_0_0.csv".format(
+                "{timestamp:s}_v_20200508_grambow_c_et_al_add_on.csv".format(
                     timestamp=datetime.now().strftime(
                         format="%Y%m%d%H%M%S"
                     )
@@ -535,89 +464,15 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
         )
 
     # ------------------------------------------------------------------------------------------------------------------
-    #  Version: v_20220718_spiekermann_k_et_al_1_0_0
+    #  Version: v_20220718_spiekermann_k_et_al
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
-    def _download_v_20220718_spiekermann_k_et_al_1_0_0(
+    def _download_v_20220718_spiekermann_k_et_al(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_20220718_spiekermann_k_et_al_1_0_0` version of the chemical reaction data source.
-
-        :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        """
-
-        for file_name in [
-            "b97d3.csv",
-            "wb97xd3.csv",
-            "ccsdtf12_dz.csv",
-            "ccsdtf12_tz.csv",
-        ]:
-            AbstractBaseDataSource._download_file(
-                file_url="https://zenodo.org/records/5652098/files/{file_name:s}".format(
-                    file_name=file_name
-                ),
-                file_name=file_name,
-                output_directory_path=output_directory_path
-            )
-
-    @staticmethod
-    def _format_v_20220718_spiekermann_k_et_al_1_0_0(
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Format the data from the `v_20220718_spiekermann_k_et_al_1_0_0` version of the chemical reaction data source.
-
-        :parameter input_directory_path: The path to the input directory where the data is extracted.
-        :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        """
-
-        dataframes = list()
-
-        for file_name in [
-            "b97d3.csv",
-            "wb97xd3.csv",
-            "ccsdtf12_dz.csv",
-            "ccsdtf12_tz.csv",
-        ]:
-            dataframe = read_csv(
-                filepath_or_buffer=Path(input_directory_path, file_name),
-                header=0
-            )
-
-            dataframe["reaction_smiles"] = dataframe["rsmi"] + ">>" + dataframe["psmi"]
-            dataframe["file_name"] = file_name
-
-            dataframes.append(
-                dataframe
-            )
-
-        concat(
-            objs=dataframes
-        ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_v_20220718_spiekermann_k_et_al_1_0_0.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    )
-                )
-            ),
-            index=False
-        )
-
-    # ------------------------------------------------------------------------------------------------------------------
-    #  Version: v_20220718_spiekermann_k_et_al_1_0_1
-    # ------------------------------------------------------------------------------------------------------------------
-
-    @staticmethod
-    def _download_v_20220718_spiekermann_k_et_al_1_0_1(
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Download the data from the `v_20220718_spiekermann_k_et_al_1_0_1` version of the chemical reaction data source.
+        Download the data from the `v_20220718_spiekermann_k_et_al` version of the chemical reaction data source.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -637,12 +492,12 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
             )
 
     @staticmethod
-    def _format_v_20220718_spiekermann_k_et_al_1_0_1(
+    def _format_v_20220718_spiekermann_k_et_al(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_20220718_spiekermann_k_et_al_1_0_1` version of the chemical reaction data source.
+        Format the data from the `v_20220718_spiekermann_k_et_al` version of the chemical reaction data source.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -673,7 +528,85 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
         ).to_csv(
             path_or_buf=Path(
                 output_directory_path,
-                "{timestamp:s}_v_20220718_spiekermann_k_et_al_1_0_1.csv".format(
+                "{timestamp:s}_v_20220718_spiekermann_k_et_al.csv".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    )
+                )
+            ),
+            index=False
+        )
+
+    # ------------------------------------------------------------------------------------------------------------------
+    #  Version: v_20240422_wigh_d_s_et_al
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
+    def _download_v_20240422_wigh_d_s_et_al(
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Download the data from the `v_20240422_wigh_d_s_et_al` version of the chemical reaction data source.
+
+        :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        """
+
+        for file_url, file_name in [
+            ("https://figshare.com/ndownloader/files/44413040", "orderly_condition_test.parquet"),
+            ("https://figshare.com/ndownloader/files/44413052", "orderly_condition_train.parquet"),
+            ("https://figshare.com/ndownloader/files/44413043", "orderly_condition_with_rare_test.parquet"),
+            ("https://figshare.com/ndownloader/files/44413055", "orderly_condition_with_rare_train.parquet"),
+            ("https://figshare.com/ndownloader/files/44413046", "orderly_forward_test.parquet"),
+            ("https://figshare.com/ndownloader/files/44413058", "orderly_forward_train.parquet"),
+            ("https://figshare.com/ndownloader/files/44413049", "orderly_retro_test.parquet"),
+            ("https://figshare.com/ndownloader/files/44413061", "orderly_retro_train.parquet"),
+        ]:
+            AbstractBaseDataSource._download_file(
+                file_url=file_url,
+                file_name=file_name,
+                output_directory_path=output_directory_path
+            )
+
+    @staticmethod
+    def _format_v_20240422_wigh_d_s_et_al(
+            input_directory_path: Union[str, PathLike[str]],
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Format the data from the `v_20240422_wigh_d_s_et_al` version of the chemical reaction data source.
+
+        :parameter input_directory_path: The path to the input directory where the data is extracted.
+        :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        """
+
+        dataframes = list()
+
+        for file_name in [
+            "orderly_condition_test.parquet",
+            "orderly_condition_train.parquet",
+            "orderly_condition_with_rare_test.parquet",
+            "orderly_condition_with_rare_train.parquet",
+            "orderly_forward_test.parquet",
+            "orderly_forward_train.parquet",
+            "orderly_retro_test.parquet",
+            "orderly_retro_train.parquet",
+        ]:
+            dataframe = read_parquet(
+                path=Path(input_directory_path, file_name)
+            )
+
+            dataframe["file_name"] = file_name
+
+            dataframes.append(
+                dataframe
+            )
+
+        concat(
+            objs=dataframes
+        ).to_csv(
+            path_or_buf=Path(
+                output_directory_path,
+                "{timestamp:s}_v_20240422_wigh_d_s_et_al.csv".format(
                     timestamp=datetime.now().strftime(
                         format="%Y%m%d%H%M%S"
                     )
@@ -718,18 +651,13 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_20200508_grambow_c_et_al_1_0_0":
-                    self._download_v_20200508_grambow_c_et_al_1_0_0(
+                if version == "v_20200508_grambow_c_et_al":
+                    self._download_v_20200508_grambow_c_et_al(
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_20200508_grambow_c_et_al_1_0_1":
-                    self._download_v_20200508_grambow_c_et_al_1_0_1(
-                        output_directory_path=output_directory_path
-                    )
-
-                if version == "v_20200508_grambow_c_et_al_add_on_1_0_0":
-                    self._download_v_20200508_grambow_c_et_al_add_on_1_0_0(
+                if version == "v_20200508_grambow_c_et_al_add_on":
+                    self._download_v_20200508_grambow_c_et_al_add_on(
                         output_directory_path=output_directory_path
                     )
 
@@ -738,13 +666,13 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_20220718_spiekermann_k_et_al_1_0_0":
-                    self._download_v_20220718_spiekermann_k_et_al_1_0_0(
+                if version == "v_20220718_spiekermann_k_et_al":
+                    self._download_v_20220718_spiekermann_k_et_al(
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_20220718_spiekermann_k_et_al_1_0_1":
-                    self._download_v_20220718_spiekermann_k_et_al_1_0_1(
+                if version == "v_20240422_wigh_d_s_et_al":
+                    self._download_v_20240422_wigh_d_s_et_al(
                         output_directory_path=output_directory_path
                     )
 
@@ -874,20 +802,14 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_20200508_grambow_c_et_al_1_0_0":
-                    self._format_v_20200508_grambow_c_et_al_1_0_0(
+                if version == "v_20200508_grambow_c_et_al":
+                    self._format_v_20200508_grambow_c_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_20200508_grambow_c_et_al_1_0_1":
-                    self._format_v_20200508_grambow_c_et_al_1_0_1(
-                        input_directory_path=input_directory_path,
-                        output_directory_path=output_directory_path
-                    )
-
-                if version == "v_20200508_grambow_c_et_al_add_on_1_0_0":
-                    self._format_v_20200508_grambow_c_et_al_add_on_1_0_0(
+                if version == "v_20200508_grambow_c_et_al_add_on":
+                    self._format_v_20200508_grambow_c_et_al_add_on(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -898,14 +820,14 @@ class MiscellaneousReactionDataSource(AbstractBaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_20220718_spiekermann_k_et_al_1_0_0":
-                    self._format_v_20220718_spiekermann_k_et_al_1_0_0(
+                if version == "v_20220718_spiekermann_k_et_al":
+                    self._format_v_20220718_spiekermann_k_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_20220718_spiekermann_k_et_al_1_0_1":
-                    self._format_v_20220718_spiekermann_k_et_al_1_0_1(
+                if version == "v_20240422_wigh_d_s_et_al":
+                    self._format_v_20240422_wigh_d_s_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
