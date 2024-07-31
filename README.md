@@ -2,14 +2,16 @@
 ![Static Badge](https://img.shields.io/badge/Elix%2C%20Inc.-%235EB6B3?style=flat)
 ![Static Badge](https://img.shields.io/badge/Institute%20of%20Science%20Tokyo-%231C3177?style=flat)
 
+Welcome to the computer-assisted chemical synthesis data source project !!!
+
 Over the last decade, computer-assisted chemical synthesis has re-emerged as a heavily researched subject in
 Chemoinformatics. Even though the idea of utilizing computers to assist chemical synthesis has existed for nearly as
 long as computers themselves, the expected blend of reliability and innovation has repeatedly been proven difficult to
 achieve. Nevertheless, recent machine learning approaches have exhibited the potential to address these shortcomings.
 The open-source data utilized by such approaches frequently lack quality and quantity, are stored in various formats, or
 are published behind paywalls, all of which can be significant barriers to entry, especially for novice researchers.
-Consequently, the main objective of the **Data Source** project is to systematically curate and facilitate access to
-relevant computer-assisted chemical synthesis data sources.
+Consequently, the main objective of this project is to systematically curate and facilitate access to relevant
+computer-assisted chemical synthesis data sources.
 
 
 ## Installation
