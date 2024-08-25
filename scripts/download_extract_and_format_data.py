@@ -3,14 +3,12 @@
 from argparse import ArgumentParser, Namespace
 from datetime import datetime
 from logging import Formatter, Logger, StreamHandler, getLogger
-from os import PathLike
 from pathlib import Path
 from shutil import rmtree
-from typing import Callable, Union
 
-from data_source.compound import *
-from data_source.reaction import *
-from data_source.reaction_rule import *
+from data_source.compound import CompoundDataSource
+from data_source.reaction import ReactionDataSource
+from data_source.reaction_rule import ReactionRuleDataSource
 
 
 def get_script_arguments() -> Namespace:
@@ -35,15 +33,15 @@ def get_script_arguments() -> Namespace:
     )
 
     argument_parser.add_argument(
-        "-gdsi",
-        "--get_data_source_information",
+        "-gdsni",
+        "--get_data_source_name_information",
         action="store_true",
-        help="The indicator of whether to get the data source information."
+        help="The indicator of whether to get the data source name information."
     )
 
     argument_parser.add_argument(
-        "-ds",
-        "--data_source",
+        "-dsn",
+        "--data_source_name",
         type=str,
         choices=[
             "chembl",
@@ -55,7 +53,7 @@ def get_script_arguments() -> Namespace:
             "uspto",
             "zinc20",
         ],
-        help="The indicator of the data source."
+        help="The indicator of the data source name."
     )
 
     argument_parser.add_argument(
@@ -127,115 +125,80 @@ def get_script_logger() -> Logger:
     return logger
 
 
-def download_extract_and_format_data(
-        data_source_class: Callable,
-        data_source_version: str,
-        output_directory_path: Union[str, PathLike[str]],
-        number_of_processes: int = 1
-) -> None:
-    """
-    Download, extract, and format the data from the data source.
-
-    :parameter data_source_class: The data source class.
-    :parameter data_source_version: The version of the data source.
-    :parameter output_directory_path: The path to the output directory where the data should be formatted.
-    :parameter number_of_processes: The number of processes.
-    """
-
-    data_source = data_source_class(
-        logger=script_logger
-    )
-
-    temporary_output_directory_path = Path(
-        output_directory_path,
-        "{timestamp:s}_temporary_output_directory".format(
-            timestamp=datetime.now().strftime(
-                format="%Y%m%d%H%M%S"
-            )
-        )
-    )
-
-    temporary_output_directory_path.mkdir()
-
-    data_source.download(
-        version=data_source_version,
-        output_directory_path=temporary_output_directory_path
-    )
-
-    data_source.extract(
-        version=data_source_version,
-        input_directory_path=temporary_output_directory_path,
-        output_directory_path=temporary_output_directory_path
-    )
-
-    if isinstance(data_source, OpenReactionDatabase):
-        data_source.format(
-            version=data_source_version,
-            input_directory_path=temporary_output_directory_path,
-            output_directory_path=output_directory_path,
-            number_of_processes=number_of_processes
-        )
-
-    else:
-        data_source.format(
-            version=data_source_version,
-            input_directory_path=temporary_output_directory_path,
-            output_directory_path=output_directory_path
-        )
-
-    rmtree(
-        path=temporary_output_directory_path
-    )
-
-
 if __name__ == "__main__":
     script_logger = get_script_logger()
 
     try:
         script_arguments = get_script_arguments()
 
-        data_source_classes = {
-            "compound": {
-                "chembl": ChEMBLCompoundDatabase,
-                "miscellaneous": MiscellaneousCompoundDataSource,
-                "zinc20": ZINC20CompoundDatabase,
-            },
-            "reaction": {
-                "crd": ChemicalReactionDatabase,
-                "miscellaneous": MiscellaneousReactionDataSource,
-                "ord": OpenReactionDatabase,
-                "rhea": RheaReactionDatabase,
-                "uspto": USPTOReactionDataset,
-            },
-            "reaction_rule": {
-                "miscellaneous": MiscellaneousReactionRuleDataSource,
-                "retro_rules": RetroRulesReactionRuleDatabase,
-            },
-        }
-
-        if script_arguments.get_data_source_information:
-            print(script_arguments.data_source_category)
-            print(
-                list(data_source_classes[script_arguments.data_source_category].keys())
+        if script_arguments.data_source_category == "compound":
+            data_source = CompoundDataSource(
+                logger=script_logger
             )
 
-        elif script_arguments.get_data_source_version_information:
-            print(script_arguments.data_source_category)
-            print(script_arguments.data_source)
-            print(
-                data_source_classes[script_arguments.data_source_category][script_arguments.data_source](
-                    logger=script_logger
-                ).available_versions
+        elif script_arguments.data_source_category == "reaction":
+            data_source = ReactionDataSource(
+                logger=script_logger
+            )
+
+        elif script_arguments.data_source_category == "reaction_rule":
+            data_source = ReactionRuleDataSource(
+                logger=script_logger
             )
 
         else:
-            download_extract_and_format_data(
-                data_source_class=data_source_classes[script_arguments.data_source_category][
-                    script_arguments.data_source
-                ],
-                data_source_version=script_arguments.data_source_version,
+            raise ValueError(
+                "The data source category '{category:s}' is not supported.".format(
+                    category=script_arguments.data_source_category
+                )
+            )
+
+        if script_arguments.get_data_source_name_information:
+            print(script_arguments.data_source_category)
+            print(data_source.get_names_of_supported_data_sources())
+
+        elif script_arguments.get_data_source_version_information:
+            print(script_arguments.data_source_category)
+            print(script_arguments.data_source_name)
+            print(data_source.get_supported_versions(
+                name=script_arguments.data_source_name
+            ))
+
+        else:
+            temporary_output_directory_path = Path(
+                script_arguments.output_directory_path,
+                "{timestamp:s}_temporary_output_directory".format(
+                    timestamp=datetime.now().strftime(
+                        format="%Y%m%d%H%M%S"
+                    )
+                )
+            )
+
+            temporary_output_directory_path.mkdir()
+
+            data_source.download(
+                name=script_arguments.data_source_name,
+                version=script_arguments.data_source_version,
+                output_directory_path=temporary_output_directory_path
+            )
+
+            data_source.extract(
+                name=script_arguments.data_source_name,
+                version=script_arguments.data_source_version,
+                input_directory_path=temporary_output_directory_path,
+                output_directory_path=temporary_output_directory_path
+            )
+
+            data_source.format(
+                name=script_arguments.data_source_name,
+                version=script_arguments.data_source_version,
+                input_directory_path=temporary_output_directory_path,
                 output_directory_path=script_arguments.output_directory_path,
                 number_of_processes=script_arguments.number_of_processes
+            )
+
+            rmtree(
+                path=temporary_output_directory_path
             )
 
     except:
