@@ -28,10 +28,13 @@ class MiscellaneousCompoundDataSource(BaseDataSource):
         )
 
     def get_supported_versions(
-            self
+            self,
+            **kwargs
     ) -> Dict[str, str]:
         """
         Get the supported versions of the chemical compound data source.
+
+        :parameter kwargs: The keyword arguments.
 
         :returns: The supported versions of the chemical compound data source.
         """
@@ -52,13 +55,15 @@ class MiscellaneousCompoundDataSource(BaseDataSource):
     def download(
             self,
             version: str,
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Download the data from the chemical compound data source.
 
         :parameter version: The version of the chemical compound data source.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -107,7 +112,8 @@ class MiscellaneousCompoundDataSource(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Extract the data from the chemical compound data source.
@@ -115,6 +121,7 @@ class MiscellaneousCompoundDataSource(BaseDataSource):
         :parameter version: The version of the chemical compound data source.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
+        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -158,7 +165,8 @@ class MiscellaneousCompoundDataSource(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Format the data from the chemical compound data source.
@@ -166,6 +174,7 @@ class MiscellaneousCompoundDataSource(BaseDataSource):
         :parameter version: The version of the chemical compound data source.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        :parameter kwargs: The keyword arguments.
         """
 
         try:

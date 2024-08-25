@@ -51,45 +51,36 @@ class MiscellaneousReactionDataSourceDownloadUtility:
 
     @staticmethod
     def download_v_20200508_grambow_c_et_al(
+            version: str,
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_20200508_grambow_c_et_al` version of the chemical reaction data source.
+        Download the data from a `v_*_20200508_grambow_c_et_al` version of the chemical reaction data source.
 
+        :parameter version: The version of the chemical reaction data source.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        for file_name in [
-            "b97d3.csv",
-            "wb97xd3.csv",
-        ]:
+        if version == "v_20200508_grambow_c_et_al":
+            file_url_suffixes = [
+                "3715478/files/b97d3.csv",
+                "3715478/files/wb97xd3.csv",
+            ]
+
+        else:
+            file_url_suffixes = [
+                "3731554/files/b97d3_rad.csv",
+                "3731554/files/wb97xd3_rad.csv",
+            ]
+
+        for file_url_suffix in file_url_suffixes:
             BaseDataSourceDownloadUtility.download_file(
-                file_url="https://zenodo.org/records/3715478/files/{file_name:s}".format(
-                    file_name=file_name
+                file_url="https://zenodo.org/records/{file_url_suffix:s}".format(
+                    file_url_suffix=file_url_suffix
                 ),
-                file_name=file_name,
-                output_directory_path=output_directory_path
-            )
-
-    @staticmethod
-    def download_v_add_on_by_20200508_grambow_c_et_al(
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Download the data from the `v_add_on_by_20200508_grambow_c_et_al` version of the chemical reaction data source.
-
-        :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        """
-
-        for file_name in [
-            "b97d3_rad.csv",
-            "wb97xd3_rad.csv",
-        ]:
-            BaseDataSourceDownloadUtility.download_file(
-                file_url="https://zenodo.org/records/3731554/files/{file_name:s}".format(
-                    file_name=file_name
-                ),
-                file_name=file_name,
+                file_name=file_url_suffix.split(
+                    sep="/"
+                )[-1],
                 output_directory_path=output_directory_path
             )
 

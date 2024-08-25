@@ -122,22 +122,33 @@ class MiscellaneousReactionDataSourceFormattingUtility:
 
     @staticmethod
     def format_v_20200508_grambow_c_et_al(
+            version: str,
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_20200508_grambow_c_et_al` version of the chemical reaction data source.
+        Format the data from a `v_*_20200508_grambow_c_et_al` version of the chemical reaction data source.
 
+        :parameter version: The version of the chemical reaction data source.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
+        if version == "v_20200508_grambow_c_et_al":
+            file_names = [
+                "b97d3.csv",
+                "wb97xd3.csv",
+            ]
+
+        else:
+            file_names = [
+                "b97d3_rad.csv",
+                "wb97xd3_rad.csv",
+            ]
+
         dataframes = list()
 
-        for file_name in [
-            "b97d3.csv",
-            "wb97xd3.csv",
-        ]:
+        for file_name in file_names:
             dataframe = read_csv(
                 filepath_or_buffer=Path(input_directory_path, file_name),
                 header=0
@@ -154,53 +165,11 @@ class MiscellaneousReactionDataSourceFormattingUtility:
         ).to_csv(
             path_or_buf=Path(
                 output_directory_path,
-                "{timestamp:s}_miscellaneous_v_20200508_grambow_c_et_al.csv".format(
+                "{timestamp:s}_miscellaneous_{version:s}.csv".format(
                     timestamp=datetime.now().strftime(
                         format="%Y%m%d%H%M%S"
-                    )
-                )
-            ),
-            index=False
-        )
-
-    @staticmethod
-    def format_v_add_on_by_20200508_grambow_c_et_al(
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Format the data from the `v_add_on_by_20200508_grambow_c_et_al` version of the chemical reaction data source.
-
-        :parameter input_directory_path: The path to the input directory where the data is extracted.
-        :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        """
-
-        dataframes = list()
-
-        for file_name in [
-            "b97d3_rad.csv",
-            "wb97xd3_rad.csv",
-        ]:
-            dataframe = read_csv(
-                filepath_or_buffer=Path(input_directory_path, file_name),
-                header=0
-            )
-
-            dataframe["file_name"] = file_name
-
-            dataframes.append(
-                dataframe
-            )
-
-        concat(
-            objs=dataframes
-        ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_miscellaneous_v_add_on_by_20200508_grambow_c_et_al.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    )
+                    ),
+                    version=version
                 )
             ),
             index=False

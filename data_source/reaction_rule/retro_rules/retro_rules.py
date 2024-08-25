@@ -29,10 +29,13 @@ class RetroRulesReactionRuleDatabase(BaseDataSource):
         )
 
     def get_supported_versions(
-            self
+            self,
+            **kwargs
     ) -> Dict[str, str]:
         """
         Get the supported versions of the chemical reaction rule database.
+
+        :parameter kwargs: The keyword arguments.
 
         :returns: The supported versions of the chemical reaction rule database.
         """
@@ -56,13 +59,15 @@ class RetroRulesReactionRuleDatabase(BaseDataSource):
     def download(
             self,
             version: str,
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Download the data from the chemical reaction rule database.
 
         :parameter version: The version of the chemical reaction rule database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -112,7 +117,8 @@ class RetroRulesReactionRuleDatabase(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Extract the data from the chemical reaction rule database.
@@ -120,6 +126,7 @@ class RetroRulesReactionRuleDatabase(BaseDataSource):
         :parameter version: The version of the chemical reaction rule database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
+        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -170,7 +177,8 @@ class RetroRulesReactionRuleDatabase(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Format the data from the chemical reaction rule database.
@@ -178,6 +186,7 @@ class RetroRulesReactionRuleDatabase(BaseDataSource):
         :parameter version: The version of the chemical reaction rule database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        :parameter kwargs: The keyword arguments.
         """
 
         try:

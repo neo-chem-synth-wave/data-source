@@ -29,10 +29,13 @@ class MiscellaneousReactionDataSource(BaseDataSource):
         )
 
     def get_supported_versions(
-            self
+            self,
+            **kwargs
     ) -> Dict[str, str]:
         """
         Get the supported versions of the chemical reaction data source.
+
+        :parameter kwargs: The keyword arguments.
 
         :returns: The supported versions of the chemical reaction data source.
         """
@@ -58,13 +61,15 @@ class MiscellaneousReactionDataSource(BaseDataSource):
     def download(
             self,
             version: str,
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Download the data from the chemical reaction data source.
 
         :parameter version: The version of the chemical reaction data source.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -88,13 +93,12 @@ class MiscellaneousReactionDataSource(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_20200508_grambow_c_et_al":
+                if version in [
+                    "v_20200508_grambow_c_et_al",
+                    "v_add_on_by_20200508_grambow_c_et_al",
+                ]:
                     MiscellaneousReactionDataSourceDownloadUtility.download_v_20200508_grambow_c_et_al(
-                        output_directory_path=output_directory_path
-                    )
-
-                if version == "v_add_on_by_20200508_grambow_c_et_al":
-                    MiscellaneousReactionDataSourceDownloadUtility.download_v_add_on_by_20200508_grambow_c_et_al(
+                        version=version,
                         output_directory_path=output_directory_path
                     )
 
@@ -138,7 +142,8 @@ class MiscellaneousReactionDataSource(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Extract the data from the chemical reaction data source.
@@ -146,6 +151,7 @@ class MiscellaneousReactionDataSource(BaseDataSource):
         :parameter version: The version of the chemical reaction data source.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
+        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -201,7 +207,8 @@ class MiscellaneousReactionDataSource(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Format the data from the chemical reaction data source.
@@ -209,6 +216,7 @@ class MiscellaneousReactionDataSource(BaseDataSource):
         :parameter version: The version of the chemical reaction data source.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
+        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -234,14 +242,12 @@ class MiscellaneousReactionDataSource(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_20200508_grambow_c_et_al":
+                if version in [
+                    "v_20200508_grambow_c_et_al",
+                    "v_add_on_by_20200508_grambow_c_et_al",
+                ]:
                     MiscellaneousReactionDataSourceFormattingUtility.format_v_20200508_grambow_c_et_al(
-                        input_directory_path=input_directory_path,
-                        output_directory_path=output_directory_path
-                    )
-
-                if version == "v_add_on_by_20200508_grambow_c_et_al":
-                    MiscellaneousReactionDataSourceFormattingUtility.format_v_add_on_by_20200508_grambow_c_et_al(
+                        version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )

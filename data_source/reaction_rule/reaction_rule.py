@@ -49,12 +49,14 @@ class ReactionRuleDataSource(BaseDataSource):
 
     def get_supported_versions(
             self,
-            name: str
+            name: str,
+            **kwargs
     ) -> Dict[str, str]:
         """
         Get the supported versions of a chemical reaction rule data source.
 
         :parameter name: The name of the chemical reaction rule data source.
+        :parameter kwargs: The keyword arguments.
 
         :returns: The supported versions of the chemical reaction rule data source.
         """
@@ -74,7 +76,8 @@ class ReactionRuleDataSource(BaseDataSource):
             self,
             name: str,
             version: str,
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Download the data from a chemical reaction rule data source.
@@ -82,12 +85,14 @@ class ReactionRuleDataSource(BaseDataSource):
         :parameter name: The name of the chemical reaction rule data source.
         :parameter version: The version of the chemical reaction rule data source.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        :parameter kwargs: The keyword arguments.
         """
 
         if name in self.get_names_of_supported_data_sources():
             self.supported_data_sources[name].download(
                 version=version,
-                output_directory_path=output_directory_path
+                output_directory_path=output_directory_path,
+                **kwargs
             )
 
         else:
@@ -103,7 +108,8 @@ class ReactionRuleDataSource(BaseDataSource):
             name: str,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Extract the data from a chemical reaction rule data source.
@@ -112,13 +118,15 @@ class ReactionRuleDataSource(BaseDataSource):
         :parameter version: The version of the chemical reaction rule data source.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
+        :parameter kwargs: The keyword arguments.
         """
 
         if name in self.get_names_of_supported_data_sources():
             self.supported_data_sources[name].extract(
                 version=version,
                 input_directory_path=input_directory_path,
-                output_directory_path=output_directory_path
+                output_directory_path=output_directory_path,
+                **kwargs
             )
 
         else:

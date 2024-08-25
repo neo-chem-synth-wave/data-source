@@ -46,21 +46,21 @@ types of computer-assisted chemical synthesis data:
 The [download_extract_and_format_data](/scripts/download_extract_and_format_data.py) script can be utilized as follows:
 
 ```shell
-# Example #1: Get the chemical reaction rule data source information.
+# Example #1: Get the chemical reaction rule data source name information.
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction_rule" \
-  --get_data_source_information
+  --get_data_source_name_information
 
 # Example #2: Get the ZINC20 chemical compound dataset version information.
 python scripts/download_extract_and_format_data.py \
   --data_source_category "compound" \
-  --data_source "zinc20" \
+  --data_source_name "zinc20" \
   --get_data_source_version_information
 
 # Example #3: Download, extract, and format the data from the USPTO (50k) chemical reaction dataset.
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
-  --data_source "uspto" \
+  --data_source_name "uspto" \
   --data_source_version "v_50k_by_20171116_coley_c_w_et_al" \
   --output_directory_path "path/to/the/output/directory"
 ```
@@ -132,16 +132,16 @@ The following United States Patent and Trademark Office (USPTO) chemical reactio
 | v_50k_by_20171116_coley_c_w_et_al <sup>[[9]](/references/20171116_coley_c_w_et_al.md)</sup>               | `10.1021/acscentsci.7b00355`         | :green_circle:  |
 | v_480k_or_mit_by_20171204_jin_w_et_al <sup>[[10]](/references/20171204_jin_w_et_al.md)</sup>              | `10.48550/arXiv.1709.04555`          | :green_circle:  |
 | v_480k_or_mit_by_20180622_schwaller_p_et_al <sup>[[11]](/references/20180622_schwaller_p_et_al.md)</sup>  | `10.1039/C8SC02339E`                 | :green_circle:  |
-| v_stereo_by_20180622_schwaller_p_et_al <sup>[[12]](/references/20180622_schwaller_p_et_al.md)</sup>       | `10.1039/C8SC02339E`                 | :green_circle:  |
+| v_stereo_by_20180622_schwaller_p_et_al <sup>[[11]](/references/20180622_schwaller_p_et_al.md)</sup>       | `10.1039/C8SC02339E`                 | :green_circle:  |
 | v_lef_by_20181221_bradshaw_j_et_al <sup>[[12]](/references/20181221_bradshaw_j_et_al.md)</sup>            | `openreview.net/forum?id=r1x4BnCqKX` | :green_circle:  |
 | v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[[13]](/references/20210128_schwaller_p_et_al.md)</sup>       | `10.1038/s42256-020-00284-w`         | :green_circle:  |
 | v_1976_to_2016_by_20210407_schwaller_p_et_al <sup>[[14]](/references/20210407_schwaller_p_et_al.md)</sup> | `10.1126/sciadv.abe4166`             | :green_circle:  |
-| v_1976_to_2016_by_20240313_chen_s_et_al <sup>[[15]](/references/20210407_schwaller_p_et_al.md)</sup>      | `10.6084/m9.figshare.25046471.v1`    | :green_circle:  |
-| v_50k_by_20240313_chen_s_et_al <sup>[[15]](/references/20210407_schwaller_p_et_al.md)</sup>               | `10.6084/m9.figshare.25046471.v1`    | :green_circle:  |
+| v_1976_to_2016_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>           | `10.6084/m9.figshare.25046471.v1`    | :green_circle:  |
+| v_50k_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>                    | `10.6084/m9.figshare.25046471.v1`    | :green_circle:  |
 | v_mech_31k_by_20240810_chen_s_et_al <sup>[[16]](/references/20240810_chen_s_et_al.md)</sup>               | `10.6084/m9.figshare.24797220.v2`    | :green_circle:  |
 
 <sub>:green_circle: Completely Implemented</sub><br>
-<sub>:yellow_circle: Partially Implemented (Limited to Reaction SMILES)</sub>
+<sub>:yellow_circle: Partially Implemented (Limited to Reaction SMILES Strings)</sub>
 
 
 #### Open Reaction Database (ORD)
@@ -156,7 +156,7 @@ The following Open Reaction Database (ORD) versions are supported:
 | v_orderly_retro_by_20240422_wigh_d_s_et_al <sup>[[18]](/references/20240422_wigh_d_s_et_al.md)</sup>     | `10.6084/m9.figshare.23298467.v4` | :green_circle:  |
 
 <sub>:green_circle: Completely Implemented</sub><br>
-<sub>:yellow_circle: Partially Implemented (Limited to Reaction SMILES)</sub>
+<sub>:yellow_circle: Partially Implemented (Limited to Reaction SMILES Strings)</sub>
 
 
 #### Chemical Reaction Database (CRD)
@@ -261,7 +261,7 @@ Molecular Generation Models**. _Front. Pharmacol._, 11, 2020.
 **[[4]](/references/20121009_lowe_d_m.md)** Lowe, D.M. **Extraction of Chemical Structures and Reactions from the
 Literature**. _Ph.D. Thesis_, University of Cambridge, Department of Chemistry, Pembroke College, 2012.
 
-**[[5]](/references/20161122_schneider_n_et_al.md)** Schneider, N., Lowe, D.M., Sayle, R.A., and Landrum, G.A.
+**[[5]](/references/20141226_schneider_n_et_al.md)** Schneider, N., Lowe, D.M., Sayle, R.A., and Landrum, G.A.
 **Development of a Novel Fingerprint for Chemical Reactions and Its Application to Large-scale Reaction Classification
 and Similarity**. _J. Chem. Inf. Model._, 2015, 55, 1, 39–53.
 
@@ -312,7 +312,7 @@ Dreher, S.D., Hawkins, J.M., Jensen, K.F., and Coley, C.W. **The Open Reaction D
 A.A. **ORDerly: Data Sets and Benchmarks for Chemical Reaction Data**. _J. Chem. Inf. Model._, 2024, 64, 9, 3790–3798.
 
 **[[19]](https://kmt.vander-lingen.nl)** **The Chemical Reaction Database (CRD)**: https://kmt.vander-lingen.nl.
-Accessed on: July 26th, 2024.
+Accessed on: August 25th, 2024.
 
 **[[20]](/references/20211110_bansal_p_et_al.md)** Bansal, P., Morgat, A., Axelsen, K.B., Muthukrishnan, V., Coudert,
 E., Aimo, L., Hyka-Nouspikel, N., Gasteiger, E., Kerhornou, A., Neto, T.B., Pozzato, M., Blatter, M., Ignatchenko, A.,

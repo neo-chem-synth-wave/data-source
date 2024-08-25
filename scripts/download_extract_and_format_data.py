@@ -33,7 +33,7 @@ def get_script_arguments() -> Namespace:
     )
 
     argument_parser.add_argument(
-        "-gdsi",
+        "-gdsni",
         "--get_data_source_name_information",
         action="store_true",
         help="The indicator of whether to get the data source name information."
@@ -159,12 +159,10 @@ if __name__ == "__main__":
 
         elif script_arguments.get_data_source_version_information:
             print(script_arguments.data_source_category)
-            print(script_arguments.data_source)
-            print(
-                data_source.get_supported_versions(
-                    name=script_arguments.data_source_name
-                )
-            )
+            print(script_arguments.data_source_name)
+            print(data_source.get_supported_versions(
+                name=script_arguments.data_source_name
+            ))
 
         else:
             temporary_output_directory_path = Path(

@@ -24,13 +24,13 @@ class USPTOReactionDatasetDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        if version == "v_1976_to_2013_by_20121009_lowe_d_m":
+        if version == "v_1976_to_2013_cml_by_20121009_lowe_d_m":
             file_url_suffixes_and_names = [
                 ("files/22217844", "1976-2013_USPTOgrants_CML.7z", ),
                 ("files/22217838", "2001-2013_USPTOapplications_CML.7z", ),
             ]
 
-        elif version == "v_1976_to_2013_cml_by_20121009_lowe_d_m":
+        elif version == "v_1976_to_2013_rsmi_by_20121009_lowe_d_m":
             file_url_suffixes_and_names = [
                 ("files/22217829", "1976-2013_USPTOgrants_reactionSmiles_feb2014filters.7z", ),
                 ("files/22217826", "2001-2013_USPTOapplications_reactionSmiles_feb2014filters.7z", ),

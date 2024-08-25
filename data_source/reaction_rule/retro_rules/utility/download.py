@@ -23,24 +23,22 @@ class RetroRulesReactionRuleDatabaseDownloadUtility:
 
         if version == "v_release_rr01_rp2_hs":
             file_url_suffix = "5827427/files/retrorules_rr01_rp2.tar.gz"
-            file_name = "retrorules_rr01_rp2.tar.gz"
 
         elif version == "v_release_rr02_rp2_hs":
             file_url_suffix = "5828017/files/retrorules_rr02_rp2_hs.tar.gz"
-            file_name = "retrorules_rr02_rp2_hs.tar.gz"
 
         elif version == "v_release_rr02_rp3_hs":
             file_url_suffix = "5827977/files/retrorules_rr02_rp3_hs.tar.gz"
-            file_name = "retrorules_rr02_rp3_hs.tar.gz"
 
         else:
             file_url_suffix = "5827969/files/retrorules_rr02_rp3_nohs.tar.gz"
-            file_name = "retrorules_rr02_rp3_nohs.tar.gz"
 
         BaseDataSourceDownloadUtility.download_file(
             file_url="https://zenodo.org/records/{file_url_suffix:s}".format(
                 file_url_suffix=file_url_suffix
             ),
-            file_name=file_name,
+            file_name=file_url_suffix.split(
+                sep="/"
+            )[-1],
             output_directory_path=output_directory_path
         )
