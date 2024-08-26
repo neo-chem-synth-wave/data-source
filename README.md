@@ -2,7 +2,7 @@
 ![Static Badge](https://img.shields.io/badge/Elix%2C%20Inc.-%235EB6B3?style=flat)
 ![Static Badge](https://img.shields.io/badge/Institute%20of%20Science%20Tokyo-%231C3177?style=flat)
 
-Welcome to the computer-assisted chemical synthesis data source project !!!
+Welcome to the **computer-assisted chemical synthesis data source** project !!!
 
 Over the last decade, computer-assisted chemical synthesis has re-emerged as a heavily researched subject in
 Chemoinformatics. Even though the idea of utilizing computers to assist chemical synthesis has existed for nearly as
@@ -222,8 +222,8 @@ The following miscellaneous chemical reaction rule data sources are supported:
 
 
 ## Data
-The purpose of the [data](/data) directory is to archive the datasets that are hosted on [GitHub](https://github.com)
-and [CodeOcean](https://codeocean.com) repositories.
+The purpose of the [data](/data) directory is to archive the data sources that are hosted on
+[GitHub](https://github.com) and [CodeOcean](https://codeocean.com) repositories.
 
 
 ## License Information

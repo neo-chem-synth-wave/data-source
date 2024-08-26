@@ -128,78 +128,74 @@ def get_script_logger() -> Logger:
 if __name__ == "__main__":
     script_logger = get_script_logger()
 
-    try:
-        script_arguments = get_script_arguments()
+    script_arguments = get_script_arguments()
 
-        if script_arguments.data_source_category == "compound":
-            data_source = CompoundDataSource(
-                logger=script_logger
+    if script_arguments.data_source_category == "compound":
+        data_source = CompoundDataSource(
+            logger=script_logger
+        )
+
+    elif script_arguments.data_source_category == "reaction":
+        data_source = ReactionDataSource(
+            logger=script_logger
+        )
+
+    elif script_arguments.data_source_category == "reaction_rule":
+        data_source = ReactionRuleDataSource(
+            logger=script_logger
+        )
+
+    else:
+        raise ValueError(
+            "The data source category '{category:s}' is not supported.".format(
+                category=script_arguments.data_source_category
             )
+        )
 
-        elif script_arguments.data_source_category == "reaction":
-            data_source = ReactionDataSource(
-                logger=script_logger
-            )
+    if script_arguments.get_data_source_name_information:
+        print(script_arguments.data_source_category)
+        print(data_source.get_names_of_supported_data_sources())
 
-        elif script_arguments.data_source_category == "reaction_rule":
-            data_source = ReactionRuleDataSource(
-                logger=script_logger
-            )
+    elif script_arguments.get_data_source_version_information:
+        print(script_arguments.data_source_category)
+        print(script_arguments.data_source_name)
+        print(data_source.get_supported_versions(
+            name=script_arguments.data_source_name
+        ))
 
-        else:
-            raise ValueError(
-                "The data source category '{category:s}' is not supported.".format(
-                    category=script_arguments.data_source_category
+    else:
+        temporary_output_directory_path = Path(
+            script_arguments.output_directory_path,
+            "{timestamp:s}_temporary_output_directory".format(
+                timestamp=datetime.now().strftime(
+                    format="%Y%m%d%H%M%S"
                 )
             )
+        )
 
-        if script_arguments.get_data_source_name_information:
-            print(script_arguments.data_source_category)
-            print(data_source.get_names_of_supported_data_sources())
+        temporary_output_directory_path.mkdir()
 
-        elif script_arguments.get_data_source_version_information:
-            print(script_arguments.data_source_category)
-            print(script_arguments.data_source_name)
-            print(data_source.get_supported_versions(
-                name=script_arguments.data_source_name
-            ))
+        data_source.download(
+            name=script_arguments.data_source_name,
+            version=script_arguments.data_source_version,
+            output_directory_path=temporary_output_directory_path
+        )
 
-        else:
-            temporary_output_directory_path = Path(
-                script_arguments.output_directory_path,
-                "{timestamp:s}_temporary_output_directory".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    )
-                )
-            )
+        data_source.extract(
+            name=script_arguments.data_source_name,
+            version=script_arguments.data_source_version,
+            input_directory_path=temporary_output_directory_path,
+            output_directory_path=temporary_output_directory_path
+        )
 
-            temporary_output_directory_path.mkdir()
+        data_source.format(
+            name=script_arguments.data_source_name,
+            version=script_arguments.data_source_version,
+            input_directory_path=temporary_output_directory_path,
+            output_directory_path=script_arguments.output_directory_path,
+            number_of_processes=script_arguments.number_of_processes
+        )
 
-            data_source.download(
-                name=script_arguments.data_source_name,
-                version=script_arguments.data_source_version,
-                output_directory_path=temporary_output_directory_path
-            )
-
-            data_source.extract(
-                name=script_arguments.data_source_name,
-                version=script_arguments.data_source_version,
-                input_directory_path=temporary_output_directory_path,
-                output_directory_path=temporary_output_directory_path
-            )
-
-            data_source.format(
-                name=script_arguments.data_source_name,
-                version=script_arguments.data_source_version,
-                input_directory_path=temporary_output_directory_path,
-                output_directory_path=script_arguments.output_directory_path,
-                number_of_processes=script_arguments.number_of_processes
-            )
-
-            rmtree(
-                path=temporary_output_directory_path
-            )
-
-    except:
-        raise
+        rmtree(
+            path=temporary_output_directory_path
+        )
