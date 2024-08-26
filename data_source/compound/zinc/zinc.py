@@ -1,4 +1,4 @@
-""" The ``data_source.compound.zinc20`` package ``zinc20`` module. """
+""" The ``data_source.compound.zinc`` package ``zinc`` module. """
 
 from logging import Logger
 from os import PathLike
@@ -8,13 +8,13 @@ from typing import Dict, Optional, Union
 from data_source.base.base import BaseDataSource
 from data_source.base.utility.download import BaseDataSourceDownloadUtility
 
-from data_source.compound.zinc20.utility.download import ZINC20CompoundDatabaseDownloadUtility
-from data_source.compound.zinc20.utility.extraction import ZINC20CompoundDatabaseExtractionUtility
-from data_source.compound.zinc20.utility.formatting import ZINC20CompoundDatabaseFormattingUtility
+from data_source.compound.zinc.utility.download import ZINCCompoundDatabaseDownloadUtility
+from data_source.compound.zinc.utility.extraction import ZINCCompoundDatabaseExtractionUtility
+from data_source.compound.zinc.utility.formatting import ZINCCompoundDatabaseFormattingUtility
 
 
-class ZINC20CompoundDatabase(BaseDataSource):
-    """ The `ZINC20 <https://zinc20.docking.org>`_ chemical compound database class. """
+class ZINCCompoundDatabase(BaseDataSource):
+    """ The `ZINC <https://zinc20.docking.org>`_ chemical compound database class. """
 
     def __init__(
             self,
@@ -69,6 +69,10 @@ class ZINC20CompoundDatabase(BaseDataSource):
                     )
                 ] = "https://doi.org/10.1021/acs.jcim.0c00675"
 
+            available_versions.update({
+                "v_moses_by_20201218_polykovskiy_d_et_al": "https://doi.org/10.3389/fphar.2020.565644",
+            })
+
             return available_versions
 
         except Exception as exception_handle:
@@ -98,28 +102,33 @@ class ZINC20CompoundDatabase(BaseDataSource):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The download of the data from the {data_source:s} has been started.".format(
-                            data_source="ZINC20 chemical compound database ({version:s})".format(
+                            data_source="ZINC chemical compound database ({version:s})".format(
                                 version=version
                             )
                         )
                     )
 
                 if version.startswith("v_building_blocks"):
-                    ZINC20CompoundDatabaseDownloadUtility.download_v_building_blocks(
+                    ZINCCompoundDatabaseDownloadUtility.download_v_building_blocks(
                         version=version,
                         output_directory_path=output_directory_path
                     )
 
                 if version.startswith("v_catalog"):
-                    ZINC20CompoundDatabaseDownloadUtility.download_v_catalog(
+                    ZINCCompoundDatabaseDownloadUtility.download_v_catalog(
                         version=version,
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_moses_by_20201218_polykovskiy_d_et_al":
+                    ZINCCompoundDatabaseDownloadUtility.download_v_moses_by_20201218_polykovskiy_d_et_al(
                         output_directory_path=output_directory_path
                     )
 
                 if self.logger is not None:
                     self.logger.info(
                         msg="The download of the data from the {data_source:s} has been completed.".format(
-                            data_source="ZINC20 chemical compound database ({version:s})".format(
+                            data_source="ZINC chemical compound database ({version:s})".format(
                                 version=version
                             )
                         )
@@ -128,7 +137,7 @@ class ZINC20CompoundDatabase(BaseDataSource):
             else:
                 raise ValueError(
                     "The {data_source:s} is not supported.".format(
-                        data_source="ZINC20 chemical compound database version '{version:s}'".format(
+                        data_source="ZINC chemical compound database version '{version:s}'".format(
                             version=version
                         )
                     )
@@ -163,14 +172,14 @@ class ZINC20CompoundDatabase(BaseDataSource):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The extraction of the data from the {data_source:s} has been started.".format(
-                            data_source="ZINC20 chemical compound database ({version:s})".format(
+                            data_source="ZINC chemical compound database ({version:s})".format(
                                 version=version
                             )
                         )
                     )
 
                 if version.startswith("v_building_blocks"):
-                    ZINC20CompoundDatabaseExtractionUtility.extract_v_building_blocks(
+                    ZINCCompoundDatabaseExtractionUtility.extract_v_building_blocks(
                         version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
@@ -179,7 +188,7 @@ class ZINC20CompoundDatabase(BaseDataSource):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The extraction of the data from the {data_source:s} has been completed.".format(
-                            data_source="ZINC20 chemical compound database ({version:s})".format(
+                            data_source="ZINC chemical compound database ({version:s})".format(
                                 version=version
                             )
                         )
@@ -188,7 +197,7 @@ class ZINC20CompoundDatabase(BaseDataSource):
             else:
                 raise ValueError(
                     "The {data_source:s} is not supported.".format(
-                        data_source="ZINC20 chemical compound database version '{version:s}'".format(
+                        data_source="ZINC chemical compound database version '{version:s}'".format(
                             version=version
                         )
                     )
@@ -223,22 +232,28 @@ class ZINC20CompoundDatabase(BaseDataSource):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The formatting of the data from the {data_source:s} has been started.".format(
-                            data_source="ZINC20 chemical compound database ({version:s})".format(
+                            data_source="ZINC chemical compound database ({version:s})".format(
                                 version=version
                             )
                         )
                     )
 
                 if version.startswith("v_building_blocks"):
-                    ZINC20CompoundDatabaseFormattingUtility.format_v_building_blocks(
+                    ZINCCompoundDatabaseFormattingUtility.format_v_building_blocks(
                         version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
 
                 if version.startswith("v_catalog"):
-                    ZINC20CompoundDatabaseFormattingUtility.format_v_catalog(
+                    ZINCCompoundDatabaseFormattingUtility.format_v_catalog(
                         version=version,
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_moses_by_20201218_polykovskiy_d_et_al":
+                    ZINCCompoundDatabaseFormattingUtility.format_v_moses_by_20201218_polykovskiy_d_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -246,7 +261,7 @@ class ZINC20CompoundDatabase(BaseDataSource):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The formatting of the data from the {data_source:s} has been completed.".format(
-                            data_source="ZINC20 chemical compound database ({version:s})".format(
+                            data_source="ZINC chemical compound database ({version:s})".format(
                                 version=version
                             )
                         )
@@ -255,7 +270,7 @@ class ZINC20CompoundDatabase(BaseDataSource):
             else:
                 raise ValueError(
                     "The {data_source:s} is not supported.".format(
-                        data_source="ZINC20 chemical compound database version '{version:s}'".format(
+                        data_source="ZINC chemical compound database version '{version:s}'".format(
                             version=version
                         )
                     )

@@ -51,7 +51,7 @@ def get_script_arguments() -> Namespace:
             "retro_rules",
             "rhea",
             "uspto",
-            "zinc20",
+            "zinc",
         ],
         help="The indicator of the data source name."
     )

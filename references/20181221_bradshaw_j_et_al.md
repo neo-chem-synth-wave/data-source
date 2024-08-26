@@ -3,7 +3,8 @@
 **Authors:** John Bradshaw, Matt J. Kusner, Brooks Paige, Marwin H.S. Segler, José M. Hernández-Lobato<br>
 **Publication Date:** 2018/12/21<br>
 **Publication Link:** [OpenReview](https://openreview.net/forum?id=r1x4BnCqKX)<br>
-**Alternative Publication Links:** [arXiv](https://arxiv.org/abs/1805.10970)
+**Alternative Publication Links:** [arXiv](https://arxiv.org/abs/1805.10970) |
+[Apollo - University of Cambridge Repository](https://www.repository.cam.ac.uk/items/c0d8b48a-5e44-43e5-9a03-487fcadea456)
 
 
 # Abstract

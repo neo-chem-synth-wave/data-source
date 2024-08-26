@@ -399,13 +399,13 @@ class USPTOReactionDatasetExtractionUtility:
                         )
 
     @staticmethod
-    def extract_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+    def extract_v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Extract the data from the `v_1976_to_2016_by_20210407_schwaller_p_et_al` version of the chemical reaction
-        dataset.
+        Extract the data from the `v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al` version of the chemical
+        reaction dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.

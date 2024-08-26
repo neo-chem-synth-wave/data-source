@@ -7,8 +7,7 @@ from typing import Dict, List, Optional, Union
 from data_source.base.base import BaseDataSource
 
 from data_source.compound.chembl.chembl import ChEMBLCompoundDatabase
-from data_source.compound.miscellaneous.miscellaneous import MiscellaneousCompoundDataSource
-from data_source.compound.zinc20.zinc20 import ZINC20CompoundDatabase
+from data_source.compound.zinc.zinc import ZINCCompoundDatabase
 
 
 class CompoundDataSource(BaseDataSource):
@@ -32,10 +31,7 @@ class CompoundDataSource(BaseDataSource):
             "chembl": ChEMBLCompoundDatabase(
                 logger=logger
             ),
-            "miscellaneous": MiscellaneousCompoundDataSource(
-                logger=logger
-            ),
-            "zinc20": ZINC20CompoundDatabase(
+            "zinc": ZINCCompoundDatabase(
                 logger=logger
             ),
         }

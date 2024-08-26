@@ -51,10 +51,10 @@ python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction_rule" \
   --get_data_source_name_information
 
-# Example #2: Get the ZINC20 chemical compound dataset version information.
+# Example #2: Get the ZINC chemical compound database version information.
 python scripts/download_extract_and_format_data.py \
   --data_source_category "compound" \
-  --data_source_name "zinc20" \
+  --data_source_name "zinc" \
   --get_data_source_version_information
 
 # Example #3: Download, extract, and format the data from the USPTO (50k) chemical reaction dataset.
@@ -70,8 +70,7 @@ python scripts/download_extract_and_format_data.py \
 The following chemical compound data sources are supported:
 
 - [ChEMBL](#chembl)
-- [ZINC20](#zinc20)
-- [Miscellaneous Chemical Compound Data Sources](#miscellaneous-chemical-compound-data-sources)
+- [ZINC](#zinc)
 
 ![chemical_compound_data_sources.png](figures/chemical_compound_data_sources.png)
 
@@ -86,23 +85,14 @@ The following ChEMBL chemical compound database versions are supported:
 <sub>:green_circle: Completely Implemented</sub>
 
 
-#### ZINC20
-The following ZINC20 chemical compound database versions are supported:
+#### ZINC
+The following ZINC chemical compound database versions are supported:
 
-| Version                                                                                                                                          | DOI                        |     Status     |
-|--------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|:--------------:|
-| v_building_blocks_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[[2]](/references/20201029_irwin_j_j_et_al.md)</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
-| v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[[2]](/references/20201029_irwin_j_j_et_al.md)</sup>                  | `10.1021/acs.jcim.0c00675` | :green_circle: |
-
-<sub>:green_circle: Completely Implemented</sub>
-
-
-#### Miscellaneous Chemical Compound Data Sources
-The following miscellaneous chemical compound data sources are supported:
-
-| Version                                                                                               | DOI                         |     Status     |
-|-------------------------------------------------------------------------------------------------------|-----------------------------|:--------------:|
-| v_moses_by_20201218_polykovskiy_d_et_al <sup>[[3]](/references/20201218_polykovskiy_d_et_al.md)</sup> | `10.3389/fphar.2020.565644` | :green_circle: |
+| Version                                                                                                                                          | DOI                         |     Status     |
+|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|:--------------:|
+| v_building_blocks_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[[2]](/references/20201029_irwin_j_j_et_al.md)</sup> | `10.1021/acs.jcim.0c00675`  | :green_circle: |
+| v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[[2]](/references/20201029_irwin_j_j_et_al.md)</sup>                  | `10.1021/acs.jcim.0c00675`  | :green_circle: |
+| v_moses_by_20201218_polykovskiy_d_et_al <sup>[[3]](/references/20201218_polykovskiy_d_et_al.md)</sup>                                            | `10.3389/fphar.2020.565644` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -139,7 +129,7 @@ The following United States Patent and Trademark Office (USPTO) chemical reactio
 | v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[[13]](/references/20210128_schwaller_p_et_al.md)</sup>                | `10.1038/s42256-020-00284-w`      | :green_circle:  |
 | v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al <sup>[[14]](/references/20210407_schwaller_p_et_al.md)</sup> | `10.1126/sciadv.abe4166`          | :green_circle:  |
 | v_1976_to_2016_remapped_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>           | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
-| v_50k_mapped_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>                      | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
+| v_50k_remapped_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>                    | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
 | v_mech_31k_by_20240810_chen_s_et_al <sup>[[16]](/references/20240810_chen_s_et_al.md)</sup>                        | `10.6084/m9.figshare.24797220.v2` | :green_circle:  |
 
 <sub>:green_circle: Completely Implemented</sub><br>

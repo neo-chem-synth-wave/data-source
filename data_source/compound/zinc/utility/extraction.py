@@ -1,4 +1,4 @@
-""" The ``data_source.compound.zinc20.utility`` package ``extraction`` module. """
+""" The ``data_source.compound.zinc.utility`` package ``extraction`` module. """
 
 from os import PathLike
 from pathlib import Path
@@ -8,8 +8,8 @@ from typing import Union
 from gzip import open as open_gzip_archive_file
 
 
-class ZINC20CompoundDatabaseExtractionUtility:
-    """ The `ZINC20 <https://zinc20.docking.org>`_ chemical compound database extraction utility class. """
+class ZINCCompoundDatabaseExtractionUtility:
+    """ The `ZINC <https://zinc20.docking.org>`_ chemical compound database extraction utility class. """
 
     @staticmethod
     def extract_v_building_blocks(

@@ -261,12 +261,12 @@ class USPTOReactionDatasetDownloadUtility:
         )
 
     @staticmethod
-    def download_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+    def download_v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_1976_to_2016_by_20210407_schwaller_p_et_al` version of the chemical reaction
-        dataset.
+        Download the data from the `v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al` version of the chemical
+        reaction dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -296,11 +296,11 @@ class USPTOReactionDatasetDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        if version == "v_1976_to_2016_by_20240313_chen_s_et_al":
+        if version == "v_1976_to_2016_remapped_by_20240313_chen_s_et_al":
             file_url_suffix = "44192531"
             file_name = "remapped_USPTO_FULL.csv"
 
-        elif version == "v_50k_by_20240313_chen_s_et_al":
+        elif version == "v_50k_remapped_by_20240313_chen_s_et_al":
             file_url_suffix = "44192528"
             file_name = "remapped_USPTO_50K.csv"
 

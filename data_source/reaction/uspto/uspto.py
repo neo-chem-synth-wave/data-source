@@ -58,9 +58,9 @@ class USPTOReactionDataset(BaseDataSource):
                 "v_stereo_by_20180622_schwaller_p_et_al": "https://doi.org/10.1039/C8SC02339E",
                 "v_lef_by_20181221_bradshaw_j_et_al": "https://openreview.net/forum?id=r1x4BnCqKX",
                 "v_1k_tpl_by_20210128_schwaller_p_et_al": "https://doi.org/10.1038/s42256-020-00284-w",
-                "v_1976_to_2016_by_20210407_schwaller_p_et_al": "https://doi.org/10.1126/sciadv.abe4166",
-                "v_1976_to_2016_by_20240313_chen_s_et_al": "https://doi.org/10.6084/m9.figshare.25046471.v1",
-                "v_50k_by_20240313_chen_s_et_al": "https://doi.org/10.6084/m9.figshare.25046471.v1",
+                "v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al": "https://doi.org/10.1126/sciadv.abe4166",
+                "v_1976_to_2016_remapped_by_20240313_chen_s_et_al": "https://doi.org/10.6084/m9.figshare.25046471.v1",
+                "v_50k_remapped_by_20240313_chen_s_et_al": "https://doi.org/10.6084/m9.figshare.25046471.v1",
                 "v_mech_31k_by_20240810_chen_s_et_al": "https://doi.org/10.6084/m9.figshare.24797220.v2",
             }
 
@@ -162,14 +162,14 @@ class USPTOReactionDataset(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_1976_to_2016_by_20210407_schwaller_p_et_al":
-                    USPTOReactionDatasetDownloadUtility.download_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+                if version == "v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al":
+                    USPTOReactionDatasetDownloadUtility.download_v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al(
                         output_directory_path=output_directory_path
                     )
 
                 if version in [
-                    "v_1976_to_2016_by_20240313_chen_s_et_al",
-                    "v_50k_by_20240313_chen_s_et_al",
+                    "v_1976_to_2016_remapped_by_20240313_chen_s_et_al",
+                    "v_50k_remapped_by_20240313_chen_s_et_al",
                     "v_mech_31k_by_20240810_chen_s_et_al",
                 ]:
                     USPTOReactionDatasetDownloadUtility.download_v_chen_s_et_al(
@@ -295,8 +295,8 @@ class USPTOReactionDataset(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_1976_to_2016_by_20210407_schwaller_p_et_al":
-                    USPTOReactionDatasetExtractionUtility.extract_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+                if version == "v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al":
+                    USPTOReactionDatasetExtractionUtility.extract_v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -433,15 +433,15 @@ class USPTOReactionDataset(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_1976_to_2016_by_20210407_schwaller_p_et_al":
-                    USPTOReactionDatasetFormattingUtility.format_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+                if version == "v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al":
+                    USPTOReactionDatasetFormattingUtility.format_v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
 
                 if version in [
-                    "v_1976_to_2016_by_20240313_chen_s_et_al",
-                    "v_50k_by_20240313_chen_s_et_al",
+                    "v_1976_to_2016_remapped_by_20240313_chen_s_et_al",
+                    "v_50k_remapped_by_20240313_chen_s_et_al",
                     "v_mech_31k_by_20240810_chen_s_et_al",
                 ]:
                     USPTOReactionDatasetFormattingUtility.format_v_chen_s_et_al(

@@ -753,7 +753,7 @@ class USPTOReactionDatasetFormattingUtility:
         )
 
     @staticmethod
-    def format_v_1976_to_2016_by_20210407_schwaller_p_et_al(
+    def format_v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
@@ -812,10 +812,10 @@ class USPTOReactionDatasetFormattingUtility:
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
-        if version == "v_1976_to_2016_by_20240313_chen_s_et_al":
+        if version == "v_1976_to_2016_remapped_by_20240313_chen_s_et_al":
             file_name = "remapped_USPTO_FULL.csv"
 
-        elif version == "v_50k_by_20240313_chen_s_et_al":
+        elif version == "v_50k_remapped_by_20240313_chen_s_et_al":
             file_name = "remapped_USPTO_50K.csv"
 
         else:
