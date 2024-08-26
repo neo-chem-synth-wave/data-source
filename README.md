@@ -122,25 +122,25 @@ The following chemical reaction data sources are supported:
 #### United States Patent and Trademark Office (USPTO)
 The following United States Patent and Trademark Office (USPTO) chemical reaction dataset versions are supported:
 
-| Version                                                                                                            | DOI                                  |     Status      |
-|--------------------------------------------------------------------------------------------------------------------|--------------------------------------|:---------------:|
-| v_1976_to_2013_rsmi_by_20121009_lowe_d_m <sup>[[4]](/references/20121009_lowe_d_m.md)</sup>                        | `10.6084/m9.figshare.12084729.v1`    | :green_circle:  |
-| v_50k_by_20141226_schneider_n_et_al <sup>[[5]](/references/20141226_schneider_n_et_al.md)</sup>                    | `10.1021/ci5006614`                  | :green_circle:  |
-| v_50k_by_20161122_schneider_n_et_al <sup>[[6]](/references/20161122_schneider_n_et_al.md)</sup>                    | `10.1021/acs.jcim.6b00564`           | :green_circle:  |
-| v_15k_by_20170418_coley_c_w_et_al <sup>[[7]](/references/20170418_coley_c_w_et_al.md)</sup>                        | `10.1021/acscentsci.7b00064`         | :green_circle:  |
-| v_1976_to_2016_cml_by_20121009_lowe_d_m <sup>[[4]](/references/20121009_lowe_d_m.md)</sup>                         | `10.6084/m9.figshare.5104873.v1`     | :yellow_circle: |
-| v_1976_to_2016_rsmi_by_20121009_lowe_d_m <sup>[[4]](/references/20121009_lowe_d_m.md)</sup>                        | `10.6084/m9.figshare.5104873.v1`     | :green_circle:  |
-| v_50k_by_20170905_liu_b_et_al <sup>[[8]](/references/20170905_liu_b_et_al.md)</sup>                                | `10.1021/acscentsci.7b00303`         | :green_circle:  |
-| v_50k_by_20171116_coley_c_w_et_al <sup>[[9]](/references/20171116_coley_c_w_et_al.md)</sup>                        | `10.1021/acscentsci.7b00355`         | :green_circle:  |
-| v_480k_or_mit_by_20171204_jin_w_et_al <sup>[[10]](/references/20171204_jin_w_et_al.md)</sup>                       | `10.48550/arXiv.1709.04555`          | :green_circle:  |
-| v_480k_or_mit_by_20180622_schwaller_p_et_al <sup>[[11]](/references/20180622_schwaller_p_et_al.md)</sup>           | `10.1039/C8SC02339E`                 | :green_circle:  |
-| v_stereo_by_20180622_schwaller_p_et_al <sup>[[11]](/references/20180622_schwaller_p_et_al.md)</sup>                | `10.1039/C8SC02339E`                 | :green_circle:  |
-| v_lef_by_20181221_bradshaw_j_et_al <sup>[[12]](/references/20181221_bradshaw_j_et_al.md)</sup>                     | `openreview.net/forum?id=r1x4BnCqKX` | :green_circle:  |
-| v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[[13]](/references/20210128_schwaller_p_et_al.md)</sup>                | `10.1038/s42256-020-00284-w`         | :green_circle:  |
-| v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al <sup>[[14]](/references/20210407_schwaller_p_et_al.md)</sup> | `10.1126/sciadv.abe4166`             | :green_circle:  |
-| v_1976_to_2016_remapped_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>           | `10.6084/m9.figshare.25046471.v1`    | :green_circle:  |
-| v_50k_remapped_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>                    | `10.6084/m9.figshare.25046471.v1`    | :green_circle:  |
-| v_mech_31k_by_20240810_chen_s_et_al <sup>[[16]](/references/20240810_chen_s_et_al.md)</sup>                        | `10.6084/m9.figshare.24797220.v2`    | :green_circle:  |
+| Version                                                                                                            | DOI                               |     Status      |
+|--------------------------------------------------------------------------------------------------------------------|-----------------------------------|:---------------:|
+| v_1976_to_2013_rsmi_by_20121009_lowe_d_m <sup>[[4]](/references/20121009_lowe_d_m.md)</sup>                        | `10.6084/m9.figshare.12084729.v1` | :green_circle:  |
+| v_50k_by_20141226_schneider_n_et_al <sup>[[5]](/references/20141226_schneider_n_et_al.md)</sup>                    | `10.1021/ci5006614`               | :green_circle:  |
+| v_50k_by_20161122_schneider_n_et_al <sup>[[6]](/references/20161122_schneider_n_et_al.md)</sup>                    | `10.1021/acs.jcim.6b00564`        | :green_circle:  |
+| v_15k_by_20170418_coley_c_w_et_al <sup>[[7]](/references/20170418_coley_c_w_et_al.md)</sup>                        | `10.1021/acscentsci.7b00064`      | :green_circle:  |
+| v_1976_to_2016_cml_by_20121009_lowe_d_m <sup>[[4]](/references/20121009_lowe_d_m.md)</sup>                         | `10.6084/m9.figshare.5104873.v1`  | :yellow_circle: |
+| v_1976_to_2016_rsmi_by_20121009_lowe_d_m <sup>[[4]](/references/20121009_lowe_d_m.md)</sup>                        | `10.6084/m9.figshare.5104873.v1`  | :green_circle:  |
+| v_50k_by_20170905_liu_b_et_al <sup>[[8]](/references/20170905_liu_b_et_al.md)</sup>                                | `10.1021/acscentsci.7b00303`      | :green_circle:  |
+| v_50k_by_20171116_coley_c_w_et_al <sup>[[9]](/references/20171116_coley_c_w_et_al.md)</sup>                        | `10.1021/acscentsci.7b00355`      | :green_circle:  |
+| v_480k_or_mit_by_20171204_jin_w_et_al <sup>[[10]](/references/20171204_jin_w_et_al.md)</sup>                       | `10.48550/arXiv.1709.04555`       | :green_circle:  |
+| v_480k_or_mit_by_20180622_schwaller_p_et_al <sup>[[11]](/references/20180622_schwaller_p_et_al.md)</sup>           | `10.1039/C8SC02339E`              | :green_circle:  |
+| v_stereo_by_20180622_schwaller_p_et_al <sup>[[11]](/references/20180622_schwaller_p_et_al.md)</sup>                | `10.1039/C8SC02339E`              | :green_circle:  |
+| v_lef_by_20181221_bradshaw_j_et_al <sup>[[12]](/references/20181221_bradshaw_j_et_al.md)</sup>                     | -                                 | :green_circle:  |
+| v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[[13]](/references/20210128_schwaller_p_et_al.md)</sup>                | `10.1038/s42256-020-00284-w`      | :green_circle:  |
+| v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al <sup>[[14]](/references/20210407_schwaller_p_et_al.md)</sup> | `10.1126/sciadv.abe4166`          | :green_circle:  |
+| v_1976_to_2016_remapped_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>           | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
+| v_50k_remapped_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>                    | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
+| v_mech_31k_by_20240810_chen_s_et_al <sup>[[16]](/references/20240810_chen_s_et_al.md)</sup>                        | `10.6084/m9.figshare.24797220.v2` | :green_circle:  |
 
 <sub>:green_circle: Completely Implemented</sub><br>
 <sub>:yellow_circle: Partially Implemented (Limited to Reaction SMILES Strings)</sub>
