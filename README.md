@@ -73,6 +73,8 @@ The following chemical compound data sources are supported:
 - [ZINC20](#zinc20)
 - [Miscellaneous Chemical Compound Data Sources](#miscellaneous-chemical-compound-data-sources)
 
+![chemical_compound_data_sources.png](figures/chemical_compound_data_sources.png)
+
 
 #### ChEMBL
 The following ChEMBL chemical compound database versions are supported:
@@ -201,6 +203,8 @@ The following chemical reaction rule data sources are supported:
 
 - [RetroRules](#retrorules)
 - [Miscellaneous Chemical Reaction Rule Data Sources](#miscellaneous-chemical-reaction-rule-data-sources)
+
+![chemical_reaction_rule_data_sources.png](figures/chemical_reaction_rule_data_sources.png)
 
 
 #### RetroRules
