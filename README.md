@@ -135,11 +135,11 @@ The following United States Patent and Trademark Office (USPTO) chemical reactio
 | v_480k_or_mit_by_20171204_jin_w_et_al <sup>[[10]](/references/20171204_jin_w_et_al.md)</sup>                       | `10.48550/arXiv.1709.04555`       | :green_circle:  |
 | v_480k_or_mit_by_20180622_schwaller_p_et_al <sup>[[11]](/references/20180622_schwaller_p_et_al.md)</sup>           | `10.1039/C8SC02339E`              | :green_circle:  |
 | v_stereo_by_20180622_schwaller_p_et_al <sup>[[11]](/references/20180622_schwaller_p_et_al.md)</sup>                | `10.1039/C8SC02339E`              | :green_circle:  |
-| v_lef_by_20181221_bradshaw_j_et_al <sup>[[12]](/references/20181221_bradshaw_j_et_al.md)</sup>                     | -                                 | :green_circle:  |
+| v_lef_by_20181221_bradshaw_j_et_al <sup>[[12]](/references/20181221_bradshaw_j_et_al.md)</sup>                     | `10.48550/arXiv.1805.10970`       | :green_circle:  |
 | v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[[13]](/references/20210128_schwaller_p_et_al.md)</sup>                | `10.1038/s42256-020-00284-w`      | :green_circle:  |
 | v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al <sup>[[14]](/references/20210407_schwaller_p_et_al.md)</sup> | `10.1126/sciadv.abe4166`          | :green_circle:  |
 | v_1976_to_2016_remapped_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>           | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
-| v_50k_remapped_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>                    | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
+| v_50k_mapped_by_20240313_chen_s_et_al <sup>[[15]](/references/20240313_chen_s_et_al.md)</sup>                      | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
 | v_mech_31k_by_20240810_chen_s_et_al <sup>[[16]](/references/20240810_chen_s_et_al.md)</sup>                        | `10.6084/m9.figshare.24797220.v2` | :green_circle:  |
 
 <sub>:green_circle: Completely Implemented</sub><br>
