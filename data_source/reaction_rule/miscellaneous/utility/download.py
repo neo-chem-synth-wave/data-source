@@ -14,15 +14,20 @@ class MiscellaneousReactionRuleDataSourceDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_retro_transform_db_by_20180421_avramova_s_et_al` version of the chemical reaction
-        rule data source.
+        Download the data from the `v_retro_transform_db_by_20180421_avramova_s_et_al` version of the data source.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_name = "RetroTransformDB-v-1-0.txt"
+
+        file_url = "https://zenodo.org/records/1209313/files/{file_name:s}".format(
+            file_name=file_name
+        )
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://zenodo.org/records/1209313/files/RetroTransformDB-v-1-0.txt",
-            file_name="RetroTransformDB-v-1-0.txt",
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -31,16 +36,21 @@ class MiscellaneousReactionRuleDataSourceDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_dingos_by_20190701_button_a_et_al` version of the chemical reaction rule data
-        source.
+        Download the data from the `v_dingos_by_20190701_button_a_et_al` version of the data source.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_name = "rxn_set.txt"
+
+        file_url = "https://raw.githubusercontent.com/neo-chem-synth-wave/data-source/main/data/{file_url_suffix:s}".format(
+            file_url_suffix="reaction_rule/miscellaneous_v_dingos_by_20190701_button_a_et_al/{file_name:s}".format(
+                file_name=file_name
+            )
+        )
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://raw.githubusercontent.com/neo-chem-synth-wave/data-source/{file_url_suffix:s}".format(
-                file_url_suffix="main/data/reaction_rule/miscellaneous_v_dingos_by_20190701_button_a_et_al/rxn_set.txt"
-            ),
-            file_name="rxn_set.txt",
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )

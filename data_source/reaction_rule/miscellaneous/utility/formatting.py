@@ -5,7 +5,7 @@ from os import PathLike
 from pathlib import Path
 from typing import Union
 
-from pandas import read_csv
+from pandas.io.parsers.readers import read_csv
 
 
 class MiscellaneousReactionRuleDataSourceFormattingUtility:
@@ -17,15 +17,22 @@ class MiscellaneousReactionRuleDataSourceFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_retro_transform_db_by_20180421_avramova_s_et_al` version of the chemical reaction
-        rule data source.
+        Format the data from the `v_retro_transform_db_by_20180421_avramova_s_et_al` version of the data source.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
+        input_file_name = "RetroTransformDB-v-1-0.txt"
+
+        output_file_name = "{timestamp:s}_miscellaneous_v_retro_transform_db_by_20180421_avramova_s_et_al.csv".format(
+            timestamp=datetime.now().strftime(
+                format="%Y%m%d%H%M%S"
+            )
+        )
+
         read_csv(
-            filepath_or_buffer=Path(input_directory_path, "RetroTransformDB-v-1-0.txt"),
+            filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep="\t",
             header=0
         ).dropna(
@@ -35,14 +42,7 @@ class MiscellaneousReactionRuleDataSourceFormattingUtility:
                 "ID": int,
             }
         ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_miscellaneous_v_retro_transform_db_by_20180421_avramova_s_et_al.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    )
-                )
-            ),
+            path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )
 
@@ -59,8 +59,16 @@ class MiscellaneousReactionRuleDataSourceFormattingUtility:
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
+        input_file_name = "rxn_set.txt"
+
+        output_file_name = "{timestamp:s}_miscellaneous_v_dingos_by_20190701_button_a_et_al.csv".format(
+            timestamp=datetime.now().strftime(
+                format="%Y%m%d%H%M%S"
+            )
+        )
+
         read_csv(
-            filepath_or_buffer=Path(input_directory_path, "rxn_set.txt"),
+            filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep="|",
             header=None
         ).rename(
@@ -70,13 +78,6 @@ class MiscellaneousReactionRuleDataSourceFormattingUtility:
                 2: "reaction_label",
             }
         ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_miscellaneous_v_dingos_by_20190701_button_a_et_al.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    )
-                )
-            ),
+            path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )

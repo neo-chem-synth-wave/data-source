@@ -15,30 +15,42 @@ class RetroRulesReactionRuleDatabaseDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from a `v_release_*` version of the chemical reaction rule database.
+        Download the data from a `v_release_*` version of the database.
 
-        :parameter version: The version of the chemical reaction rule database.
+        :parameter version: The version of the database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
         if version == "v_release_rr01_rp2_hs":
-            file_url_suffix = "5827427/files/retrorules_rr01_rp2.tar.gz"
+            file_name = "retrorules_rr01_rp2.tar.gz"
+
+            file_url = "https://zenodo.org/records/5827427/files/{file_name:s}".format(
+                file_name=file_name
+            )
 
         elif version == "v_release_rr02_rp2_hs":
-            file_url_suffix = "5828017/files/retrorules_rr02_rp2_hs.tar.gz"
+            file_name = "retrorules_rr02_rp2_hs.tar.gz"
+
+            file_url = "https://zenodo.org/records/5828017/files/{file_name:s}".format(
+                file_name=file_name
+            )
 
         elif version == "v_release_rr02_rp3_hs":
-            file_url_suffix = "5827977/files/retrorules_rr02_rp3_hs.tar.gz"
+            file_name = "retrorules_rr02_rp3_hs.tar.gz"
+
+            file_url = "https://zenodo.org/records/5827977/files/{file_name:s}".format(
+                file_name=file_name
+            )
 
         else:
-            file_url_suffix = "5827969/files/retrorules_rr02_rp3_nohs.tar.gz"
+            file_name = "retrorules_rr02_rp3_nohs.tar.gz"
+
+            file_url = "https://zenodo.org/records/5827969/files/{file_name:s}".format(
+                file_name=file_name
+            )
 
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://zenodo.org/records/{file_url_suffix:s}".format(
-                file_url_suffix=file_url_suffix
-            ),
-            file_name=file_url_suffix.split(
-                sep="/"
-            )[-1],
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )

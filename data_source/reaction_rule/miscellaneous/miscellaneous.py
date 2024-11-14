@@ -27,44 +27,29 @@ class MiscellaneousReactionRuleDataSource(BaseDataSource):
             logger=logger
         )
 
-    def get_supported_versions(
-            self,
-            **kwargs
-    ) -> Dict[str, str]:
+    @staticmethod
+    def get_supported_versions() -> Dict[str, str]:
         """
-        Get the supported versions of the chemical reaction rule data source.
+        Get the supported versions of the data source.
 
-        :parameter kwargs: The keyword arguments.
-
-        :returns: The supported versions of the chemical reaction rule data source.
+        :returns: The supported versions of the data source.
         """
 
-        try:
-            return {
-                "v_retro_transform_db_by_20180421_avramova_s_et_al": "https://zenodo.org/doi/10.5281/zenodo.1209312",
-                "v_dingos_by_20190701_button_a_et_al": "https://doi.org/10.24433/CO.6930970.v1",
-            }
-
-        except Exception as exception_handle:
-            if self.logger is not None:
-                self.logger.error(
-                    msg=exception_handle
-                )
-
-            raise
+        return {
+            "v_retro_transform_db_by_20180421_avramova_s_et_al": "https://zenodo.org/doi/10.5281/zenodo.1209312",
+            "v_dingos_by_20190701_button_a_et_al": "https://doi.org/10.24433/CO.6930970.v1",
+        }
 
     def download(
             self,
             version: str,
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the chemical reaction rule data source.
+        Download the data from the data source.
 
-        :parameter version: The version of the chemical reaction rule data source.
+        :parameter version: The version of the data source.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -118,16 +103,14 @@ class MiscellaneousReactionRuleDataSource(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Extract the data from the chemical reaction rule data source.
+        Extract the data from the data source.
 
-        :parameter version: The version of the chemical reaction rule data source.
+        :parameter version: The version of the data source.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -171,16 +154,14 @@ class MiscellaneousReactionRuleDataSource(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the chemical reaction rule data source.
+        Format the data from the data source.
 
-        :parameter version: The version of the chemical reaction rule data source.
+        :parameter version: The version of the data source.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
