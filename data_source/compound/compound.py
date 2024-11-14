@@ -7,6 +7,7 @@ from typing import Dict, List, Optional, Union
 from data_source.base.base import BaseDataSource
 
 from data_source.compound.chembl.chembl import ChEMBLCompoundDatabase
+from data_source.compound.miscellaneous.miscellaneous import MiscellaneousCompoundDataSource
 from data_source.compound.zinc.zinc import ZINCCompoundDatabase
 
 
@@ -31,6 +32,9 @@ class CompoundDataSource(BaseDataSource):
             "chembl": ChEMBLCompoundDatabase(
                 logger=logger
             ),
+            "miscellaneous": MiscellaneousCompoundDataSource(
+                logger=logger
+            ),
             "zinc": ZINCCompoundDatabase(
                 logger=logger
             ),
@@ -49,30 +53,32 @@ class CompoundDataSource(BaseDataSource):
 
     def get_supported_versions(
             self,
-            name: str,
-            **kwargs
+            name: str
     ) -> Dict[str, str]:
         """
         Get the supported versions of a chemical compound data source.
 
         :parameter name: The name of the chemical compound data source.
-        :parameter kwargs: The keyword arguments.
 
         :returns: The supported versions of the chemical compound data source.
         """
 
         if name in self.get_names_of_supported_data_sources():
-            return self.supported_data_sources[name].get_supported_versions(
-                **kwargs
-            )
+            return self.supported_data_sources[name].get_supported_versions()
 
         else:
-            self._raise_and_log_exception(
-                exception_class=ValueError,
-                exception_message="The chemical compound data source name '{name:s}' is not supported.".format(
+            exception_handle = ValueError(
+                "The chemical compound data source name '{name:s}' is not supported.".format(
                     name=name
                 )
             )
+
+            if self.__logger is not None:
+                self.__logger.error(
+                    msg=exception_handle
+                )
+
+            raise exception_handle
 
     def download(
             self,
@@ -82,93 +88,103 @@ class CompoundDataSource(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Download the data from a chemical compound data source.
+        Download the data from a data source.
 
-        :parameter name: The name of the chemical compound data source.
-        :parameter version: The version of the chemical compound data source.
+        :parameter name: The name of the data source.
+        :parameter version: The version of the data source.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         if name in self.get_names_of_supported_data_sources():
             self.supported_data_sources[name].download(
                 version=version,
-                output_directory_path=output_directory_path,
-                **kwargs
+                output_directory_path=output_directory_path
             )
 
         else:
-            self._raise_and_log_exception(
-                exception_class=ValueError,
-                exception_message="The chemical compound data source name '{name:s}' is not supported.".format(
+            exception_handle = ValueError(
+                "The chemical compound data source name '{name:s}' is not supported.".format(
                     name=name
                 )
             )
+
+            if self.__logger is not None:
+                self.__logger.error(
+                    msg=exception_handle
+                )
+
+            raise exception_handle
 
     def extract(
             self,
             name: str,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Extract the data from a chemical compound data source.
+        Extract the data from a data source.
 
-        :parameter name: The name of the chemical compound data source.
-        :parameter version: The version of the chemical compound data source.
+        :parameter name: The name of the data source.
+        :parameter version: The version of the data source.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
-        :parameter kwargs: The keyword arguments.
         """
 
         if name in self.get_names_of_supported_data_sources():
             self.supported_data_sources[name].extract(
                 version=version,
                 input_directory_path=input_directory_path,
-                output_directory_path=output_directory_path,
-                **kwargs
+                output_directory_path=output_directory_path
             )
 
         else:
-            self._raise_and_log_exception(
-                exception_class=ValueError,
-                exception_message="The chemical compound data source name '{name:s}' is not supported.".format(
+            exception_handle = ValueError(
+                "The chemical compound data source name '{name:s}' is not supported.".format(
                     name=name
                 )
             )
+
+            if self.__logger is not None:
+                self.__logger.error(
+                    msg=exception_handle
+                )
+
+            raise exception_handle
 
     def format(
             self,
             name: str,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from a chemical compound data source.
+        Format the data from a data source.
 
-        :parameter name: The name of the chemical compound data source.
-        :parameter version: The version of the chemical compound data source.
+        :parameter name: The name of the data source.
+        :parameter version: The version of the data source.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter kwargs: The keyword arguments.
         """
 
         if name in self.get_names_of_supported_data_sources():
             self.supported_data_sources[name].format(
                 version=version,
                 input_directory_path=input_directory_path,
-                output_directory_path=output_directory_path,
-                **kwargs
+                output_directory_path=output_directory_path
             )
 
         else:
-            self._raise_and_log_exception(
-                exception_class=ValueError,
-                exception_message="The chemical compound data source name '{name:s}' is not supported.".format(
+            exception_handle = ValueError(
+                "The chemical compound data source name '{name:s}' is not supported.".format(
                     name=name
                 )
             )
+
+            if self.__logger is not None:
+                self.__logger.error(
+                    msg=exception_handle
+                )
+
+            raise exception_handle

@@ -1,4 +1,4 @@
-""" The ``data_source.compound.chembl.utility`` package ``formatting`` module. """
+""" The ``data_source.compound.miscellaneous.utility`` package ``formatting`` module. """
 
 from datetime import datetime
 from os import PathLike
@@ -8,41 +8,31 @@ from typing import Union
 from pandas.io.parsers.readers import read_csv
 
 
-class ChEMBLCompoundDatabaseFormattingUtility:
-    """ The `ChEMBL <https://www.ebi.ac.uk/chembl>`_ chemical compound database formatting utility class. """
+class MiscellaneousCompoundDataSourceFormattingUtility:
+    """ The miscellaneous chemical compound data source formatting utility class. """
 
     @staticmethod
-    def format_v_release(
-            version: str,
+    def format_v_moses_by_20201218_polykovskiy_d_et_al(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from a `v_release_*` version of the database.
+        Format the data from the `v_moses_by_20201218_polykovskiy_d_et_al` version of the data source.
 
-        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
-        release_number = version.split(
-            sep="_"
-        )[-1]
+        input_file_name = "dataset_v1.csv"
 
-        input_file_name = "chembl_{release_number:s}_chemreps.txt.gz".format(
-            release_number=release_number
-        )
-
-        output_file_name = "{timestamp:s}_chembl_{version:s}.csv".format(
+        output_file_name = "{timestamp:s}_zinc_v_moses_by_20201218_polykovskiy_d_et_al.csv".format(
             timestamp=datetime.now().strftime(
                 format="%Y%m%d%H%M%S"
-            ),
-            version=version
+            )
         )
 
         read_csv(
             filepath_or_buffer=Path(input_directory_path, input_file_name),
-            sep="\t",
             header=0
         ).to_csv(
             path_or_buf=Path(output_directory_path, output_file_name),

@@ -71,6 +71,7 @@ The following chemical compound data sources are supported:
 
 - [ChEMBL](#chembl)
 - [ZINC](#zinc)
+- [Miscellaneous Chemical Compound Data Sources](#miscellaneous-chemical-compound-data-sources)
 
 ![chemical_compound_data_sources.png](figures/chemical_compound_data_sources.png)
 
@@ -92,7 +93,16 @@ The following ZINC chemical compound database versions are supported:
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|:--------------:|
 | v_building_blocks_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[[2]](/references/2020/20201029_irwin_j_j_et_al.md)</sup> | `10.1021/acs.jcim.0c00675`  | :green_circle: |
 | v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[[2]](/references/2020/20201029_irwin_j_j_et_al.md)</sup>                  | `10.1021/acs.jcim.0c00675`  | :green_circle: |
-| v_moses_by_20201218_polykovskiy_d_et_al <sup>[[3]](/references/2020/20201218_polykovskiy_d_et_al.md)</sup>                                            | `10.3389/fphar.2020.565644` | :green_circle: |
+
+<sub>:green_circle: Completely Implemented</sub>
+
+
+#### Miscellaneous Chemical Compound Data Sources
+The following miscellaneous chemical compound data sources are supported:
+
+| Version                                                                                                    | DOI                         |     Status     |
+|------------------------------------------------------------------------------------------------------------|-----------------------------|:--------------:|
+| v_moses_by_20201218_polykovskiy_d_et_al <sup>[[3]](/references/2020/20201218_polykovskiy_d_et_al.md)</sup> | `10.3389/fphar.2020.565644` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
