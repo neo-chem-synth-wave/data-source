@@ -5,7 +5,7 @@ from os import PathLike
 from pathlib import Path
 from typing import Union
 
-from pandas import read_csv
+from pandas.io.parsers.readers import read_csv
 
 
 class ZINCCompoundDatabaseFormattingUtility:
@@ -18,23 +18,29 @@ class ZINCCompoundDatabaseFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from a `v_building_blocks_*` version of the chemical compound database.
+        Format the data from a `v_building_blocks_*` version of the database.
 
-        :parameter version: The version of the chemical compound database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
-        read_csv(
-            filepath_or_buffer=Path(
-                input_directory_path,
-                "{file_name:s}.smi".format(
-                    file_name=version.split(
-                        sep="_",
-                        maxsplit=3
-                    )[-1]
-                )
+        input_file_name = "{file_name_prefix:s}.smi".format(
+            file_name_prefix=version.split(
+                sep="_",
+                maxsplit=3
+            )[-1]
+        )
+
+        output_file_name = "{timestamp:s}_zinc_{version:s}.csv".format(
+            timestamp=datetime.now().strftime(
+                format="%Y%m%d%H%M%S"
             ),
+            version=version
+        )
+
+        read_csv(
+            filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep=r"\s+",
             header=None
         ).rename(
@@ -43,15 +49,7 @@ class ZINCCompoundDatabaseFormattingUtility:
                 1: "id",
             }
         ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_zinc_{version:s}.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    ),
-                    version=version.replace("-", "_")
-                )
-            ),
+            path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )
 
@@ -62,23 +60,29 @@ class ZINCCompoundDatabaseFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from a `v_catalog_*` version of the chemical compound database.
+        Format the data from a `v_catalog_*` version of the database.
 
-        :parameter version: The version of the chemical compound database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
-        read_csv(
-            filepath_or_buffer=Path(
-                input_directory_path,
-                "{file_name:s}.src.txt".format(
-                    file_name=version.split(
-                        sep="_",
-                        maxsplit=2
-                    )[-1]
-                )
+        input_file_name = "{file_name_prefix:s}.src.txt".format(
+            file_name_prefix=version.split(
+                sep="_",
+                maxsplit=2
+            )[-1]
+        )
+
+        output_file_name = "{timestamp:s}_zinc_{version:s}.csv".format(
+            timestamp=datetime.now().strftime(
+                format="%Y%m%d%H%M%S"
             ),
+            version=version.replace("-", "_")
+        )
+
+        read_csv(
+            filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep=r"\s+",
             header=None
         ).rename(
@@ -87,41 +91,6 @@ class ZINCCompoundDatabaseFormattingUtility:
                 1: "id",
             }
         ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_zinc_{version:s}.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    ),
-                    version=version.replace("-", "_")
-                )
-            ),
-            index=False
-        )
-
-    @staticmethod
-    def format_v_moses_by_20201218_polykovskiy_d_et_al(
-            input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
-    ) -> None:
-        """
-        Format the data from the `v_moses_by_20201218_polykovskiy_d_et_al` version of the chemical compound database.
-
-        :parameter input_directory_path: The path to the input directory where the data is extracted.
-        :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        """
-
-        read_csv(
-            filepath_or_buffer=Path(input_directory_path, "dataset_v1.csv"),
-            header=0
-        ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_zinc_v_moses_by_20201218_polykovskiy_d_et_al.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    )
-                )
-            ),
+            path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )
