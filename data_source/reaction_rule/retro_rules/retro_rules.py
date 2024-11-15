@@ -31,9 +31,9 @@ class RetroRulesReactionRuleDatabase(BaseDataSource):
     @staticmethod
     def get_supported_versions() -> Dict[str, str]:
         """
-        Get the supported versions of the chemical reaction rule database.
+        Get the supported versions of the database.
 
-        :returns: The supported versions of the chemical reaction rule database.
+        :returns: The supported versions of the database.
         """
 
         return {

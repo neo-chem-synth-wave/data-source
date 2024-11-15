@@ -69,8 +69,8 @@ class ReactionRuleDataSource(BaseDataSource):
                 )
             )
 
-            if self.__logger is not None:
-                self.__logger.error(
+            if self.logger is not None:
+                self.logger.error(
                     msg=exception_handle
                 )
 
@@ -103,8 +103,8 @@ class ReactionRuleDataSource(BaseDataSource):
                 )
             )
 
-            if self.__logger is not None:
-                self.__logger.error(
+            if self.logger is not None:
+                self.logger.error(
                     msg=exception_handle
                 )
 
@@ -140,8 +140,8 @@ class ReactionRuleDataSource(BaseDataSource):
                 )
             )
 
-            if self.__logger is not None:
-                self.__logger.error(
+            if self.logger is not None:
+                self.logger.error(
                     msg=exception_handle
                 )
 
@@ -177,8 +177,8 @@ class ReactionRuleDataSource(BaseDataSource):
                 )
             )
 
-            if self.__logger is not None:
-                self.__logger.error(
+            if self.logger is not None:
+                self.logger.error(
                     msg=exception_handle
                 )
 

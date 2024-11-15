@@ -65,7 +65,7 @@ class BaseDataSourceDownloadUtility:
             decode_content=True
         )
 
-        # Disable the JetBrains PyCharm warning.
+        # Disable the JetBrains PyCharm IDE warning.
         # noinspection PyBroadException
         try:
             file_size = http_get_request_response.headers.get("Content-Length", None)
@@ -88,7 +88,7 @@ class BaseDataSourceDownloadUtility:
             with Path(output_directory_path, file_name).open(
                 mode="wb"
             ) as destination_file_handle:
-                # Disable the JetBrains PyCharm warning.
+                # Disable the JetBrains PyCharm IDE warning.
                 # noinspection PyTypeChecker
                 copyfileobj(
                     fsrc=file_download_stream_handle,

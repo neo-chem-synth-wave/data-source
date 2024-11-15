@@ -40,7 +40,7 @@ class ZINCCompoundDatabase(BaseDataSource):
         """
 
         try:
-            available_versions = dict()
+            supported_versions = dict()
 
             for file_name in findall(
                 pattern=r"href=\"([^\.]+)\.smi\.gz",
@@ -48,7 +48,7 @@ class ZINCCompoundDatabase(BaseDataSource):
                     http_get_request_url="https://files.docking.org/bb/current"
                 ).text
             ):
-                available_versions[
+                supported_versions[
                     "v_building_blocks_{file_name:s}".format(
                         file_name=file_name
                     )
@@ -60,13 +60,13 @@ class ZINCCompoundDatabase(BaseDataSource):
                     http_get_request_url="https://files.docking.org/catalogs/source"
                 ).text
             ):
-                available_versions[
+                supported_versions[
                     "v_catalog_{file_name:s}".format(
                         file_name=file_name
                     )
                 ] = "https://doi.org/10.1021/acs.jcim.0c00675"
 
-            return available_versions
+            return supported_versions
 
         except Exception as exception_handle:
             if self.logger is not None:

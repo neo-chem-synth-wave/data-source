@@ -52,8 +52,7 @@ class MiscellaneousReactionRuleDataSourceFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_dingos_by_20190701_button_a_et_al` version of the chemical reaction rule data
-        source.
+        Format the data from the `v_dingos_by_20190701_button_a_et_al` version of the data source.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.

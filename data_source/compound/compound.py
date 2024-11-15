@@ -44,9 +44,9 @@ class CompoundDataSource(BaseDataSource):
             self
     ) -> List[str]:
         """
-        Get the names of the supported chemical compound data sources.
+        Get the names of the supported data sources.
 
-        :returns: The names of the supported chemical compound data sources.
+        :returns: The names of the supported data sources.
         """
 
         return list(self.supported_data_sources.keys())
@@ -56,11 +56,11 @@ class CompoundDataSource(BaseDataSource):
             name: str
     ) -> Dict[str, str]:
         """
-        Get the supported versions of a chemical compound data source.
+        Get the supported versions of a data source.
 
-        :parameter name: The name of the chemical compound data source.
+        :parameter name: The name of the data source.
 
-        :returns: The supported versions of the chemical compound data source.
+        :returns: The supported versions of the data source.
         """
 
         if name in self.get_names_of_supported_data_sources():
@@ -73,8 +73,8 @@ class CompoundDataSource(BaseDataSource):
                 )
             )
 
-            if self.__logger is not None:
-                self.__logger.error(
+            if self.logger is not None:
+                self.logger.error(
                     msg=exception_handle
                 )
 
@@ -84,8 +84,7 @@ class CompoundDataSource(BaseDataSource):
             self,
             name: str,
             version: str,
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
         Download the data from a data source.
@@ -108,8 +107,8 @@ class CompoundDataSource(BaseDataSource):
                 )
             )
 
-            if self.__logger is not None:
-                self.__logger.error(
+            if self.logger is not None:
+                self.logger.error(
                     msg=exception_handle
                 )
 
@@ -145,8 +144,8 @@ class CompoundDataSource(BaseDataSource):
                 )
             )
 
-            if self.__logger is not None:
-                self.__logger.error(
+            if self.logger is not None:
+                self.logger.error(
                     msg=exception_handle
                 )
 
@@ -182,8 +181,8 @@ class CompoundDataSource(BaseDataSource):
                 )
             )
 
-            if self.__logger is not None:
-                self.__logger.error(
+            if self.logger is not None:
+                self.logger.error(
                     msg=exception_handle
                 )
 
