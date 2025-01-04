@@ -15,28 +15,26 @@ class ChemicalReactionDatabaseDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from a `v_reaction_smiles_*` version of the chemical reaction database.
+        Download the data from a `v_reaction_smiles_*` version of the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
         if version == "v_reaction_smiles_2001_to_2021":
-            file_url_suffix = "36222051"
+            file_url = "https://figshare.com/ndownloader/files/36222051"
             file_name = "reactionSmilesFigShare.txt"
 
         elif version == "v_reaction_smiles_2001_to_2023":
-            file_url_suffix = "39944236"
+            file_url = "https://figshare.com/ndownloader/files/39944236"
             file_name = "reactionSmilesFigShare2023.txt"
 
         else:
-            file_url_suffix = "43858050"
+            file_url = "https://figshare.com/ndownloader/files/43858050"
             file_name = "reactionSmilesFigShareUSPTO2023.txt"
 
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://figshare.com/ndownloader/files/{file_url_suffix:s}".format(
-                file_url_suffix=file_url_suffix
-            ),
+            file_url=file_url,
             file_name=file_name,
             output_directory_path=output_directory_path
         )

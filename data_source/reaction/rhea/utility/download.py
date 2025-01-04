@@ -21,16 +21,16 @@ class RheaReactionDatabaseDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_url = "https://ftp.expasy.org/databases/rhea/old_releases/{release_number:s}.tar.bz2".format(
+            release_number=version.split(
+                sep="_"
+            )[-1]
+        )
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://ftp.expasy.org/databases/rhea/old_releases/{release_number:s}.tar.bz2".format(
-                release_number=version.split(
-                    sep="_"
-                )[-1]
-            ),
-            file_name="{release_number:s}.tar.bz2".format(
-                release_number=version.split(
-                    sep="_"
-                )[-1]
-            ),
+            file_url=file_url,
+            file_name=file_url.split(
+                sep="/"
+            )[-1],
             output_directory_path=output_directory_path
         )

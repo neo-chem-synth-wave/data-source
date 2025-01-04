@@ -17,21 +17,21 @@ class OpenReactionDatabaseExtractionUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Extract the data from a `v_release_*` version of the chemical reaction database.
+        Extract the data from a `v_release_*` version of the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
         """
 
         if version == "v_release_0_1_0":
-            file_name = "ord-data-0.1.0.zip"
+            input_file_name = "ord-data-0.1.0.zip"
 
         else:
-            file_name = "ord-data-main.zip"
+            input_file_name = "ord-data-main.zip"
 
         with ZipFile(
-            file=Path(input_directory_path, file_name)
+            file=Path(input_directory_path, input_file_name)
         ) as zip_archive_file_handle:
             zip_archive_file_handle.extractall(
                 path=output_directory_path

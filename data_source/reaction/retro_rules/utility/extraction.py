@@ -1,4 +1,4 @@
-""" The ``data_source.reaction_rule.retro_rules.utility`` package ``extraction`` module. """
+""" The ``data_source.reaction.retro_rules.utility`` package ``extraction`` module. """
 
 from os import PathLike
 from pathlib import Path
@@ -8,8 +8,8 @@ from typing import Union
 from tarfile import open as open_tar_archive_file
 
 
-class RetroRulesReactionRuleDatabaseExtractionUtility:
-    """ The `RetroRules <https://retrorules.org>`_ chemical reaction rule database extraction utility class. """
+class RetroRulesReactionDatabaseExtractionUtility:
+    """ The `RetroRules <https://retrorules.org>`_ chemical reaction database extraction utility class. """
 
     @staticmethod
     def extract_v_release(
@@ -72,7 +72,6 @@ class RetroRulesReactionRuleDatabaseExtractionUtility:
                     file=Path(output_directory_path, output_file_name),
                     mode="wb"
                 ) as destination_file_handle:
-                    # Disable the JetBrains PyCharm IDE warning.
                     # noinspection PyTypeChecker
                     copyfileobj(
                         fsrc=source_file_handle,

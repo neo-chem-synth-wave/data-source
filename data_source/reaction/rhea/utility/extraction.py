@@ -5,7 +5,7 @@ from pathlib import Path
 from shutil import copyfileobj
 from typing import Union
 
-from tarfile import open as open_tar_archive_file
+from tarfile import TarFile
 
 
 class RheaReactionDatabaseExtractionUtility:
@@ -25,28 +25,31 @@ class RheaReactionDatabaseExtractionUtility:
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
         """
 
-        with open_tar_archive_file(
-            name=Path(
-                input_directory_path,
-                "{release_number:s}.tar.bz2".format(
-                    release_number=version.split(
-                        sep="_"
-                    )[-1]
-                )
-            ),
+        input_file_name = "{release_number:s}.tar.bz2".format(
+            release_number=version.split(
+                sep="_"
+            )[-1]
+        )
+
+        output_file_name = "rhea-reaction-smiles.tsv"
+
+        with TarFile.open(
+            name=Path(input_directory_path, input_file_name),
             mode="r:bz2"
         ) as tar_archive_file_handle:
             with tar_archive_file_handle.extractfile(
-                member="{release_number:s}/tsv/rhea-reaction-smiles.tsv".format(
+                member="{release_number:s}/tsv/{output_file_name:s}".format(
                     release_number=version.split(
                         sep="_"
-                    )[-1]
+                    )[-1],
+                    output_file_name=output_file_name
                 )
             ) as source_file_handle:
                 with open(
-                    file=Path(output_directory_path, "rhea-reaction-smiles.tsv"),
+                    file=Path(output_directory_path, output_file_name),
                     mode="wb"
                 ) as destination_file_handle:
+                    # noinspection PyTypeChecker
                     copyfileobj(
                         fsrc=source_file_handle,
                         fdst=destination_file_handle

@@ -27,32 +27,19 @@ class ChemicalReactionDatabase(BaseDataSource):
             logger=logger
         )
 
-    def get_supported_versions(
-            self,
-            **kwargs
-    ) -> Dict[str, str]:
+    @staticmethod
+    def get_supported_versions() -> Dict[str, str]:
         """
         Get the supported versions of the chemical reaction database.
-
-        :parameter kwargs: The keyword arguments.
 
         :returns: The supported versions of the chemical reaction database.
         """
 
-        try:
-            return {
-                "v_reaction_smiles_2001_to_2021": "https://doi.org/10.6084/m9.figshare.20279733.v1",
-                "v_reaction_smiles_2001_to_2023": "https://doi.org/10.6084/m9.figshare.22491730.v1",
-                "v_reaction_smiles_2023": "https://doi.org/10.6084/m9.figshare.24921555.v1",
-            }
-
-        except Exception as exception_handle:
-            if self.logger is not None:
-                self.logger.error(
-                    msg=exception_handle
-                )
-
-            raise
+        return {
+            "v_reaction_smiles_2001_to_2021": "https://doi.org/10.6084/m9.figshare.20279733.v1",
+            "v_reaction_smiles_2001_to_2023": "https://doi.org/10.6084/m9.figshare.22491730.v1",
+            "v_reaction_smiles_2023": "https://doi.org/10.6084/m9.figshare.24921555.v1",
+        }
 
     def download(
             self,
@@ -96,7 +83,7 @@ class ChemicalReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
+                    "The download of the data from the {data_source:s} is not supported.".format(
                         data_source="Chemical Reaction Database version '{version:s}'".format(
                             version=version
                         )
@@ -149,8 +136,8 @@ class ChemicalReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="Chemical Reaction Database version '{version:s}'".format(
+                    "The extraction of the data from the {data_source:s} is not supported.".format(
+                        data_source="Chemical Reaction Database ({version:s})".format(
                             version=version
                         )
                     )
@@ -209,8 +196,8 @@ class ChemicalReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="Chemical Reaction Database version '{version:s}'".format(
+                    "The formatting of the data from the {data_source:s} is not supported.".format(
+                        data_source="Chemical Reaction Database ({version:s})".format(
                             version=version
                         )
                     )

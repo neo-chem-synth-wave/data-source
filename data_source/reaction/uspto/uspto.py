@@ -32,13 +32,10 @@ class USPTOReactionDataset(BaseDataSource):
         )
 
     def get_supported_versions(
-            self,
-            **kwargs
+            self
     ) -> Dict[str, str]:
         """
         Get the supported versions of the chemical reaction dataset.
-
-        :parameter kwargs: The keyword arguments.
 
         :returns: The supported versions of the chemical reaction dataset.
         """
@@ -75,15 +72,13 @@ class USPTOReactionDataset(BaseDataSource):
     def download(
             self,
             version: str,
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
         Download the data from the chemical reaction dataset.
 
         :parameter version: The version of the chemical reaction dataset.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -146,7 +141,7 @@ class USPTOReactionDataset(BaseDataSource):
                     "v_480k_or_mit_by_20180622_schwaller_p_et_al",
                     "v_stereo_by_20180622_schwaller_p_et_al",
                 ]:
-                    USPTOReactionDatasetDownloadUtility.download_v_20180622_schwaller_p_et_al(
+                    USPTOReactionDatasetDownloadUtility.download_v_by_20180622_schwaller_p_et_al(
                         output_directory_path=output_directory_path
                     )
 
@@ -186,8 +181,8 @@ class USPTOReactionDataset(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="USPTO chemical reaction dataset version '{version:s}'".format(
+                    "The download of the data from the {data_source:s} is not supported.".format(
+                        data_source="USPTO chemical reaction dataset ({version:s})".format(
                             version=version
                         )
                     )
@@ -205,8 +200,7 @@ class USPTOReactionDataset(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
         Extract the data from the chemical reaction dataset.
@@ -214,7 +208,6 @@ class USPTOReactionDataset(BaseDataSource):
         :parameter version: The version of the chemical reaction dataset.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -229,8 +222,7 @@ class USPTOReactionDataset(BaseDataSource):
                     )
 
                 if version == "v_1976_to_2013_rsmi_by_20121009_lowe_d_m":
-                    USPTOReactionDatasetExtractionUtility.extract_v_1976_to_2013_by_20121009_lowe_d_m(
-                        version=version,
+                    USPTOReactionDatasetExtractionUtility.extract_v_1976_to_2013_rsmi_by_20121009_lowe_d_m(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -273,7 +265,7 @@ class USPTOReactionDataset(BaseDataSource):
                     "v_480k_or_mit_by_20180622_schwaller_p_et_al",
                     "v_stereo_by_20180622_schwaller_p_et_al",
                 ]:
-                    USPTOReactionDatasetExtractionUtility.extract_v_20180622_schwaller_p_et_al(
+                    USPTOReactionDatasetExtractionUtility.extract_v_by_20180622_schwaller_p_et_al(
                         version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
@@ -308,8 +300,8 @@ class USPTOReactionDataset(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="USPTO chemical reaction dataset version '{version:s}'".format(
+                    "The extraction of the data from the {data_source:s} is not supported.".format(
+                        data_source="USPTO chemical reaction dataset ({version:s})".format(
                             version=version
                         )
                     )
@@ -328,7 +320,7 @@ class USPTOReactionDataset(BaseDataSource):
             version: str,
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            number_of_processes: int = 1
     ) -> None:
         """
         Format the data from the chemical reaction dataset.
@@ -336,7 +328,7 @@ class USPTOReactionDataset(BaseDataSource):
         :parameter version: The version of the chemical reaction dataset.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter kwargs: The keyword arguments.
+        :parameter number_of_processes: The number of processes.
         """
 
         try:
@@ -374,17 +366,15 @@ class USPTOReactionDataset(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_1976_to_2016_cml_by_20121009_lowe_d_m":
-                    USPTOReactionDatasetFormattingUtility.format_v_1976_to_2016_cml_by_20121009_lowe_d_m(
+                if version in [
+                    "v_1976_to_2016_cml_by_20121009_lowe_d_m",
+                    "v_1976_to_2016_rsmi_by_20121009_lowe_d_m",
+                ]:
+                    USPTOReactionDatasetFormattingUtility.format_v_1976_to_2016_by_20121009_lowe_d_m(
+                        version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path,
-                        **kwargs
-                    )
-
-                if version == "v_1976_to_2016_rsmi_by_20121009_lowe_d_m":
-                    USPTOReactionDatasetFormattingUtility.format_v_1976_to_2016_rsmi_by_20121009_lowe_d_m(
-                        input_directory_path=input_directory_path,
-                        output_directory_path=output_directory_path
+                        number_of_processes=number_of_processes
                     )
 
                 if version == "v_50k_by_20170905_liu_b_et_al":
@@ -405,14 +395,12 @@ class USPTOReactionDataset(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_480k_or_mit_by_20180622_schwaller_p_et_al":
-                    USPTOReactionDatasetFormattingUtility.format_v_480k_or_mit_by_20180622_schwaller_p_et_al(
-                        input_directory_path=input_directory_path,
-                        output_directory_path=output_directory_path
-                    )
-
-                if version == "v_stereo_by_20180622_schwaller_p_et_al":
-                    USPTOReactionDatasetFormattingUtility.format_v_stereo_by_20180622_schwaller_p_et_al(
+                if version in [
+                    "v_480k_or_mit_by_20180622_schwaller_p_et_al",
+                    "v_stereo_by_20180622_schwaller_p_et_al",
+                ]:
+                    USPTOReactionDatasetFormattingUtility.format_v_by_20180622_schwaller_p_et_al(
+                        version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
@@ -457,8 +445,8 @@ class USPTOReactionDataset(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="USPTO chemical reaction dataset version '{version:s}'".format(
+                    "The formatting of the data from the {data_source:s} is not supported.".format(
+                        data_source="USPTO chemical reaction dataset ({version:s})".format(
                             version=version
                         )
                     )

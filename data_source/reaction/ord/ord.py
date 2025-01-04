@@ -44,9 +44,6 @@ class OpenReactionDatabase(BaseDataSource):
             return {
                 "v_release_0_1_0": "https://doi.org/10.1021/jacs.1c09820",
                 "v_release_main": "https://doi.org/10.1021/jacs.1c09820",
-                "v_orderly_condition_by_20240422_wigh_d_s_et_al": "https://doi.org/10.6084/m9.figshare.23298467.v4",
-                "v_orderly_forward_by_20240422_wigh_d_s_et_al": "https://doi.org/10.6084/m9.figshare.23298467.v4",
-                "v_orderly_retro_by_20240422_wigh_d_s_et_al": "https://doi.org/10.6084/m9.figshare.23298467.v4",
             }
 
         except Exception as exception_handle:
@@ -60,15 +57,13 @@ class OpenReactionDatabase(BaseDataSource):
     def download(
             self,
             version: str,
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
         Download the data from the chemical reaction database.
 
         :parameter version: The version of the chemical reaction database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -88,12 +83,6 @@ class OpenReactionDatabase(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version.startswith("v_orderly"):
-                    OpenReactionDatabaseDownloadUtility.download_v_orderly(
-                        version=version,
-                        output_directory_path=output_directory_path
-                    )
-
                 if self.logger is not None:
                     self.logger.info(
                         msg="The download of the data from the {data_source:s} has been completed.".format(
@@ -105,7 +94,7 @@ class OpenReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
+                    "The download of the data from the {data_source:s} is not supported.".format(
                         data_source="Open Reaction Database version '{version:s}'".format(
                             version=version
                         )
@@ -165,8 +154,8 @@ class OpenReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="Open Reaction Database version '{version:s}'".format(
+                    "The extraction of the data from the {data_source:s} is not supported.".format(
+                        data_source="Open Reaction Database ({version:s})".format(
                             version=version
                         )
                     )
@@ -215,13 +204,6 @@ class OpenReactionDatabase(BaseDataSource):
                         **kwargs
                     )
 
-                if version.startswith("v_orderly"):
-                    OpenReactionDatabaseFormattingUtility.format_v_orderly(
-                        version=version,
-                        input_directory_path=input_directory_path,
-                        output_directory_path=output_directory_path
-                    )
-
                 if self.logger is not None:
                     self.logger.info(
                         msg="The formatting of the data from the {data_source:s} has been completed.".format(
@@ -233,8 +215,8 @@ class OpenReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="Open Reaction Database version '{version:s}'".format(
+                    "The formatting of the data from the {data_source:s} is not supported.".format(
+                        data_source="Open Reaction Database ({version:s})".format(
                             version=version
                         )
                     )

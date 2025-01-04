@@ -31,13 +31,10 @@ class RheaReactionDatabase(BaseDataSource):
         )
 
     def get_supported_versions(
-            self,
-            **kwargs
+            self
     ) -> Dict[str, str]:
         """
         Get the supported versions of the chemical reaction database.
-
-        :parameter kwargs: The keyword arguments.
 
         :returns: The supported versions of the chemical reaction database.
         """
@@ -72,15 +69,13 @@ class RheaReactionDatabase(BaseDataSource):
     def download(
             self,
             version: str,
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
         Download the data from the chemical reaction database.
 
         :parameter version: The version of the chemical reaction database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -111,7 +106,7 @@ class RheaReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
+                    "The download of the data from the {data_source:s} is not supported.".format(
                         data_source="Rhea chemical reaction database version '{version:s}'".format(
                             version=version
                         )
@@ -130,8 +125,7 @@ class RheaReactionDatabase(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
         Extract the data from the chemical reaction database.
@@ -139,7 +133,6 @@ class RheaReactionDatabase(BaseDataSource):
         :parameter version: The version of the chemical reaction database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -171,7 +164,7 @@ class RheaReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
+                    "The extraction of the data from the {data_source:s} is not supported.".format(
                         data_source="Rhea chemical reaction database version '{version:s}'".format(
                             version=version
                         )
@@ -190,8 +183,7 @@ class RheaReactionDatabase(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]],
-            **kwargs
+            output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
         Format the data from the chemical reaction database.
@@ -199,7 +191,6 @@ class RheaReactionDatabase(BaseDataSource):
         :parameter version: The version of the chemical reaction database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -231,7 +222,7 @@ class RheaReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
+                    "The formatting of the data from the {data_source:s} is not supported.".format(
                         data_source="Rhea chemical reaction database version '{version:s}'".format(
                             version=version
                         )

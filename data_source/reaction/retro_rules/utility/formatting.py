@@ -1,4 +1,4 @@
-""" The ``data_source.reaction_rule.retro_rules.utility`` package ``formatting`` module. """
+""" The ``data_source.reaction.retro_rules.utility`` package ``formatting`` module. """
 
 from datetime import datetime
 from os import PathLike
@@ -8,8 +8,8 @@ from typing import Union
 from pandas.io.parsers.readers import read_csv
 
 
-class RetroRulesReactionRuleDatabaseFormattingUtility:
-    """ The `RetroRules <https://retrorules.org>`_ chemical reaction rule database formatting utility class. """
+class RetroRulesReactionDatabaseFormattingUtility:
+    """ The `RetroRules <https://retrorules.org>`_ chemical reaction database formatting utility class. """
 
     @staticmethod
     def format_v_release(
