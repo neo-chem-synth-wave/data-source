@@ -1,9 +1,8 @@
 """ The ``data_source.compound.zinc`` package ``zinc`` module. """
 
-from logging import Logger
 from os import PathLike
 from re import findall
-from typing import Dict, Optional, Union
+from typing import Dict, Union
 
 from data_source.base.base import BaseDataSource
 from data_source.base.utility.download import BaseDataSourceDownloadUtility
@@ -15,20 +14,6 @@ from data_source.compound.zinc.utility.formatting import ZINCCompoundDatabaseFor
 
 class ZINCCompoundDatabase(BaseDataSource):
     """ The `ZINC <https://zinc20.docking.org>`_ chemical compound database class. """
-
-    def __init__(
-            self,
-            logger: Optional[Logger] = None
-    ) -> None:
-        """
-        The constructor method of the class.
-
-        :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
-        """
-
-        super().__init__(
-            logger=logger
-        )
 
     def get_supported_versions(
             self
@@ -79,7 +64,8 @@ class ZINCCompoundDatabase(BaseDataSource):
     def download(
             self,
             version: str,
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Download the data from the database.
@@ -122,8 +108,8 @@ class ZINCCompoundDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="ZINC chemical compound database version '{version:s}'".format(
+                    "The download of the data from the {data_source:s} is not supported.".format(
+                        data_source="ZINC chemical compound database ({version:s})".format(
                             version=version
                         )
                     )
@@ -141,7 +127,8 @@ class ZINCCompoundDatabase(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Extract the data from the database.
@@ -180,8 +167,8 @@ class ZINCCompoundDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="ZINC chemical compound database version '{version:s}'".format(
+                    "The extraction of the data from the {data_source:s} is not supported.".format(
+                        data_source="ZINC chemical compound database ({version:s})".format(
                             version=version
                         )
                     )
@@ -199,7 +186,8 @@ class ZINCCompoundDatabase(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Format the data from the database.
@@ -245,8 +233,8 @@ class ZINCCompoundDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="ZINC chemical compound database version '{version:s}'".format(
+                    "The formatting of the data from the {data_source:s} is not supported.".format(
+                        data_source="ZINC chemical compound database ({version:s})".format(
                             version=version
                         )
                     )

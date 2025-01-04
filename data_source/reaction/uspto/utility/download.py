@@ -271,7 +271,7 @@ class USPTOReactionDatasetDownloadUtility:
         """
 
         file_url = BaseDataSourceDownloadUtility.send_http_get_request(
-            url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+            http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
                 url="https://ibm.ent.box.com/index.php",
                 folder_id="folder_id=40552708120",
                 vanity_name="q[shared_item][vanity_name]=ReactionSeq2SeqDataset",
@@ -318,7 +318,7 @@ class USPTOReactionDatasetDownloadUtility:
         """
 
         file_url = BaseDataSourceDownloadUtility.send_http_get_request(
-            url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+            http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
                 url="https://ibm.ent.box.com/index.php",
                 folder_id="folder_id=124192222443",
                 vanity_name="q[shared_item][vanity_name]=MappingChemicalReactions",
@@ -346,7 +346,7 @@ class USPTOReactionDatasetDownloadUtility:
         """
 
         file_url = BaseDataSourceDownloadUtility.send_http_get_request(
-            url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+            http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
                 url="https://ibm.ent.box.com/index.php",
                 folder_id="folder_id=112951098080",
                 vanity_name="q[shared_item][vanity_name]=RXNMapperData",

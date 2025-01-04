@@ -50,6 +50,9 @@ class OpenReactionDatabaseFormattingUtility:
                             generate_if_missing=True,
                             canonical=False
                         ),
+                        input_file_path.split(
+                            sep="/"
+                        )[-1],
                     ))
 
                 except:
@@ -124,6 +127,7 @@ class OpenReactionDatabaseFormattingUtility:
                 "dataset_id",
                 "reaction_id",
                 "reaction_smiles",
+                "file_name",
             ]
         ).to_csv(
             path_or_buf=Path(output_directory_path, output_file_name),

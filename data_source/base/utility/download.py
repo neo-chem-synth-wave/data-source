@@ -17,17 +17,21 @@ class BaseDataSourceDownloadUtility:
 
     @staticmethod
     def send_http_get_request(
+            http_get_request_url: str,
             **kwargs
     ) -> Response:
         """
         Send an HTTP GET request.
 
-        :parameter kwargs: The keyword arguments of the following underlying functions: { `requests.api.get` }.
+        :parameter http_get_request_url: The URL of the HTTP GET request.
+        :parameter kwargs: The keyword arguments for the adjustment of the following underlying functions:
+            { `requests.api.get` }.
 
         :returns: The response to the HTTP GET request.
         """
 
         http_get_request_response = get(
+            url=http_get_request_url,
             **kwargs
         )
 
@@ -50,7 +54,7 @@ class BaseDataSourceDownloadUtility:
         """
 
         http_get_request_response = BaseDataSourceDownloadUtility.send_http_get_request(
-            url=file_url,
+            http_get_request_url=file_url,
             stream=True
         )
 

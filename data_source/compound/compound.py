@@ -84,7 +84,8 @@ class CompoundDataSource(BaseDataSource):
             self,
             name: str,
             version: str,
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Download the data from a data source.
@@ -119,7 +120,8 @@ class CompoundDataSource(BaseDataSource):
             name: str,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Extract the data from a data source.
@@ -156,7 +158,8 @@ class CompoundDataSource(BaseDataSource):
             name: str,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Format the data from a data source.

@@ -41,14 +41,18 @@ class ChemicalReactionDatabaseFormattingUtility:
             version=version
         )
 
-        read_csv(
+        dataframe = read_csv(
             filepath_or_buffer=Path(input_directory_path, input_file_name),
             header=None
         ).rename(
             columns={
                 0: "reaction_smiles",
             }
-        ).to_csv(
+        )
+
+        dataframe["file_name"] = input_file_name
+
+        dataframe.to_csv(
             path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )

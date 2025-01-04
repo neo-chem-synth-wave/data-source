@@ -23,14 +23,17 @@ class ChemicalReactionDatabaseDownloadUtility:
 
         if version == "v_reaction_smiles_2001_to_2021":
             file_url = "https://figshare.com/ndownloader/files/36222051"
+
             file_name = "reactionSmilesFigShare.txt"
 
         elif version == "v_reaction_smiles_2001_to_2023":
             file_url = "https://figshare.com/ndownloader/files/39944236"
+
             file_name = "reactionSmilesFigShare2023.txt"
 
         else:
             file_url = "https://figshare.com/ndownloader/files/43858050"
+
             file_name = "reactionSmilesFigShareUSPTO2023.txt"
 
         BaseDataSourceDownloadUtility.download_file(

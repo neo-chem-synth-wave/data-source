@@ -149,13 +149,13 @@ class MiscellaneousReactionDataSourceFormattingUtility:
             filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep="\t",
             header=0
+        ).dropna(
+            how="all"
         )
 
-        dataframe["file_name"] = input_file_name
+        dataframe["FileName"] = input_file_name
 
-        dataframe.dropna(
-            how="all"
-        ).astype(
+        dataframe.astype(
             dtype={
                 "ID": int,
             }

@@ -28,11 +28,17 @@ class RetroRulesReactionDatabaseFormattingUtility:
         if version == "v_release_rr01_rp2_hs":
             input_file_name = "retrorules_rr01_rp2_flat_all.csv"
 
+            column_name = "File name"
+
         elif version == "v_release_rr02_rp2_hs":
             input_file_name = "retrorules_rr02_rp2_flat_all.csv"
 
+            column_name = "File name"
+
         else:
             input_file_name = "retrorules_rr02_flat_all.tsv"
+
+            column_name = "File_name"
 
         output_file_name = "{timestamp:s}_retro_rules_{version:s}.csv".format(
             timestamp=datetime.now().strftime(
@@ -41,11 +47,15 @@ class RetroRulesReactionDatabaseFormattingUtility:
             version=version
         )
 
-        read_csv(
+        dataframe = read_csv(
             filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep="\t" if input_file_name.endswith(".tsv") else ",",
             header=0
-        ).to_csv(
+        )
+
+        dataframe[column_name] = input_file_name
+
+        dataframe.to_csv(
             path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )

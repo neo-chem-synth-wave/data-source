@@ -25,8 +25,8 @@ class ZINCCompoundDatabaseFormattingUtility:
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
-        input_file_name = "{file_name_prefix:s}.smi".format(
-            file_name_prefix=version.split(
+        input_file_name = "{input_file_name_prefix:s}.smi".format(
+            input_file_name_prefix=version.split(
                 sep="_",
                 maxsplit=3
             )[-1]
@@ -39,7 +39,7 @@ class ZINCCompoundDatabaseFormattingUtility:
             version=version
         )
 
-        read_csv(
+        dataframe = read_csv(
             filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep=r"\s+",
             header=None
@@ -48,7 +48,11 @@ class ZINCCompoundDatabaseFormattingUtility:
                 0: "smiles",
                 1: "id",
             }
-        ).to_csv(
+        )
+
+        dataframe["file_name"] = input_file_name
+
+        dataframe.to_csv(
             path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )
@@ -67,8 +71,8 @@ class ZINCCompoundDatabaseFormattingUtility:
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
-        input_file_name = "{file_name_prefix:s}.src.txt".format(
-            file_name_prefix=version.split(
+        input_file_name = "{input_file_name_prefix:s}.src.txt".format(
+            input_file_name_prefix=version.split(
                 sep="_",
                 maxsplit=2
             )[-1]
@@ -81,7 +85,7 @@ class ZINCCompoundDatabaseFormattingUtility:
             version=version.replace("-", "_")
         )
 
-        read_csv(
+        dataframe = read_csv(
             filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep=r"\s+",
             header=None
@@ -90,7 +94,11 @@ class ZINCCompoundDatabaseFormattingUtility:
                 0: "smiles",
                 1: "id",
             }
-        ).to_csv(
+        )
+
+        dataframe["file_name"] = input_file_name
+
+        dataframe.to_csv(
             path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )

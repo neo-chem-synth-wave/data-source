@@ -1,8 +1,7 @@
 """ The ``data_source.reaction.crd`` package ``crd`` module. """
 
-from logging import Logger
 from os import PathLike
-from typing import Dict, Optional, Union
+from typing import Dict, Union
 
 from data_source.base.base import BaseDataSource
 
@@ -12,20 +11,6 @@ from data_source.reaction.crd.utility.formatting import ChemicalReactionDatabase
 
 class ChemicalReactionDatabase(BaseDataSource):
     """ The `Chemical Reaction Database (CRD) <https://kmt.vander-lingen.nl>`_ class. """
-
-    def __init__(
-            self,
-            logger: Optional[Logger] = None
-    ) -> None:
-        """
-        The constructor method of the class.
-
-        :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
-        """
-
-        super().__init__(
-            logger=logger
-        )
 
     @staticmethod
     def get_supported_versions() -> Dict[str, str]:
@@ -52,7 +37,6 @@ class ChemicalReactionDatabase(BaseDataSource):
 
         :parameter version: The version of the chemical reaction database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -84,7 +68,7 @@ class ChemicalReactionDatabase(BaseDataSource):
             else:
                 raise ValueError(
                     "The download of the data from the {data_source:s} is not supported.".format(
-                        data_source="Chemical Reaction Database version '{version:s}'".format(
+                        data_source="Chemical Reaction Database ({version:s})".format(
                             version=version
                         )
                     )
@@ -111,7 +95,6 @@ class ChemicalReactionDatabase(BaseDataSource):
         :parameter version: The version of the chemical reaction database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -164,7 +147,6 @@ class ChemicalReactionDatabase(BaseDataSource):
         :parameter version: The version of the chemical reaction database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:

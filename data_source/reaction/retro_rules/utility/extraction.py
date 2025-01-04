@@ -5,7 +5,7 @@ from pathlib import Path
 from shutil import copyfileobj
 from typing import Union
 
-from tarfile import open as open_tar_archive_file
+from tarfile import TarFile
 
 
 class RetroRulesReactionDatabaseExtractionUtility:
@@ -61,7 +61,7 @@ class RetroRulesReactionDatabaseExtractionUtility:
                 output_file_name=output_file_name
             )
 
-        with open_tar_archive_file(
+        with TarFile.open(
             name=Path(input_directory_path, input_file_name),
             mode="r:gz"
         ) as tar_archive_file_handle:

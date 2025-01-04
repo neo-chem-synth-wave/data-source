@@ -25,10 +25,12 @@ class ChEMBLCompoundDatabaseFormattingUtility:
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
-        input_file_name = "chembl_{release_number:s}_chemreps.txt.gz".format(
-            release_number=version.split(
-                sep="_"
-            )[-1]
+        release_number = version.split(
+            sep="_"
+        )[-1]
+
+        input_file_name = "chembl_{release_number:s}_chemreps.txt".format(
+            release_number=release_number
         )
 
         output_file_name = "{timestamp:s}_chembl_{version:s}.csv".format(
@@ -38,11 +40,15 @@ class ChEMBLCompoundDatabaseFormattingUtility:
             version=version
         )
 
-        read_csv(
+        dataframe = read_csv(
             filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep="\t",
             header=0
-        ).to_csv(
+        )
+
+        dataframe["file_name"] = input_file_name
+
+        dataframe.to_csv(
             path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )

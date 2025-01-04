@@ -19,14 +19,12 @@ class MiscellaneousCompoundDataSourceDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        file_name = "dataset_v1.csv"
-
-        file_url = "https://media.githubusercontent.com/media/molecularsets/moses/master/data/{file_name:s}".format(
-            file_name=file_name
-        )
+        file_url = "https://media.githubusercontent.com/media/molecularsets/moses/master/data/dataset_v1.csv"
 
         BaseDataSourceDownloadUtility.download_file(
             file_url=file_url,
-            file_name=file_name,
+            file_name=file_url.split(
+                sep="/"
+            )[-1],
             output_directory_path=output_directory_path
         )

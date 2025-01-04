@@ -25,16 +25,20 @@ class MiscellaneousCompoundDataSourceFormattingUtility:
 
         input_file_name = "dataset_v1.csv"
 
-        output_file_name = "{timestamp:s}_zinc_v_moses_by_20201218_polykovskiy_d_et_al.csv".format(
+        output_file_name = "{timestamp:s}_miscellaneous_v_moses_by_20201218_polykovskiy_d_et_al.csv".format(
             timestamp=datetime.now().strftime(
                 format="%Y%m%d%H%M%S"
             )
         )
 
-        read_csv(
+        dataframe = read_csv(
             filepath_or_buffer=Path(input_directory_path, input_file_name),
             header=0
-        ).to_csv(
+        )
+
+        dataframe["FILE_NAME"] = input_file_name
+
+        dataframe.to_csv(
             path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )

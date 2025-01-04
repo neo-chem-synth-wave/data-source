@@ -96,7 +96,8 @@ class ReactionDataSource(BaseDataSource):
             self,
             name: str,
             version: str,
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Download the data from a data source.
@@ -114,7 +115,7 @@ class ReactionDataSource(BaseDataSource):
 
         else:
             exception_handle = ValueError(
-                "The chemical compound data source name '{name:s}' is not supported.".format(
+                "The chemical reaction data source name '{name:s}' is not supported.".format(
                     name=name
                 )
             )
@@ -131,7 +132,8 @@ class ReactionDataSource(BaseDataSource):
             name: str,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Extract the data from a data source.
@@ -168,7 +170,8 @@ class ReactionDataSource(BaseDataSource):
             name: str,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Format the data from a data source.
@@ -183,7 +186,8 @@ class ReactionDataSource(BaseDataSource):
             self.supported_data_sources[name].format(
                 version=version,
                 input_directory_path=input_directory_path,
-                output_directory_path=output_directory_path
+                output_directory_path=output_directory_path,
+                **kwargs
             )
 
         else:

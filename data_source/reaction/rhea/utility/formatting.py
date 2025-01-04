@@ -34,11 +34,15 @@ class RheaReactionDatabaseFormattingUtility:
             version=version
         )
 
-        read_csv(
+        dataframe = read_csv(
             filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep="\t",
             header=None
-        ).rename(
+        )
+
+        dataframe["file_name"] = input_file_name
+
+        dataframe.rename(
             columns={
                 0: "id",
                 1: "reaction_smiles",

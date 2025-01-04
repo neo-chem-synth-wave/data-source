@@ -1,8 +1,7 @@
 """ The ``data_source.reaction.miscellaneous`` package ``miscellaneous`` module. """
 
-from logging import Logger
 from os import PathLike
-from typing import Dict, Optional, Union
+from typing import Dict, Union
 
 from data_source.base.base import BaseDataSource
 
@@ -13,20 +12,6 @@ from data_source.reaction.miscellaneous.utility.formatting import MiscellaneousR
 
 class MiscellaneousReactionDataSource(BaseDataSource):
     """ The miscellaneous chemical reaction data source class. """
-
-    def __init__(
-            self,
-            logger: Optional[Logger] = None
-    ) -> None:
-        """
-        The constructor method of the class.
-
-        :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
-        """
-
-        super().__init__(
-            logger=logger
-        )
 
     @staticmethod
     def get_supported_versions() -> Dict[str, str]:
@@ -114,7 +99,11 @@ class MiscellaneousReactionDataSource(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version.startswith("v_orderly"):
+                if version in [
+                    "v_orderly_condition_by_20240422_wigh_d_s_et_al",
+                    "v_orderly_forward_by_20240422_wigh_d_s_et_al",
+                    "v_orderly_retro_by_20240422_wigh_d_s_et_al",
+                ]:
                     MiscellaneousReactionDataSourceDownloadUtility.download_v_orderly(
                         version=version,
                         output_directory_path=output_directory_path
@@ -150,7 +139,8 @@ class MiscellaneousReactionDataSource(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Extract the data from the chemical reaction data source.
@@ -213,7 +203,8 @@ class MiscellaneousReactionDataSource(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Format the data from the chemical reaction data source.
@@ -280,7 +271,11 @@ class MiscellaneousReactionDataSource(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version.startswith("v_orderly"):
+                if version in [
+                    "v_orderly_condition_by_20240422_wigh_d_s_et_al",
+                    "v_orderly_forward_by_20240422_wigh_d_s_et_al",
+                    "v_orderly_retro_by_20240422_wigh_d_s_et_al",
+                ]:
                     MiscellaneousReactionDataSourceFormattingUtility.format_v_orderly(
                         version=version,
                         input_directory_path=input_directory_path,

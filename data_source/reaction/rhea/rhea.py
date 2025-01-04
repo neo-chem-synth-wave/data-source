@@ -1,9 +1,8 @@
 """ The ``data_source.reaction.rhea`` package ``rhea`` module. """
 
-from logging import Logger
 from os import PathLike
 from re import search
-from typing import Dict, Optional, Union
+from typing import Dict, Union
 
 from data_source.base.base import BaseDataSource
 from data_source.base.utility.download import BaseDataSourceDownloadUtility
@@ -15,20 +14,6 @@ from data_source.reaction.rhea.utility.formatting import RheaReactionDatabaseFor
 
 class RheaReactionDatabase(BaseDataSource):
     """ The `Rhea <https://www.rhea-db.org>`_ chemical reaction database class. """
-
-    def __init__(
-            self,
-            logger: Optional[Logger] = None
-    ) -> None:
-        """
-        The constructor method of the class.
-
-        :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
-        """
-
-        super().__init__(
-            logger=logger
-        )
 
     def get_supported_versions(
             self
@@ -69,7 +54,8 @@ class RheaReactionDatabase(BaseDataSource):
     def download(
             self,
             version: str,
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Download the data from the chemical reaction database.
@@ -107,7 +93,7 @@ class RheaReactionDatabase(BaseDataSource):
             else:
                 raise ValueError(
                     "The download of the data from the {data_source:s} is not supported.".format(
-                        data_source="Rhea chemical reaction database version '{version:s}'".format(
+                        data_source="Rhea chemical reaction database ({version:s})".format(
                             version=version
                         )
                     )
@@ -125,7 +111,8 @@ class RheaReactionDatabase(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Extract the data from the chemical reaction database.
@@ -165,7 +152,7 @@ class RheaReactionDatabase(BaseDataSource):
             else:
                 raise ValueError(
                     "The extraction of the data from the {data_source:s} is not supported.".format(
-                        data_source="Rhea chemical reaction database version '{version:s}'".format(
+                        data_source="Rhea chemical reaction database ({version:s})".format(
                             version=version
                         )
                     )
@@ -183,7 +170,8 @@ class RheaReactionDatabase(BaseDataSource):
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
-            output_directory_path: Union[str, PathLike[str]]
+            output_directory_path: Union[str, PathLike[str]],
+            **kwargs
     ) -> None:
         """
         Format the data from the chemical reaction database.
@@ -223,7 +211,7 @@ class RheaReactionDatabase(BaseDataSource):
             else:
                 raise ValueError(
                     "The formatting of the data from the {data_source:s} is not supported.".format(
-                        data_source="Rhea chemical reaction database version '{version:s}'".format(
+                        data_source="Rhea chemical reaction database ({version:s})".format(
                             version=version
                         )
                     )
