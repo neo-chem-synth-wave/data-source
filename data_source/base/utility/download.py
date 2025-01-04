@@ -17,23 +17,17 @@ class BaseDataSourceDownloadUtility:
 
     @staticmethod
     def send_http_get_request(
-            http_get_request_url: str,
             **kwargs
     ) -> Response:
         """
         Send an HTTP GET request.
 
-        :parameter http_get_request_url: The URL of the HTTP GET request.
         :parameter kwargs: The keyword arguments of the following underlying functions: { `requests.api.get` }.
 
         :returns: The response to the HTTP GET request.
         """
 
-        # Avoid the potential duplication of the 'url' parameter.
-        kwargs.pop("url", None)
-
         http_get_request_response = get(
-            url=http_get_request_url,
             **kwargs
         )
 
@@ -56,7 +50,7 @@ class BaseDataSourceDownloadUtility:
         """
 
         http_get_request_response = BaseDataSourceDownloadUtility.send_http_get_request(
-            http_get_request_url=file_url,
+            url=file_url,
             stream=True
         )
 
@@ -65,7 +59,6 @@ class BaseDataSourceDownloadUtility:
             decode_content=True
         )
 
-        # Disable the JetBrains PyCharm IDE warning.
         # noinspection PyBroadException
         try:
             file_size = http_get_request_response.headers.get("Content-Length", None)
@@ -88,7 +81,6 @@ class BaseDataSourceDownloadUtility:
             with Path(output_directory_path, file_name).open(
                 mode="wb"
             ) as destination_file_handle:
-                # Disable the JetBrains PyCharm IDE warning.
                 # noinspection PyTypeChecker
                 copyfileobj(
                     fsrc=file_download_stream_handle,

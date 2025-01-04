@@ -50,30 +50,18 @@ class BaseDataSource(ABC):
             self,
             **kwargs
     ) -> None:
-        """
-        Download the data from the data source.
-
-        :parameter kwargs: The keyword arguments of the method.
-        """
+        """ Download the data from the data source. """
 
     @abstractmethod
     def extract(
             self,
             **kwargs
     ) -> None:
-        """
-        Extract the data from the data source.
-
-        :parameter kwargs: The keyword arguments of the method.
-        """
+        """ Extract the data from the data source. """
 
     @abstractmethod
     def format(
             self,
             **kwargs
     ) -> None:
-        """
-        Format the data from the data source.
-
-        :parameter kwargs: The keyword arguments of the method.
-        """
+        """ Format the data from the data source. """
