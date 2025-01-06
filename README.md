@@ -56,7 +56,7 @@ python scripts/download_extract_and_format_data.py \
   --data_source_name "zinc" \
   --get_data_source_version_information
 
-# Example #3: Download, extract, and format the data from the USPTO chemical reaction dataset. (v_50k_by_20171116_coley_c_w_et_al)
+# Example #3: Download, extract, and format the data from the USPTO chemical reaction dataset.
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
@@ -112,8 +112,8 @@ The following chemical reaction data sources are supported:
 - [United States Patent and Trademark Office (USPTO)](#united-states-patent-and-trademark-office-uspto)
 - [Open Reaction Database (ORD)](#open-reaction-database-ord)
 - [Chemical Reaction Database (CRD)](#chemical-reaction-database-crd)
-- [RetroRules](#retrorules)
 - [Rhea](#rhea)
+- [RetroRules](#retrorules)
 - [Miscellaneous Chemical Reaction Data Sources](#miscellaneous-chemical-reaction-data-sources)
 
 ![chemical_reaction_data_sources.png](figures/chemical_reaction_data_sources.png)
@@ -173,25 +173,25 @@ The following Chemical Reaction Database (CRD) versions are supported:
 <sub>:green_circle: Completely Implemented</sub>
 
 
-#### RetroRules
-The following RetroRules chemical reaction database versions are supported:
-
-| Version                                                                                | DOI                      |     Status     |
-|----------------------------------------------------------------------------------------|--------------------------|:--------------:|
-| v_release_rr01_rp2_hs <sup>[[20]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5827427` | :green_circle: |
-| v_release_rr02_rp2_hs <sup>[[20]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5828017` | :green_circle: |
-| v_release_rr02_rp3_hs <sup>[[20]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5827977` | :green_circle: |
-| v_release_rr02_rp3_nohs <sup>[[20]](/references/2018/20181013_duigou_t_et_al.md)</sup> | `10.5281/zenodo.5827969` | :green_circle: |
-
-<sub>:green_circle: Completely Implemented</sub>
-
-
 #### Rhea
 The following Rhea chemical reaction database versions are supported:
 
 | Version                                                                                                                                                     | DOI                    |     Status     |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|:--------------:|
-| v_release_[{release_number ≥ 126}](https://ftp.expasy.org/databases/rhea/old%5Freleases) <sup>[**[21]**](/references/2021/20211110_bansal_p_et_al.md)</sup> | `10.1093/nar/gkab1016` | :green_circle: |
+| v_release_[{release_number ≥ 126}](https://ftp.expasy.org/databases/rhea/old%5Freleases) <sup>[**[20]**](/references/2021/20211110_bansal_p_et_al.md)</sup> | `10.1093/nar/gkab1016` | :green_circle: |
+
+<sub>:green_circle: Completely Implemented</sub>
+
+
+#### RetroRules
+The following RetroRules chemical reaction database versions are supported:
+
+| Version                                                                                | DOI                      |     Status     |
+|----------------------------------------------------------------------------------------|--------------------------|:--------------:|
+| v_release_rr01_rp2_hs <sup>[[21]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5827427` | :green_circle: |
+| v_release_rr02_rp2_hs <sup>[[21]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5828017` | :green_circle: |
+| v_release_rr02_rp3_hs <sup>[[21]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5827977` | :green_circle: |
+| v_release_rr02_rp3_nohs <sup>[[21]](/references/2018/20181013_duigou_t_et_al.md)</sup> | `10.5281/zenodo.5827969` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -301,14 +301,14 @@ Lapkin, A.A. **ORDerly: Data Sets and Benchmarks for Chemical Reaction Data**. _
 **[[19]](https://kmt.vander-lingen.nl)** **The Chemical Reaction Database (CRD)**: https://kmt.vander-lingen.nl.
 Accessed on: August 25th, 2024.
 
-**[[20]](/references/2018/20181013_duigou_t_et_al.md)** Duigou, T., du Lac, M., Carbonell, P., and Faulon, J.
-**RetroRules: A Database of Reaction Rules for Engineering Biology**. _Nucleic Acids Research_, 47, D1, 2019,
-D1229–D1235.
-
-**[[21]](/references/2021/20211110_bansal_p_et_al.md)** Bansal, P., Morgat, A., Axelsen, K.B., Muthukrishnan, V.,
+**[[20]](/references/2021/20211110_bansal_p_et_al.md)** Bansal, P., Morgat, A., Axelsen, K.B., Muthukrishnan, V.,
 Coudert, E., Aimo, L., Hyka-Nouspikel, N., Gasteiger, E., Kerhornou, A., Neto, T.B., Pozzato, M., Blatter, M.,
 Ignatchenko, A., Redaschi, N., and Bridge, A. **Rhea, the Reaction Knowledgebase in 2022**. _Nucleic Acids Research_,
 50, D1, 2022, D693–D700.
+
+**[[21]](/references/2018/20181013_duigou_t_et_al.md)** Duigou, T., du Lac, M., Carbonell, P., and Faulon, J.
+**RetroRules: A Database of Reaction Rules for Engineering Biology**. _Nucleic Acids Research_, 47, D1, 2019,
+D1229–D1235.
 
 **[[22]](/references/2013/20131008_kraut_h_et_al.md)** Kraut, H., Eiblmaier, J., Grethe, G., Löw, P., Matuszczyk, H.,
 and Saller, H. **Algorithm for Reaction Classification**. _J. Chem. Inf. Model._, 2013, 53, 11, 2884–2895.
