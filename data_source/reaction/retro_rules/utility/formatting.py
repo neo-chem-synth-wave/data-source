@@ -35,10 +35,22 @@ class RetroRulesReactionDatabaseFormattingUtility:
 
             column_name = "File name"
 
-        else:
+        elif version in [
+            "v_release_rr02_rp3_hs",
+            "v_release_rr02_rp3_nohs",
+        ]:
             input_file_name = "retrorules_rr02_flat_all.tsv"
 
             column_name = "File_name"
+
+        else:
+            raise ValueError(
+                "The formatting of the data from the {data_source:s} is not supported.".format(
+                    data_source="RetroRules chemical reaction database ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         output_file_name = "{timestamp:s}_retro_rules_{version:s}.csv".format(
             timestamp=datetime.now().strftime(

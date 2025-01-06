@@ -821,8 +821,17 @@ class USPTOReactionDatasetFormattingUtility:
         elif version == "v_50k_remapped_by_20240313_chen_s_et_al":
             input_file_name = "remapped_USPTO_50K.csv"
 
-        else:
+        elif version == "v_mech_31k_by_20240810_chen_s_et_al":
             input_file_name = "mech-USPTO-31k.csv"
+
+        else:
+            raise ValueError(
+                "The formatting of the data from the {data_source:s} is not supported.".format(
+                    data_source="USPTO chemical reaction dataset ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         output_file_name = "{timestamp:s}_uspto_{version:s}.csv".format(
             timestamp=datetime.now().strftime(

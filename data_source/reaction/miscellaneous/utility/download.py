@@ -113,11 +113,20 @@ class MiscellaneousReactionDataSourceDownloadUtility:
                 "https://zenodo.org/records/3715478/files/wb97xd3.csv",
             ]
 
-        else:
+        elif version == "v_add_on_by_20200508_grambow_c_et_al":
             file_urls = [
                 "https://zenodo.org/records/3731554/files/b97d3_rad.csv",
                 "https://zenodo.org/records/3731554/files/wb97xd3_rad.csv",
             ]
+
+        else:
+            raise ValueError(
+                "The download of the data from the {data_source:s} is not supported.".format(
+                    data_source="miscellaneous chemical reaction data source ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         for file_url in file_urls:
             BaseDataSourceDownloadUtility.download_file(
@@ -218,7 +227,7 @@ class MiscellaneousReactionDataSourceDownloadUtility:
                 ),
             ]
 
-        else:
+        elif version == "v_orderly_retro_by_20240422_wigh_d_s_et_al":
             file_urls_and_names = [
                 (
                     "https://figshare.com/ndownloader/files/44413061",
@@ -229,6 +238,15 @@ class MiscellaneousReactionDataSourceDownloadUtility:
                     "orderly_retro_test.parquet",
                 ),
             ]
+
+        else:
+            raise ValueError(
+                "The download of the data from the {data_source:s} is not supported.".format(
+                    data_source="miscellaneous chemical reaction data source ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         for file_url, file_name in file_urls_and_names:
             BaseDataSourceDownloadUtility.download_file(

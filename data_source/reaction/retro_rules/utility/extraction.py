@@ -52,13 +52,22 @@ class RetroRulesReactionDatabaseExtractionUtility:
                 output_file_name=output_file_name
             )
 
-        else:
+        elif version == "v_release_rr02_rp3_nohs":
             input_file_name = "retrorules_rr02_rp3_nohs.tar.gz"
 
             output_file_name = "retrorules_rr02_flat_all.tsv"
 
             output_file_path = "retrorules_rr02_rp3_nohs/{output_file_name:s}".format(
                 output_file_name=output_file_name
+            )
+
+        else:
+            raise ValueError(
+                "The extraction of the data from the {data_source:s} is not supported.".format(
+                    data_source="RetroRules chemical reaction database ({version:s})".format(
+                        version=version
+                    )
+                )
             )
 
         with TarFile.open(

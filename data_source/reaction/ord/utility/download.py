@@ -26,10 +26,19 @@ class OpenReactionDatabaseDownloadUtility:
 
             file_name = "ord-data-0.1.0.zip"
 
-        else:
+        elif version == "v_release_main":
             file_url = "https://github.com/open-reaction-database/ord-data/archive/refs/heads/main.zip"
 
             file_name = "ord-data-main.zip"
+
+        else:
+            raise ValueError(
+                "The download of the data from the {data_source:s} is not supported.".format(
+                    data_source="Open Reaction Database ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         BaseDataSourceDownloadUtility.download_file(
             file_url=file_url,

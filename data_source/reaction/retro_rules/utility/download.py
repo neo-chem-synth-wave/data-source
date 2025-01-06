@@ -30,8 +30,17 @@ class RetroRulesReactionDatabaseDownloadUtility:
         elif version == "v_release_rr02_rp3_hs":
             file_url = "https://zenodo.org/records/5827977/files/retrorules_rr02_rp3_hs.tar.gz"
 
-        else:
+        elif version == "v_release_rr02_rp3_nohs":
             file_url = "https://zenodo.org/records/5827969/files/retrorules_rr02_rp3_nohs.tar.gz"
+
+        else:
+            raise ValueError(
+                "The download of the data from the {data_source:s} is not supported.".format(
+                    data_source="RetroRules chemical reaction database ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         BaseDataSourceDownloadUtility.download_file(
             file_url=file_url,

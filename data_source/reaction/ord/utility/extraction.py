@@ -27,8 +27,17 @@ class OpenReactionDatabaseExtractionUtility:
         if version == "v_release_0_1_0":
             input_file_name = "ord-data-0.1.0.zip"
 
-        else:
+        elif version == "v_release_main":
             input_file_name = "ord-data-main.zip"
+
+        else:
+            raise ValueError(
+                "The extraction of the data from the {data_source:s} is not supported.".format(
+                    data_source="Open Reaction Database ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         with ZipFile(
             file=Path(input_directory_path, input_file_name)

@@ -223,11 +223,20 @@ class MiscellaneousReactionDataSourceFormattingUtility:
                 "wb97xd3.csv",
             ]
 
-        else:
+        elif version == "v_add_on_by_20200508_grambow_c_et_al":
             input_file_names = [
                 "b97d3_rad.csv",
                 "wb97xd3_rad.csv",
             ]
+
+        else:
+            raise ValueError(
+                "The formatting of the data from the {data_source:s} is not supported.".format(
+                    data_source="miscellaneous chemical reaction data source ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         output_file_name = "{timestamp:s}_miscellaneous_{version:s}.csv".format(
             timestamp=datetime.now().strftime(
@@ -389,11 +398,20 @@ class MiscellaneousReactionDataSourceFormattingUtility:
                 "orderly_forward_test.parquet",
             ]
 
-        else:
+        elif version == "v_orderly_retro_by_20240422_wigh_d_s_et_al":
             input_file_names = [
                 "orderly_retro_train.parquet",
                 "orderly_retro_test.parquet",
             ]
+
+        else:
+            raise ValueError(
+                "The formatting of the data from the {data_source:s} is not supported.".format(
+                    data_source="miscellaneous chemical reaction data source ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         output_file_name = "{timestamp:s}_miscellaneous_{version:s}.csv".format(
             timestamp=datetime.now().strftime(

@@ -31,8 +31,17 @@ class ChemicalReactionDatabaseFormattingUtility:
         elif version == "v_reaction_smiles_2001_to_2023":
             input_file_name = "reactionSmilesFigShare2023.txt"
 
-        else:
+        elif version == "v_reaction_smiles_2023":
             input_file_name = "reactionSmilesFigShareUSPTO2023.txt"
+
+        else:
+            raise ValueError(
+                "The formatting of the data from the {data_source:s} is not supported.".format(
+                    data_source="Chemical Reaction Database ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         output_file_name = "{timestamp:s}_crd_{version:s}.csv".format(
             timestamp=datetime.now().strftime(

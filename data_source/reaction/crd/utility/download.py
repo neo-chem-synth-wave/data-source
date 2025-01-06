@@ -31,10 +31,19 @@ class ChemicalReactionDatabaseDownloadUtility:
 
             file_name = "reactionSmilesFigShare2023.txt"
 
-        else:
+        elif version == "v_reaction_smiles_2023":
             file_url = "https://figshare.com/ndownloader/files/43858050"
 
             file_name = "reactionSmilesFigShareUSPTO2023.txt"
+
+        else:
+            raise ValueError(
+                "The download of the data from the {data_source:s} is not supported.".format(
+                    data_source="Chemical Reaction Database ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         BaseDataSourceDownloadUtility.download_file(
             file_url=file_url,

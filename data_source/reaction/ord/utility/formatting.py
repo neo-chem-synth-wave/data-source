@@ -82,8 +82,17 @@ class OpenReactionDatabaseFormattingUtility:
         if version == "v_release_0_1_0":
             input_directory_name = "ord-data-0.1.0"
 
-        else:
+        elif version == "v_release_main":
             input_directory_name = "ord-data-main"
+
+        else:
+            raise ValueError(
+                "The formatting of the data from the {data_source:s} is not supported.".format(
+                    data_source="Open Reaction Database ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
         output_file_name = "{timestamp:s}_ord_{version:s}.csv".format(
             timestamp=datetime.now().strftime(

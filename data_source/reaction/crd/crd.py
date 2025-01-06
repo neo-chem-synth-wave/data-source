@@ -50,7 +50,11 @@ class ChemicalReactionDatabase(BaseDataSource):
                         )
                     )
 
-                if version.startswith("v_reaction_smiles"):
+                if version in [
+                    "v_reaction_smiles_2001_to_2021",
+                    "v_reaction_smiles_2001_to_2023",
+                    "v_reaction_smiles_2023",
+                ]:
                     ChemicalReactionDatabaseDownloadUtility.download_v_reaction_smiles(
                         version=version,
                         output_directory_path=output_directory_path
@@ -160,7 +164,11 @@ class ChemicalReactionDatabase(BaseDataSource):
                         )
                     )
 
-                if version.startswith("v_reaction_smiles"):
+                if version in [
+                    "v_reaction_smiles_2001_to_2021",
+                    "v_reaction_smiles_2001_to_2023",
+                    "v_reaction_smiles_2023",
+                ]:
                     ChemicalReactionDatabaseFormattingUtility.format_v_reaction_smiles(
                         version=version,
                         input_directory_path=input_directory_path,
