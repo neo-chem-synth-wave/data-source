@@ -83,8 +83,8 @@ class MiscellaneousReactionDataSourceDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        file_url = "https://raw.githubusercontent.com/neo-chem-synth-wave/data-source/main/data/{file_url_suffix:s}".format(
-            file_url_suffix="reaction_rule/miscellaneous_v_dingos_by_20190701_button_a_et_al/rxn_set.txt"
+        file_url = "https://raw.githubusercontent.com/neo-chem-synth-wave/data-source/refs/heads/main/data/{file_url_suffix:s}".format(
+            file_url_suffix="reaction/miscellaneous_v_dingos_by_20190701_button_a_et_al/rxn_set.txt"
         )
 
         BaseDataSourceDownloadUtility.download_file(
