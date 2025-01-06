@@ -1,9 +1,8 @@
 """ The ``data_source.compound.chembl`` package ``chembl`` module. """
 
-from logging import Logger
 from os import PathLike
 from re import search
-from typing import Dict, Optional, Union
+from typing import Dict, Union
 
 from data_source.base.base import BaseDataSource
 from data_source.base.utility.download import BaseDataSourceDownloadUtility
@@ -16,30 +15,13 @@ from data_source.compound.chembl.utility.formatting import ChEMBLCompoundDatabas
 class ChEMBLCompoundDatabase(BaseDataSource):
     """ The `ChEMBL <https://www.ebi.ac.uk/chembl>`_ chemical compound database class. """
 
-    def __init__(
-            self,
-            logger: Optional[Logger] = None
-    ) -> None:
-        """
-        The constructor method of the class.
-
-        :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
-        """
-
-        super().__init__(
-            logger=logger
-        )
-
     def get_supported_versions(
-            self,
-            **kwargs
+            self
     ) -> Dict[str, str]:
         """
-        Get the supported versions of the chemical compound database.
+        Get the supported versions of the database.
 
-        :parameter kwargs: The keyword arguments.
-
-        :returns: The supported versions of the chemical compound database.
+        :returns: The supported versions of the database.
         """
 
         try:
@@ -77,11 +59,10 @@ class ChEMBLCompoundDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Download the data from the chemical compound database.
+        Download the data from the database.
 
-        :parameter version: The version of the chemical compound database.
+        :parameter version: The version of the database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -112,8 +93,8 @@ class ChEMBLCompoundDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="ChEMBL chemical compound database version '{version:s}'".format(
+                    "The download of the data from the {data_source:s} is not supported.".format(
+                        data_source="ChEMBL chemical compound database ({version:s})".format(
                             version=version
                         )
                     )
@@ -135,12 +116,11 @@ class ChEMBLCompoundDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Extract the data from the chemical compound database.
+        Extract the data from the database.
 
-        :parameter version: The version of the chemical compound database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -172,8 +152,8 @@ class ChEMBLCompoundDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="ChEMBL chemical compound database version '{version:s}'".format(
+                    "The extraction of the data from the {data_source:s} is not supported.".format(
+                        data_source="ChEMBL chemical compound database ({version:s})".format(
                             version=version
                         )
                     )
@@ -195,12 +175,11 @@ class ChEMBLCompoundDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Format the data from the chemical compound database.
+        Format the data from the database.
 
-        :parameter version: The version of the chemical compound database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -232,8 +211,8 @@ class ChEMBLCompoundDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="ChEMBL chemical compound database version '{version:s}'".format(
+                    "The formatting of the data from the {data_source:s} is not supported.".format(
+                        data_source="ChEMBL chemical compound database ({version:s})".format(
                             version=version
                         )
                     )

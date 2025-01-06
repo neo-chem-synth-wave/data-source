@@ -18,34 +18,56 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from a `v_1976_to_2013_*_by_20121009_lowe_d_m` version of the chemical reaction dataset.
+        Download the data from a `v_1976_to_2013_*_by_20121009_lowe_d_m` version of the dataset.
 
-        :parameter version: The version of the chemical reaction dataset.
+        :parameter version: The version of the dataset.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        if version == "v_1976_to_2013_cml_by_20121009_lowe_d_m":
-            file_url_suffixes_and_names = [
-                ("files/22217844", "1976-2013_USPTOgrants_CML.7z", ),
-                ("files/22217838", "2001-2013_USPTOapplications_CML.7z", ),
+        if version == "v_1976_to_2013_by_20121009_lowe_d_m":
+            file_urls_and_names = [
+                (
+                    "https://figshare.com/ndownloader/articles/12084729/versions/1",
+                    "12084729.zip",
+                ),
+            ]
+
+        elif version == "v_1976_to_2013_cml_by_20121009_lowe_d_m":
+            file_urls_and_names = [
+                (
+                    "https://figshare.com/ndownloader/files/22217844",
+                    "1976-2013_USPTOgrants_CML.7z",
+                ),
+                (
+                    "https://figshare.com/ndownloader/files/22217838",
+                    "2001-2013_USPTOapplications_CML.7z",
+                ),
             ]
 
         elif version == "v_1976_to_2013_rsmi_by_20121009_lowe_d_m":
-            file_url_suffixes_and_names = [
-                ("files/22217829", "1976-2013_USPTOgrants_reactionSmiles_feb2014filters.7z", ),
-                ("files/22217826", "2001-2013_USPTOapplications_reactionSmiles_feb2014filters.7z", ),
+            file_urls_and_names = [
+                (
+                    "https://figshare.com/ndownloader/files/22217829",
+                    "1976-2013_USPTOgrants_reactionSmiles_feb2014filters.7z",
+                ),
+                (
+                    "https://figshare.com/ndownloader/files/22217826",
+                    "2001-2013_USPTOapplications_reactionSmiles_feb2014filters.7z",
+                ),
             ]
 
         else:
-            file_url_suffixes_and_names = [
-                ("articles/12084729/versions/1", "12084729.zip", ),
-            ]
+            raise ValueError(
+                "The download of the data from the {data_source:s} is not supported.".format(
+                    data_source="USPTO chemical reaction dataset ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
-        for file_url_suffix, file_name in file_url_suffixes_and_names:
+        for file_url, file_name in file_urls_and_names:
             BaseDataSourceDownloadUtility.download_file(
-                file_url="https://figshare.com/ndownloader/{file_url_suffix:s}".format(
-                    file_url_suffix=file_url_suffix
-                ),
+                file_url=file_url,
                 file_name=file_name,
                 output_directory_path=output_directory_path
             )
@@ -55,14 +77,18 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_50k_by_20141226_schneider_n_et_al` version of the chemical reaction dataset.
+        Download the data from the `v_50k_by_20141226_schneider_n_et_al` version of the dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_url = "https://ndownloader.figstatic.com/files/3848755"
+
+        file_name = "ci5006614_si_002.zip"
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://ndownloader.figstatic.com/files/3848755",
-            file_name="ci5006614_si_002.zip",
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -71,14 +97,18 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_50k_by_20161122_schneider_n_et_al` version of the chemical reaction dataset.
+        Download the data from the `v_50k_by_20161122_schneider_n_et_al` version of the dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_url = "https://ndownloader.figstatic.com/files/7005749"
+
+        file_name = "ci6b00564_si_002.zip"
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://ndownloader.figstatic.com/files/7005749",
-            file_name="ci6b00564_si_002.zip",
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -92,9 +122,13 @@ class USPTOReactionDatasetDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_url = "https://raw.githubusercontent.com/wengong-jin/nips17-rexgen/master/USPTO-15K/data.zip"
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://raw.githubusercontent.com/wengong-jin/nips17-rexgen/master/USPTO-15K/data.zip",
-            file_name="data.zip",
+            file_url=file_url,
+            file_name=file_url.split(
+                sep="/"
+            )[-1],
             output_directory_path=output_directory_path
         )
 
@@ -110,28 +144,50 @@ class USPTOReactionDatasetDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        if version == "v_1976_to_2016_cml_by_20121009_lowe_d_m":
-            file_url_suffixes_and_names = [
-                ("files/8664364", "1976_Sep2016_USPTOgrants_cml.7z", ),
-                ("files/8664367", "2001_Sep2016_USPTOapplications_cml.7z", ),
+        if version == "v_1976_to_2016_by_20121009_lowe_d_m":
+            file_urls_and_names = [
+                (
+                    "https://figshare.com/ndownloader/articles/5104873/versions/1",
+                    "5104873.zip",
+                ),
+            ]
+
+        elif version == "v_1976_to_2016_cml_by_20121009_lowe_d_m":
+            file_urls_and_names = [
+                (
+                    "https://figshare.com/ndownloader/files/8664364",
+                    "1976_Sep2016_USPTOgrants_cml.7z",
+                ),
+                (
+                    "https://figshare.com/ndownloader/files/8664367",
+                    "2001_Sep2016_USPTOapplications_cml.7z",
+                ),
             ]
 
         elif version == "v_1976_to_2016_rsmi_by_20121009_lowe_d_m":
-            file_url_suffixes_and_names = [
-                ("files/8664379", "1976_Sep2016_USPTOgrants_smiles.7z", ),
-                ("files/8664370", "2001_Sep2016_USPTOapplications_smiles.7z", ),
+            file_urls_and_names = [
+                (
+                    "https://figshare.com/ndownloader/files/8664379",
+                    "1976_Sep2016_USPTOgrants_smiles.7z",
+                ),
+                (
+                    "https://figshare.com/ndownloader/files/8664370",
+                    "2001_Sep2016_USPTOapplications_smiles.7z",
+                ),
             ]
 
         else:
-            file_url_suffixes_and_names = [
-                ("articles/5104873/versions/1", "5104873.zip", ),
-            ]
+            raise ValueError(
+                "The download of the data from the {data_source:s} is not supported.".format(
+                    data_source="USPTO chemical reaction dataset ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
 
-        for file_url_suffix, file_name in file_url_suffixes_and_names:
+        for file_url, file_name in file_urls_and_names:
             BaseDataSourceDownloadUtility.download_file(
-                file_url="https://figshare.com/ndownloader/{file_url_suffix:s}".format(
-                    file_url_suffix=file_url_suffix
-                ),
+                file_url=file_url,
                 file_name=file_name,
                 output_directory_path=output_directory_path
             )
@@ -146,21 +202,21 @@ class USPTOReactionDatasetDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
-        for file_name in [
-            "train_targets",
-            "train_sources",
-            "valid_targets",
-            "valid_sources",
-            "test_targets",
-            "test_sources",
-        ]:
+        file_urls = [
+            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/train_targets",
+            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/train_sources",
+            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/valid_targets",
+            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/valid_sources",
+            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/test_targets",
+            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/test_sources",
+        ]
+
+        for file_url in file_urls:
             BaseDataSourceDownloadUtility.download_file(
-                file_url="https://raw.githubusercontent.com/pandegroup/{file_url_suffix:s}".format(
-                    file_url_suffix="reaction_prediction_seq2seq/master/processed_data/{file_name:s}".format(
-                        file_name=file_name
-                    )
-                ),
-                file_name=file_name,
+                file_url=file_url,
+                file_name=file_url.split(
+                    sep="/"
+                )[-1],
                 output_directory_path=output_directory_path
             )
 
@@ -174,11 +230,13 @@ class USPTOReactionDatasetDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_url = "https://raw.githubusercontent.com/connorcoley/retrosim/master/retrosim/data/data_processed.csv"
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://raw.githubusercontent.com/connorcoley/retrosim/master/{file_url_suffix:s}".format(
-                file_url_suffix="retrosim/data/data_processed.csv"
-            ),
-            file_name="data_processed.csv",
+            file_url=file_url,
+            file_name=file_url.split(
+                sep="/"
+            )[-1],
             output_directory_path=output_directory_path
         )
 
@@ -192,32 +250,40 @@ class USPTOReactionDatasetDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_url = "https://raw.githubusercontent.com/wengong-jin/nips17-rexgen/master/USPTO/data.zip"
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://raw.githubusercontent.com/wengong-jin/nips17-rexgen/master/USPTO/data.zip",
-            file_name="data.zip",
+            file_url=file_url,
+            file_name=file_url.split(
+                sep="/"
+            )[-1],
             output_directory_path=output_directory_path
         )
 
     @staticmethod
-    def download_v_20180622_schwaller_p_et_al(
+    def download_v_by_20180622_schwaller_p_et_al(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from a `v_*_20180622_schwaller_p_et_al` version of the chemical reaction dataset.
+        Download the data from a `v_*_by_20180622_schwaller_p_et_al` version of the chemical reaction dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_url = BaseDataSourceDownloadUtility.send_http_get_request(
+            http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+                url="https://ibm.ent.box.com/index.php",
+                folder_id="folder_id=40552708120",
+                vanity_name="q[shared_item][vanity_name]=ReactionSeq2SeqDataset",
+                rm="rm=box_v2_zip_shared_folder"
+            )
+        ).json()["download_url"]
+
+        file_name = "ReactionSeq2Seq_Dataset.zip"
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url=BaseDataSourceDownloadUtility.send_http_get_request(
-                http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
-                    url="https://ibm.ent.box.com/index.php",
-                    folder_id="folder_id=40552708120",
-                    vanity_name="q[shared_item][vanity_name]=ReactionSeq2SeqDataset",
-                    rm="rm=box_v2_zip_shared_folder"
-                )
-            ).json()["download_url"],
-            file_name="ReactionSeq2Seq_Dataset.zip",
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -231,9 +297,13 @@ class USPTOReactionDatasetDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_url = "https://raw.githubusercontent.com/john-bradshaw/electro/master/lef_uspto.zip"
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://raw.githubusercontent.com/john-bradshaw/electro/master/lef_uspto.zip",
-            file_name="lef_uspto.zip",
+            file_url=file_url,
+            file_name=file_url.split(
+                sep="/"
+            )[-1],
             output_directory_path=output_directory_path
         )
 
@@ -247,16 +317,20 @@ class USPTOReactionDatasetDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_url = BaseDataSourceDownloadUtility.send_http_get_request(
+            http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+                url="https://ibm.ent.box.com/index.php",
+                folder_id="folder_id=124192222443",
+                vanity_name="q[shared_item][vanity_name]=MappingChemicalReactions",
+                rm="rm=box_v2_zip_shared_folder"
+            )
+        ).json()["download_url"]
+
+        file_name = "MappingChemicalReactions.zip"
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url=BaseDataSourceDownloadUtility.send_http_get_request(
-                http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
-                    url="https://ibm.ent.box.com/index.php",
-                    folder_id="folder_id=124192222443",
-                    vanity_name="q[shared_item][vanity_name]=MappingChemicalReactions",
-                    rm="rm=box_v2_zip_shared_folder"
-                )
-            ).json()["download_url"],
-            file_name="MappingChemicalReactions.zip",
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -271,16 +345,20 @@ class USPTOReactionDatasetDownloadUtility:
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
+        file_url = BaseDataSourceDownloadUtility.send_http_get_request(
+            http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+                url="https://ibm.ent.box.com/index.php",
+                folder_id="folder_id=112951098080",
+                vanity_name="q[shared_item][vanity_name]=RXNMapperData",
+                rm="rm=box_v2_zip_shared_folder"
+            )
+        ).json()["download_url"]
+
+        file_name = "USPTO_remapped.zip"
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url=BaseDataSourceDownloadUtility.send_http_get_request(
-                http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
-                    url="https://ibm.ent.box.com/index.php",
-                    folder_id="folder_id=112951098080",
-                    vanity_name="q[shared_item][vanity_name]=RXNMapperData",
-                    rm="rm=box_v2_zip_shared_folder"
-                )
-            ).json()["download_url"],
-            file_name="USPTO_remapped.zip",
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -297,21 +375,31 @@ class USPTOReactionDatasetDownloadUtility:
         """
 
         if version == "v_1976_to_2016_remapped_by_20240313_chen_s_et_al":
-            file_url_suffix = "44192531"
+            file_url = "https://figshare.com/ndownloader/files/44192531"
+
             file_name = "remapped_USPTO_FULL.csv"
 
         elif version == "v_50k_remapped_by_20240313_chen_s_et_al":
-            file_url_suffix = "44192528"
+            file_url = "https://figshare.com/ndownloader/files/44192528"
+
             file_name = "remapped_USPTO_50K.csv"
 
-        else:
-            file_url_suffix = "44708185"
+        elif version == "v_mech_31k_by_20240810_chen_s_et_al":
+            file_url = "https://figshare.com/ndownloader/files/44708185"
+
             file_name = "mech-USPTO-31k.csv"
 
+        else:
+            raise ValueError(
+                "The download of the data from the {data_source:s} is not supported.".format(
+                    data_source="USPTO chemical reaction dataset ({version:s})".format(
+                        version=version
+                    )
+                )
+            )
+
         BaseDataSourceDownloadUtility.download_file(
-            file_url="https://figshare.com/ndownloader/files/{file_url_suffix:s}".format(
-                file_url_suffix=file_url_suffix
-            ),
+            file_url=file_url,
             file_name=file_name,
             output_directory_path=output_directory_path
         )

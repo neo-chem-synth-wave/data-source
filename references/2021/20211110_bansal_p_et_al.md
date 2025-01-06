@@ -3,7 +3,7 @@
 **Authors:** Parit Bansal, Anne Morgat, Kristian B. Axelsen, Venkatesh Muthukrishnan, Elisabeth Coudert, Lucila Aimo,
 Nevila Hyka-Nouspikel, Elisabeth Gasteiger, Arnaud Kerhornou, Teresa B. Neto, Monica Pozzato, Marie-Claude Blatter, Alex
 Ignatchenko, Nicole Redaschi, Alan Bridge<br>
-**Publication Date:** 2023/11/10<br>
+**Publication Date:** 2021/11/10<br>
 **Publication Link:** [Nucleic Acids Research](https://academic.oup.com/nar/article/50/D1/D693/6424769)<br>
 **Alternative Publication Links:** [Europe PMC](https://europepmc.org/article/med/34755880) |
 [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8728268) |

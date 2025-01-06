@@ -6,7 +6,8 @@ from pathlib import Path
 from shutil import copyfileobj
 from typing import Union
 
-from requests import Response, get
+from requests.api import get
+from requests.models import Response
 
 from tqdm.auto import tqdm
 
@@ -20,13 +21,13 @@ class BaseDataSourceDownloadUtility:
             **kwargs
     ) -> Response:
         """
-        Send an `HTTP GET` request.
+        Send an HTTP GET request.
 
-        :parameter http_get_request_url: The URL of the `HTTP GET` request.
+        :parameter http_get_request_url: The URL of the HTTP GET request.
         :parameter kwargs: The keyword arguments for the adjustment of the following underlying functions:
             { `requests.api.get` }.
 
-        :returns: The response to the `HTTP GET` request.
+        :returns: The response to the HTTP GET request.
         """
 
         http_get_request_response = get(
@@ -62,12 +63,20 @@ class BaseDataSourceDownloadUtility:
             decode_content=True
         )
 
-        file_size = http_get_request_response.headers.get("Content-Length", None)
+        # noinspection PyBroadException
+        try:
+            file_size = http_get_request_response.headers.get("Content-Length", None)
+
+            if file_size is not None:
+                file_size = float(file_size)
+
+        except:
+            file_size = None
 
         with tqdm.wrapattr(
             stream=http_get_request_response.raw,
             method="read",
-            total=float(file_size) if file_size is not None else None,
+            total=file_size,
             desc="Downloading the '{file_name:s}' file".format(
                 file_name=file_name
             ),
@@ -76,6 +85,7 @@ class BaseDataSourceDownloadUtility:
             with Path(output_directory_path, file_name).open(
                 mode="wb"
             ) as destination_file_handle:
+                # noinspection PyTypeChecker
                 copyfileobj(
                     fsrc=file_download_stream_handle,
                     fdst=destination_file_handle

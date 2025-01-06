@@ -1,8 +1,7 @@
 """ The ``data_source.reaction.ord`` package ``ord`` module. """
 
-from logging import Logger
 from os import PathLike
-from typing import Dict, Optional, Union
+from typing import Dict, Union
 
 from data_source.base.base import BaseDataSource
 
@@ -14,48 +13,18 @@ from data_source.reaction.ord.utility.formatting import OpenReactionDatabaseForm
 class OpenReactionDatabase(BaseDataSource):
     """ The `Open Reaction Database (ORD) <https://open-reaction-database.org>`_ class. """
 
-    def __init__(
-            self,
-            logger: Optional[Logger] = None
-    ) -> None:
-        """
-        The constructor method of the class.
-
-        :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
-        """
-
-        super().__init__(
-            logger=logger
-        )
-
-    def get_supported_versions(
-            self,
-            **kwargs
-    ) -> Dict[str, str]:
+    @staticmethod
+    def get_supported_versions() -> Dict[str, str]:
         """
         Get the supported versions of the chemical reaction database.
-
-        :parameter kwargs: The keyword arguments.
 
         :returns: The supported versions of the chemical reaction database.
         """
 
-        try:
-            return {
-                "v_release_0_1_0": "https://doi.org/10.1021/jacs.1c09820",
-                "v_release_main": "https://doi.org/10.1021/jacs.1c09820",
-                "v_orderly_condition_by_20240422_wigh_d_s_et_al": "https://doi.org/10.6084/m9.figshare.23298467.v4",
-                "v_orderly_forward_by_20240422_wigh_d_s_et_al": "https://doi.org/10.6084/m9.figshare.23298467.v4",
-                "v_orderly_retro_by_20240422_wigh_d_s_et_al": "https://doi.org/10.6084/m9.figshare.23298467.v4",
-            }
-
-        except Exception as exception_handle:
-            if self.logger is not None:
-                self.logger.error(
-                    msg=exception_handle
-                )
-
-            raise
+        return {
+            "v_release_0_1_0": "https://doi.org/10.1021/jacs.1c09820",
+            "v_release_main": "https://doi.org/10.1021/jacs.1c09820",
+        }
 
     def download(
             self,
@@ -68,7 +37,6 @@ class OpenReactionDatabase(BaseDataSource):
 
         :parameter version: The version of the chemical reaction database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -82,14 +50,11 @@ class OpenReactionDatabase(BaseDataSource):
                         )
                     )
 
-                if version.startswith("v_release"):
+                if version in [
+                    "v_release_0_1_0",
+                    "v_release_main",
+                ]:
                     OpenReactionDatabaseDownloadUtility.download_v_release(
-                        version=version,
-                        output_directory_path=output_directory_path
-                    )
-
-                if version.startswith("v_orderly"):
-                    OpenReactionDatabaseDownloadUtility.download_v_orderly(
                         version=version,
                         output_directory_path=output_directory_path
                     )
@@ -105,8 +70,8 @@ class OpenReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="Open Reaction Database version '{version:s}'".format(
+                    "The download of the data from the {data_source:s} is not supported.".format(
+                        data_source="Open Reaction Database ({version:s})".format(
                             version=version
                         )
                     )
@@ -147,7 +112,10 @@ class OpenReactionDatabase(BaseDataSource):
                         )
                     )
 
-                if version.startswith("v_release"):
+                if version in [
+                    "v_release_0_1_0",
+                    "v_release_main",
+                ]:
                     OpenReactionDatabaseExtractionUtility.extract_v_release(
                         version=version,
                         input_directory_path=input_directory_path,
@@ -165,8 +133,8 @@ class OpenReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="Open Reaction Database version '{version:s}'".format(
+                    "The extraction of the data from the {data_source:s} is not supported.".format(
+                        data_source="Open Reaction Database ({version:s})".format(
                             version=version
                         )
                     )
@@ -207,19 +175,15 @@ class OpenReactionDatabase(BaseDataSource):
                         )
                     )
 
-                if version.startswith("v_release"):
+                if version in [
+                    "v_release_0_1_0",
+                    "v_release_main",
+                ]:
                     OpenReactionDatabaseFormattingUtility.format_v_release(
                         version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path,
                         **kwargs
-                    )
-
-                if version.startswith("v_orderly"):
-                    OpenReactionDatabaseFormattingUtility.format_v_orderly(
-                        version=version,
-                        input_directory_path=input_directory_path,
-                        output_directory_path=output_directory_path
                     )
 
                 if self.logger is not None:
@@ -233,8 +197,8 @@ class OpenReactionDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="Open Reaction Database version '{version:s}'".format(
+                    "The formatting of the data from the {data_source:s} is not supported.".format(
+                        data_source="Open Reaction Database ({version:s})".format(
                             version=version
                         )
                     )

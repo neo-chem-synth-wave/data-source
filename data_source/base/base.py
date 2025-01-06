@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 from logging import Logger
-from typing import Dict, Optional, Type
+from typing import Optional
 
 
 class BaseDataSource(ABC):
@@ -45,69 +45,23 @@ class BaseDataSource(ABC):
 
         self.__logger = value
 
-    def _raise_and_log_exception(
-            self,
-            exception_class: Type[Exception],
-            exception_message: str
-    ) -> None:
-        """
-        Raise and log an exception.
-
-        :parameter exception_class: The class of the exception.
-        :parameter exception_message: The message of the exception.
-        """
-
-        exception_handle = exception_class(exception_message)
-
-        if self.__logger is not None:
-            self.__logger.error(
-                msg=exception_handle
-            )
-
-        raise exception_handle
-
-    @abstractmethod
-    def get_supported_versions(
-            self,
-            **kwargs
-    ) -> Dict[str, str]:
-        """
-        Get the supported versions of the data source.
-
-        :parameter kwargs: The keyword arguments.
-
-        :returns: The supported versions of the data source.
-        """
-
     @abstractmethod
     def download(
             self,
             **kwargs
     ) -> None:
-        """
-        Download the data from the data source.
-
-        :parameter kwargs: The keyword arguments.
-        """
+        """ Download the data from the data source. """
 
     @abstractmethod
     def extract(
             self,
             **kwargs
     ) -> None:
-        """
-        Extract the data from the data source.
-
-        :parameter kwargs: The keyword arguments.
-        """
+        """ Extract the data from the data source. """
 
     @abstractmethod
     def format(
             self,
             **kwargs
     ) -> None:
-        """
-        Format the data from the data source.
-
-        :parameter kwargs: The keyword arguments.
-        """
+        """ Format the data from the data source. """

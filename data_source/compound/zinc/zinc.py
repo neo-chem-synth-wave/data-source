@@ -1,9 +1,8 @@
 """ The ``data_source.compound.zinc`` package ``zinc`` module. """
 
-from logging import Logger
 from os import PathLike
 from re import findall
-from typing import Dict, Optional, Union
+from typing import Dict, Union
 
 from data_source.base.base import BaseDataSource
 from data_source.base.utility.download import BaseDataSourceDownloadUtility
@@ -16,34 +15,17 @@ from data_source.compound.zinc.utility.formatting import ZINCCompoundDatabaseFor
 class ZINCCompoundDatabase(BaseDataSource):
     """ The `ZINC <https://zinc20.docking.org>`_ chemical compound database class. """
 
-    def __init__(
-            self,
-            logger: Optional[Logger] = None
-    ) -> None:
-        """
-        The constructor method of the class.
-
-        :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
-        """
-
-        super().__init__(
-            logger=logger
-        )
-
     def get_supported_versions(
-            self,
-            **kwargs
+            self
     ) -> Dict[str, str]:
         """
-        Get the supported versions of the chemical reaction database.
+        Get the supported versions of the database.
 
-        :parameter kwargs: The keyword arguments.
-
-        :returns: The supported versions of the chemical reaction database.
+        :returns: The supported versions of the database.
         """
 
         try:
-            available_versions = dict()
+            supported_versions = dict()
 
             for file_name in findall(
                 pattern=r"href=\"([^\.]+)\.smi\.gz",
@@ -51,7 +33,7 @@ class ZINCCompoundDatabase(BaseDataSource):
                     http_get_request_url="https://files.docking.org/bb/current"
                 ).text
             ):
-                available_versions[
+                supported_versions[
                     "v_building_blocks_{file_name:s}".format(
                         file_name=file_name
                     )
@@ -63,17 +45,13 @@ class ZINCCompoundDatabase(BaseDataSource):
                     http_get_request_url="https://files.docking.org/catalogs/source"
                 ).text
             ):
-                available_versions[
+                supported_versions[
                     "v_catalog_{file_name:s}".format(
                         file_name=file_name
                     )
                 ] = "https://doi.org/10.1021/acs.jcim.0c00675"
 
-            available_versions.update({
-                "v_moses_by_20201218_polykovskiy_d_et_al": "https://doi.org/10.3389/fphar.2020.565644",
-            })
-
-            return available_versions
+            return supported_versions
 
         except Exception as exception_handle:
             if self.logger is not None:
@@ -90,11 +68,10 @@ class ZINCCompoundDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Download the data from the chemical compound database.
+        Download the data from the database.
 
-        :parameter version: The version of the chemical compound database.
+        :parameter version: The version of the database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -120,11 +97,6 @@ class ZINCCompoundDatabase(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_moses_by_20201218_polykovskiy_d_et_al":
-                    ZINCCompoundDatabaseDownloadUtility.download_v_moses_by_20201218_polykovskiy_d_et_al(
-                        output_directory_path=output_directory_path
-                    )
-
                 if self.logger is not None:
                     self.logger.info(
                         msg="The download of the data from the {data_source:s} has been completed.".format(
@@ -136,8 +108,8 @@ class ZINCCompoundDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="ZINC chemical compound database version '{version:s}'".format(
+                    "The download of the data from the {data_source:s} is not supported.".format(
+                        data_source="ZINC chemical compound database ({version:s})".format(
                             version=version
                         )
                     )
@@ -159,12 +131,11 @@ class ZINCCompoundDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Extract the data from the chemical compound database.
+        Extract the data from the database.
 
-        :parameter version: The version of the chemical compound database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -196,8 +167,8 @@ class ZINCCompoundDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="ZINC chemical compound database version '{version:s}'".format(
+                    "The extraction of the data from the {data_source:s} is not supported.".format(
+                        data_source="ZINC chemical compound database ({version:s})".format(
                             version=version
                         )
                     )
@@ -219,12 +190,11 @@ class ZINCCompoundDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Format the data from the chemical compound database.
+        Format the data from the database.
 
-        :parameter version: The version of the chemical compound database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -252,12 +222,6 @@ class ZINCCompoundDatabase(BaseDataSource):
                         output_directory_path=output_directory_path
                     )
 
-                if version == "v_moses_by_20201218_polykovskiy_d_et_al":
-                    ZINCCompoundDatabaseFormattingUtility.format_v_moses_by_20201218_polykovskiy_d_et_al(
-                        input_directory_path=input_directory_path,
-                        output_directory_path=output_directory_path
-                    )
-
                 if self.logger is not None:
                     self.logger.info(
                         msg="The formatting of the data from the {data_source:s} has been completed.".format(
@@ -269,8 +233,8 @@ class ZINCCompoundDatabase(BaseDataSource):
 
             else:
                 raise ValueError(
-                    "The {data_source:s} is not supported.".format(
-                        data_source="ZINC chemical compound database version '{version:s}'".format(
+                    "The formatting of the data from the {data_source:s} is not supported.".format(
+                        data_source="ZINC chemical compound database ({version:s})".format(
                             version=version
                         )
                     )

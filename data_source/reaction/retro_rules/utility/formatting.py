@@ -1,4 +1,4 @@
-""" The ``data_source.reaction.crd.utility`` package ``formatting`` module. """
+""" The ``data_source.reaction.retro_rules.utility`` package ``formatting`` module. """
 
 from datetime import datetime
 from os import PathLike
@@ -8,42 +8,51 @@ from typing import Union
 from pandas.io.parsers.readers import read_csv
 
 
-class ChemicalReactionDatabaseFormattingUtility:
-    """ The `Chemical Reaction Database (CRD) <https://kmt.vander-lingen.nl>`_ formatting utility class. """
+class RetroRulesReactionDatabaseFormattingUtility:
+    """ The `RetroRules <https://retrorules.org>`_ chemical reaction database formatting utility class. """
 
     @staticmethod
-    def format_v_reaction_smiles(
+    def format_v_release(
             version: str,
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from a `v_reaction_smiles_*` version of the database.
+        Format the data from a `v_release_*` version of the database.
 
         :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
-        if version == "v_reaction_smiles_2001_to_2021":
-            input_file_name = "reactionSmilesFigShare.txt"
+        if version == "v_release_rr01_rp2_hs":
+            input_file_name = "retrorules_rr01_rp2_flat_all.csv"
 
-        elif version == "v_reaction_smiles_2001_to_2023":
-            input_file_name = "reactionSmilesFigShare2023.txt"
+            column_name = "File name"
 
-        elif version == "v_reaction_smiles_2023":
-            input_file_name = "reactionSmilesFigShareUSPTO2023.txt"
+        elif version == "v_release_rr02_rp2_hs":
+            input_file_name = "retrorules_rr02_rp2_flat_all.csv"
+
+            column_name = "File name"
+
+        elif version in [
+            "v_release_rr02_rp3_hs",
+            "v_release_rr02_rp3_nohs",
+        ]:
+            input_file_name = "retrorules_rr02_flat_all.tsv"
+
+            column_name = "File_name"
 
         else:
             raise ValueError(
                 "The formatting of the data from the {data_source:s} is not supported.".format(
-                    data_source="Chemical Reaction Database ({version:s})".format(
+                    data_source="RetroRules chemical reaction database ({version:s})".format(
                         version=version
                     )
                 )
             )
 
-        output_file_name = "{timestamp:s}_crd_{version:s}.csv".format(
+        output_file_name = "{timestamp:s}_retro_rules_{version:s}.csv".format(
             timestamp=datetime.now().strftime(
                 format="%Y%m%d%H%M%S"
             ),
@@ -52,14 +61,11 @@ class ChemicalReactionDatabaseFormattingUtility:
 
         dataframe = read_csv(
             filepath_or_buffer=Path(input_directory_path, input_file_name),
-            header=None
-        ).rename(
-            columns={
-                0: "reaction_smiles",
-            }
+            sep="\t" if input_file_name.endswith(".tsv") else ",",
+            header=0
         )
 
-        dataframe["file_name"] = input_file_name
+        dataframe[column_name] = input_file_name
 
         dataframe.to_csv(
             path_or_buf=Path(output_directory_path, output_file_name),

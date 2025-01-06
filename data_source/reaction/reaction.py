@@ -9,6 +9,7 @@ from data_source.base.base import BaseDataSource
 from data_source.reaction.crd.crd import ChemicalReactionDatabase
 from data_source.reaction.miscellaneous.miscellaneous import MiscellaneousReactionDataSource
 from data_source.reaction.ord.ord import OpenReactionDatabase
+from data_source.reaction.retro_rules.retro_rules import RetroRulesReactionDatabase
 from data_source.reaction.rhea.rhea import RheaReactionDatabase
 from data_source.reaction.uspto.uspto import USPTOReactionDataset
 
@@ -40,6 +41,9 @@ class ReactionDataSource(BaseDataSource):
             "ord": OpenReactionDatabase(
                 logger=logger
             ),
+            "retro_rules": RetroRulesReactionDatabase(
+                logger=logger
+            ),
             "rhea": RheaReactionDatabase(
                 logger=logger
             ),
@@ -52,39 +56,41 @@ class ReactionDataSource(BaseDataSource):
             self
     ) -> List[str]:
         """
-        Get the names of the supported chemical reaction data sources.
+        Get the names of the supported data sources.
 
-        :returns: The names of the supported chemical reaction data sources.
+        :returns: The names of the supported data sources.
         """
 
         return list(self.supported_data_sources.keys())
 
     def get_supported_versions(
             self,
-            name: str,
-            **kwargs
+            name: str
     ) -> Dict[str, str]:
         """
-        Get the supported versions of a chemical reaction data source.
+        Get the supported versions of a data source.
 
-        :parameter name: The name of the chemical reaction data source.
-        :parameter kwargs: The keyword arguments.
+        :parameter name: The name of the data source.
 
-        :returns: The supported versions of the chemical reaction data source.
+        :returns: The supported versions of the data source.
         """
 
         if name in self.get_names_of_supported_data_sources():
-            return self.supported_data_sources[name].get_supported_versions(
-                **kwargs
-            )
+            return self.supported_data_sources[name].get_supported_versions()
 
         else:
-            self._raise_and_log_exception(
-                exception_class=ValueError,
-                exception_message="The chemical reaction data source name '{name:s}' is not supported.".format(
+            exception_handle = ValueError(
+                "The chemical reaction data source name '{name:s}' is not supported.".format(
                     name=name
                 )
             )
+
+            if self.logger is not None:
+                self.logger.error(
+                    msg=exception_handle
+                )
+
+            raise exception_handle
 
     def download(
             self,
@@ -94,28 +100,32 @@ class ReactionDataSource(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Download the data from a chemical reaction data source.
+        Download the data from a data source.
 
-        :parameter name: The name of the chemical reaction data source.
-        :parameter version: The version of the chemical reaction data source.
+        :parameter name: The name of the data source.
+        :parameter version: The version of the data source.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         if name in self.get_names_of_supported_data_sources():
             self.supported_data_sources[name].download(
                 version=version,
-                output_directory_path=output_directory_path,
-                **kwargs
+                output_directory_path=output_directory_path
             )
 
         else:
-            self._raise_and_log_exception(
-                exception_class=ValueError,
-                exception_message="The chemical reaction data source name '{name:s}' is not supported.".format(
+            exception_handle = ValueError(
+                "The chemical reaction data source name '{name:s}' is not supported.".format(
                     name=name
                 )
             )
+
+            if self.logger is not None:
+                self.logger.error(
+                    msg=exception_handle
+                )
+
+            raise exception_handle
 
     def extract(
             self,
@@ -126,30 +136,34 @@ class ReactionDataSource(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Extract the data from a chemical reaction data source.
+        Extract the data from a data source.
 
-        :parameter name: The name of the chemical reaction data source.
-        :parameter version: The version of the chemical reaction data source.
+        :parameter name: The name of the data source.
+        :parameter version: The version of the data source.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
-        :parameter kwargs: The keyword arguments.
         """
 
         if name in self.get_names_of_supported_data_sources():
             self.supported_data_sources[name].extract(
                 version=version,
                 input_directory_path=input_directory_path,
-                output_directory_path=output_directory_path,
-                **kwargs
+                output_directory_path=output_directory_path
             )
 
         else:
-            self._raise_and_log_exception(
-                exception_class=ValueError,
-                exception_message="The chemical reaction data source name '{name:s}' is not supported.".format(
+            exception_handle = ValueError(
+                "The chemical reaction data source name '{name:s}' is not supported.".format(
                     name=name
                 )
             )
+
+            if self.logger is not None:
+                self.logger.error(
+                    msg=exception_handle
+                )
+
+            raise exception_handle
 
     def format(
             self,
@@ -160,13 +174,12 @@ class ReactionDataSource(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Format the data from a chemical reaction data source.
+        Format the data from a data source.
 
-        :parameter name: The name of the chemical reaction data source.
-        :parameter version: The version of the chemical reaction data source.
+        :parameter name: The name of the data source.
+        :parameter version: The version of the data source.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
-        :parameter kwargs: The keyword arguments.
         """
 
         if name in self.get_names_of_supported_data_sources():
@@ -178,9 +191,15 @@ class ReactionDataSource(BaseDataSource):
             )
 
         else:
-            self._raise_and_log_exception(
-                exception_class=ValueError,
-                exception_message="The chemical reaction data source name '{name:s}' is not supported.".format(
+            exception_handle = ValueError(
+                "The chemical reaction data source name '{name:s}' is not supported.".format(
                     name=name
                 )
             )
+
+            if self.logger is not None:
+                self.logger.error(
+                    msg=exception_handle
+                )
+
+            raise exception_handle

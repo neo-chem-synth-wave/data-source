@@ -5,7 +5,7 @@ from os import PathLike
 from pathlib import Path
 from typing import Union
 
-from pandas import read_csv
+from pandas.io.parsers.readers import read_csv
 
 
 class RheaReactionDatabaseFormattingUtility:
@@ -25,24 +25,29 @@ class RheaReactionDatabaseFormattingUtility:
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
 
-        read_csv(
-            filepath_or_buffer=Path(input_directory_path, "rhea-reaction-smiles.tsv"),
+        input_file_name = "rhea-reaction-smiles.tsv"
+
+        output_file_name = "{timestamp:s}_rhea_{version:s}.csv".format(
+            timestamp=datetime.now().strftime(
+                format="%Y%m%d%H%M%S"
+            ),
+            version=version
+        )
+
+        dataframe = read_csv(
+            filepath_or_buffer=Path(input_directory_path, input_file_name),
             sep="\t",
             header=None
-        ).rename(
+        )
+
+        dataframe["file_name"] = input_file_name
+
+        dataframe.rename(
             columns={
                 0: "id",
                 1: "reaction_smiles",
             }
         ).to_csv(
-            path_or_buf=Path(
-                output_directory_path,
-                "{timestamp:s}_rhea_{version:s}.csv".format(
-                    timestamp=datetime.now().strftime(
-                        format="%Y%m%d%H%M%S"
-                    ),
-                    version=version
-                )
-            ),
+            path_or_buf=Path(output_directory_path, output_file_name),
             index=False
         )
