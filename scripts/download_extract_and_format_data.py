@@ -8,7 +8,6 @@ from shutil import rmtree
 
 from data_source.compound import CompoundDataSource
 from data_source.reaction import ReactionDataSource
-from data_source.reaction_rule import ReactionRuleDataSource
 
 
 def get_script_arguments() -> Namespace:
@@ -27,16 +26,15 @@ def get_script_arguments() -> Namespace:
         choices=[
             "compound",
             "reaction",
-            "reaction_rule",
         ],
         help="The indicator of the data source category."
     )
 
     argument_parser.add_argument(
-        "-gdsni",
-        "--get_data_source_name_information",
+        "-gdsn",
+        "--get_data_source_name",
         action="store_true",
-        help="The indicator of whether to get the data source name information."
+        help="The indicator of whether to get the data source name."
     )
 
     argument_parser.add_argument(
@@ -57,10 +55,10 @@ def get_script_arguments() -> Namespace:
     )
 
     argument_parser.add_argument(
-        "-gdsvi",
-        "--get_data_source_version_information",
+        "-gdsv",
+        "--get_data_source_version",
         action="store_true",
-        help="The indicator of whether to get the data source version information."
+        help="The indicator of whether to get the data source version."
     )
 
     argument_parser.add_argument(
@@ -140,11 +138,6 @@ if __name__ == "__main__":
             logger=script_logger
         )
 
-    elif script_arguments.data_source_category == "reaction_rule":
-        data_source = ReactionRuleDataSource(
-            logger=script_logger
-        )
-
     else:
         raise ValueError(
             "The data source category '{category:s}' is not supported.".format(
@@ -152,11 +145,11 @@ if __name__ == "__main__":
             )
         )
 
-    if script_arguments.get_data_source_name_information:
+    if script_arguments.get_data_source_name:
         print(script_arguments.data_source_category)
         print(data_source.get_names_of_supported_data_sources())
 
-    elif script_arguments.get_data_source_version_information:
+    elif script_arguments.get_data_source_version:
         print(script_arguments.data_source_category)
         print(script_arguments.data_source_name)
         print(data_source.get_supported_versions(
