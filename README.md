@@ -153,9 +153,6 @@ The following Open Reaction Database (ORD) versions are supported:
 |---------------------------------------------------------------------------------------------------------------|-----------------------------------|:---------------:|
 | v_release_0_1_0 <sup>[[17]](/references/2021/20211102_kearnes_s_m_et_al.md)</sup>                             | `10.1021/jacs.1c09820`            | :yellow_circle: |
 | v_release_main <sup>[[17]](/references/2021/20211102_kearnes_s_m_et_al.md)</sup>                              | `10.1021/jacs.1c09820`            | :yellow_circle: |
-| v_orderly_condition_by_20240422_wigh_d_s_et_al <sup>[[18]](/references/2024/20240422_wigh_d_s_et_al.md)</sup> | `10.6084/m9.figshare.23298467.v4` | :green_circle:  |
-| v_orderly_forward_by_20240422_wigh_d_s_et_al <sup>[[18]](/references/2024/20240422_wigh_d_s_et_al.md)</sup>   | `10.6084/m9.figshare.23298467.v4` | :green_circle:  |
-| v_orderly_retro_by_20240422_wigh_d_s_et_al <sup>[[18]](/references/2024/20240422_wigh_d_s_et_al.md)</sup>     | `10.6084/m9.figshare.23298467.v4` | :green_circle:  |
 
 <sub>:green_circle: Completely Implemented</sub><br>
 <sub>:yellow_circle: Partially Implemented (Limited to Reaction SMILES Strings)</sub>
@@ -166,9 +163,9 @@ The following Chemical Reaction Database (CRD) versions are supported:
 
 | Version                                                                        | DOI                               |     Status     |
 |--------------------------------------------------------------------------------|-----------------------------------|:--------------:|
-| v_reaction_smiles_2001_to_2021 <sup>[[19]](https://kmt.vander-lingen.nl)</sup> | `10.6084/m9.figshare.20279733.v1` | :green_circle: |
-| v_reaction_smiles_2001_to_2023 <sup>[[19]](https://kmt.vander-lingen.nl)</sup> | `10.6084/m9.figshare.22491730.v1` | :green_circle: |
-| v_reaction_smiles_2023 <sup>[[19]](https://kmt.vander-lingen.nl)</sup>         | `10.6084/m9.figshare.24921555.v1` | :green_circle: |
+| v_reaction_smiles_2001_to_2021 <sup>[[18]](https://kmt.vander-lingen.nl)</sup> | `10.6084/m9.figshare.20279733.v1` | :green_circle: |
+| v_reaction_smiles_2001_to_2023 <sup>[[18]](https://kmt.vander-lingen.nl)</sup> | `10.6084/m9.figshare.22491730.v1` | :green_circle: |
+| v_reaction_smiles_2023 <sup>[[18]](https://kmt.vander-lingen.nl)</sup>         | `10.6084/m9.figshare.24921555.v1` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -178,7 +175,7 @@ The following Rhea chemical reaction database versions are supported:
 
 | Version                                                                                                                                                     | DOI                    |     Status     |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|:--------------:|
-| v_release_[{release_number ≥ 126}](https://ftp.expasy.org/databases/rhea/old%5Freleases) <sup>[**[20]**](/references/2021/20211110_bansal_p_et_al.md)</sup> | `10.1093/nar/gkab1016` | :green_circle: |
+| v_release_[{release_number ≥ 126}](https://ftp.expasy.org/databases/rhea/old%5Freleases) <sup>[**[19]**](/references/2021/20211110_bansal_p_et_al.md)</sup> | `10.1093/nar/gkab1016` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -188,10 +185,10 @@ The following RetroRules chemical reaction database versions are supported:
 
 | Version                                                                                | DOI                      |     Status     |
 |----------------------------------------------------------------------------------------|--------------------------|:--------------:|
-| v_release_rr01_rp2_hs <sup>[[21]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5827427` | :green_circle: |
-| v_release_rr02_rp2_hs <sup>[[21]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5828017` | :green_circle: |
-| v_release_rr02_rp3_hs <sup>[[21]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5827977` | :green_circle: |
-| v_release_rr02_rp3_nohs <sup>[[21]](/references/2018/20181013_duigou_t_et_al.md)</sup> | `10.5281/zenodo.5827969` | :green_circle: |
+| v_release_rr01_rp2_hs <sup>[[20]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5827427` | :green_circle: |
+| v_release_rr02_rp2_hs <sup>[[20]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5828017` | :green_circle: |
+| v_release_rr02_rp3_hs <sup>[[20]](/references/2018/20181013_duigou_t_et_al.md)</sup>   | `10.5281/zenodo.5827977` | :green_circle: |
+| v_release_rr02_rp3_nohs <sup>[[20]](/references/2018/20181013_duigou_t_et_al.md)</sup> | `10.5281/zenodo.5827969` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -199,16 +196,19 @@ The following RetroRules chemical reaction database versions are supported:
 #### Miscellaneous Chemical Reaction Data Sources
 The following miscellaneous chemical reaction data sources are supported:
 
-| Version                                                                                                            | DOI                          |     Status     |
-|--------------------------------------------------------------------------------------------------------------------|------------------------------|:--------------:|
-| v_20131008_kraut_h_et_al <sup>[[22]](/references/2013/20131008_kraut_h_et_al.md)</sup>                             | `10.1021/ci400442f`          | :green_circle: |
-| v_20161014_wei_j_n_et_al <sup>[[23]](/references/2016/20161014_wei_j_n_et_al.md)</sup>                             | `10.1021/acscentsci.6b00219` | :green_circle: |
-| v_retro_transform_db_by_20180421_avramova_s_et_al <sup>[[24]](/references/2018/20180421_avramova_s_et_al.md)</sup> | `10.5281/zenodo.1209312`     | :green_circle: |
-| v_dingos_by_20190701_button_a_et_al <sup>[[25]](/references/2019/20190701_button_a_et_al.md)</sup>                 | `10.24433/CO.6930970.v1`     | :green_circle: |
-| v_20200508_grambow_c_et_al <sup>[[26]](/references/2020/20200508_grambow_c_a_et_al.md)</sup>                       | `10.5281/zenodo.3581266`     | :green_circle: |
-| v_add_on_by_20200508_grambow_c_et_al <sup>[[26]](/references/2020/20200508_grambow_c_a_et_al.md)</sup>             | `10.5281/zenodo.3731553`     | :green_circle: |
-| v_golden_dataset_by_20211103_lin_a_et_al <sup>[[27]](/references/2021/20211102_lin_a_et_al.md)</sup>               | `10.1002/minf.202100138`     | :green_circle: |
-| v_rdb7_by_20220718_spiekermann_k_et_al <sup>[[28]](/references/2022/20220718_spiekermann_k_et_al.md)</sup>         | `10.5281/zenodo.5652097`     | :green_circle: |
+| Version                                                                                                            | DOI                               |     Status     |
+|--------------------------------------------------------------------------------------------------------------------|-----------------------------------|:--------------:|
+| v_20131008_kraut_h_et_al <sup>[[21]](/references/2013/20131008_kraut_h_et_al.md)</sup>                             | `10.1021/ci400442f`               | :green_circle: |
+| v_20161014_wei_j_n_et_al <sup>[[22]](/references/2016/20161014_wei_j_n_et_al.md)</sup>                             | `10.1021/acscentsci.6b00219`      | :green_circle: |
+| v_retro_transform_db_by_20180421_avramova_s_et_al <sup>[[23]](/references/2018/20180421_avramova_s_et_al.md)</sup> | `10.5281/zenodo.1209312`          | :green_circle: |
+| v_dingos_by_20190701_button_a_et_al <sup>[[24]](/references/2019/20190701_button_a_et_al.md)</sup>                 | `10.24433/CO.6930970.v1`          | :green_circle: |
+| v_20200508_grambow_c_et_al <sup>[[25]](/references/2020/20200508_grambow_c_a_et_al.md)</sup>                       | `10.5281/zenodo.3581266`          | :green_circle: |
+| v_add_on_by_20200508_grambow_c_et_al <sup>[[25]](/references/2020/20200508_grambow_c_a_et_al.md)</sup>             | `10.5281/zenodo.3731553`          | :green_circle: |
+| v_golden_dataset_by_20211103_lin_a_et_al <sup>[[26]](/references/2021/20211102_lin_a_et_al.md)</sup>               | `10.1002/minf.202100138`          | :green_circle: |
+| v_rdb7_by_20220718_spiekermann_k_et_al <sup>[[27]](/references/2022/20220718_spiekermann_k_et_al.md)</sup>         | `10.5281/zenodo.5652097`          | :green_circle: |
+| v_orderly_condition_by_20240422_wigh_d_s_et_al <sup>[[28]](/references/2024/20240422_wigh_d_s_et_al.md)</sup>      | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
+| v_orderly_forward_by_20240422_wigh_d_s_et_al <sup>[[28]](/references/2024/20240422_wigh_d_s_et_al.md)</sup>        | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
+| v_orderly_retro_by_20240422_wigh_d_s_et_al <sup>[[28]](/references/2024/20240422_wigh_d_s_et_al.md)</sup>          | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -294,43 +294,43 @@ Large-scale Reaction Dataset of Mechanistic Pathways of Organic Reactions**. _Sc
 Doyle, A.G., Dreher, S.D., Hawkins, J.M., Jensen, K.F., and Coley, C.W. **The Open Reaction Database**. _J. Am. Chem.
 Soc._, 2021, 143, 45, 18820–18826.
 
-**[[18]](/references/2024/20240422_wigh_d_s_et_al.md)** Wigh, D.S., Arrowsmith, J., Pomberger, A., Felton, K.C., and
-Lapkin, A.A. **ORDerly: Data Sets and Benchmarks for Chemical Reaction Data**. _J. Chem. Inf. Model._, 2024, 64, 9,
-3790–3798.
-
-**[[19]](https://kmt.vander-lingen.nl)** **The Chemical Reaction Database (CRD)**: https://kmt.vander-lingen.nl.
+**[[18]](https://kmt.vander-lingen.nl)** **The Chemical Reaction Database (CRD)**: https://kmt.vander-lingen.nl.
 Accessed on: August 25th, 2024.
 
-**[[20]](/references/2021/20211110_bansal_p_et_al.md)** Bansal, P., Morgat, A., Axelsen, K.B., Muthukrishnan, V.,
+**[[19]](/references/2021/20211110_bansal_p_et_al.md)** Bansal, P., Morgat, A., Axelsen, K.B., Muthukrishnan, V.,
 Coudert, E., Aimo, L., Hyka-Nouspikel, N., Gasteiger, E., Kerhornou, A., Neto, T.B., Pozzato, M., Blatter, M.,
 Ignatchenko, A., Redaschi, N., and Bridge, A. **Rhea, the Reaction Knowledgebase in 2022**. _Nucleic Acids Research_,
 50, D1, 2022, D693–D700.
 
-**[[21]](/references/2018/20181013_duigou_t_et_al.md)** Duigou, T., du Lac, M., Carbonell, P., and Faulon, J.
+**[[20]](/references/2018/20181013_duigou_t_et_al.md)** Duigou, T., du Lac, M., Carbonell, P., and Faulon, J.
 **RetroRules: A Database of Reaction Rules for Engineering Biology**. _Nucleic Acids Research_, 47, D1, 2019,
 D1229–D1235.
 
-**[[22]](/references/2013/20131008_kraut_h_et_al.md)** Kraut, H., Eiblmaier, J., Grethe, G., Löw, P., Matuszczyk, H.,
+**[[21]](/references/2013/20131008_kraut_h_et_al.md)** Kraut, H., Eiblmaier, J., Grethe, G., Löw, P., Matuszczyk, H.,
 and Saller, H. **Algorithm for Reaction Classification**. _J. Chem. Inf. Model._, 2013, 53, 11, 2884–2895.
 
-**[[23]](/references/2016/20161014_wei_j_n_et_al.md)** Wei, J.N., Duvenaud, D., and Aspuru-Guzik, A. **Neural Networks
+**[[22]](/references/2016/20161014_wei_j_n_et_al.md)** Wei, J.N., Duvenaud, D., and Aspuru-Guzik, A. **Neural Networks
 for the Prediction of Organic Chemistry Reactions**. _ACS Cent. Sci._, 2016, 2, 10, 725–732.
 
-**[[24]](/references/2018/20180421_avramova_s_et_al.md)** Avramova, S., Kochev, N., and Angelov, P. **RetroTransformDB:
+**[[23]](/references/2018/20180421_avramova_s_et_al.md)** Avramova, S., Kochev, N., and Angelov, P. **RetroTransformDB:
 A Dataset of Generic Transforms for Retrosynthetic Analysis**. _Data_, 2018, 3, 14.
 
-**[[25]](/references/2019/20190701_button_a_et_al.md)** Button, A., Merk, D., Hiss, J.A., and Schneider, G. **Automated
+**[[24]](/references/2019/20190701_button_a_et_al.md)** Button, A., Merk, D., Hiss, J.A., and Schneider, G. **Automated
 De Novo Molecular Design by Hybrid Machine Intelligence and Rule-driven Chemical Synthesis**. _Nat. Mach. Intell._, 1,
 307-315, 2019.
 
-**[[26]](/references/2020/20200508_grambow_c_a_et_al.md)** Grambow, C.A., Pattanaik, L., and Green, W.H. **Reactants,
+**[[25]](/references/2020/20200508_grambow_c_a_et_al.md)** Grambow, C.A., Pattanaik, L., and Green, W.H. **Reactants,
 Products, and Transition States of Elementary Chemical Reactions based on Quantum Chemistry**. _Sci. Data_, 7,
 137, 2020.
 
-**[[27]](/references/2021/20211102_lin_a_et_al.md)** Lin, A., Dyubankova, N., Madzhidov, T.I., Nugmanov, R.I.,
+**[[26]](/references/2021/20211102_lin_a_et_al.md)** Lin, A., Dyubankova, N., Madzhidov, T.I., Nugmanov, R.I.,
 Verhoeven, J., Gimadiev, T.R., Afonina, V.A., Ibragimova, Z., Rakhimbekova, A., Sidorov, P., Gedich, A., Suleymanov, R.,
 Mukhametgaleev, R., Wegner, J., Ceulemans, H., Varnek, A. **Atom-to-atom Mapping: A Benchmarking Study of Popular
 Mapping Algorithms and Consensus Strategies**. _Mol. Inf._, 2022, 41, 2100138.
 
-**[[28]](/references/2022/20220718_spiekermann_k_et_al.md)** Spiekermann, K., Pattanaik, L., and Green, W.H. **High
+**[[27]](/references/2022/20220718_spiekermann_k_et_al.md)** Spiekermann, K., Pattanaik, L., and Green, W.H. **High
 Accuracy Barrier Heights, Enthalpies, and Rate Coefficients for Chemical Reactions**. _Sci. Data_, 9, 417, 2022.
+
+**[[28]](/references/2024/20240422_wigh_d_s_et_al.md)** Wigh, D.S., Arrowsmith, J., Pomberger, A., Felton, K.C., and
+Lapkin, A.A. **ORDerly: Data Sets and Benchmarks for Chemical Reaction Data**. _J. Chem. Inf. Model._, 2024, 64, 9,
+3790–3798.
