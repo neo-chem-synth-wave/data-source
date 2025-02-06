@@ -4,29 +4,29 @@ from os import PathLike
 from re import search
 from typing import Dict, Union
 
-from data_source.base.base import BaseDataSource
-from data_source.base.utility.download import BaseDataSourceDownloadUtility
+from data_source.base.base import DataSourceBase
+from data_source.base.utility.download import DataSourceDownloadUtility
 
-from data_source.reaction.rhea.utility.download import RheaReactionDatabaseDownloadUtility
-from data_source.reaction.rhea.utility.extraction import RheaReactionDatabaseExtractionUtility
-from data_source.reaction.rhea.utility.formatting import RheaReactionDatabaseFormattingUtility
+from data_source.reaction.rhea.utility import *
 
 
-class RheaReactionDatabase(BaseDataSource):
+class RheaReactionDatabase(DataSourceBase):
     """ The `Rhea <https://www.rhea-db.org>`_ chemical reaction database class. """
 
     def get_supported_versions(
             self
     ) -> Dict[str, str]:
         """
-        Get the supported versions of the chemical reaction database.
+        Get the supported versions of the database.
 
-        :returns: The supported versions of the chemical reaction database.
+        :returns: The supported versions of the database.
         """
 
         try:
-            http_get_request_response = BaseDataSourceDownloadUtility.send_http_get_request(
-                http_get_request_url="https://ftp.expasy.org/databases/rhea/rhea-release.properties"
+            http_get_request_url = "https://ftp.expasy.org/databases/rhea/rhea-release.properties"
+
+            http_get_request_response = DataSourceDownloadUtility.send_http_get_request(
+                url=http_get_request_url
             )
 
             latest_release_number = int(
@@ -58,9 +58,9 @@ class RheaReactionDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Download the data from the chemical reaction database.
+        Download the data from the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
@@ -115,9 +115,9 @@ class RheaReactionDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Extract the data from the chemical reaction database.
+        Extract the data from the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
         """
@@ -174,9 +174,9 @@ class RheaReactionDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Format the data from the chemical reaction database.
+        Format the data from the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """

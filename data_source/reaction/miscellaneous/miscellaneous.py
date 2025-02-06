@@ -3,22 +3,20 @@
 from os import PathLike
 from typing import Dict, Union
 
-from data_source.base.base import BaseDataSource
+from data_source.base.base import DataSourceBase
 
-from data_source.reaction.miscellaneous.utility.download import MiscellaneousReactionDataSourceDownloadUtility
-from data_source.reaction.miscellaneous.utility.extraction import MiscellaneousReactionDataSourceExtractionUtility
-from data_source.reaction.miscellaneous.utility.formatting import MiscellaneousReactionDataSourceFormattingUtility
+from data_source.reaction.miscellaneous.utility import *
 
 
-class MiscellaneousReactionDataSource(BaseDataSource):
+class MiscellaneousReactionDataSource(DataSourceBase):
     """ The miscellaneous chemical reaction data source class. """
 
     @staticmethod
     def get_supported_versions() -> Dict[str, str]:
         """
-        Get the supported versions of the chemical reaction data source.
+        Get the supported versions of the data source.
 
-        :returns: The supported versions of the chemical reaction data source.
+        :returns: The supported versions of the data source.
         """
 
         return {
@@ -42,11 +40,10 @@ class MiscellaneousReactionDataSource(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Download the data from the chemical reaction data source.
+        Download the data from the data source.
 
-        :parameter version: The version of the chemical reaction data source.
+        :parameter version: The version of the data source.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -143,9 +140,9 @@ class MiscellaneousReactionDataSource(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Extract the data from the chemical reaction data source.
+        Extract the data from the data source.
 
-        :parameter version: The version of the chemical reaction data source.
+        :parameter version: The version of the data source.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
         """
@@ -207,9 +204,9 @@ class MiscellaneousReactionDataSource(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Format the data from the chemical reaction data source.
+        Format the data from the data source.
 
-        :parameter version: The version of the chemical reaction data source.
+        :parameter version: The version of the data source.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """

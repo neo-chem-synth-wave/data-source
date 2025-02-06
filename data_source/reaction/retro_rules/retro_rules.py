@@ -3,14 +3,12 @@
 from os import PathLike
 from typing import Dict, Union
 
-from data_source.base.base import BaseDataSource
+from data_source.base.base import DataSourceBase
 
-from data_source.reaction.retro_rules.utility.download import RetroRulesReactionDatabaseDownloadUtility
-from data_source.reaction.retro_rules.utility.extraction import RetroRulesReactionDatabaseExtractionUtility
-from data_source.reaction.retro_rules.utility import RetroRulesReactionDatabaseFormattingUtility
+from data_source.reaction.retro_rules.utility import *
 
 
-class RetroRulesReactionDatabase(BaseDataSource):
+class RetroRulesReactionDatabase(DataSourceBase):
     """ The `RetroRules <https://retrorules.org>`_ chemical reaction database class. """
 
     @staticmethod

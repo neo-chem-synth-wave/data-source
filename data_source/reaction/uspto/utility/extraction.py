@@ -76,7 +76,6 @@ class USPTOReactionDatasetExtractionUtility:
                         file=Path(output_directory_path, output_file_name),
                         mode="wb"
                     ) as destination_file_handle:
-                        # noinspection PyTypeChecker
                         copyfileobj(
                             fsrc=source_file_handle,
                             fdst=destination_file_handle
@@ -90,7 +89,6 @@ class USPTOReactionDatasetExtractionUtility:
                             file=Path(output_directory_path, output_file_name[:-3]),
                             mode="wb"
                         ) as destination_file_handle:
-                            # noinspection PyTypeChecker
                             copyfileobj(
                                 fsrc=gzip_archive_file_handle,
                                 fdst=destination_file_handle
@@ -128,7 +126,6 @@ class USPTOReactionDatasetExtractionUtility:
                         file=Path(output_directory_path, output_file_name),
                         mode="wb"
                     ) as destination_file_handle:
-                        # noinspection PyTypeChecker
                         copyfileobj(
                             fsrc=source_file_handle,
                             fdst=destination_file_handle
@@ -167,7 +164,6 @@ class USPTOReactionDatasetExtractionUtility:
                         file=Path(output_directory_path, output_file_name),
                         mode="wb"
                     ) as destination_file_handle:
-                        # noinspection PyTypeChecker
                         copyfileobj(
                             fsrc=source_file_handle,
                             fdst=destination_file_handle
@@ -270,7 +266,6 @@ class USPTOReactionDatasetExtractionUtility:
                         file=Path(output_directory_path, output_file_name),
                         mode="wb"
                     ) as destination_file_handle:
-                        # noinspection PyTypeChecker
                         copyfileobj(
                             fsrc=source_file_handle,
                             fdst=destination_file_handle
@@ -328,7 +323,6 @@ class USPTOReactionDatasetExtractionUtility:
                         file=Path(output_directory_path, output_file_name),
                         mode="wb"
                     ) as destination_file_handle:
-                        # noinspection PyTypeChecker
                         copyfileobj(
                             fsrc=source_file_handle,
                             fdst=destination_file_handle
@@ -367,7 +361,6 @@ class USPTOReactionDatasetExtractionUtility:
                         file=Path(output_directory_path, output_file_name),
                         mode="wb"
                     ) as destination_file_handle:
-                        # noinspection PyTypeChecker
                         copyfileobj(
                             fsrc=source_file_handle,
                             fdst=destination_file_handle
@@ -405,7 +398,6 @@ class USPTOReactionDatasetExtractionUtility:
                         file=Path(output_directory_path, output_file_name),
                         mode="wb"
                     ) as destination_file_handle:
-                        # noinspection PyTypeChecker
                         copyfileobj(
                             fsrc=source_file_handle,
                             fdst=destination_file_handle
@@ -418,7 +410,6 @@ class USPTOReactionDatasetExtractionUtility:
                         file=Path(output_directory_path, output_file_name[:-5]),
                         mode="wb"
                     ) as destination_file_handle:
-                        # noinspection PyTypeChecker
                         copyfileobj(
                             fsrc=gzip_archive_file_handle,
                             fdst=destination_file_handle
@@ -457,7 +448,6 @@ class USPTOReactionDatasetExtractionUtility:
                         file=Path(output_directory_path, output_file_name),
                         mode="wb"
                     ) as destination_file_handle:
-                        # noinspection PyTypeChecker
                         copyfileobj(
                             fsrc=source_file_handle,
                             fdst=destination_file_handle

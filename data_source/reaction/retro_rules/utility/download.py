@@ -3,7 +3,7 @@
 from os import PathLike
 from typing import Union
 
-from data_source.base.utility.download import BaseDataSourceDownloadUtility
+from data_source.base.utility.download import DataSourceDownloadUtility
 
 
 class RetroRulesReactionDatabaseDownloadUtility:
@@ -42,9 +42,9 @@ class RetroRulesReactionDatabaseDownloadUtility:
                 )
             )
 
-        BaseDataSourceDownloadUtility.download_file(
-            file_url=file_url,
-            file_name=file_url.split(
+        DataSourceDownloadUtility.download_file(
+            url=file_url,
+            name=file_url.split(
                 sep="/"
             )[-1],
             output_directory_path=output_directory_path

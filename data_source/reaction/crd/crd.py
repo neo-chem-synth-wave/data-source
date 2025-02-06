@@ -3,27 +3,27 @@
 from os import PathLike
 from typing import Dict, Union
 
-from data_source.base.base import BaseDataSource
+from data_source.base.base import DataSourceBase
 
-from data_source.reaction.crd.utility.download import ChemicalReactionDatabaseDownloadUtility
-from data_source.reaction.crd.utility.formatting import ChemicalReactionDatabaseFormattingUtility
+from data_source.reaction.crd.utility import *
 
 
-class ChemicalReactionDatabase(BaseDataSource):
+class ChemicalReactionDatabase(DataSourceBase):
     """ The `Chemical Reaction Database (CRD) <https://kmt.vander-lingen.nl>`_ class. """
 
     @staticmethod
     def get_supported_versions() -> Dict[str, str]:
         """
-        Get the supported versions of the chemical reaction database.
+        Get the supported versions of the database.
 
-        :returns: The supported versions of the chemical reaction database.
+        :returns: The supported versions of the database.
         """
 
         return {
             "v_reaction_smiles_2001_to_2021": "https://doi.org/10.6084/m9.figshare.20279733.v1",
             "v_reaction_smiles_2001_to_2023": "https://doi.org/10.6084/m9.figshare.22491730.v1",
             "v_reaction_smiles_2023": "https://doi.org/10.6084/m9.figshare.24921555.v1",
+            "v_reaction_smiles_1976_to_2024": "https://doi.org/10.6084/m9.figshare.28230053.v1",
         }
 
     def download(
@@ -33,9 +33,9 @@ class ChemicalReactionDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Download the data from the chemical reaction database.
+        Download the data from the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
@@ -54,6 +54,7 @@ class ChemicalReactionDatabase(BaseDataSource):
                     "v_reaction_smiles_2001_to_2021",
                     "v_reaction_smiles_2001_to_2023",
                     "v_reaction_smiles_2023",
+                    "v_reaction_smiles_1976_to_2024",
                 ]:
                     ChemicalReactionDatabaseDownloadUtility.download_v_reaction_smiles(
                         version=version,
@@ -94,9 +95,9 @@ class ChemicalReactionDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Extract the data from the chemical reaction database.
+        Extract the data from the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
         """
@@ -110,6 +111,13 @@ class ChemicalReactionDatabase(BaseDataSource):
                                 version=version
                             )
                         )
+                    )
+
+                if version == "v_reaction_smiles_1976_to_2024":
+                    ChemicalReactionDatabaseExtractionUtility.extract_v_reaction_smiles(
+                        version=version,
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
                     )
 
                 if self.logger is not None:
@@ -146,9 +154,9 @@ class ChemicalReactionDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Format the data from the chemical reaction database.
+        Format the data from the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
@@ -168,6 +176,7 @@ class ChemicalReactionDatabase(BaseDataSource):
                     "v_reaction_smiles_2001_to_2021",
                     "v_reaction_smiles_2001_to_2023",
                     "v_reaction_smiles_2023",
+                    "v_reaction_smiles_1976_to_2024",
                 ]:
                     ChemicalReactionDatabaseFormattingUtility.format_v_reaction_smiles(
                         version=version,

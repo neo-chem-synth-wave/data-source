@@ -27,12 +27,10 @@ class RetroRulesReactionDatabaseFormattingUtility:
 
         if version == "v_release_rr01_rp2_hs":
             input_file_name = "retrorules_rr01_rp2_flat_all.csv"
-
             column_name = "File name"
 
         elif version == "v_release_rr02_rp2_hs":
             input_file_name = "retrorules_rr02_rp2_flat_all.csv"
-
             column_name = "File name"
 
         elif version in [
@@ -40,7 +38,6 @@ class RetroRulesReactionDatabaseFormattingUtility:
             "v_release_rr02_rp3_nohs",
         ]:
             input_file_name = "retrorules_rr02_flat_all.tsv"
-
             column_name = "File_name"
 
         else:

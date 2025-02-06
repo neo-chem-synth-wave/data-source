@@ -114,7 +114,6 @@ class USPTOReactionDatasetFormattingUtility:
                 mode="rb"
             ) as input_file_handle:
                 while True:
-                    # noinspection PyBroadException
                     try:
                         dataframe_rows.append(
                             load(

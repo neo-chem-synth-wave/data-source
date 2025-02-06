@@ -49,7 +49,6 @@ class RheaReactionDatabaseExtractionUtility:
                     file=Path(output_directory_path, output_file_name),
                     mode="wb"
                 ) as destination_file_handle:
-                    # noinspection PyTypeChecker
                     copyfileobj(
                         fsrc=source_file_handle,
                         fdst=destination_file_handle

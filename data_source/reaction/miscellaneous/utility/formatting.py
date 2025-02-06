@@ -45,7 +45,6 @@ class MiscellaneousReactionDataSourceFormattingUtility:
             with open(
                 file=Path(input_directory_path, input_file_name)
             ) as input_file_handle:
-                # noinspection PyUnresolvedReferences
                 for reaction_rxn_block_without_identifier in input_file_handle.read().split(
                     sep="$RXN"
                 )[1:]:

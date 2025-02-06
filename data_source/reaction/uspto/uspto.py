@@ -3,14 +3,12 @@
 from os import PathLike
 from typing import Dict, Union
 
-from data_source.base.base import BaseDataSource
+from data_source.base.base import DataSourceBase
 
-from data_source.reaction.uspto.utility.download import USPTOReactionDatasetDownloadUtility
-from data_source.reaction.uspto.utility.extraction import USPTOReactionDatasetExtractionUtility
-from data_source.reaction.uspto.utility.formatting import USPTOReactionDatasetFormattingUtility
+from data_source.reaction.uspto.utility import *
 
 
-class USPTOReactionDataset(BaseDataSource):
+class USPTOReactionDataset(DataSourceBase):
     """
     The `United States Patent and Trademark Office (USPTO) <https://www.repository.cam.ac.uk/handle/1810/244727>`_
     chemical reaction dataset class.
@@ -19,9 +17,9 @@ class USPTOReactionDataset(BaseDataSource):
     @staticmethod
     def get_supported_versions() -> Dict[str, str]:
         """
-        Get the supported versions of the chemical reaction dataset.
+        Get the supported versions of the dataset.
 
-        :returns: The supported versions of the chemical reaction dataset.
+        :returns: The supported versions of the dataset.
         """
 
         return {
@@ -51,9 +49,9 @@ class USPTOReactionDataset(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Download the data from the chemical reaction dataset.
+        Download the data from the dataset.
 
-        :parameter version: The version of the chemical reaction dataset.
+        :parameter version: The version of the dataset.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
@@ -180,9 +178,9 @@ class USPTOReactionDataset(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Extract the data from the chemical reaction dataset.
+        Extract the data from the dataset.
 
-        :parameter version: The version of the chemical reaction dataset.
+        :parameter version: The version of the dataset.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
         """
@@ -300,9 +298,9 @@ class USPTOReactionDataset(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Format the data from the chemical reaction dataset.
+        Format the data from the dataset.
 
-        :parameter version: The version of the chemical reaction dataset.
+        :parameter version: The version of the dataset.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """

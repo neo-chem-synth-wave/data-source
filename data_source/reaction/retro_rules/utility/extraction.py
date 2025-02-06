@@ -27,7 +27,6 @@ class RetroRulesReactionDatabaseExtractionUtility:
 
         if version == "v_release_rr01_rp2_hs":
             input_file_name = "retrorules_rr01_rp2.tar.gz"
-
             output_file_name = "retrorules_rr01_rp2_flat_all.csv"
 
             output_file_path = "retrorules_rr01_rp2/{output_file_name:s}".format(
@@ -36,7 +35,6 @@ class RetroRulesReactionDatabaseExtractionUtility:
 
         elif version == "v_release_rr02_rp2_hs":
             input_file_name = "retrorules_rr02_rp2_hs.tar.gz"
-
             output_file_name = "retrorules_rr02_rp2_flat_all.csv"
 
             output_file_path = "retrorules_rr02_rp2_hs/{output_file_name:s}".format(
@@ -45,7 +43,6 @@ class RetroRulesReactionDatabaseExtractionUtility:
 
         elif version == "v_release_rr02_rp3_hs":
             input_file_name = "retrorules_rr02_rp3_hs.tar.gz"
-
             output_file_name = "retrorules_rr02_flat_all.tsv"
 
             output_file_path = "retrorules_rr02_rp3_hs/{output_file_name:s}".format(
@@ -54,7 +51,6 @@ class RetroRulesReactionDatabaseExtractionUtility:
 
         elif version == "v_release_rr02_rp3_nohs":
             input_file_name = "retrorules_rr02_rp3_nohs.tar.gz"
-
             output_file_name = "retrorules_rr02_flat_all.tsv"
 
             output_file_path = "retrorules_rr02_rp3_nohs/{output_file_name:s}".format(
@@ -81,7 +77,6 @@ class RetroRulesReactionDatabaseExtractionUtility:
                     file=Path(output_directory_path, output_file_name),
                     mode="wb"
                 ) as destination_file_handle:
-                    # noinspection PyTypeChecker
                     copyfileobj(
                         fsrc=source_file_handle,
                         fdst=destination_file_handle

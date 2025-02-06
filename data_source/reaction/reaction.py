@@ -4,7 +4,7 @@ from logging import Logger
 from os import PathLike
 from typing import Dict, List, Optional, Union
 
-from data_source.base.base import BaseDataSource
+from data_source.base.base import DataSourceBase
 
 from data_source.reaction.crd.crd import ChemicalReactionDatabase
 from data_source.reaction.miscellaneous.miscellaneous import MiscellaneousReactionDataSource
@@ -14,7 +14,7 @@ from data_source.reaction.rhea.rhea import RheaReactionDatabase
 from data_source.reaction.uspto.uspto import USPTOReactionDataset
 
 
-class ReactionDataSource(BaseDataSource):
+class ReactionDataSource(DataSourceBase):
     """ The chemical reaction data source class. """
 
     def __init__(
