@@ -1,15 +1,15 @@
-""" The ``data_source.reaction.retro_rules`` package ``retro_rules`` module. """
+""" The ``data_source.reaction_pattern.retro_rules`` package ``retro_rules`` module. """
 
 from os import PathLike
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
 
-from data_source.reaction.retro_rules.utility import *
+from data_source.reaction_pattern.retro_rules.utility import *
 
 
-class RetroRulesReactionDatabase(DataSourceBase):
-    """ The `RetroRules <https://retrorules.org>`_ chemical reaction database class. """
+class RetroRulesReactionPatternDatabase(DataSourceBase):
+    """ The `RetroRules <https://retrorules.org>`_ chemical reaction pattern database class. """
 
     @staticmethod
     def get_supported_versions() -> Dict[str, str]:
@@ -44,14 +44,14 @@ class RetroRulesReactionDatabase(DataSourceBase):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The download of the data from the {data_source:s} has been started.".format(
-                            data_source="RetroRules chemical reaction database ({version:s})".format(
+                            data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                                 version=version
                             )
                         )
                     )
 
                 if version.startswith("v_release"):
-                    RetroRulesReactionDatabaseDownloadUtility.download_v_release(
+                    RetroRulesReactionPatternDatabaseDownloadUtility.download_v_release(
                         version=version,
                         output_directory_path=output_directory_path
                     )
@@ -59,7 +59,7 @@ class RetroRulesReactionDatabase(DataSourceBase):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The download of the data from the {data_source:s} has been completed.".format(
-                            data_source="RetroRules chemical reaction database ({version:s})".format(
+                            data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                                 version=version
                             )
                         )
@@ -68,7 +68,7 @@ class RetroRulesReactionDatabase(DataSourceBase):
             else:
                 raise ValueError(
                     "The download of the data from the {data_source:s} is not supported.".format(
-                        data_source="RetroRules chemical reaction database ({version:s})".format(
+                        data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                             version=version
                         )
                     )
@@ -102,14 +102,14 @@ class RetroRulesReactionDatabase(DataSourceBase):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The extraction of the data from the {data_source:s} has been started.".format(
-                            data_source="RetroRules chemical reaction database ({version:s})".format(
+                            data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                                 version=version
                             )
                         )
                     )
 
                 if version.startswith("v_release"):
-                    RetroRulesReactionDatabaseExtractionUtility.extract_v_release(
+                    RetroRulesReactionPatternDatabaseExtractionUtility.extract_v_release(
                         version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
@@ -118,7 +118,7 @@ class RetroRulesReactionDatabase(DataSourceBase):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The extraction of the data from the {data_source:s} has been completed.".format(
-                            data_source="RetroRules chemical reaction database ({version:s})".format(
+                            data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                                 version=version
                             )
                         )
@@ -127,7 +127,7 @@ class RetroRulesReactionDatabase(DataSourceBase):
             else:
                 raise ValueError(
                     "The extraction of the data from the {data_source:s} is not supported.".format(
-                        data_source="RetroRules chemical reaction database ({version:s})".format(
+                        data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                             version=version
                         )
                     )
@@ -161,14 +161,14 @@ class RetroRulesReactionDatabase(DataSourceBase):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The formatting of the data from the {data_source:s} has been started.".format(
-                            data_source="RetroRules chemical reaction database ({version:s})".format(
+                            data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                                 version=version
                             )
                         )
                     )
 
                 if version.startswith("v_release"):
-                    RetroRulesReactionDatabaseFormattingUtility.format_v_release(
+                    RetroRulesReactionPatternDatabaseFormattingUtility.format_v_release(
                         version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
@@ -177,7 +177,7 @@ class RetroRulesReactionDatabase(DataSourceBase):
                 if self.logger is not None:
                     self.logger.info(
                         msg="The formatting of the data from the {data_source:s} has been completed.".format(
-                            data_source="RetroRules chemical reaction database ({version:s})".format(
+                            data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                                 version=version
                             )
                         )
@@ -186,7 +186,7 @@ class RetroRulesReactionDatabase(DataSourceBase):
             else:
                 raise ValueError(
                     "The formatting of the data from the {data_source:s} is not supported.".format(
-                        data_source="RetroRules chemical reaction database ({version:s})".format(
+                        data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                             version=version
                         )
                     )

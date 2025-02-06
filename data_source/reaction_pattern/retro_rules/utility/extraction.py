@@ -1,4 +1,4 @@
-""" The ``data_source.reaction.retro_rules.utility`` package ``extraction`` module. """
+""" The ``data_source.reaction_pattern.retro_rules.utility`` package ``extraction`` module. """
 
 from os import PathLike
 from pathlib import Path
@@ -8,8 +8,8 @@ from typing import Union
 from tarfile import TarFile
 
 
-class RetroRulesReactionDatabaseExtractionUtility:
-    """ The `RetroRules <https://retrorules.org>`_ chemical reaction database extraction utility class. """
+class RetroRulesReactionPatternDatabaseExtractionUtility:
+    """ The `RetroRules <https://retrorules.org>`_ chemical reaction pattern database extraction utility class. """
 
     @staticmethod
     def extract_v_release(
@@ -60,7 +60,7 @@ class RetroRulesReactionDatabaseExtractionUtility:
         else:
             raise ValueError(
                 "The extraction of the data from the {data_source:s} is not supported.".format(
-                    data_source="RetroRules chemical reaction database ({version:s})".format(
+                    data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                         version=version
                     )
                 )

@@ -1,4 +1,4 @@
-""" The ``data_source.reaction.retro_rules.utility`` package ``download`` module. """
+""" The ``data_source.reaction_pattern.retro_rules.utility`` package ``download`` module. """
 
 from os import PathLike
 from typing import Union
@@ -6,8 +6,8 @@ from typing import Union
 from data_source.base.utility.download import DataSourceDownloadUtility
 
 
-class RetroRulesReactionDatabaseDownloadUtility:
-    """ The `RetroRules <https://retrorules.org>`_ chemical reaction database download utility class. """
+class RetroRulesReactionPatternDatabaseDownloadUtility:
+    """ The `RetroRules <https://retrorules.org>`_ chemical reaction pattern database download utility class. """
 
     @staticmethod
     def download_v_release(
@@ -36,7 +36,7 @@ class RetroRulesReactionDatabaseDownloadUtility:
         else:
             raise ValueError(
                 "The download of the data from the {data_source:s} is not supported.".format(
-                    data_source="RetroRules chemical reaction database ({version:s})".format(
+                    data_source="RetroRules chemical reaction pattern database ({version:s})".format(
                         version=version
                     )
                 )
