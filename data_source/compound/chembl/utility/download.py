@@ -3,7 +3,7 @@
 from os import PathLike
 from typing import Union
 
-from data_source.base.utility.download import BaseDataSourceDownloadUtility
+from data_source.base.utility.download import DataSourceDownloadUtility
 
 
 class ChEMBLCompoundDatabaseDownloadUtility:
@@ -34,8 +34,8 @@ class ChEMBLCompoundDatabaseDownloadUtility:
             file_name=file_name
         )
 
-        BaseDataSourceDownloadUtility.download_file(
-            file_url=file_url,
-            file_name=file_name,
+        DataSourceDownloadUtility.download_file(
+            url=file_url,
+            name=file_name,
             output_directory_path=output_directory_path
         )

@@ -3,13 +3,12 @@
 from os import PathLike
 from typing import Dict, Union
 
-from data_source.base.base import BaseDataSource
+from data_source.base.base import DataSourceBase
 
-from data_source.compound.miscellaneous.utility.download import MiscellaneousCompoundDataSourceDownloadUtility
-from data_source.compound.miscellaneous.utility.formatting import MiscellaneousCompoundDataSourceFormattingUtility
+from data_source.compound.miscellaneous.utility import *
 
 
-class MiscellaneousCompoundDataSource(BaseDataSource):
+class MiscellaneousCompoundDataSource(DataSourceBase):
     """ The miscellaneous chemical compound data source class. """
 
     @staticmethod

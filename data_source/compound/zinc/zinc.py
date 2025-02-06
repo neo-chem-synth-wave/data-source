@@ -4,15 +4,13 @@ from os import PathLike
 from re import findall
 from typing import Dict, Union
 
-from data_source.base.base import BaseDataSource
-from data_source.base.utility.download import BaseDataSourceDownloadUtility
+from data_source.base.base import DataSourceBase
+from data_source.base.utility.download import DataSourceDownloadUtility
 
-from data_source.compound.zinc.utility.download import ZINCCompoundDatabaseDownloadUtility
-from data_source.compound.zinc.utility.extraction import ZINCCompoundDatabaseExtractionUtility
-from data_source.compound.zinc.utility.formatting import ZINCCompoundDatabaseFormattingUtility
+from data_source.compound.zinc.utility import *
 
 
-class ZINCCompoundDatabase(BaseDataSource):
+class ZINCCompoundDatabase(DataSourceBase):
     """ The `ZINC <https://zinc20.docking.org>`_ chemical compound database class. """
 
     def get_supported_versions(
@@ -27,10 +25,12 @@ class ZINCCompoundDatabase(BaseDataSource):
         try:
             supported_versions = dict()
 
+            http_get_request_url = "https://files.docking.org/bb/current"
+
             for file_name in findall(
                 pattern=r"href=\"([^\.]+)\.smi\.gz",
-                string=BaseDataSourceDownloadUtility.send_http_get_request(
-                    http_get_request_url="https://files.docking.org/bb/current"
+                string=DataSourceDownloadUtility.send_http_get_request(
+                    url=http_get_request_url
                 ).text
             ):
                 supported_versions[
@@ -39,10 +39,12 @@ class ZINCCompoundDatabase(BaseDataSource):
                     )
                 ] = "https://doi.org/10.1021/acs.jcim.0c00675"
 
+            http_get_request_url = "https://files.docking.org/catalogs/source"
+
             for file_name in findall(
                 pattern=r"href=\"([^\.]+)\.src\.txt",
-                string=BaseDataSourceDownloadUtility.send_http_get_request(
-                    http_get_request_url="https://files.docking.org/catalogs/source"
+                string=DataSourceDownloadUtility.send_http_get_request(
+                    url=http_get_request_url
                 ).text
             ):
                 supported_versions[
