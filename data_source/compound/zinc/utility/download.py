@@ -7,7 +7,7 @@ from data_source.base.utility.download import DataSourceDownloadUtility
 
 
 class ZINCCompoundDatabaseDownloadUtility:
-    """ The `ZINC <https://zinc20.docking.org>`_ chemical compound database download utility class. """
+    """ The `ZINC <https://zinc.docking.org>`_ chemical compound database download utility class. """
 
     @staticmethod
     def download_v_building_blocks(

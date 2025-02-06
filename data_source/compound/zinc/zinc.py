@@ -11,7 +11,7 @@ from data_source.compound.zinc.utility import *
 
 
 class ZINCCompoundDatabase(DataSourceBase):
-    """ The `ZINC <https://zinc20.docking.org>`_ chemical compound database class. """
+    """ The `ZINC <https://zinc.docking.org>`_ chemical compound database class. """
 
     def get_supported_versions(
             self

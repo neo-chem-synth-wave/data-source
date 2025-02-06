@@ -9,7 +9,7 @@ from gzip import GzipFile
 
 
 class ZINCCompoundDatabaseExtractionUtility:
-    """ The `ZINC <https://zinc20.docking.org>`_ chemical compound database extraction utility class. """
+    """ The `ZINC <https://zinc.docking.org>`_ chemical compound database extraction utility class. """
 
     @staticmethod
     def extract_v_building_blocks(
