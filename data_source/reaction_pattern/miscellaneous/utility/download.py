@@ -51,3 +51,22 @@ class MiscellaneousReactionPatternDataSourceDownloadUtility:
             )[-1],
             output_directory_path=output_directory_path
         )
+
+    @staticmethod
+    def download_v_auto_template_by_20240627_chen_l_and_li_y(
+            output_directory_path: Union[str, PathLike[str]]
+    ) -> None:
+        """
+        Download the data from the `v_auto_template_by_20240627_chen_l_and_li_y` version of the data source.
+
+        :parameter output_directory_path: The path to the output directory where the data should be downloaded.
+        """
+
+        file_url = "https://github.com/Lung-Yi/AutoTemplate/archive/refs/heads/main.zip"
+        file_name = "AutoTemplate-main.zip"
+
+        DataSourceDownloadUtility.download_file(
+            url=file_url,
+            name=file_name,
+            output_directory_path=output_directory_path
+        )

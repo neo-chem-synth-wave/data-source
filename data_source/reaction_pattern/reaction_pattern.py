@@ -6,8 +6,8 @@ from typing import Dict, List, Optional, Union
 
 from data_source.base.base import DataSourceBase
 
-from data_source.reaction.miscellaneous.miscellaneous import MiscellaneousReactionDataSource
-from data_source.reaction.retro_rules.retro_rules import RetroRulesReactionDatabase
+from data_source.reaction_pattern.miscellaneous.miscellaneous import MiscellaneousReactionPatternDataSource
+from data_source.reaction_pattern.retro_rules.retro_rules import RetroRulesReactionPatternDatabase
 
 
 class ReactionPatternDataSource(DataSourceBase):
@@ -18,7 +18,7 @@ class ReactionPatternDataSource(DataSourceBase):
             logger: Optional[Logger] = None
     ) -> None:
         """
-        The constructor method of the class.
+        The `__init__` method of the class.
 
         :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
         """
@@ -28,10 +28,10 @@ class ReactionPatternDataSource(DataSourceBase):
         )
 
         self.supported_data_sources = {
-            "miscellaneous": MiscellaneousReactionDataSource(
+            "miscellaneous": MiscellaneousReactionPatternDataSource(
                 logger=logger
             ),
-            "retro_rules": RetroRulesReactionDatabase(
+            "retro_rules": RetroRulesReactionPatternDatabase(
                 logger=logger
             ),
         }

@@ -22,6 +22,7 @@ class MiscellaneousReactionPatternDataSource(DataSourceBase):
         return {
             "v_retro_transform_db_by_20180421_avramova_s_et_al": "https://zenodo.org/doi/10.5281/zenodo.1209312",
             "v_dingos_by_20190701_button_a_et_al": "https://doi.org/10.24433/CO.6930970.v1",
+            "v_auto_template_by_20240627_chen_l_and_li_y": "https://doi.org/10.1186/s13321-024-00869-2",
         }
 
     def download(
@@ -55,6 +56,11 @@ class MiscellaneousReactionPatternDataSource(DataSourceBase):
 
                 if version == "v_dingos_by_20190701_button_a_et_al":
                     MiscellaneousReactionPatternDataSourceDownloadUtility.download_v_dingos_by_20190701_button_a_et_al(
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_auto_template_by_20240627_chen_l_and_li_y":
+                    MiscellaneousReactionPatternDataSourceDownloadUtility.download_v_auto_template_by_20240627_chen_l_and_li_y(
                         output_directory_path=output_directory_path
                     )
 
@@ -108,6 +114,12 @@ class MiscellaneousReactionPatternDataSource(DataSourceBase):
                                 version=version
                             )
                         )
+                    )
+
+                if version == "v_auto_template_by_20240627_chen_l_and_li_y":
+                    MiscellaneousReactionPatternDataSourceExtractionUtility.extract_v_auto_template_by_20240627_chen_l_and_li_y(
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
                     )
 
                 if self.logger is not None:
@@ -170,6 +182,12 @@ class MiscellaneousReactionPatternDataSource(DataSourceBase):
 
                 if version == "v_dingos_by_20190701_button_a_et_al":
                     MiscellaneousReactionPatternDataSourceFormattingUtility.format_v_dingos_by_20190701_button_a_et_al(
+                        input_directory_path=input_directory_path,
+                        output_directory_path=output_directory_path
+                    )
+
+                if version == "v_auto_template_by_20240627_chen_l_and_li_y":
+                    MiscellaneousReactionPatternDataSourceFormattingUtility.format_v_auto_template_by_20240627_chen_l_and_li_y(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )
