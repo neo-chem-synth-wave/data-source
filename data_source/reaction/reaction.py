@@ -21,7 +21,7 @@ class ReactionDataSource(DataSourceBase):
             logger: Optional[Logger] = None
     ) -> None:
         """
-        The constructor method of the class.
+        The `__init__` method of the class.
 
         :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
         """
