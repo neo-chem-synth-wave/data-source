@@ -113,7 +113,7 @@ class MiscellaneousReactionPatternDataSourceFormattingUtility:
         dataframes = list()
 
         for directory_path, _, file_names in walk(
-            top=Path(input_directory_path, "data")
+            top=Path(input_directory_path, "AutoTemplate-main/data")
         ):
             for file_name in file_names:
                 if file_name == input_file_name:

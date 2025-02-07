@@ -1,9 +1,10 @@
 """ The ``data_source.compound_pattern.rdkit_.utility`` package ``formatting`` module. """
 
+from ast import literal_eval
 from datetime import datetime
 from os import PathLike
 from pathlib import Path
-from re import findall
+from re import DOTALL, search, sub
 from typing import Union
 
 from pandas.core.frame import DataFrame
@@ -37,9 +38,22 @@ class RDKitCompoundPatternDatasetFormattingUtility:
         with open(
             file=Path(input_directory_path, input_file_name)
         ) as source_file_handle:
-            for compound_pattern_name, compound_pattern_smarts in findall(
-                pattern=r"\{\"([^\"]*)\",\"([^\"]*)\",\d+,\"[^\"]*\"\}",
-                string=source_file_handle.read()
+            source_file_content_string = search(
+                pattern=r"\{(.*)\};",
+                string=source_file_handle.read(),
+                flags=DOTALL
+            ).group(1).replace("{", "[").replace("}", "]")
+
+            source_file_content_string = sub(
+                pattern=r",\s*\"\"\s*\]",
+                repl=", \"\"]",
+                string=source_file_content_string
+            )
+
+            for compound_pattern_name, compound_pattern_smarts, _, _ in literal_eval(
+                node_or_string="[{source_file_content_string:s}]".format(
+                    source_file_content_string=source_file_content_string
+                )
             ):
                 dataframe_rows.append((
                     compound_pattern_name,
@@ -89,9 +103,22 @@ class RDKitCompoundPatternDatasetFormattingUtility:
             with open(
                 file=Path(input_directory_path, input_file_name)
             ) as source_file_handle:
-                for compound_pattern_name, compound_pattern_smarts in findall(
-                    pattern=r"\{\"([^\"]*)\",\"([^\"]*)\",\d+,\"[^\"]*\"\}",
-                    string=source_file_handle.read()
+                source_file_content_string = search(
+                    pattern=r"\{(.*)\};",
+                    string=source_file_handle.read(),
+                    flags=DOTALL
+                ).group(1).replace("{", "[").replace("}", "]")
+
+                source_file_content_string = sub(
+                    pattern=r",\s*\"\"\s*\]",
+                    repl=", \"\"]",
+                    string=source_file_content_string
+                )
+
+                for compound_pattern_name, compound_pattern_smarts, _, _ in literal_eval(
+                    node_or_string="[{source_file_content_string:s}]".format(
+                        source_file_content_string=source_file_content_string
+                    )
                 ):
                     dataframe_rows.append((
                         compound_pattern_name,
