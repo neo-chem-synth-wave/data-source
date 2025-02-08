@@ -7,7 +7,9 @@ from pathlib import Path
 from shutil import rmtree
 
 from data_source.compound import CompoundDataSource
+from data_source.compound_pattern import CompoundPatternDataSource
 from data_source.reaction import ReactionDataSource
+from data_source.reaction_pattern import ReactionPatternDataSource
 
 
 def get_script_arguments() -> Namespace:
@@ -25,7 +27,9 @@ def get_script_arguments() -> Namespace:
         type=str,
         choices=[
             "compound",
+            "compound_pattern",
             "reaction",
+            "reaction_pattern",
         ],
         help="The indicator of the data source category."
     )
@@ -46,6 +50,7 @@ def get_script_arguments() -> Namespace:
             "crd",
             "miscellaneous",
             "ord",
+            "rdkit",
             "retro_rules",
             "rhea",
             "uspto",
@@ -133,8 +138,18 @@ if __name__ == "__main__":
             logger=script_logger
         )
 
+    elif script_arguments.data_source_category == "compound_pattern":
+        data_source = CompoundPatternDataSource(
+            logger=script_logger
+        )
+
     elif script_arguments.data_source_category == "reaction":
         data_source = ReactionDataSource(
+            logger=script_logger
+        )
+
+    elif script_arguments.data_source_category == "reaction_pattern":
+        data_source = ReactionPatternDataSource(
             logger=script_logger
         )
 

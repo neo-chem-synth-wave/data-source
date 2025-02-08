@@ -49,7 +49,8 @@ class COCONUTCompoundDatabaseFormattingUtility:
 
         dataframe = read_csv(
             filepath_or_buffer=Path(input_directory_path, input_file_name),
-            header=0
+            header=0,
+            low_memory=False
         )
 
         dataframe["file_name"] = input_file_name

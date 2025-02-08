@@ -285,8 +285,8 @@ The following miscellaneous chemical reaction pattern data sources are supported
 
 
 ## Data
-The purpose of the [data](/data) directory is to archive the data sources that are hosted on
-[GitHub](https://github.com) and [CodeOcean](https://codeocean.com) repositories.
+The purpose of the [data](/data) directory is to archive data sources hosted on [GitHub](https://github.com),
+[GitLab](https://gitlab.com), and [CodeOcean](https://codeocean.com) repositories.
 
 
 ## License Information
@@ -296,7 +296,7 @@ for more details regarding the license information of external resources utilize
 
 ## Contact
 If you are interested in contributing to this repository by reporting bugs, suggesting improvements, or submitting
-feedback, feel free to use [GitHub Issues](https://github.com/neo-chem-synth-wave/data-source/issues).
+feedback, feel free to do so using [GitHub Issues](https://github.com/neo-chem-synth-wave/data-source/issues).
 
 
 ## References
