@@ -9,7 +9,7 @@ from gzip import GzipFile
 
 
 class ZINCCompoundDatabaseExtractionUtility:
-    """ The `ZINC <https://zinc20.docking.org>`_ chemical compound database extraction utility class. """
+    """ The `ZINC <https://zinc.docking.org>`_ chemical compound database extraction utility class. """
 
     @staticmethod
     def extract_v_building_blocks(
@@ -41,7 +41,6 @@ class ZINCCompoundDatabaseExtractionUtility:
                 file=Path(output_directory_path, output_file_name),
                 mode="wb"
             ) as destination_file_handle:
-                # noinspection PyTypeChecker
                 copyfileobj(
                     fsrc=gzip_archive_file_handle,
                     fdst=destination_file_handle

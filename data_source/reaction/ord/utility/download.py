@@ -3,7 +3,7 @@
 from os import PathLike
 from typing import Union
 
-from data_source.base.utility.download import BaseDataSourceDownloadUtility
+from data_source.base.utility.download import DataSourceDownloadUtility
 
 
 class OpenReactionDatabaseDownloadUtility:
@@ -23,12 +23,10 @@ class OpenReactionDatabaseDownloadUtility:
 
         if version == "v_release_0_1_0":
             file_url = "https://github.com/open-reaction-database/ord-data/archive/refs/tags/v0.1.0.zip"
-
             file_name = "ord-data-0.1.0.zip"
 
         elif version == "v_release_main":
             file_url = "https://github.com/open-reaction-database/ord-data/archive/refs/heads/main.zip"
-
             file_name = "ord-data-main.zip"
 
         else:
@@ -40,8 +38,8 @@ class OpenReactionDatabaseDownloadUtility:
                 )
             )
 
-        BaseDataSourceDownloadUtility.download_file(
-            file_url=file_url,
-            file_name=file_name,
+        DataSourceDownloadUtility.download_file(
+            url=file_url,
+            name=file_name,
             output_directory_path=output_directory_path
         )

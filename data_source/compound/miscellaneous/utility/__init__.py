@@ -2,4 +2,6 @@
 
 from data_source.compound.miscellaneous.utility.download import MiscellaneousCompoundDataSourceDownloadUtility
 
+from data_source.compound.miscellaneous.utility.extraction import MiscellaneousCompoundDataSourceExtractionUtility
+
 from data_source.compound.miscellaneous.utility.formatting import MiscellaneousCompoundDataSourceFormattingUtility

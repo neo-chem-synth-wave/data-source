@@ -4,17 +4,16 @@ from logging import Logger
 from os import PathLike
 from typing import Dict, List, Optional, Union
 
-from data_source.base.base import BaseDataSource
+from data_source.base.base import DataSourceBase
 
 from data_source.reaction.crd.crd import ChemicalReactionDatabase
 from data_source.reaction.miscellaneous.miscellaneous import MiscellaneousReactionDataSource
 from data_source.reaction.ord.ord import OpenReactionDatabase
-from data_source.reaction.retro_rules.retro_rules import RetroRulesReactionDatabase
 from data_source.reaction.rhea.rhea import RheaReactionDatabase
 from data_source.reaction.uspto.uspto import USPTOReactionDataset
 
 
-class ReactionDataSource(BaseDataSource):
+class ReactionDataSource(DataSourceBase):
     """ The chemical reaction data source class. """
 
     def __init__(
@@ -22,7 +21,7 @@ class ReactionDataSource(BaseDataSource):
             logger: Optional[Logger] = None
     ) -> None:
         """
-        The constructor method of the class.
+        The `__init__` method of the class.
 
         :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
         """
@@ -39,9 +38,6 @@ class ReactionDataSource(BaseDataSource):
                 logger=logger
             ),
             "ord": OpenReactionDatabase(
-                logger=logger
-            ),
-            "retro_rules": RetroRulesReactionDatabase(
                 logger=logger
             ),
             "rhea": RheaReactionDatabase(

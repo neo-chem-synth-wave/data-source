@@ -32,7 +32,6 @@ class OpenReactionDatabaseFormattingUtility:
 
         parsed_input_file = list()
 
-        # noinspection PyBroadException
         try:
             dataset_protocol_buffer_message = load_message(
                 filename=input_file_path,
@@ -40,7 +39,6 @@ class OpenReactionDatabaseFormattingUtility:
             )
 
             for reaction_protocol_buffer_message in dataset_protocol_buffer_message.reactions:
-                # noinspection PyBroadException
                 try:
                     parsed_input_file.append((
                         dataset_protocol_buffer_message.dataset_id,

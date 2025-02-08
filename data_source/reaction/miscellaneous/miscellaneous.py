@@ -3,29 +3,25 @@
 from os import PathLike
 from typing import Dict, Union
 
-from data_source.base.base import BaseDataSource
+from data_source.base.base import DataSourceBase
 
-from data_source.reaction.miscellaneous.utility.download import MiscellaneousReactionDataSourceDownloadUtility
-from data_source.reaction.miscellaneous.utility.extraction import MiscellaneousReactionDataSourceExtractionUtility
-from data_source.reaction.miscellaneous.utility.formatting import MiscellaneousReactionDataSourceFormattingUtility
+from data_source.reaction.miscellaneous.utility import *
 
 
-class MiscellaneousReactionDataSource(BaseDataSource):
+class MiscellaneousReactionDataSource(DataSourceBase):
     """ The miscellaneous chemical reaction data source class. """
 
     @staticmethod
     def get_supported_versions() -> Dict[str, str]:
         """
-        Get the supported versions of the chemical reaction data source.
+        Get the supported versions of the data source.
 
-        :returns: The supported versions of the chemical reaction data source.
+        :returns: The supported versions of the data source.
         """
 
         return {
             "v_20131008_kraut_h_et_al": "https://doi.org/10.1021/ci400442f",
             "v_20161014_wei_j_n_et_al": "https://doi.org/10.1021/acscentsci.6b00219",
-            "v_retro_transform_db_by_20180421_avramova_s_et_al": "https://zenodo.org/doi/10.5281/zenodo.1209312",
-            "v_dingos_by_20190701_button_a_et_al": "https://doi.org/10.24433/CO.6930970.v1",
             "v_20200508_grambow_c_et_al": "https://zenodo.org/doi/10.5281/zenodo.3581266",
             "v_add_on_by_20200508_grambow_c_et_al": "https://zenodo.org/doi/10.5281/zenodo.3731553",
             "v_golden_dataset_by_20211102_lin_a_et_al": "https://doi.org/10.1002/minf.202100138",
@@ -42,11 +38,10 @@ class MiscellaneousReactionDataSource(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Download the data from the chemical reaction data source.
+        Download the data from the data source.
 
-        :parameter version: The version of the chemical reaction data source.
+        :parameter version: The version of the data source.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
-        :parameter kwargs: The keyword arguments.
         """
 
         try:
@@ -67,16 +62,6 @@ class MiscellaneousReactionDataSource(BaseDataSource):
 
                 if version == "v_20161014_wei_j_n_et_al":
                     MiscellaneousReactionDataSourceDownloadUtility.download_v_20161014_wei_j_n_et_al(
-                        output_directory_path=output_directory_path
-                    )
-
-                if version == "v_retro_transform_db_by_20180421_avramova_s_et_al":
-                    MiscellaneousReactionDataSourceDownloadUtility.download_v_retro_transform_db_by_20180421_avramova_s_et_al(
-                        output_directory_path=output_directory_path
-                    )
-
-                if version == "v_dingos_by_20190701_button_a_et_al":
-                    MiscellaneousReactionDataSourceDownloadUtility.download_v_dingos_by_20190701_button_a_et_al(
                         output_directory_path=output_directory_path
                     )
 
@@ -143,9 +128,9 @@ class MiscellaneousReactionDataSource(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Extract the data from the chemical reaction data source.
+        Extract the data from the data source.
 
-        :parameter version: The version of the chemical reaction data source.
+        :parameter version: The version of the data source.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
         """
@@ -207,9 +192,9 @@ class MiscellaneousReactionDataSource(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Format the data from the chemical reaction data source.
+        Format the data from the data source.
 
-        :parameter version: The version of the chemical reaction data source.
+        :parameter version: The version of the data source.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
@@ -233,18 +218,6 @@ class MiscellaneousReactionDataSource(BaseDataSource):
 
                 if version == "v_20161014_wei_j_n_et_al":
                     MiscellaneousReactionDataSourceFormattingUtility.format_v_20161014_wei_j_n_et_al(
-                        input_directory_path=input_directory_path,
-                        output_directory_path=output_directory_path
-                    )
-
-                if version == "v_retro_transform_db_by_20180421_avramova_s_et_al":
-                    MiscellaneousReactionDataSourceFormattingUtility.format_v_retro_transform_db_by_20180421_avramova_s_et_al(
-                        input_directory_path=input_directory_path,
-                        output_directory_path=output_directory_path
-                    )
-
-                if version == "v_dingos_by_20190701_button_a_et_al":
-                    MiscellaneousReactionDataSourceFormattingUtility.format_v_dingos_by_20190701_button_a_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )

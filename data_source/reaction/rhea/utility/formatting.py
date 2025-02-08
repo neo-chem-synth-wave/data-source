@@ -18,9 +18,9 @@ class RheaReactionDatabaseFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from a `v_release_*` version of the chemical reaction database.
+        Format the data from a `v_release_*` version of the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """

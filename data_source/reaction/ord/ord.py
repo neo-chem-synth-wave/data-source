@@ -3,22 +3,20 @@
 from os import PathLike
 from typing import Dict, Union
 
-from data_source.base.base import BaseDataSource
+from data_source.base.base import DataSourceBase
 
-from data_source.reaction.ord.utility.download import OpenReactionDatabaseDownloadUtility
-from data_source.reaction.ord.utility.extraction import OpenReactionDatabaseExtractionUtility
-from data_source.reaction.ord.utility.formatting import OpenReactionDatabaseFormattingUtility
+from data_source.reaction.ord.utility import *
 
 
-class OpenReactionDatabase(BaseDataSource):
+class OpenReactionDatabase(DataSourceBase):
     """ The `Open Reaction Database (ORD) <https://open-reaction-database.org>`_ class. """
 
     @staticmethod
     def get_supported_versions() -> Dict[str, str]:
         """
-        Get the supported versions of the chemical reaction database.
+        Get the supported versions of the database.
 
-        :returns: The supported versions of the chemical reaction database.
+        :returns: The supported versions of the database.
         """
 
         return {
@@ -33,9 +31,9 @@ class OpenReactionDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Download the data from the chemical reaction database.
+        Download the data from the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
@@ -93,9 +91,9 @@ class OpenReactionDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Extract the data from the chemical reaction database.
+        Extract the data from the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
         :parameter kwargs: The keyword arguments.
@@ -156,9 +154,9 @@ class OpenReactionDatabase(BaseDataSource):
             **kwargs
     ) -> None:
         """
-        Format the data from the chemical reaction database.
+        Format the data from the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         :parameter kwargs: The keyword arguments.

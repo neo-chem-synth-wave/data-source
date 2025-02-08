@@ -34,6 +34,9 @@ class ChemicalReactionDatabaseFormattingUtility:
         elif version == "v_reaction_smiles_2023":
             input_file_name = "reactionSmilesFigShareUSPTO2023.txt"
 
+        elif version == "v_reaction_smiles_1976_to_2024":
+            input_file_name = "reactionSmilesFigShare2024.txt"
+
         else:
             raise ValueError(
                 "The formatting of the data from the {data_source:s} is not supported.".format(

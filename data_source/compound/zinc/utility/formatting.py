@@ -9,7 +9,7 @@ from pandas.io.parsers.readers import read_csv
 
 
 class ZINCCompoundDatabaseFormattingUtility:
-    """ The `ZINC <https://zinc20.docking.org>`_ chemical compound database formatting utility class. """
+    """ The `ZINC <https://zinc.docking.org>`_ chemical compound database formatting utility class. """
 
     @staticmethod
     def format_v_building_blocks(

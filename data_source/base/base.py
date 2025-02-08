@@ -5,15 +5,15 @@ from logging import Logger
 from typing import Optional
 
 
-class BaseDataSource(ABC):
-    """ The base data source class. """
+class DataSourceBase(ABC):
+    """ The data source base class. """
 
     def __init__(
             self,
             logger: Optional[Logger] = None
     ) -> None:
         """
-        The constructor method of the class.
+        The `__init__` method of the class.
 
         :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
         """
@@ -25,9 +25,9 @@ class BaseDataSource(ABC):
             self
     ) -> Optional[Logger]:
         """
-        Get the logger.
+        Get the value of the logger.
 
-        :returns: The logger.
+        :returns: The value of the logger.
         """
 
         return self.__logger
@@ -38,9 +38,9 @@ class BaseDataSource(ABC):
             value: Optional[Logger]
     ) -> None:
         """
-        Set the logger.
+        Set the value of the logger.
 
-        :parameter value: The logger. The value `None` indicates that the logger should not be utilized.
+        :parameter value: The value of the logger. The value `None` indicates that the logger should not be utilized.
         """
 
         self.__logger = value

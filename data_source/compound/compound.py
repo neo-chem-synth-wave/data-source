@@ -4,14 +4,15 @@ from logging import Logger
 from os import PathLike
 from typing import Dict, List, Optional, Union
 
-from data_source.base.base import BaseDataSource
+from data_source.base.base import DataSourceBase
 
 from data_source.compound.chembl.chembl import ChEMBLCompoundDatabase
+from data_source.compound.coconut.coconut import COCONUTCompoundDatabase
 from data_source.compound.miscellaneous.miscellaneous import MiscellaneousCompoundDataSource
 from data_source.compound.zinc.zinc import ZINCCompoundDatabase
 
 
-class CompoundDataSource(BaseDataSource):
+class CompoundDataSource(DataSourceBase):
     """ The chemical compound data source class. """
 
     def __init__(
@@ -19,7 +20,7 @@ class CompoundDataSource(BaseDataSource):
             logger: Optional[Logger] = None
     ) -> None:
         """
-        The constructor method of the class.
+        The `__init__` method of the class.
 
         :parameter logger: The logger. The value `None` indicates that the logger should not be utilized.
         """
@@ -30,6 +31,9 @@ class CompoundDataSource(BaseDataSource):
 
         self.supported_data_sources = {
             "chembl": ChEMBLCompoundDatabase(
+                logger=logger
+            ),
+            "coconut": COCONUTCompoundDatabase(
                 logger=logger
             ),
             "miscellaneous": MiscellaneousCompoundDataSource(
