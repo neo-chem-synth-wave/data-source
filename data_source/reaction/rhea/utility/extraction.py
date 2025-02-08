@@ -18,9 +18,9 @@ class RheaReactionDatabaseExtractionUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Extract the data from a `v_release_*` version of the chemical reaction database.
+        Extract the data from a `v_release_*` version of the database.
 
-        :parameter version: The version of the chemical reaction database.
+        :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.
         :parameter output_directory_path: The path to the output directory where the data should be extracted.
         """

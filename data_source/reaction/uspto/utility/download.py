@@ -115,7 +115,7 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_15k_by_20170418_coley_c_w_et_al` version of the chemical reaction dataset.
+        Download the data from the `v_15k_by_20170418_coley_c_w_et_al` version of the dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -136,9 +136,9 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from a `v_1976_to_2016_*_by_20121009_lowe_d_m` version of the chemical reaction dataset.
+        Download the data from a `v_1976_to_2016_*_by_20121009_lowe_d_m` version of the dataset.
 
-        :parameter version: The version of the chemical reaction dataset.
+        :parameter version: The version of the dataset.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 
@@ -195,7 +195,7 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_50k_by_20170905_liu_b_et_al` version of the chemical reaction dataset.
+        Download the data from the `v_50k_by_20170905_liu_b_et_al` version of the dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -223,7 +223,7 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_50k_by_20171116_coley_c_w_et_al` version of the chemical reaction dataset.
+        Download the data from the `v_50k_by_20171116_coley_c_w_et_al` version of the dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -243,7 +243,7 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_480k_or_mit_by_20171204_jin_w_et_al` version of the chemical reaction dataset.
+        Download the data from the `v_480k_or_mit_by_20171204_jin_w_et_al` version of the dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -263,7 +263,7 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from a `v_*_by_20180622_schwaller_p_et_al` version of the chemical reaction dataset.
+        Download the data from a `v_*_by_20180622_schwaller_p_et_al` version of the dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -290,7 +290,7 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_lef_by_20181221_bradshaw_j_et_al` version of the chemical reaction dataset.
+        Download the data from the `v_lef_by_20181221_bradshaw_j_et_al` version of the dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -310,7 +310,7 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_1k_tpl_by_20210128_schwaller_p_et_al` version of the chemical reaction dataset.
+        Download the data from the `v_1k_tpl_by_20210128_schwaller_p_et_al` version of the dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
@@ -366,9 +366,9 @@ class USPTOReactionDatasetDownloadUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from a `v_*_chen_s_et_al` version of the chemical reaction dataset.
+        Download the data from a `v_*_chen_s_et_al` version of the dataset.
 
-        :parameter version: The version of the chemical reaction dataset.
+        :parameter version: The version of the dataset.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """
 

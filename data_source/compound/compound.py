@@ -7,6 +7,7 @@ from typing import Dict, List, Optional, Union
 from data_source.base.base import DataSourceBase
 
 from data_source.compound.chembl.chembl import ChEMBLCompoundDatabase
+from data_source.compound.coconut.coconut import COCONUTCompoundDatabase
 from data_source.compound.miscellaneous.miscellaneous import MiscellaneousCompoundDataSource
 from data_source.compound.zinc.zinc import ZINCCompoundDatabase
 
@@ -30,6 +31,9 @@ class CompoundDataSource(DataSourceBase):
 
         self.supported_data_sources = {
             "chembl": ChEMBLCompoundDatabase(
+                logger=logger
+            ),
+            "coconut": COCONUTCompoundDatabase(
                 logger=logger
             ),
             "miscellaneous": MiscellaneousCompoundDataSource(

@@ -105,8 +105,8 @@ class MiscellaneousReactionDataSourceDownloadUtility:
         """
 
         file_url = (
-            "https://github.com/Laboratoire-de-Chemoinformatique/Reaction_Data_Cleaning/raw/master/"
-            "data/golden_dataset.zip"
+            "https://github.com/Laboratoire-de-Chemoinformatique/Reaction_Data_Cleaning/raw/master/data/"
+            "golden_dataset.zip"
         )
 
         DataSourceDownloadUtility.download_file(

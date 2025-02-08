@@ -156,7 +156,7 @@ class USPTOReactionDatasetFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_50k_by_20161122_schneider_n_et_al` version of the chemical reaction dataset.
+        Format the data from the `v_50k_by_20161122_schneider_n_et_al` version of the dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -201,7 +201,7 @@ class USPTOReactionDatasetFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_15k_by_20170418_coley_c_w_et_al` version of the chemical reaction dataset.
+        Format the data from the `v_15k_by_20170418_coley_c_w_et_al` version of the dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -250,7 +250,7 @@ class USPTOReactionDatasetFormattingUtility:
             input_file_path: Union[str, PathLike[str]]
     ) -> List[Tuple[Optional[Union[int, str]], ...]]:
         """
-        Parse a file from the `v_1976_to_2016_cml_by_20121009_lowe_d_m` version of the chemical reaction dataset.
+        Parse a file from the `v_1976_to_2016_cml_by_20121009_lowe_d_m` version of the dataset.
 
         :parameter input_file_path: The path to the input file.
 
@@ -347,7 +347,7 @@ class USPTOReactionDatasetFormattingUtility:
                                 Path(directory_path, file_name).resolve().as_posix()
                             )
 
-            parsed_input_files = list()
+            dataframe_rows = list()
 
             for parsed_input_file in pqdm(
                 array=input_file_paths,
@@ -357,12 +357,12 @@ class USPTOReactionDatasetFormattingUtility:
                 total=len(input_file_paths),
                 ncols=150
             ):
-                parsed_input_files.extend(
+                dataframe_rows.extend(
                     parsed_input_file
                 )
 
             dataframe = DataFrame(
-                data=parsed_input_files,
+                data=dataframe_rows,
                 columns=[
                     "year",
                     "document_id",
@@ -427,7 +427,7 @@ class USPTOReactionDatasetFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_50k_by_20170905_liu_b_et_al` version of the chemical reaction dataset.
+        Format the data from the `v_50k_by_20170905_liu_b_et_al` version of the dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -496,7 +496,7 @@ class USPTOReactionDatasetFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_50k_by_20171116_coley_c_w_et_al` version of the chemical reaction dataset.
+        Format the data from the `v_50k_by_20171116_coley_c_w_et_al` version of the dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -529,7 +529,7 @@ class USPTOReactionDatasetFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_480k_or_mit_by_20171204_jin_w_et_al` version of the chemical reaction dataset.
+        Format the data from the `v_480k_or_mit_by_20171204_jin_w_et_al` version of the dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -580,9 +580,9 @@ class USPTOReactionDatasetFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from a `v_*_by_20180622_schwaller_p_et_al` version of the chemical reaction dataset.
+        Format the data from a `v_*_by_20180622_schwaller_p_et_al` version of the dataset.
 
-        :parameter version: The version of the chemical reaction dataset.
+        :parameter version: The version of the dataset.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
@@ -664,7 +664,7 @@ class USPTOReactionDatasetFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_lef_by_20181221_bradshaw_j_et_al` version of the chemical reaction dataset.
+        Format the data from the `v_lef_by_20181221_bradshaw_j_et_al` version of the dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -713,7 +713,7 @@ class USPTOReactionDatasetFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_1k_tpl_by_20210128_schwaller_p_et_al` version of the chemical reaction dataset.
+        Format the data from the `v_1k_tpl_by_20210128_schwaller_p_et_al` version of the dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -807,9 +807,9 @@ class USPTOReactionDatasetFormattingUtility:
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from a `v_*_chen_s_et_al` version of the chemical reaction dataset.
+        Format the data from a `v_*_chen_s_et_al` version of the dataset.
 
-        :parameter version: The version of the chemical reaction dataset.
+        :parameter version: The version of the dataset.
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
         """
