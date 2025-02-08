@@ -71,8 +71,8 @@ python scripts/download_extract_and_format_data.py \
 ### Chemical Compounds
 The following chemical compound data sources are supported:
 
-- [ChEMBL](#chembl)
 - [ZINC](#zinc)
+- [ChEMBL](#chembl)
 - [COCONUT](#coconut)
 - [Miscellaneous Chemical Compound Data Sources](#miscellaneous-chemical-compound-data-sources)
 
@@ -81,26 +81,26 @@ The chemical compound data source relationships can be illustrated as follows:
 ![chemical_compound_data_sources.png](figures/chemical_compound_data_source_relationships.png)
 
 
-#### ChEMBL
-The following [ChEMBL](https://www.ebi.ac.uk/chembl) <sup>[[1](/references/2023/20231102_zdrazil_b_et_al.md)]</sup>
-chemical compound database versions are supported:
-
-| Version                                                                                                                                                              | DOI                                        |     Status     |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|:--------------:|
-| v_release_[{release_number ≥ 25}](https://chembl.gitbook.io/chembl-interface-documentation/downloads) <sup>[[1](/references/2023/20231102_zdrazil_b_et_al.md)]</sup> | `10.6019/CHEMBL.database.{release_number}` | :green_circle: |
-
-<sub>:green_circle: Completely Implemented</sub>
-
-
 #### ZINC
-The following [ZINC](https://zinc.docking.org) <sup>[[2](/references/2015/20151019_sterling_t_and_irwin_j_j.md),
-[3](/references/2020/20201029_irwin_j_j_et_al.md), [4](/references/2023/20230215_tingle_b_i_et_al.md)]</sup> chemical
+The following [ZINC](https://zinc.docking.org) <sup>[[1](/references/2015/20151019_sterling_t_and_irwin_j_j.md),
+[2](/references/2020/20201029_irwin_j_j_et_al.md), [3](/references/2023/20230215_tingle_b_i_et_al.md)]</sup> chemical
 compound database versions are supported:
 
 | Version                                                                                                                                               | DOI                        |     Status     |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|:--------------:|
-| v_building_blocks_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[[3](/references/2020/20201029_irwin_j_j_et_al.md)]</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
-| v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[[3](/references/2020/20201029_irwin_j_j_et_al.md)]</sup>                  | `10.1021/acs.jcim.0c00675` | :green_circle: |
+| v_building_blocks_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[[2](/references/2020/20201029_irwin_j_j_et_al.md)]</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
+| v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[[2](/references/2020/20201029_irwin_j_j_et_al.md)]</sup>                  | `10.1021/acs.jcim.0c00675` | :green_circle: |
+
+<sub>:green_circle: Completely Implemented</sub>
+
+
+#### ChEMBL
+The following [ChEMBL](https://www.ebi.ac.uk/chembl) <sup>[[4](/references/2023/20231102_zdrazil_b_et_al.md)]</sup>
+chemical compound database versions are supported:
+
+| Version                                                                                                                                                              | DOI                                        |     Status     |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|:--------------:|
+| v_release_[{release_number ≥ 25}](https://chembl.gitbook.io/chembl-interface-documentation/downloads) <sup>[[4](/references/2023/20231102_zdrazil_b_et_al.md)]</sup> | `10.6019/CHEMBL.database.{release_number}` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -300,22 +300,22 @@ feedback, feel free to use [GitHub Issues](https://github.com/neo-chem-synth-wav
 
 
 ## References
-**[[1](/references/2023/20231102_zdrazil_b_et_al.md)]** Zdrazil, B., Felix, E., Hunter, F., Manners, E.J., Blackshaw,
+**[[1](/references/2015/20151019_sterling_t_and_irwin_j_j.md)]** Sterling, T. and Irwin, J.J. **ZINC15 – Ligand
+Discovery for Everyone**. _J. Chem. Inf. Model._, 2015, 55, 11, 2324-2337.
+
+**[[2](/references/2020/20201029_irwin_j_j_et_al.md)]** Irwin, J.J., Tang, K.G., Young, J., Dandarchuluun, C., Wong,
+B.R., Khurelbaatar, M., Moroz, Y.S., Mayfield, J., and Sayle, R.A. **ZINC20 - A Free Ultralarge-Scale Chemical Database
+for Ligand Discovery**. _J. Chem. Inf. Model._, 2020, 60, 12, 6065-6073.
+
+**[[3](/references/2023/20230215_tingle_b_i_et_al.md)]** Tingle, B.I., Tang, K.G., Castanon, M., Gutierrez, J.J.,
+Khurelbaatar, M., Dandarchuluun, C., Moroz, Y.S., and Irwin, J.J. **ZINC22 - A Free Multi-billion-scale Database of
+Tangible Compounds for Ligand Discovery**. _J. Chem. Inf. Model._, 2023, 63, 4, 1166-1176.
+
+**[[4](/references/2023/20231102_zdrazil_b_et_al.md)]** Zdrazil, B., Felix, E., Hunter, F., Manners, E.J., Blackshaw,
 J., Corbett, S., de Veij, M., Ioannidis, H., Lopez, D.M., Mosquera, J.F., Magarinos, M.P., Bosc, N., Arcila, R.,
 Kizilören, T., Gaulton, A., Bento, A.P., Adasme, M.F., Monecke, P., Landrum, G.A., and Leach, A.R. **The ChEMBL Database
 in 2023: A Drug Discovery Platform Spanning Multiple Bioactivity Data Types and Time Periods**. _Nucleic Acids
 Research_, 52, D1, 2024, D1180-D1192.
-
-**[[2](/references/2015/20151019_sterling_t_and_irwin_j_j.md)]** Sterling, T. and Irwin, J.J. **ZINC15 – Ligand
-Discovery for Everyone**. _J. Chem. Inf. Model._, 2015, 55, 11, 2324-2337.
-
-**[[3](/references/2020/20201029_irwin_j_j_et_al.md)]** Irwin, J.J., Tang, K.G., Young, J., Dandarchuluun, C., Wong,
-B.R., Khurelbaatar, M., Moroz, Y.S., Mayfield, J., and Sayle, R.A. **ZINC20 - A Free Ultralarge-Scale Chemical Database
-for Ligand Discovery**. _J. Chem. Inf. Model._, 2020, 60, 12, 6065-6073.
-
-**[[4](/references/2023/20230215_tingle_b_i_et_al.md)]** Tingle, B.I., Tang, K.G., Castanon, M., Gutierrez, J.J.,
-Khurelbaatar, M., Dandarchuluun, C., Moroz, Y.S., and Irwin, J.J. **ZINC22 - A Free Multi-billion-scale Database of
-Tangible Compounds for Ligand Discovery**. _J. Chem. Inf. Model._, 2023, 63, 4, 1166-1176.
 
 **[[5](/references/2021/20210110_sorokina_m_et_al)]** Sorokina, M., Merseburger, P., Rajan, K., Yirik, M.A., and
 Steinbeck, C. **COCONUT Online: Collection of Open Natural Products Database**. _J. Cheminform._, 13, 2, 2021.
