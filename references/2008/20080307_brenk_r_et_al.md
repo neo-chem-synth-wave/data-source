@@ -3,7 +3,7 @@
 **Authors:** Ruth Brenk, Alessandro Schipani, Daniel James, Agata Krasowski, Ian Hugh Gilbert, Julie Frearson, Paul
 Graham Wyatt<br>
 **Publication Date:** 2008/03/07<br>
-**Publication Link:** [Chemistry Europe ChemMedChem](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cmdc.200700139)
+**Publication Link:** [Chemistry Europe ChemMedChem](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cmdc.200700139)<br>
 **Alternative Publication Links:** [PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC2628535) |
 [ResearchGate](https://www.researchgate.net/publication/5782923_Lessons_Learnt_from_Assembling_Screening_Libraries_for_Drug_Discovery_for_Neglected_Diseases)
 

@@ -1,7 +1,7 @@
 # Data Source
 [![Static Badge](https://img.shields.io/badge/data__source-2025.2.1-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.2.1)
-[![Static Badge](https://img.shields.io/badge/Elix%2C%20Inc.-%235EB6B3?style=flat)](https://www.elix-inc.com)
 [![Static Badge](https://img.shields.io/badge/Institute%20of%20Science%20Tokyo-%231C3177?style=flat)](https://www.isct.ac.jp)
+[![Static Badge](https://img.shields.io/badge/Elix%2C%20Inc.-%235EB6B3?style=flat)](https://www.elix-inc.com)
 
 Welcome to the computer-assisted chemical synthesis **data source** research project !!!
 
@@ -317,7 +317,7 @@ Kizilören, T., Gaulton, A., Bento, A.P., Adasme, M.F., Monecke, P., Landrum, G.
 in 2023: A Drug Discovery Platform Spanning Multiple Bioactivity Data Types and Time Periods**. _Nucleic Acids
 Research_, 52, D1, 2024, D1180-D1192.
 
-**[[5](/references/2021/20210110_sorokina_m_et_al)]** Sorokina, M., Merseburger, P., Rajan, K., Yirik, M.A., and
+**[[5](/references/2021/20210110_sorokina_m_et_al.md)]** Sorokina, M., Merseburger, P., Rajan, K., Yirik, M.A., and
 Steinbeck, C. **COCONUT Online: Collection of Open Natural Products Database**. _J. Cheminform._, 13, 2, 2021.
 
 **[[6](/references/2024/20241126_chandrasekhar_v_et_al.md)]** Chandrasekhar, V., Rajan, K., Kanakam, S.R.S., Sharma, N.,
