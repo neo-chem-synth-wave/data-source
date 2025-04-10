@@ -10,7 +10,7 @@
 
 # Abstract
 Reaction prediction remains one of the major challenges for organic chemistry and is a prerequisite for efficient
-synthetic planning. It is desirable to develop algorithms that, like humans, “learn” from being exposed to examples of
+synthetic planning. It is desirable to develop algorithms that, like humans, "learn" from being exposed to examples of
 the application of the rules of organic chemistry. We explore the use of neural networks for predicting reaction types,
 using a new reaction fingerprinting method. We combine this predictor with SMARTS transformations to build a system
 which, given a set of reagents and reactants, predicts the likely products. We test this method on problems from a

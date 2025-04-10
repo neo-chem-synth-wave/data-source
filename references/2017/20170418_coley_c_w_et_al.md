@@ -18,5 +18,5 @@ flexibility in pattern recognition afforded by neural networks. Using 15,000 exp
 United States patents, a model is trained to select the major (recorded) product by ranking a self-generated list of
 candidates where one candidate is known to be the major product. Candidate reactions are represented using a unique
 edit-based representation that emphasizes the fundamental transformation from reactants to products, rather than the
-constituent molecules’ overall structures. In a 5-fold cross-validation, the trained model assigns the major product
+constituent molecules' overall structures. In a 5-fold cross-validation, the trained model assigns the major product
 rank 1 in 71.8% of cases, rank ≤3 in 86.7% of cases, and rank ≤5 in 90.8% of cases.

@@ -35,7 +35,7 @@ class ChEMBLCompoundDatabaseDownloadUtility:
         )
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )

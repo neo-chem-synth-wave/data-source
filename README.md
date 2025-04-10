@@ -1,18 +1,18 @@
 # Data Source
-[![Static Badge](https://img.shields.io/badge/data__source-2025.2.1-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.2.1)
+[![Static Badge](https://img.shields.io/badge/data__source-2025.4.1-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.4.1)
 [![Static Badge](https://img.shields.io/badge/Institute%20of%20Science%20Tokyo-%231C3177?style=flat)](https://www.isct.ac.jp)
 [![Static Badge](https://img.shields.io/badge/Elix%2C%20Inc.-%235EB6B3?style=flat)](https://www.elix-inc.com)
 
-Welcome to the computer-assisted chemical synthesis **data source** research project !!!
+Welcome to the computer-assisted chemical synthesis **Data Source** research project !!!
 
-Over the last decade, computer-assisted chemical synthesis has re-emerged as a heavily researched subject in
-Chemoinformatics. Even though the idea of utilizing computers to assist chemical synthesis has existed for nearly as
-long as computers themselves, the expected blend of reliability and innovation has repeatedly been proven difficult to
-achieve. Nevertheless, recent machine learning approaches have exhibited the potential to address these shortcomings.
-The data utilized by such approaches frequently lack quality and quantity, are stored in various formats, or are
-published behind paywalls, all of which can be significant barriers to entry, especially for novice researchers.
-Consequently, the main objective of this research project is to systematically curate and facilitate access to relevant
-open computer-assisted chemical synthesis data sources.
+Over the past decade, computer-assisted chemical synthesis has re-emerged as a prominent research subject in
+cheminformatics. Even though the idea of using computers to assist chemical synthesis has existed for nearly as long as
+computers themselves, the inherent complexity repeatedly exceeded the available resources. However, recent machine
+learning approaches have exhibited the potential to break this tendency. On the other hand, the performance of such
+approaches is heavily dependent on data that suffer from insufficient quality and quantity, are stored in various
+formats, or are behind paywalls, posing significant challenges to potential scientific breakthroughs. Consequently, the
+primary objective of the **Data Source** research project is to systematically curate and facilitate access to all
+relevant open computer-assisted chemical synthesis data sources.
 
 
 ## Installation
@@ -29,10 +29,11 @@ conda env create -f environment.yaml
 conda activate data-source-env
 ```
 
-The [data_source](/data_source) package can be installed using the [pip](https://pip.pypa.io) command as follows:
+The [data_source](/data_source) package can be locally installed using the [pip](https://pip.pypa.io) command as
+follows:
 
 ```shell
-pip install --no-build-isolation -e .
+pip install .
 ```
 
 
@@ -48,18 +49,25 @@ categories of computer-assisted chemical synthesis data:
 The [download_extract_and_format_data](/scripts/download_extract_and_format_data.py) script can be utilized as follows:
 
 ```shell
-# Use Case #1: Get the chemical reaction data source name information.
+# Get the chemical reaction data source name information.
+
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --get_data_source_name_information
+```
 
-# Use Case #2: Get the USPTO chemical reaction dataset version information.
+```shell
+# Get the USPTO chemical reaction dataset version information.
+
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
   --get_data_source_version_information
+```
 
-# Use Case #3: Download, extract, and format the data from the USPTO chemical reaction dataset.
+```shell
+# Download, extract, and format the data from the USPTO chemical reaction dataset.
+
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
@@ -86,10 +94,10 @@ The following [ZINC](https://zinc.docking.org) <sup>[[1](/references/2015/201510
 [2](/references/2020/20201029_irwin_j_j_et_al.md), [3](/references/2023/20230215_tingle_b_i_et_al.md)]</sup> chemical
 compound database versions are supported:
 
-| Version                                                                                                                                               | DOI                        |     Status     |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|:--------------:|
-| v_building_blocks_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[[2](/references/2020/20201029_irwin_j_j_et_al.md)]</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
-| v_catalog_[{catalog_name}](https://files.docking.org/catalogs/source) <sup>[[2](/references/2020/20201029_irwin_j_j_et_al.md)]</sup>                  | `10.1021/acs.jcim.0c00675` | :green_circle: |
+| Version                                                                                                                                              | DOI                        |     Status     |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|:--------------:|
+| v_building_block_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[[2](/references/2020/20201029_irwin_j_j_et_al.md)]</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
+| v_catalog_[{catalog_subset_name}](https://files.docking.org/catalogs/source) <sup>[[2](/references/2020/20201029_irwin_j_j_et_al.md)]</sup>          | `10.1021/acs.jcim.0c00675` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -238,7 +246,7 @@ The following miscellaneous chemical reaction data sources are supported:
 | v_20161014_wei_j_n_et_al <sup>[[28](/references/2016/20161014_wei_j_n_et_al.md)]</sup>                        | `10.1021/acscentsci.6b00219`      | :green_circle: |
 | v_20200508_grambow_c_et_al <sup>[[29](/references/2020/20200508_grambow_c_a_et_al.md)]</sup>                  | `10.5281/zenodo.3581266`          | :green_circle: |
 | v_add_on_by_20200508_grambow_c_et_al <sup>[[29](/references/2020/20200508_grambow_c_a_et_al.md)]</sup>        | `10.5281/zenodo.3731553`          | :green_circle: |
-| v_golden_dataset_by_20211103_lin_a_et_al <sup>[[30](/references/2021/20211102_lin_a_et_al.md)]</sup>          | `10.1002/minf.202100138`          | :green_circle: |
+| v_golden_dataset_by_20211102_lin_a_et_al <sup>[[30](/references/2021/20211102_lin_a_et_al.md)]</sup>          | `10.1002/minf.202100138`          | :green_circle: |
 | v_rdb7_by_20220718_spiekermann_k_et_al <sup>[[31](/references/2022/20220718_spiekermann_k_et_al.md)]</sup>    | `10.5281/zenodo.5652097`          | :green_circle: |
 | v_orderly_condition_by_20240422_wigh_d_s_et_al <sup>[[32](/references/2024/20240422_wigh_d_s_et_al.md)]</sup> | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
 | v_orderly_forward_by_20240422_wigh_d_s_et_al <sup>[[32](/references/2024/20240422_wigh_d_s_et_al.md)]</sup>   | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
@@ -377,7 +385,7 @@ Kreutter, D., Laino, T., and Reymond, J. **Mapping the Space of Chemical Reactio
 Networks**. _Nat. Mach. Intell._, 3, 144-152, 2021.
 
 **[[21](/references/2021/20210407_schwaller_p_et_al.md)]** Schwaller, P., Hoover, B., Reymond, J., Strobelt, H., and
-Laino, T. **Extraction of Organic Chemistry Grammar from Unsupervised Learning of Chemical Reactions**. _Sci. Adv._,
+Laino, T. **Extraction of Organic Chemistry Grammar from Unsupervised Learning of Chemical Reactions**. _Sci. Adv._, 7,
 eabe4166, 2021.
 
 **[[22](/references/2024/20240313_chen_s_et_al.md)]** Chen, S., An, S., Babazade, R., and Jung, Y. **Precise

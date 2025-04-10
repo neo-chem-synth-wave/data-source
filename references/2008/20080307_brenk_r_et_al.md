@@ -14,7 +14,7 @@ available compounds 222,552 compounds were selected for an in silico library, 57
 library, and 1,697 compounds for a focused kinase set. Compiling these libraries required a robust strategy for compound
 selection. Rules for unwanted groups were defined and selection criteria to enrich for lead-like compounds which
 facilitate straightforward structure–activity relationship exploration were established. Further, a literature and
-patent review was undertaken to extract key recognition elements of kinase inhibitors (“core fragments”) to assemble a
+patent review was undertaken to extract key recognition elements of kinase inhibitors ("core fragments") to assemble a
 focused library for hit discovery for kinases. Computational and experimental characterisation of the general screening
 library revealed that the selected compounds 1) span a broad range of lead-like space, 2) show a high degree of
 structural integrity and purity, and 3) demonstrate appropriate solubility for the purposes of biochemical screening.

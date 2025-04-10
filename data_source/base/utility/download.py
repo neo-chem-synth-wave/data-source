@@ -17,21 +17,23 @@ class DataSourceDownloadUtility:
 
     @staticmethod
     def send_http_get_request(
-            url: str,
+            http_get_request_url: str,
             **kwargs
     ) -> Response:
         """
         Send an HTTP GET request.
 
-        :parameter url: The URL of the HTTP GET request.
+        :parameter http_get_request_url: The URL of the HTTP GET request.
         :parameter kwargs: The keyword arguments for the adjustment of the following underlying functions:
             { `requests.api.get` }.
 
         :returns: The response to the HTTP GET request.
         """
 
+        kwargs.pop("url", None)
+
         http_get_request_response = get(
-            url=url,
+            url=http_get_request_url,
             **kwargs
         )
 
@@ -41,20 +43,20 @@ class DataSourceDownloadUtility:
 
     @staticmethod
     def download_file(
-            url: str,
-            name: str,
+            file_url: str,
+            file_name: str,
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
         Download a file.
 
-        :parameter url: The URL of the file.
-        :parameter name: The name of the file.
+        :parameter file_url: The URL of the file.
+        :parameter file_name: The name of the file.
         :parameter output_directory_path: The path to the output directory where the file should be downloaded.
         """
 
         http_get_request_response = DataSourceDownloadUtility.send_http_get_request(
-            url=url,
+            http_get_request_url=file_url,
             stream=True
         )
 
@@ -73,7 +75,7 @@ class DataSourceDownloadUtility:
             file_size = None
 
         tqdm_description = "Downloading the '{file_name:s}' file".format(
-            file_name=name
+            file_name=file_name
         )
 
         with tqdm.wrapattr(
@@ -83,7 +85,7 @@ class DataSourceDownloadUtility:
             desc=tqdm_description,
             ncols=len(tqdm_description) + 50
         ) as file_download_stream_handle:
-            with Path(output_directory_path, name).open(
+            with Path(output_directory_path, file_name).open(
                 mode="wb"
             ) as destination_file_handle:
                 copyfileobj(

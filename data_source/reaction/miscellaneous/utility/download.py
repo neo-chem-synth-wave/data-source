@@ -23,8 +23,8 @@ class MiscellaneousReactionDataSourceDownloadUtility:
         file_name = "ci400442f_si_002.zip"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -45,8 +45,8 @@ class MiscellaneousReactionDataSourceDownloadUtility:
 
         for file_url in file_urls:
             DataSourceDownloadUtility.download_file(
-                url=file_url,
-                name=file_url.split(
+                file_url=file_url,
+                file_name=file_url.split(
                     sep="/"
                 )[-1],
                 output_directory_path=output_directory_path
@@ -87,8 +87,8 @@ class MiscellaneousReactionDataSourceDownloadUtility:
 
         for file_url in file_urls:
             DataSourceDownloadUtility.download_file(
-                url=file_url,
-                name=file_url.split(
+                file_url=file_url,
+                file_name=file_url.split(
                     sep="/"
                 )[-1],
                 output_directory_path=output_directory_path
@@ -110,8 +110,8 @@ class MiscellaneousReactionDataSourceDownloadUtility:
         )
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_url.split(
+            file_url=file_url,
+            file_name=file_url.split(
                 sep="/"
             )[-1],
             output_directory_path=output_directory_path
@@ -136,8 +136,8 @@ class MiscellaneousReactionDataSourceDownloadUtility:
 
         for file_url in file_urls:
             DataSourceDownloadUtility.download_file(
-                url=file_url,
-                name=file_url.split(
+                file_url=file_url,
+                file_name=file_url.split(
                     sep="/"
                 )[-1],
                 output_directory_path=output_directory_path
@@ -210,7 +210,7 @@ class MiscellaneousReactionDataSourceDownloadUtility:
 
         for file_url, file_name in file_urls_and_names:
             DataSourceDownloadUtility.download_file(
-                url=file_url,
-                name=file_name,
+                file_url=file_url,
+                file_name=file_name,
                 output_directory_path=output_directory_path
             )

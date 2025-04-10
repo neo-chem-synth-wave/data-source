@@ -67,8 +67,8 @@ class USPTOReactionDatasetDownloadUtility:
 
         for file_url, file_name in file_urls_and_names:
             DataSourceDownloadUtility.download_file(
-                url=file_url,
-                name=file_name,
+                file_url=file_url,
+                file_name=file_name,
                 output_directory_path=output_directory_path
             )
 
@@ -86,8 +86,8 @@ class USPTOReactionDatasetDownloadUtility:
         file_name = "ci5006614_si_002.zip"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -105,8 +105,8 @@ class USPTOReactionDatasetDownloadUtility:
         file_name = "ci6b00564_si_002.zip"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -123,8 +123,8 @@ class USPTOReactionDatasetDownloadUtility:
         file_url = "https://raw.githubusercontent.com/wengong-jin/nips17-rexgen/master/USPTO-15K/data.zip"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_url.split(
+            file_url=file_url,
+            file_name=file_url.split(
                 sep="/"
             )[-1],
             output_directory_path=output_directory_path
@@ -185,8 +185,8 @@ class USPTOReactionDatasetDownloadUtility:
 
         for file_url, file_name in file_urls_and_names:
             DataSourceDownloadUtility.download_file(
-                url=file_url,
-                name=file_name,
+                file_url=file_url,
+                file_name=file_name,
                 output_directory_path=output_directory_path
             )
 
@@ -211,8 +211,8 @@ class USPTOReactionDatasetDownloadUtility:
 
         for file_url in file_urls:
             DataSourceDownloadUtility.download_file(
-                url=file_url,
-                name=file_url.split(
+                file_url=file_url,
+                file_name=file_url.split(
                     sep="/"
                 )[-1],
                 output_directory_path=output_directory_path
@@ -231,8 +231,8 @@ class USPTOReactionDatasetDownloadUtility:
         file_url = "https://raw.githubusercontent.com/connorcoley/retrosim/master/retrosim/data/data_processed.csv"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_url.split(
+            file_url=file_url,
+            file_name=file_url.split(
                 sep="/"
             )[-1],
             output_directory_path=output_directory_path
@@ -251,8 +251,8 @@ class USPTOReactionDatasetDownloadUtility:
         file_url = "https://raw.githubusercontent.com/wengong-jin/nips17-rexgen/master/USPTO/data.zip"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_url.split(
+            file_url=file_url,
+            file_name=file_url.split(
                 sep="/"
             )[-1],
             output_directory_path=output_directory_path
@@ -269,7 +269,7 @@ class USPTOReactionDatasetDownloadUtility:
         """
 
         file_url = DataSourceDownloadUtility.send_http_get_request(
-            url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+            http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
                 url="https://ibm.ent.box.com/index.php",
                 folder_id="folder_id=40552708120",
                 vanity_name="q[shared_item][vanity_name]=ReactionSeq2SeqDataset",
@@ -280,8 +280,8 @@ class USPTOReactionDatasetDownloadUtility:
         file_name = "ReactionSeq2Seq_Dataset.zip"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -298,8 +298,8 @@ class USPTOReactionDatasetDownloadUtility:
         file_url = "https://raw.githubusercontent.com/john-bradshaw/electro/master/lef_uspto.zip"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_url.split(
+            file_url=file_url,
+            file_name=file_url.split(
                 sep="/"
             )[-1],
             output_directory_path=output_directory_path
@@ -316,7 +316,7 @@ class USPTOReactionDatasetDownloadUtility:
         """
 
         file_url = DataSourceDownloadUtility.send_http_get_request(
-            url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+            http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
                 url="https://ibm.ent.box.com/index.php",
                 folder_id="folder_id=124192222443",
                 vanity_name="q[shared_item][vanity_name]=MappingChemicalReactions",
@@ -327,8 +327,8 @@ class USPTOReactionDatasetDownloadUtility:
         file_name = "MappingChemicalReactions.zip"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -344,7 +344,7 @@ class USPTOReactionDatasetDownloadUtility:
         """
 
         file_url = DataSourceDownloadUtility.send_http_get_request(
-            url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
+            http_get_request_url="{url:s}?{folder_id:s}&{vanity_name:s}&{rm:s}".format(
                 url="https://ibm.ent.box.com/index.php",
                 folder_id="folder_id=112951098080",
                 vanity_name="q[shared_item][vanity_name]=RXNMapperData",
@@ -355,8 +355,8 @@ class USPTOReactionDatasetDownloadUtility:
         file_name = "USPTO_remapped.zip"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -394,7 +394,7 @@ class USPTOReactionDatasetDownloadUtility:
             )
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )

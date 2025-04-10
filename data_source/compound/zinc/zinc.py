@@ -30,11 +30,11 @@ class ZINCCompoundDatabase(DataSourceBase):
             for file_name in findall(
                 pattern=r"href=\"([^\.]+)\.smi\.gz",
                 string=DataSourceDownloadUtility.send_http_get_request(
-                    url=http_get_request_url
+                    http_get_request_url=http_get_request_url
                 ).text
             ):
                 supported_versions[
-                    "v_building_blocks_{file_name:s}".format(
+                    "v_building_block_{file_name:s}".format(
                         file_name=file_name
                     )
                 ] = "https://doi.org/10.1021/acs.jcim.0c00675"
@@ -44,7 +44,7 @@ class ZINCCompoundDatabase(DataSourceBase):
             for file_name in findall(
                 pattern=r"href=\"([^\.]+)\.src\.txt",
                 string=DataSourceDownloadUtility.send_http_get_request(
-                    url=http_get_request_url
+                    http_get_request_url=http_get_request_url
                 ).text
             ):
                 supported_versions[
@@ -87,8 +87,8 @@ class ZINCCompoundDatabase(DataSourceBase):
                         )
                     )
 
-                if version.startswith("v_building_blocks"):
-                    ZINCCompoundDatabaseDownloadUtility.download_v_building_blocks(
+                if version.startswith("v_building_block"):
+                    ZINCCompoundDatabaseDownloadUtility.download_v_building_block(
                         version=version,
                         output_directory_path=output_directory_path
                     )
@@ -151,8 +151,8 @@ class ZINCCompoundDatabase(DataSourceBase):
                         )
                     )
 
-                if version.startswith("v_building_blocks"):
-                    ZINCCompoundDatabaseExtractionUtility.extract_v_building_blocks(
+                if version.startswith("v_building_block"):
+                    ZINCCompoundDatabaseExtractionUtility.extract_v_building_block(
                         version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
@@ -210,8 +210,8 @@ class ZINCCompoundDatabase(DataSourceBase):
                         )
                     )
 
-                if version.startswith("v_building_blocks"):
-                    ZINCCompoundDatabaseFormattingUtility.format_v_building_blocks(
+                if version.startswith("v_building_block"):
+                    ZINCCompoundDatabaseFormattingUtility.format_v_building_block(
                         version=version,
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path

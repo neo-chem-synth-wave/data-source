@@ -12,13 +12,13 @@ class ZINCCompoundDatabaseExtractionUtility:
     """ The `ZINC <https://zinc.docking.org>`_ chemical compound database extraction utility class. """
 
     @staticmethod
-    def extract_v_building_blocks(
+    def extract_v_building_block(
             version: str,
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Extract the data from a `v_building_blocks_*` version of the database.
+        Extract the data from a `v_building_block_*` version of the database.
 
         :parameter version: The version of the database.
         :parameter input_directory_path: The path to the input directory where the data is downloaded.

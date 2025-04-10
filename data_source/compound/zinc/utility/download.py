@@ -10,12 +10,12 @@ class ZINCCompoundDatabaseDownloadUtility:
     """ The `ZINC <https://zinc.docking.org>`_ chemical compound database download utility class. """
 
     @staticmethod
-    def download_v_building_blocks(
+    def download_v_building_block(
             version: str,
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from a `v_building_blocks_*` version of the database.
+        Download the data from a `v_building_block_*` version of the database.
 
         :parameter version: The version of the database.
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
@@ -33,8 +33,8 @@ class ZINCCompoundDatabaseDownloadUtility:
         )
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )
 
@@ -62,7 +62,7 @@ class ZINCCompoundDatabaseDownloadUtility:
         )
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )

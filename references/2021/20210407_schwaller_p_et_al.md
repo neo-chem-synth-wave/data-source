@@ -10,7 +10,7 @@
 
 # Abstract
 Humans use different domain languages to represent, explore, and communicate scientific concepts. During the last few
-hundred years, chemists compiled the language of chemical synthesis inferring a series of “reaction rules” from knowing
+hundred years, chemists compiled the language of chemical synthesis inferring a series of "reaction rules" from knowing
 how atoms rearrange during a chemical transformation, a process called atom-mapping. Atom-mapping is a laborious
 experimental task and, when tackled with computational methods, requires continuous annotation of chemical reactions and
 the extension of logically consistent directives. Here, we demonstrate that Transformer Neural Networks learn

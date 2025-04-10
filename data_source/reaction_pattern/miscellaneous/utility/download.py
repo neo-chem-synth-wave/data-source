@@ -22,8 +22,8 @@ class MiscellaneousReactionPatternDataSourceDownloadUtility:
         file_url = "https://zenodo.org/records/1209313/files/RetroTransformDB-v-1-0.txt"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_url.split(
+            file_url=file_url,
+            file_name=file_url.split(
                 sep="/"
             )[-1],
             output_directory_path=output_directory_path
@@ -45,8 +45,8 @@ class MiscellaneousReactionPatternDataSourceDownloadUtility:
         )
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_url.split(
+            file_url=file_url,
+            file_name=file_url.split(
                 sep="/"
             )[-1],
             output_directory_path=output_directory_path
@@ -66,7 +66,7 @@ class MiscellaneousReactionPatternDataSourceDownloadUtility:
         file_name = "AutoTemplate-main.zip"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_name,
+            file_url=file_url,
+            file_name=file_name,
             output_directory_path=output_directory_path
         )

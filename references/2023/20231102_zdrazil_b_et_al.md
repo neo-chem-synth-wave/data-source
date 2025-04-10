@@ -13,7 +13,7 @@ Kizilören, Anna Gaulton, Patrícia A. Bento, Melissa F. Adasme, Peter Monecke, 
 # Abstract
 ChEMBL (https://www.ebi.ac.uk/chembl/) is a manually curated, high-quality, large-scale, open, FAIR and Global Core
 Biodata Resource of bioactive molecules with drug-like properties, previously described in the 2012, 2014, 2017 and 2019
-Nucleic Acids Research Database Issues. Since its introduction in 2009, ChEMBL’s content has changed dramatically in
+Nucleic Acids Research Database Issues. Since its introduction in 2009, ChEMBL's content has changed dramatically in
 size and diversity of data types. Through incorporation of multiple new datasets from depositors since the 2019 update,
 ChEMBL now contains slightly more bioactivity data from deposited data vs data extracted from literature. In
 collaboration with the EUbOPEN consortium, chemical probe data is now regularly deposited into ChEMBL. Release 27 made

@@ -37,8 +37,8 @@ class COCONUTCompoundDatabaseDownloadUtility:
             )
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_url.split(
+            file_url=file_url,
+            file_name=file_url.split(
                 sep="/"
             )[-1],
             output_directory_path=output_directory_path

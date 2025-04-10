@@ -26,7 +26,7 @@ class ChEMBLCompoundDatabase(DataSourceBase):
             http_get_request_url = "https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest/README"
 
             http_get_request_response = DataSourceDownloadUtility.send_http_get_request(
-                url=http_get_request_url
+                http_get_request_url=http_get_request_url
             )
 
             latest_release_number = int(

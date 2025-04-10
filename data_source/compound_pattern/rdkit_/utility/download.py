@@ -22,8 +22,8 @@ class RDKitCompoundPatternDatasetDownloadUtility:
         file_url = "https://github.com/rdkit/rdkit/raw/refs/heads/master/Code/GraphMol/FilterCatalog/brenk.in"
 
         DataSourceDownloadUtility.download_file(
-            url=file_url,
-            name=file_url.split(
+            file_url=file_url,
+            file_name=file_url.split(
                 sep="/"
             )[-1],
             output_directory_path=output_directory_path
@@ -47,8 +47,8 @@ class RDKitCompoundPatternDatasetDownloadUtility:
 
         for file_url in file_urls:
             DataSourceDownloadUtility.download_file(
-                url=file_url,
-                name=file_url.split(
+                file_url=file_url,
+                file_name=file_url.split(
                     sep="/"
                 )[-1],
                 output_directory_path=output_directory_path
