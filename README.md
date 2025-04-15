@@ -1,23 +1,21 @@
 # Data Source
-[![Static Badge](https://img.shields.io/badge/data__source-2025.5.1-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.5.1)
+[![Static Badge](https://img.shields.io/badge/data__source-2025.4.2-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.4.2)
 [![Static Badge](https://img.shields.io/badge/Institute%20of%20Science%20Tokyo-%231C3177?style=flat)](https://www.isct.ac.jp)
 [![Static Badge](https://img.shields.io/badge/Elix%2C%20Inc.-%235EB6B3?style=flat)](https://www.elix-inc.com)
 
 Welcome to the computer-assisted chemical synthesis **data source** research project !!!
 
-Over the past decade, computer-assisted chemical synthesis has re-emerged as a prominent research subject in
-cheminformatics. Even though the idea of using computers to assist chemical synthesis has existed for nearly as long as
-computers themselves, the inherent complexity repeatedly exceeded the available resources. However, recent machine
-learning approaches have exhibited the potential to break this tendency. On the other hand, the performance of such
-approaches is heavily dependent on data that suffer from insufficient quality and quantity, are stored in various
-formats, or are behind paywalls, posing significant challenges to potential scientific breakthroughs. Consequently, the
-primary objective of the **Data Source** research project is to systematically curate and facilitate access to all
-relevant open computer-assisted chemical synthesis data sources.
+Over the past decade, computer-assisted chemical synthesis has re-emerged as a prominent research subject. Even though
+the idea of using computers to assist chemical synthesis has existed for nearly as long as computers themselves, the
+inherent complexity repeatedly exceeded the available resources. However, recent machine learning approaches have
+exhibited the potential to break this tendency. The performance of such approaches is dependent on data that suffer from
+insufficient quality and quantity, are stored in various formats, or are behind paywalls, posing significant challenges
+to potential scientific breakthroughs. Consequently, the primary objective of the **Data Source** research project is to
+systematically curate and facilitate access to relevant open computer-assisted chemical synthesis data sources.
 
 
 ## Installation
-A standalone environment can be created using the [git](https://git-scm.com) and [conda](https://conda.io) commands as
-follows:
+An environment can be created using the [git](https://git-scm.com) and [conda](https://conda.io) commands as follows:
 
 ```shell
 git clone https://github.com/neo-chem-synth-wave/data-source.git
@@ -29,8 +27,7 @@ conda env create -f environment.yaml
 conda activate data-source-env
 ```
 
-The [data_source](/data_source) package can be locally installed using the [pip](https://pip.pypa.io) command as
-follows:
+The [data_source](/data_source) package can be installed using the [pip](https://pip.pypa.io) command as follows:
 
 ```shell
 pip install .
@@ -50,7 +47,6 @@ The [download_extract_and_format_data](/scripts/download_extract_and_format_data
 
 ```shell
 # Get the chemical reaction data source name information.
-
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --get_data_source_name_information
@@ -58,7 +54,6 @@ python scripts/download_extract_and_format_data.py \
 
 ```shell
 # Get the USPTO chemical reaction dataset version information.
-
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
@@ -67,12 +62,11 @@ python scripts/download_extract_and_format_data.py \
 
 ```shell
 # Download, extract, and format the data from the USPTO chemical reaction dataset.
-
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
   --data_source_version "v_50k_by_20171116_coley_c_w_et_al" \
-  --output_directory_path "path/to/the/output/directory"
+  --output_directory_path "/path/to/the/output/directory"
 ```
 
 
@@ -293,8 +287,8 @@ The following miscellaneous chemical reaction pattern data sources are supported
 
 
 ## Data
-The purpose of the [data](/data) directory is to archive data sources hosted on [GitHub](https://github.com),
-[GitLab](https://gitlab.com), and [CodeOcean](https://codeocean.com) repositories.
+The purpose of the [data](/data) directory is to archive and backup the data sources that are hosted on
+[GitHub](https://github.com), [GitLab](https://gitlab.com), and [CodeOcean](https://codeocean.com) repositories.
 
 
 ## License Information
