@@ -129,9 +129,9 @@ def get_script_logger() -> Logger:
 
 
 if __name__ == "__main__":
-    script_logger = get_script_logger()
-
     script_arguments = get_script_arguments()
+
+    script_logger = get_script_logger()
 
     if script_arguments.data_source_category == "compound":
         data_source = CompoundDataSource(
