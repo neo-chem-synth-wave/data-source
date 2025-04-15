@@ -12,7 +12,7 @@ atom mapping containing the minimum chemical distance (MCD). Recent publications
 need to be compared with existing methods in a reproducible environment, preferably on a generalized test set, yet the
 number of test sets available is small, and they are not truly representative of the range of reactions that occur in
 real reaction databases. We have designed a challenging test set of reactions and are making it publicly available and
-usable with InfoChem’s software or other classification algorithms. We supply a representative set of example reactions,
+usable with InfoChem's software or other classification algorithms. We supply a representative set of example reactions,
 grouped into different levels of difficulty, from a large number of reaction databases that chemists actually encounter
 in practice, in order to demonstrate the basic requirements for a mapping algorithm to detect the reaction centers in a
 consistent way. We invite the scientific community to contribute to the future extension and improvement of this data

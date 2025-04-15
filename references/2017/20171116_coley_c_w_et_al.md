@@ -13,5 +13,5 @@ We demonstrate molecular similarity to be a surprisingly effective metric for pr
 retrosynthetic disconnections based on analogy to precedent reactions. The developed approach mimics the retrosynthetic
 strategy defined implicitly by a corpus of known reactions without the need to encode any chemical knowledge. Using
 40,000 reactions from the patent literature as a knowledge base, the recorded reactants are among the top 10 proposed
-precursors in 74.1% of 5000 test reactions, providing strong quantitative support for our methodology. Extension of the
+precursors in 74.1% of 5,000 test reactions, providing strong quantitative support for our methodology. Extension of the
 one-step strategy to multistep pathway planning is demonstrated and discussed for two exemplary drug products.

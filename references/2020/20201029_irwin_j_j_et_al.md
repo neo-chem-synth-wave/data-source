@@ -15,7 +15,7 @@ two major new features: billions of new molecules and new methods to search them
 can be searched precisely using explicit atomic-level graph-based methods, such as SmallWorld for similarity and Arthor
 for pattern and substructure search, as well as 3D methods such as docking. Analysis of the new make-on-demand compound
 sets by these and related tools reveals startling features. For instance, over 97% of the core Bemis–Murcko scaffolds in
-make-on-demand libraries are unavailable from “in-stock” collections. Correspondingly, the number of new Bemis–Murcko
+make-on-demand libraries are unavailable from "in-stock" collections. Correspondingly, the number of new Bemis–Murcko
 scaffolds is rising almost as a linear fraction of the elaborated molecules. Thus, an 88-fold increase in the number of
 molecules in the make-on-demand versus the in-stock sets is built upon a 16-fold increase in the number of Bemis–Murcko
 scaffolds. The make-on-demand library is also more structurally diverse than physical libraries, with a massive increase

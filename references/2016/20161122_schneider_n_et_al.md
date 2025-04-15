@@ -1,5 +1,5 @@
 # Overview
-**Title:** What’s What: The (Nearly) Definitive Guide to Reaction Role Assignment<br>
+**Title:** What's What: The (Nearly) Definitive Guide to Reaction Role Assignment<br>
 **Authors:** Nadine Schneider, Nikolaus Stiefl, Gregory A. Landrum<br>
 **Publication Date:** 2016/11/22<br>
 **Publication Link:** [ACS JCIM](https://pubs.acs.org/doi/full/10.1021/acs.jcim.6b00564)

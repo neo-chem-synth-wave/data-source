@@ -20,4 +20,4 @@ collaboration with the EUbOPEN consortium, chemical probe data is now regularly 
 curated data available for compounds screened for potential anti-SARS-CoV-2 activity from several large-scale drug
 repurposing screens. In addition, new patent bioactivity data have been added to the latest ChEMBL releases, and various
 new features have been incorporated, including a Natural Product likeness score, updated flags for Natural Products, a
-new flag for Chemical Probes, and the initial annotation of the action type for ∼270 000 bioactivity measurements.
+new flag for Chemical Probes, and the initial annotation of the action type for ∼270,000 bioactivity measurements.
