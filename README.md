@@ -84,7 +84,7 @@ The chemical compound data source relationships can be illustrated as follows:
 
 
 #### ZINC
-The following [ZINC](https://zinc.docking.org) <sup>[[1](/references/2015/20151019_sterling_t_and_irwin_j_j.md),
+The following ZINC <sup>[[1](/references/2015/20151019_sterling_t_and_irwin_j_j.md),
 [2](/references/2020/20201029_irwin_j_j_et_al.md), [3](/references/2023/20230215_tingle_b_i_et_al.md)]</sup> chemical
 compound database versions are supported:
 
@@ -97,8 +97,8 @@ compound database versions are supported:
 
 
 #### ChEMBL
-The following [ChEMBL](https://www.ebi.ac.uk/chembl) <sup>[[4](/references/2023/20231102_zdrazil_b_et_al.md)]</sup>
-chemical compound database versions are supported:
+The following ChEMBL <sup>[[4](/references/2023/20231102_zdrazil_b_et_al.md)]</sup> chemical compound database versions
+are supported:
 
 | Version                                                                                                                                                              | DOI                                        |     Status     |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|:--------------:|
@@ -108,7 +108,7 @@ chemical compound database versions are supported:
 
 
 #### COCONUT
-The following [COCONUT](https://coconut.naturalproducts.net) <sup>[[5](/references/2021/20210110_sorokina_m_et_al.md),
+The following COCONUT <sup>[[5](/references/2021/20210110_sorokina_m_et_al.md),
 [6](/references/2024/20241126_chandrasekhar_v_et_al.md)]</sup> chemical compound database versions are supported:
 
 | Version                                                                                                               | DOI                       |     Status     |
@@ -140,8 +140,7 @@ The chemical compound pattern data source relationships can be illustrated as fo
 
 
 #### RDKit
-The following [RDKit](https://www.rdkit.org) <sup>[[8](https://www.rdkit.org)]</sup> chemical compound pattern dataset
-versions are supported:
+The following RDKit <sup>[[8](https://www.rdkit.org)]</sup> chemical compound pattern dataset versions are supported:
 
 | Version                                                                                                                   | DOI                      |     Status     |
 |---------------------------------------------------------------------------------------------------------------------------|--------------------------|:--------------:|
@@ -166,8 +165,8 @@ The chemical reaction data source relationships can be illustrated as follows:
 
 
 #### United States Patent and Trademark Office (USPTO)
-The following [United States Patent and Trademark Office (USPTO)](https://www.repository.cam.ac.uk/items/dbb4f258-8f3c-4b59-9b5c-62fac7ca8c28)
-<sup>[[11](/references/2012/20121009_lowe_d_m.md)]</sup> chemical reaction dataset versions are supported:
+The following United States Patent and Trademark Office (USPTO) <sup>[[11](/references/2012/20121009_lowe_d_m.md)]</sup>
+chemical reaction dataset versions are supported:
 
 | Version                                                                                                                 | DOI                               |     Status      |
 |-------------------------------------------------------------------------------------------------------------------------|-----------------------------------|:---------------:|
@@ -194,8 +193,8 @@ The following [United States Patent and Trademark Office (USPTO)](https://www.re
 
 
 #### Open Reaction Database (ORD)
-The following [Open Reaction Database (ORD)](https://open-reaction-database.org)
-<sup>[[24](/references/2021/20211102_kearnes_s_m_et_al.md)]</sup> versions are supported:
+The following Open Reaction Database (ORD) <sup>[[24](/references/2021/20211102_kearnes_s_m_et_al.md)]</sup> versions
+are supported:
 
 | Version                                                                           | DOI                    |     Status      |
 |-----------------------------------------------------------------------------------|------------------------|:---------------:|
@@ -207,8 +206,7 @@ The following [Open Reaction Database (ORD)](https://open-reaction-database.org)
 
 
 #### Chemical Reaction Database (CRD)
-The following [Chemical Reaction Database (CRD)](https://kmt.vander-lingen.nl)
-<sup>[[25](https://kmt.vander-lingen.nl)]</sup> versions are supported:
+The following Chemical Reaction Database (CRD) <sup>[[25](https://kmt.vander-lingen.nl)]</sup> versions are supported:
 
 | Version                                                                        | DOI                               |     Status     |
 |--------------------------------------------------------------------------------|-----------------------------------|:--------------:|
@@ -221,8 +219,8 @@ The following [Chemical Reaction Database (CRD)](https://kmt.vander-lingen.nl)
 
 
 #### Rhea
-The following [Rhea](https://www.rhea-db.org) <sup>[[26](/references/2021/20211110_bansal_p_et_al.md)]</sup> chemical
-reaction database versions are supported:
+The following Rhea <sup>[[26](/references/2021/20211110_bansal_p_et_al.md)]</sup> chemical reaction database versions
+are supported:
 
 | Version                                                                                                                                                 | DOI                    |     Status     |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|:--------------:|
@@ -261,8 +259,8 @@ The chemical reaction pattern data source relationships can be illustrated as fo
 
 
 #### RetroRules
-The following [RetroRules](https://retrorules.org) <sup>[[33](/references/2018/20181013_duigou_t_et_al.md)]</sup>
-chemical reaction pattern database versions are supported:
+The following RetroRules <sup>[[33](/references/2018/20181013_duigou_t_et_al.md)]</sup> chemical reaction pattern
+database versions are supported:
 
 | Version                                                                                | DOI                      |     Status     |
 |----------------------------------------------------------------------------------------|--------------------------|:--------------:|
@@ -331,8 +329,8 @@ Golovanov, S., Tatanov, O., Belyaev, S., Kurbanov, R., Artamonov, A., Aladinskiy
 Johansson, S., Chen, H., Nikolenko, S., Aspuru-Guzik, A., and Zhavoronkov, A. **Molecular Sets (MOSES): A Benchmarking
 Platform for Molecular Generation Models**. _Front. Pharmacol._, 11, 2020.
 
-**[[8](https://www.rdkit.org)]** **RDKit: Open-source Cheminformatics**: https://www.rdkit.org. Accessed on: February
-8th, 2025.
+**[[8](https://www.rdkit.org)]** **RDKit: Open-source Cheminformatics**: https://www.rdkit.org. Accessed on: April
+15th, 2025.
 
 **[[9](/references/2008/20080307_brenk_r_et_al.md)]** Brenk, R., Schipani, A., James, D., Krasowski, A., Gilbert, I.H.,
 Frearson, J. and Wyatt, P.G. **Lessons Learnt from Assembling Screening Libraries for Drug Discovery for Neglected
@@ -393,7 +391,7 @@ Doyle, A.G., Dreher, S.D., Hawkins, J.M., Jensen, K.F., and Coley, C.W. **The Op
 Soc._, 2021, 143, 45, 18820–18826.
 
 **[[25](https://kmt.vander-lingen.nl)]** **The Chemical Reaction Database (CRD)**: https://kmt.vander-lingen.nl.
-Accessed on: February 8th, 2025.
+Accessed on: April 15th, 2025.
 
 **[[26](/references/2021/20211110_bansal_p_et_al.md)]** Bansal, P., Morgat, A., Axelsen, K.B., Muthukrishnan, V.,
 Coudert, E., Aimo, L., Hyka-Nouspikel, N., Gasteiger, E., Kerhornou, A., Neto, T.B., Pozzato, M., Blatter, M.,
