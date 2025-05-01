@@ -40,7 +40,7 @@ class DataSourceBase(ABC):
         """
         Set the value of the logger.
 
-        :parameter value: The value of the logger. The value `None` indicates that the logger should not be utilized.
+        :parameter value: The value of the logger.
         """
 
         self.__logger = value

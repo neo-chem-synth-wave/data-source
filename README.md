@@ -1,16 +1,16 @@
 # Data Source
-[![Static Badge](https://img.shields.io/badge/data__source-2025.4.2-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.4.2)
+[![Static Badge](https://img.shields.io/badge/data__source-2025.5.1-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.5.1)
 [![Static Badge](https://img.shields.io/badge/Institute%20of%20Science%20Tokyo-%231C3177?style=flat)](https://www.isct.ac.jp)
 [![Static Badge](https://img.shields.io/badge/Elix%2C%20Inc.-%235EB6B3?style=flat)](https://www.elix-inc.com)
 
 Welcome to the computer-assisted chemical synthesis **data source** research project !!!
 
 Over the past decade, computer-assisted chemical synthesis has re-emerged as a prominent research subject. Even though
-the idea of using computers to assist chemical synthesis has existed for nearly as long as computers themselves, the
+the idea of utilizing computers to assist chemical synthesis has existed for nearly as long as computers themselves, the
 inherent complexity repeatedly exceeded the available resources. However, recent machine learning approaches have
-exhibited the potential to break this tendency. The performance of such approaches is dependent on data that suffer from
-insufficient quality and quantity, are stored in various formats, or are behind paywalls, posing significant challenges
-to potential scientific breakthroughs. Consequently, the primary objective of the **Data Source** research project is to
+exhibited the potential to break this tendency. The performance of such approaches is dependent on data that frequently
+suffer from limited quantity, quality, visibility, and accessibility, posing significant challenges to potential
+scientific breakthroughs. Consequently, the primary objective of the **Data Source** research project is to
 systematically curate and facilitate access to relevant open computer-assisted chemical synthesis data sources.
 
 
@@ -84,37 +84,34 @@ The chemical compound data source relationships can be illustrated as follows:
 
 
 #### ZINC
-The following ZINC <sup>[[1](/references/2015/20151019_sterling_t_and_irwin_j_j.md),
-[2](/references/2020/20201029_irwin_j_j_et_al.md), [3](/references/2023/20230215_tingle_b_i_et_al.md)]</sup> chemical
-compound database versions are supported:
+The following ZINC <sup>[[1](#references), [2](#references), [3](#references)]</sup> chemical compound database versions
+are supported:
 
-| Version                                                                                                                                              | DOI                        |     Status     |
-|------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|:--------------:|
-| v_building_block_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[[2](/references/2020/20201029_irwin_j_j_et_al.md)]</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
-| v_catalog_[{catalog_subset_name}](https://files.docking.org/catalogs/source) <sup>[[2](/references/2020/20201029_irwin_j_j_et_al.md)]</sup>          | `10.1021/acs.jcim.0c00675` | :green_circle: |
+| Version                                                                                                             | DOI                        |     Status     |
+|---------------------------------------------------------------------------------------------------------------------|----------------------------|:--------------:|
+| v_building_block_[{building_block_subset_name}](https://files.docking.org/bb/current) <sup>[[2](#references)]</sup> | `10.1021/acs.jcim.0c00675` | :green_circle: |
+| v_catalog_[{catalog_subset_name}](https://files.docking.org/catalogs/source) <sup>[[2](#references)]</sup>          | `10.1021/acs.jcim.0c00675` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
 
 #### ChEMBL
-The following ChEMBL <sup>[[4](/references/2023/20231102_zdrazil_b_et_al.md)]</sup> chemical compound database versions
-are supported:
+The following ChEMBL <sup>[[4](#references)]</sup> chemical compound database versions are supported:
 
-| Version                                                                                                                                                              | DOI                                        |     Status     |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|:--------------:|
-| v_release_[{release_number ≥ 25}](https://chembl.gitbook.io/chembl-interface-documentation/downloads) <sup>[[4](/references/2023/20231102_zdrazil_b_et_al.md)]</sup> | `10.6019/CHEMBL.database.{release_number}` | :green_circle: |
+| Version                                                                                                                             | DOI                                        |     Status     |
+|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|:--------------:|
+| v_release_[{release_number ≥ 25}](https://chembl.gitbook.io/chembl-interface-documentation/downloads) <sup>[[4](#references)]</sup> | `10.6019/CHEMBL.database.{release_number}` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
 
 #### COCONUT
-The following COCONUT <sup>[[5](/references/2021/20210110_sorokina_m_et_al.md),
-[6](/references/2024/20241126_chandrasekhar_v_et_al.md)]</sup> chemical compound database versions are supported:
+The following COCONUT <sup>[[5](#references), [6](#references)]</sup> chemical compound database versions are supported:
 
-| Version                                                                                                               | DOI                       |     Status     |
-|-----------------------------------------------------------------------------------------------------------------------|---------------------------|:--------------:|
-| v_2_0_by_20241126_chandrasekhar_v_et_al <sup>[[6](/references/2024/20241126_chandrasekhar_v_et_al.md)]</sup>          | `10.5281/zenodo.13382750` | :green_circle: |
-| v_2_0_complete_by_20241126_chandrasekhar_v_et_al <sup>[[6](/references/2024/20241126_chandrasekhar_v_et_al.md)]</sup> | `10.5281/zenodo.13382750` | :green_circle: |
+| Version                                                                        | DOI                       |     Status     |
+|--------------------------------------------------------------------------------|---------------------------|:--------------:|
+| v_2_0_by_20241126_chandrasekhar_v_et_al <sup>[[6](#references)]</sup>          | `10.5281/zenodo.13382750` | :green_circle: |
+| v_2_0_complete_by_20241126_chandrasekhar_v_et_al <sup>[[6](#references)]</sup> | `10.5281/zenodo.13382750` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -122,9 +119,9 @@ The following COCONUT <sup>[[5](/references/2021/20210110_sorokina_m_et_al.md),
 #### Miscellaneous Chemical Compound Data Sources
 The following miscellaneous chemical compound data sources are supported:
 
-| Version                                                                                                    | DOI                         |     Status     |
-|------------------------------------------------------------------------------------------------------------|-----------------------------|:--------------:|
-| v_moses_by_20201218_polykovskiy_d_et_al <sup>[[7](/references/2020/20201218_polykovskiy_d_et_al.md)]</sup> | `10.3389/fphar.2020.565644` | :green_circle: |
+| Version                                                               | DOI                         |     Status     |
+|-----------------------------------------------------------------------|-----------------------------|:--------------:|
+| v_moses_by_20201218_polykovskiy_d_et_al <sup>[[7](#references)]</sup> | `10.3389/fphar.2020.565644` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -140,12 +137,12 @@ The chemical compound pattern data source relationships can be illustrated as fo
 
 
 #### RDKit
-The following RDKit <sup>[[8](https://www.rdkit.org)]</sup> chemical compound pattern dataset versions are supported:
+The following RDKit <sup>[[8](#references)]</sup> chemical compound pattern dataset versions are supported:
 
-| Version                                                                                                                   | DOI                      |     Status     |
-|---------------------------------------------------------------------------------------------------------------------------|--------------------------|:--------------:|
-| v_brenk_by_20080307_brenk_r_et_al <sup>[[9](/references/2008/20080307_brenk_r_et_al.md)]</sup>                            | `10.1002/cmdc.200700139` | :green_circle: |
-| v_pains_by_20100204_baell_j_b_and_holloway_g_a <sup>[[10](/references/2010/20100204_baell_j_b_and_holloway_g_a.md)]</sup> | `10.1021/jm901137j`      | :green_circle: |
+| Version                                                                       | DOI                      |     Status     |
+|-------------------------------------------------------------------------------|--------------------------|:--------------:|
+| v_brenk_by_20080307_brenk_r_et_al <sup>[[9](#references)]</sup>               | `10.1002/cmdc.200700139` | :green_circle: |
+| v_pains_by_20100204_baell_j_b_and_holloway_g_a <sup>[[10](#references)]</sup> | `10.1021/jm901137j`      | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -168,63 +165,61 @@ The chemical reaction data source relationships can be illustrated as follows:
 The following United States Patent and Trademark Office (USPTO) <sup>[[11](/references/2012/20121009_lowe_d_m.md)]</sup>
 chemical reaction dataset versions are supported:
 
-| Version                                                                                                                 | DOI                               |     Status      |
-|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------|:---------------:|
-| v_1976_to_2013_rsmi_by_20121009_lowe_d_m <sup>[[11](/references/2012/20121009_lowe_d_m.md)]</sup>                       | `10.6084/m9.figshare.12084729.v1` | :green_circle:  |
-| v_50k_by_20141226_schneider_n_et_al <sup>[[12](/references/2014/20141226_schneider_n_et_al.md)]</sup>                   | `10.1021/ci5006614`               | :green_circle:  |
-| v_50k_by_20161122_schneider_n_et_al <sup>[[13](/references/2016/20161122_schneider_n_et_al.md)]</sup>                   | `10.1021/acs.jcim.6b00564`        | :green_circle:  |
-| v_15k_by_20170418_coley_c_w_et_al <sup>[[14](/references/2017/20170418_coley_c_w_et_al.md)]</sup>                       | `10.1021/acscentsci.7b00064`      | :green_circle:  |
-| v_1976_to_2016_cml_by_20121009_lowe_d_m <sup>[[11](/references/2012/20121009_lowe_d_m.md)]</sup>                        | `10.6084/m9.figshare.5104873.v1`  | :yellow_circle: |
-| v_1976_to_2016_rsmi_by_20121009_lowe_d_m <sup>[[11](/references/2012/20121009_lowe_d_m.md)]</sup>                       | `10.6084/m9.figshare.5104873.v1`  | :green_circle:  |
-| v_50k_by_20170905_liu_b_et_al <sup>[[15](/references/2017/20170905_liu_b_et_al.md)]</sup>                               | `10.1021/acscentsci.7b00303`      | :green_circle:  |
-| v_50k_by_20171116_coley_c_w_et_al <sup>[[16](/references/2017/20171116_coley_c_w_et_al.md)]</sup>                       | `10.1021/acscentsci.7b00355`      | :green_circle:  |
-| v_480k_or_mit_by_20171204_jin_w_et_al <sup>[[17](/references/2017/20171204_jin_w_et_al.md)]</sup>                       | `10.48550/arXiv.1709.04555`       | :green_circle:  |
-| v_480k_or_mit_by_20180622_schwaller_p_et_al <sup>[[18](/references/2018/20180622_schwaller_p_et_al.md)]</sup>           | `10.1039/C8SC02339E`              | :green_circle:  |
-| v_stereo_by_20180622_schwaller_p_et_al <sup>[[18](/references/2018/20180622_schwaller_p_et_al.md)]</sup>                | `10.1039/C8SC02339E`              | :green_circle:  |
-| v_lef_by_20181221_bradshaw_j_et_al <sup>[[19](/references/2018/20181221_bradshaw_j_et_al.md)]</sup>                     | `10.48550/arXiv.1805.10970`       | :green_circle:  |
-| v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[[20](/references/2021/20210128_schwaller_p_et_al.md)]</sup>                | `10.1038/s42256-020-00284-w`      | :green_circle:  |
-| v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al <sup>[[21](/references/2021/20210407_schwaller_p_et_al.md)]</sup> | `10.1126/sciadv.abe4166`          | :green_circle:  |
-| v_1976_to_2016_remapped_by_20240313_chen_s_et_al <sup>[[22](/references/2024/20240313_chen_s_et_al.md)]</sup>           | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
-| v_50k_remapped_by_20240313_chen_s_et_al <sup>[[22](/references/2024/20240313_chen_s_et_al.md)]</sup>                    | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
-| v_mech_31k_by_20240810_chen_s_et_al <sup>[[23](/references/2024/20240810_chen_s_et_al.md)]</sup>                        | `10.6084/m9.figshare.24797220.v2` | :green_circle:  |
+| Version                                                                              | DOI                               |     Status      |
+|--------------------------------------------------------------------------------------|-----------------------------------|:---------------:|
+| v_1976_to_2013_rsmi_by_20121009_lowe_d_m <sup>[[11](#references)]</sup>              | `10.6084/m9.figshare.12084729.v1` | :green_circle:  |
+| v_50k_by_20141226_schneider_n_et_al <sup>[[12](#references)]</sup>                   | `10.1021/ci5006614`               | :green_circle:  |
+| v_50k_by_20161122_schneider_n_et_al <sup>[[13](#references)]</sup>                   | `10.1021/acs.jcim.6b00564`        | :green_circle:  |
+| v_15k_by_20170418_coley_c_w_et_al <sup>[[14](#references)]</sup>                     | `10.1021/acscentsci.7b00064`      | :green_circle:  |
+| v_1976_to_2016_cml_by_20121009_lowe_d_m <sup>[[11](#references)]</sup>               | `10.6084/m9.figshare.5104873.v1`  | :yellow_circle: |
+| v_1976_to_2016_rsmi_by_20121009_lowe_d_m <sup>[[11](#references)]</sup>              | `10.6084/m9.figshare.5104873.v1`  | :green_circle:  |
+| v_50k_by_20170905_liu_b_et_al <sup>[[15](#references)]</sup>                         | `10.1021/acscentsci.7b00303`      | :green_circle:  |
+| v_50k_by_20171116_coley_c_w_et_al <sup>[[16](#references)]</sup>                     | `10.1021/acscentsci.7b00355`      | :green_circle:  |
+| v_480k_or_mit_by_20171204_jin_w_et_al <sup>[[17](#references)]</sup>                 | `10.48550/arXiv.1709.04555`       | :green_circle:  |
+| v_480k_or_mit_by_20180622_schwaller_p_et_al <sup>[[18](#references)]</sup>           | `10.1039/C8SC02339E`              | :green_circle:  |
+| v_stereo_by_20180622_schwaller_p_et_al <sup>[[18](#references)]</sup>                | `10.1039/C8SC02339E`              | :green_circle:  |
+| v_lef_by_20181221_bradshaw_j_et_al <sup>[[19](#references)]</sup>                    | `10.48550/arXiv.1805.10970`       | :green_circle:  |
+| v_1k_tpl_by_20210128_schwaller_p_et_al <sup>[[20](#references)]</sup>                | `10.1038/s42256-020-00284-w`      | :green_circle:  |
+| v_1976_to_2016_remapped_by_20210407_schwaller_p_et_al <sup>[[21](#references)]</sup> | `10.1126/sciadv.abe4166`          | :green_circle:  |
+| v_1976_to_2016_remapped_by_20240313_chen_s_et_al <sup>[[22](#references)]</sup>      | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
+| v_50k_remapped_by_20240313_chen_s_et_al <sup>[[22](#references)]</sup>               | `10.6084/m9.figshare.25046471.v1` | :green_circle:  |
+| v_mech_31k_by_20240810_chen_s_et_al <sup>[[23](#references)]</sup>                   | `10.6084/m9.figshare.24797220.v2` | :green_circle:  |
 
 <sub>:green_circle: Completely Implemented</sub><br>
 <sub>:yellow_circle: Partially Implemented (Limited to Reaction SMILES Strings)</sub>
 
 
 #### Open Reaction Database (ORD)
-The following Open Reaction Database (ORD) <sup>[[24](/references/2021/20211102_kearnes_s_m_et_al.md)]</sup> versions
-are supported:
+The following Open Reaction Database (ORD) <sup>[[24](#references)]</sup> versions are supported:
 
-| Version                                                                           | DOI                    |     Status      |
-|-----------------------------------------------------------------------------------|------------------------|:---------------:|
-| v_release_0_1_0 <sup>[[24](/references/2021/20211102_kearnes_s_m_et_al.md)]</sup> | `10.1021/jacs.1c09820` | :yellow_circle: |
-| v_release_main <sup>[[24](/references/2021/20211102_kearnes_s_m_et_al.md)]</sup>  | `10.1021/jacs.1c09820` | :yellow_circle: |
+| Version                                        | DOI                    |     Status      |
+|------------------------------------------------|------------------------|:---------------:|
+| v_release_0_1_0 <sup>[[24](#references)]</sup> | `10.1021/jacs.1c09820` | :yellow_circle: |
+| v_release_main <sup>[[24](#references)]</sup>  | `10.1021/jacs.1c09820` | :yellow_circle: |
 
 <sub>:green_circle: Completely Implemented</sub><br>
 <sub>:yellow_circle: Partially Implemented (Limited to Reaction SMILES Strings)</sub>
 
 
 #### Chemical Reaction Database (CRD)
-The following Chemical Reaction Database (CRD) <sup>[[25](https://kmt.vander-lingen.nl)]</sup> versions are supported:
+The following Chemical Reaction Database (CRD) <sup>[[25](#references)]</sup> versions are supported:
 
-| Version                                                                        | DOI                               |     Status     |
-|--------------------------------------------------------------------------------|-----------------------------------|:--------------:|
-| v_reaction_smiles_2001_to_2021 <sup>[[25](https://kmt.vander-lingen.nl)]</sup> | `10.6084/m9.figshare.20279733.v1` | :green_circle: |
-| v_reaction_smiles_2001_to_2023 <sup>[[25](https://kmt.vander-lingen.nl)]</sup> | `10.6084/m9.figshare.22491730.v1` | :green_circle: |
-| v_reaction_smiles_2023 <sup>[[25](https://kmt.vander-lingen.nl)]</sup>         | `10.6084/m9.figshare.24921555.v1` | :green_circle: |
-| v_reaction_smiles_1976_to_2024 <sup>[[25](https://kmt.vander-lingen.nl)]</sup> | `10.6084/m9.figshare.28230053.v1` | :green_circle: |
+| Version                                                       | DOI                               |     Status     |
+|---------------------------------------------------------------|-----------------------------------|:--------------:|
+| v_reaction_smiles_2001_to_2021 <sup>[[25](#references)]</sup> | `10.6084/m9.figshare.20279733.v1` | :green_circle: |
+| v_reaction_smiles_2001_to_2023 <sup>[[25](#references)]</sup> | `10.6084/m9.figshare.22491730.v1` | :green_circle: |
+| v_reaction_smiles_2023 <sup>[[25](#references)]</sup>         | `10.6084/m9.figshare.24921555.v1` | :green_circle: |
+| v_reaction_smiles_1976_to_2024 <sup>[[25](#references)]</sup> | `10.6084/m9.figshare.28230053.v1` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
 
 #### Rhea
-The following Rhea <sup>[[26](/references/2021/20211110_bansal_p_et_al.md)]</sup> chemical reaction database versions
-are supported:
+The following Rhea <sup>[[26](#references)]</sup> chemical reaction database versions are supported:
 
-| Version                                                                                                                                                 | DOI                    |     Status     |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|:--------------:|
-| v_release_[{release_number ≥ 126}](https://ftp.expasy.org/databases/rhea/old%5Freleases) <sup>[[26](/references/2021/20211110_bansal_p_et_al.md)]</sup> | `10.1093/nar/gkab1016` | :green_circle: |
+| Version                                                                                                                 | DOI                    |     Status     |
+|-------------------------------------------------------------------------------------------------------------------------|------------------------|:--------------:|
+| v_release_[{release_number ≥ 126}](https://ftp.expasy.org/databases/rhea/old%5Freleases) <sup>[[26](#references)]</sup> | `10.1093/nar/gkab1016` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -232,17 +227,17 @@ are supported:
 #### Miscellaneous Chemical Reaction Data Sources
 The following miscellaneous chemical reaction data sources are supported:
 
-| Version                                                                                                       | DOI                               |     Status     |
-|---------------------------------------------------------------------------------------------------------------|-----------------------------------|:--------------:|
-| v_20131008_kraut_h_et_al <sup>[[27](/references/2013/20131008_kraut_h_et_al.md)]</sup>                        | `10.1021/ci400442f`               | :green_circle: |
-| v_20161014_wei_j_n_et_al <sup>[[28](/references/2016/20161014_wei_j_n_et_al.md)]</sup>                        | `10.1021/acscentsci.6b00219`      | :green_circle: |
-| v_20200508_grambow_c_et_al <sup>[[29](/references/2020/20200508_grambow_c_a_et_al.md)]</sup>                  | `10.5281/zenodo.3581266`          | :green_circle: |
-| v_add_on_by_20200508_grambow_c_et_al <sup>[[29](/references/2020/20200508_grambow_c_a_et_al.md)]</sup>        | `10.5281/zenodo.3731553`          | :green_circle: |
-| v_golden_dataset_by_20211102_lin_a_et_al <sup>[[30](/references/2021/20211102_lin_a_et_al.md)]</sup>          | `10.1002/minf.202100138`          | :green_circle: |
-| v_rdb7_by_20220718_spiekermann_k_et_al <sup>[[31](/references/2022/20220718_spiekermann_k_et_al.md)]</sup>    | `10.5281/zenodo.5652097`          | :green_circle: |
-| v_orderly_condition_by_20240422_wigh_d_s_et_al <sup>[[32](/references/2024/20240422_wigh_d_s_et_al.md)]</sup> | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
-| v_orderly_forward_by_20240422_wigh_d_s_et_al <sup>[[32](/references/2024/20240422_wigh_d_s_et_al.md)]</sup>   | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
-| v_orderly_retro_by_20240422_wigh_d_s_et_al <sup>[[32](/references/2024/20240422_wigh_d_s_et_al.md)]</sup>     | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
+| Version                                                                       | DOI                               |     Status     |
+|-------------------------------------------------------------------------------|-----------------------------------|:--------------:|
+| v_20131008_kraut_h_et_al <sup>[[27](#references)]</sup>                       | `10.1021/ci400442f`               | :green_circle: |
+| v_20161014_wei_j_n_et_al <sup>[[28](#references)]</sup>                       | `10.1021/acscentsci.6b00219`      | :green_circle: |
+| v_20200508_grambow_c_et_al <sup>[[29](#references)]</sup>                     | `10.5281/zenodo.3581266`          | :green_circle: |
+| v_add_on_by_20200508_grambow_c_et_al <sup>[[29](#references)]</sup>           | `10.5281/zenodo.3731553`          | :green_circle: |
+| v_golden_dataset_by_20211102_lin_a_et_al <sup>[[30](#references)]</sup>       | `10.1002/minf.202100138`          | :green_circle: |
+| v_rdb7_by_20220718_spiekermann_k_et_al <sup>[[31](#references)]</sup>         | `10.5281/zenodo.5652097`          | :green_circle: |
+| v_orderly_condition_by_20240422_wigh_d_s_et_al <sup>[[32](#references)]</sup> | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
+| v_orderly_forward_by_20240422_wigh_d_s_et_al <sup>[[32](#references)]</sup>   | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
+| v_orderly_retro_by_20240422_wigh_d_s_et_al <sup>[[32](#references)]</sup>     | `10.6084/m9.figshare.23298467.v4` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -259,15 +254,14 @@ The chemical reaction pattern data source relationships can be illustrated as fo
 
 
 #### RetroRules
-The following RetroRules <sup>[[33](/references/2018/20181013_duigou_t_et_al.md)]</sup> chemical reaction pattern
-database versions are supported:
+The following RetroRules <sup>[[33](#references)]</sup> chemical reaction pattern database versions are supported:
 
-| Version                                                                                | DOI                      |     Status     |
-|----------------------------------------------------------------------------------------|--------------------------|:--------------:|
-| v_release_rr01_rp2_hs <sup>[[33](/references/2018/20181013_duigou_t_et_al.md)]</sup>   | `10.5281/zenodo.5827427` | :green_circle: |
-| v_release_rr02_rp2_hs <sup>[[33](/references/2018/20181013_duigou_t_et_al.md)]</sup>   | `10.5281/zenodo.5828017` | :green_circle: |
-| v_release_rr02_rp3_hs <sup>[[33](/references/2018/20181013_duigou_t_et_al.md)]</sup>   | `10.5281/zenodo.5827977` | :green_circle: |
-| v_release_rr02_rp3_nohs <sup>[[33](/references/2018/20181013_duigou_t_et_al.md)]</sup> | `10.5281/zenodo.5827969` | :green_circle: |
+| Version                                                | DOI                      |     Status     |
+|--------------------------------------------------------|--------------------------|:--------------:|
+| v_release_rr01_rp2_hs <sup>[[33](#references)]</sup>   | `10.5281/zenodo.5827427` | :green_circle: |
+| v_release_rr02_rp2_hs <sup>[[33](#references)]</sup>   | `10.5281/zenodo.5828017` | :green_circle: |
+| v_release_rr02_rp3_hs <sup>[[33](#references)]</sup>   | `10.5281/zenodo.5827977` | :green_circle: |
+| v_release_rr02_rp3_nohs <sup>[[33](#references)]</sup> | `10.5281/zenodo.5827969` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -275,11 +269,11 @@ database versions are supported:
 #### Miscellaneous Chemical Reaction Pattern Data Sources
 The following miscellaneous chemical reaction pattern data sources are supported:
 
-| Version                                                                                                            | DOI                          |     Status     |
-|--------------------------------------------------------------------------------------------------------------------|------------------------------|:--------------:|
-| v_retro_transform_db_by_20180421_avramova_s_et_al <sup>[[34](/references/2018/20180421_avramova_s_et_al.md)]</sup> | `10.5281/zenodo.1209312`     | :green_circle: |
-| v_dingos_by_20190701_button_a_et_al <sup>[[35](/references/2019/20190701_button_a_et_al.md)]</sup>                 | `10.24433/CO.6930970.v1`     | :green_circle: |
-| v_auto_template_by_20240627_chen_l_and_li_y <sup>[[36](/references/2024/20240627_chen_l_and_li_y.md)]</sup>        | `10.1186/s13321-024-00869-2` | :green_circle: |
+| Version                                                                          | DOI                          |     Status     |
+|----------------------------------------------------------------------------------|------------------------------|:--------------:|
+| v_retro_transform_db_by_20180421_avramova_s_et_al <sup>[[34](#references)]</sup> | `10.5281/zenodo.1209312`     | :green_circle: |
+| v_dingos_by_20190701_button_a_et_al <sup>[[35](#references)]</sup>               | `10.24433/CO.6930970.v1`     | :green_circle: |
+| v_auto_template_by_20240627_chen_l_and_li_y <sup>[[36](#references)]</sup>       | `10.1186/s13321-024-00869-2` | :green_circle: |
 
 <sub>:green_circle: Completely Implemented</sub>
 
@@ -291,7 +285,7 @@ The purpose of the [data](/data) directory is to archive and backup the data sou
 
 ## License Information
 The contents of this repository are published under the [MIT](/LICENSE) license. Please refer to individual references
-for more details regarding the license information of external resources utilized within this repository.
+for more details regarding the license information of external resources utilized within the repository.
 
 
 ## Contact
@@ -329,8 +323,8 @@ Golovanov, S., Tatanov, O., Belyaev, S., Kurbanov, R., Artamonov, A., Aladinskiy
 Johansson, S., Chen, H., Nikolenko, S., Aspuru-Guzik, A., and Zhavoronkov, A. **Molecular Sets (MOSES): A Benchmarking
 Platform for Molecular Generation Models**. _Front. Pharmacol._, 11, 2020.
 
-**[[8](https://www.rdkit.org)]** **RDKit: Open-source Cheminformatics**: https://www.rdkit.org. Accessed on: April
-15th, 2025.
+**[[8](https://www.rdkit.org)]** **RDKit: Open-source Cheminformatics**: https://www.rdkit.org. Accessed on: May
+1st, 2025.
 
 **[[9](/references/2008/20080307_brenk_r_et_al.md)]** Brenk, R., Schipani, A., James, D., Krasowski, A., Gilbert, I.H.,
 Frearson, J. and Wyatt, P.G. **Lessons Learnt from Assembling Screening Libraries for Drug Discovery for Neglected
@@ -340,8 +334,8 @@ Diseases**. _ChemMedChem_, 3, 435-444.
 Filters for Removal of Pan Assay Interference Compounds (PAINS) from Screening Libraries and for their Exclusion in
 Bioassays**. _J. Med. Chem._, 2010, 53, 7, 2719–2740.
 
-**[[11](/references/2012/20121009_lowe_d_m.md)]** Lowe, D.M. **Extraction of Chemical Structures and Reactions from
-the Literature**. _Ph.D. Thesis_, University of Cambridge, Department of Chemistry, Pembroke College, 2012.
+**[[11](/references/2012/20121009_lowe_d_m.md)]** Lowe, D.M. **Extraction of Chemical Structures and Reactions from the
+Literature**. _Ph.D. Thesis_, University of Cambridge, Department of Chemistry, Pembroke College, 2012.
 
 **[[12](/references/2014/20141226_schneider_n_et_al.md)]** Schneider, N., Lowe, D.M., Sayle, R.A., and Landrum, G.A.
 **Development of a Novel Fingerprint for Chemical Reactions and Its Application to Large-scale Reaction Classification
@@ -386,12 +380,12 @@ Atom-to-atom Mapping for Organic Reactions via Human-in-the-loop Machine Learnin
 **[[23](/references/2024/20240810_chen_s_et_al.md)]** Chen, S., Babazade, R., Kim, T., Han, S., and Jung, Y. **A
 Large-scale Reaction Dataset of Mechanistic Pathways of Organic Reactions**. _Sci. Data_, 11, 863, 2024.
 
-**[[24](/references/2021/20211102_kearnes_s_m_et_al.md)]** Kearnes, S.M., Maser, M.R., Wleklinski, M., Kast, A.,
-Doyle, A.G., Dreher, S.D., Hawkins, J.M., Jensen, K.F., and Coley, C.W. **The Open Reaction Database**. _J. Am. Chem.
-Soc._, 2021, 143, 45, 18820–18826.
+**[[24](/references/2021/20211102_kearnes_s_m_et_al.md)]** Kearnes, S.M., Maser, M.R., Wleklinski, M., Kast, A., Doyle,
+A.G., Dreher, S.D., Hawkins, J.M., Jensen, K.F., and Coley, C.W. **The Open Reaction Database**. _J. Am. Chem. Soc._,
+2021, 143, 45, 18820–18826.
 
 **[[25](https://kmt.vander-lingen.nl)]** **The Chemical Reaction Database (CRD)**: https://kmt.vander-lingen.nl.
-Accessed on: April 15th, 2025.
+Accessed on: May 1st, 2025.
 
 **[[26](/references/2021/20211110_bansal_p_et_al.md)]** Bansal, P., Morgat, A., Axelsen, K.B., Muthukrishnan, V.,
 Coudert, E., Aimo, L., Hyka-Nouspikel, N., Gasteiger, E., Kerhornou, A., Neto, T.B., Pozzato, M., Blatter, M.,
