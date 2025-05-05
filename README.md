@@ -1,5 +1,5 @@
 # Data Source
-[![Static Badge](https://img.shields.io/badge/data__source-2025.5.1-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.5.1)
+[![Static Badge](https://img.shields.io/badge/data__source-2025.5.2-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.5.2)
 [![Static Badge](https://img.shields.io/badge/Institute%20of%20Science%20Tokyo-%231C3177?style=flat)](https://www.isct.ac.jp)
 [![Static Badge](https://img.shields.io/badge/Elix%2C%20Inc.-%235EB6B3?style=flat)](https://www.elix-inc.com)
 
@@ -47,6 +47,7 @@ The [download_extract_and_format_data](/scripts/download_extract_and_format_data
 
 ```shell
 # Get the chemical reaction data source name information.
+
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --get_data_source_name_information
@@ -54,6 +55,7 @@ python scripts/download_extract_and_format_data.py \
 
 ```shell
 # Get the USPTO chemical reaction dataset version information.
+
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
@@ -62,6 +64,7 @@ python scripts/download_extract_and_format_data.py \
 
 ```shell
 # Download, extract, and format the data from the USPTO chemical reaction dataset.
+
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
@@ -284,12 +287,12 @@ The purpose of the [data](/data) directory is to archive and backup the data sou
 
 
 ## License Information
-The contents of this repository are published under the [MIT](/LICENSE) license. Please refer to individual references
-for more details regarding the license information of external resources utilized within the repository.
+The contents of this repository are published under the [MIT](/LICENSE) license. Please refer to the individual
+references for more details regarding the license information of external resources utilized within the repository.
 
 
 ## Contact
-If you are interested in contributing to this repository by reporting bugs, suggesting improvements, or submitting
+If you are interested in contributing to this research project by reporting bugs, suggesting improvements, or submitting
 feedback, feel free to do so using [GitHub Issues](https://github.com/neo-chem-synth-wave/data-source/issues).
 
 
