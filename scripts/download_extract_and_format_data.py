@@ -31,15 +31,15 @@ def get_script_arguments() -> Namespace:
             "reaction",
             "reaction_pattern",
         ],
-        required=True,
+        # required=True,
         help="The indicator of the data source category."
     )
 
     argument_parser.add_argument(
-        "-gdsn",
-        "--get_data_source_name",
+        "-gdsni",
+        "--get_data_source_name_information",
         action="store_true",
-        help="The indicator of whether to get the data source name."
+        help="The indicator of whether to get the data source name information."
     )
 
     argument_parser.add_argument(
@@ -62,10 +62,10 @@ def get_script_arguments() -> Namespace:
     )
 
     argument_parser.add_argument(
-        "-gdsv",
-        "--get_data_source_version",
+        "-gdsvi",
+        "--get_data_source_version_information",
         action="store_true",
-        help="The indicator of whether to get the data source version."
+        help="The indicator of whether to get the data source version information."
     )
 
     argument_parser.add_argument(
@@ -164,11 +164,11 @@ if __name__ == "__main__":
             )
         )
 
-    if script_arguments.get_data_source_name:
+    if script_arguments.get_data_source_name_information:
         print(script_arguments.data_source_category)
         print(data_source.get_names_of_supported_data_sources())
 
-    elif script_arguments.get_data_source_version:
+    elif script_arguments.get_data_source_version_information:
         print(script_arguments.data_source_category)
         print(script_arguments.data_source_name)
         print(data_source.get_supported_versions(
