@@ -31,6 +31,7 @@ def get_script_arguments() -> Namespace:
             "reaction",
             "reaction_pattern",
         ],
+        required=True,
         help="The indicator of the data source category."
     )
 
@@ -44,6 +45,7 @@ def get_script_arguments() -> Namespace:
     argument_parser.add_argument(
         "-dsn",
         "--data_source_name",
+        default=None,
         type=str,
         choices=[
             "chembl",
@@ -69,15 +71,17 @@ def get_script_arguments() -> Namespace:
     argument_parser.add_argument(
         "-dsv",
         "--data_source_version",
+        default=None,
         type=str,
-        help="The indicator of the data source version."
+        help="The version of the data source."
     )
 
     argument_parser.add_argument(
         "-odp",
         "--output_directory_path",
+        default=None,
         type=str,
-        help="The path to the output directory where the data should be formatted."
+        help="The path to the output directory where the data should be downloaded, extracted, and formatted."
     )
 
     argument_parser.add_argument(
@@ -183,20 +187,20 @@ if __name__ == "__main__":
 
         temporary_output_directory_path.mkdir()
 
-        data_source.download(
+        data_source.download_(
             name=script_arguments.data_source_name,
             version=script_arguments.data_source_version,
             output_directory_path=temporary_output_directory_path
         )
 
-        data_source.extract(
+        data_source.extract_(
             name=script_arguments.data_source_name,
             version=script_arguments.data_source_version,
             input_directory_path=temporary_output_directory_path,
             output_directory_path=temporary_output_directory_path
         )
 
-        data_source.format(
+        data_source.format_(
             name=script_arguments.data_source_name,
             version=script_arguments.data_source_version,
             input_directory_path=temporary_output_directory_path,
