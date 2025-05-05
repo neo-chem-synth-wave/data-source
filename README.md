@@ -50,7 +50,7 @@ The [download_extract_and_format_data](/scripts/download_extract_and_format_data
 
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
-  --get_data_source_name
+  --get_data_source_name_information
 ```
 
 ```shell
@@ -59,7 +59,7 @@ python scripts/download_extract_and_format_data.py \
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
-  --get_data_source_version
+  --get_data_source_version_information
 ```
 
 ```shell
