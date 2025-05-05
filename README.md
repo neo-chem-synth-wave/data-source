@@ -50,7 +50,7 @@ The [download_extract_and_format_data](/scripts/download_extract_and_format_data
 
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
-  --get_data_source_name_information
+  --get_data_source_name
 ```
 
 ```shell
@@ -59,7 +59,7 @@ python scripts/download_extract_and_format_data.py \
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
-  --get_data_source_version_information
+  --get_data_source_version
 ```
 
 ```shell
@@ -165,8 +165,8 @@ The chemical reaction data source relationships can be illustrated as follows:
 
 
 #### United States Patent and Trademark Office (USPTO)
-The following United States Patent and Trademark Office (USPTO) <sup>[[11](/references/2012/20121009_lowe_d_m.md)]</sup>
-chemical reaction dataset versions are supported:
+The following United States Patent and Trademark Office (USPTO) <sup>[[11](#references)]</sup> chemical reaction dataset
+versions are supported:
 
 | Version                                                                              | DOI                               |     Status      |
 |--------------------------------------------------------------------------------------|-----------------------------------|:---------------:|
@@ -326,8 +326,7 @@ Golovanov, S., Tatanov, O., Belyaev, S., Kurbanov, R., Artamonov, A., Aladinskiy
 Johansson, S., Chen, H., Nikolenko, S., Aspuru-Guzik, A., and Zhavoronkov, A. **Molecular Sets (MOSES): A Benchmarking
 Platform for Molecular Generation Models**. _Front. Pharmacol._, 11, 2020.
 
-**[[8](https://www.rdkit.org)]** **RDKit: Open-source Cheminformatics**: https://www.rdkit.org. Accessed on: May
-1st, 2025.
+**[[8](https://www.rdkit.org)]** **RDKit: Open-source Cheminformatics**: https://www.rdkit.org. Accessed on: 2025/05/05.
 
 **[[9](/references/2008/20080307_brenk_r_et_al.md)]** Brenk, R., Schipani, A., James, D., Krasowski, A., Gilbert, I.H.,
 Frearson, J. and Wyatt, P.G. **Lessons Learnt from Assembling Screening Libraries for Drug Discovery for Neglected
@@ -388,7 +387,7 @@ A.G., Dreher, S.D., Hawkins, J.M., Jensen, K.F., and Coley, C.W. **The Open Reac
 2021, 143, 45, 18820–18826.
 
 **[[25](https://kmt.vander-lingen.nl)]** **The Chemical Reaction Database (CRD)**: https://kmt.vander-lingen.nl.
-Accessed on: May 1st, 2025.
+Accessed on: 2025/05/05.
 
 **[[26](/references/2021/20211110_bansal_p_et_al.md)]** Bansal, P., Morgat, A., Axelsen, K.B., Muthukrishnan, V.,
 Coudert, E., Aimo, L., Hyka-Nouspikel, N., Gasteiger, E., Kerhornou, A., Neto, T.B., Pozzato, M., Blatter, M.,
