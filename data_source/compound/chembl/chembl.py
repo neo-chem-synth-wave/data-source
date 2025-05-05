@@ -1,18 +1,23 @@
 """ The ``data_source.compound.chembl`` package ``chembl`` module. """
 
+from functools import lru_cache
 from os import PathLike
 from re import search
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
 from data_source.base.utility.download import DataSourceDownloadUtility
-
-from data_source.compound.chembl.utility import *
+from data_source.compound.chembl.utility.download import ChEMBLCompoundDatabaseDownloadUtility
+from data_source.compound.chembl.utility.extraction import ChEMBLCompoundDatabaseExtractionUtility
+from data_source.compound.chembl.utility.formatting import ChEMBLCompoundDatabaseFormattingUtility
 
 
 class ChEMBLCompoundDatabase(DataSourceBase):
     """ The `ChEMBL <https://www.ebi.ac.uk/chembl>`_ chemical compound database class. """
 
+    @lru_cache(
+        maxsize=None
+    )
     def get_supported_versions(
             self
     ) -> Dict[str, str]:
@@ -32,7 +37,7 @@ class ChEMBLCompoundDatabase(DataSourceBase):
             latest_release_number = int(
                 search(
                     pattern=r"Release:\s*chembl_(\d+)",
-                    string=str(http_get_request_response.content)
+                    string=http_get_request_response.text
                 ).group(1)
             )
 
@@ -52,7 +57,7 @@ class ChEMBLCompoundDatabase(DataSourceBase):
 
             raise
 
-    def download(
+    def download_(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -108,7 +113,7 @@ class ChEMBLCompoundDatabase(DataSourceBase):
 
             raise
 
-    def extract(
+    def extract_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -167,7 +172,7 @@ class ChEMBLCompoundDatabase(DataSourceBase):
 
             raise
 
-    def format(
+    def format_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

@@ -5,8 +5,7 @@ from os import PathLike, walk
 from pathlib import Path
 from typing import Union
 
-from pandas.core.reshape.concat import concat
-from pandas.io.parsers.readers import read_csv
+from pandas import concat, read_csv
 
 
 class MiscellaneousReactionPatternDataSourceFormattingUtility:

@@ -4,8 +4,9 @@ from os import PathLike
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
-
-from data_source.reaction.crd.utility import *
+from data_source.reaction.crd.utility.download import ChemicalReactionDatabaseDownloadUtility
+from data_source.reaction.crd.utility.extraction import ChemicalReactionDatabaseExtractionUtility
+from data_source.reaction.crd.utility.formatting import ChemicalReactionDatabaseFormattingUtility
 
 
 class ChemicalReactionDatabase(DataSourceBase):
@@ -26,7 +27,7 @@ class ChemicalReactionDatabase(DataSourceBase):
             "v_reaction_smiles_1976_to_2024": "https://doi.org/10.6084/m9.figshare.28230053.v1",
         }
 
-    def download(
+    def download_(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -87,7 +88,7 @@ class ChemicalReactionDatabase(DataSourceBase):
 
             raise
 
-    def extract(
+    def extract_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -146,7 +147,7 @@ class ChemicalReactionDatabase(DataSourceBase):
 
             raise
 
-    def format(
+    def format_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

@@ -29,7 +29,9 @@ class ChEMBLCompoundDatabaseDownloadUtility:
             release_number=release_number
         )
 
-        file_url = "https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_{release_number:s}/{file_name:s}".format(
+        file_url = (
+            "https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_{release_number:s}/{file_name:s}"
+        ).format(
             release_number=release_number,
             file_name=file_name
         )

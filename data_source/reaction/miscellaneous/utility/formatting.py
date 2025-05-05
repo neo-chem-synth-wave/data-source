@@ -5,9 +5,7 @@ from os import PathLike
 from pathlib import Path
 from typing import Union
 
-from pandas.core.reshape.concat import concat
-from pandas.io.parquet import read_parquet
-from pandas.io.parsers.readers import DataFrame, read_csv
+from pandas import DataFrame, concat, read_csv, read_parquet
 
 from rdkit.Chem.rdChemReactions import ReactionFromRxnBlock, ReactionToSmiles
 

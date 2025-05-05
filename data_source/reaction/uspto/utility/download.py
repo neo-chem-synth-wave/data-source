@@ -201,12 +201,30 @@ class USPTOReactionDatasetDownloadUtility:
         """
 
         file_urls = [
-            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/train_targets",
-            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/train_sources",
-            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/valid_targets",
-            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/valid_sources",
-            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/test_targets",
-            "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/test_sources",
+            (
+                "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/"
+                "train_targets"
+            ),
+            (
+                "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/"
+                "train_sources"
+            ),
+            (
+                "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/"
+                "valid_targets"
+            ),
+            (
+                "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/"
+                "valid_sources"
+            ),
+            (
+                "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/"
+                "test_targets"
+            ),
+            (
+                "https://raw.githubusercontent.com/pandegroup/reaction_prediction_seq2seq/master/processed_data/"
+                "test_sources"
+            ),
         ]
 
         for file_url in file_urls:

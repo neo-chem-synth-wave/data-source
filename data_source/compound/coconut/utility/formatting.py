@@ -5,7 +5,7 @@ from os import PathLike
 from pathlib import Path
 from typing import Union
 
-from pandas.io.parsers.readers import read_csv
+from pandas import read_csv
 
 
 class COCONUTCompoundDatabaseFormattingUtility:

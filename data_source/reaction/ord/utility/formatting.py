@@ -8,11 +8,11 @@ from typing import List, Optional, Tuple, Union
 from ord_schema.message_helpers import get_reaction_smiles, load_message
 from ord_schema.proto.dataset_pb2 import Dataset
 
-from pandas.io.parsers.readers import DataFrame
+from pandas import DataFrame
 
 from pqdm.processes import pqdm
 
-from rdkit.RDLogger import DisableLog
+from rdkit.rdBase import DisableLog
 
 
 class OpenReactionDatabaseFormattingUtility:

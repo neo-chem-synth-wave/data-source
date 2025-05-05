@@ -4,8 +4,8 @@ from os import PathLike
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
-
-from data_source.compound_pattern.rdkit_.utility import *
+from data_source.compound_pattern.rdkit_.utility.download import RDKitCompoundPatternDatasetDownloadUtility
+from data_source.compound_pattern.rdkit_.utility.formatting import RDKitCompoundPatternDatasetFormattingUtility
 
 
 class RDKitCompoundPatternDataset(DataSourceBase):
@@ -24,7 +24,7 @@ class RDKitCompoundPatternDataset(DataSourceBase):
             "v_pains_by_20100204_baell_j_b_and_holloway_g_a": "https://doi.org/10.1021/jm901137j",
         }
 
-    def download(
+    def download_(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -84,7 +84,7 @@ class RDKitCompoundPatternDataset(DataSourceBase):
 
             raise
 
-    def extract(
+    def extract_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -136,7 +136,7 @@ class RDKitCompoundPatternDataset(DataSourceBase):
 
             raise
 
-    def format(
+    def format_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

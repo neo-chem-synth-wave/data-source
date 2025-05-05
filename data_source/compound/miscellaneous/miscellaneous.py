@@ -4,8 +4,8 @@ from os import PathLike
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
-
-from data_source.compound.miscellaneous.utility import *
+from data_source.compound.miscellaneous.utility.download import MiscellaneousCompoundDataSourceDownloadUtility
+from data_source.compound.miscellaneous.utility.formatting import MiscellaneousCompoundDataSourceFormattingUtility
 
 
 class MiscellaneousCompoundDataSource(DataSourceBase):
@@ -23,7 +23,7 @@ class MiscellaneousCompoundDataSource(DataSourceBase):
             "v_moses_by_20201218_polykovskiy_d_et_al": "https://doi.org/10.3389/fphar.2020.565644",
         }
 
-    def download(
+    def download_(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -78,7 +78,7 @@ class MiscellaneousCompoundDataSource(DataSourceBase):
 
             raise
 
-    def extract(
+    def extract_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -130,7 +130,7 @@ class MiscellaneousCompoundDataSource(DataSourceBase):
 
             raise
 
-    def format(
+    def format_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

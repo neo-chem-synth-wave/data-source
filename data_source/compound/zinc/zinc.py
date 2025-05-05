@@ -1,18 +1,23 @@
 """ The ``data_source.compound.zinc`` package ``zinc`` module. """
 
+from functools import lru_cache
 from os import PathLike
 from re import findall
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
 from data_source.base.utility.download import DataSourceDownloadUtility
-
-from data_source.compound.zinc.utility import *
+from data_source.compound.zinc.utility.download import ZINCCompoundDatabaseDownloadUtility
+from data_source.compound.zinc.utility.extraction import ZINCCompoundDatabaseExtractionUtility
+from data_source.compound.zinc.utility.formatting import ZINCCompoundDatabaseFormattingUtility
 
 
 class ZINCCompoundDatabase(DataSourceBase):
     """ The `ZINC <https://zinc.docking.org>`_ chemical compound database class. """
 
+    @lru_cache(
+        maxsize=None
+    )
     def get_supported_versions(
             self
     ) -> Dict[str, str]:
@@ -63,7 +68,7 @@ class ZINCCompoundDatabase(DataSourceBase):
 
             raise
 
-    def download(
+    def download_(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -125,7 +130,7 @@ class ZINCCompoundDatabase(DataSourceBase):
 
             raise
 
-    def extract(
+    def extract_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -184,7 +189,7 @@ class ZINCCompoundDatabase(DataSourceBase):
 
             raise
 
-    def format(
+    def format_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

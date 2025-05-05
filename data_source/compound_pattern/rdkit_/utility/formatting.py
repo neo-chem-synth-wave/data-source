@@ -7,7 +7,7 @@ from pathlib import Path
 from re import DOTALL, search, sub
 from typing import Union
 
-from pandas.core.frame import DataFrame
+from pandas import DataFrame
 
 
 class RDKitCompoundPatternDatasetFormattingUtility:

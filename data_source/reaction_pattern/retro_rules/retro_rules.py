@@ -4,8 +4,15 @@ from os import PathLike
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
+from data_source.reaction_pattern.retro_rules.utility.download import RetroRulesReactionPatternDatabaseDownloadUtility
 
-from data_source.reaction_pattern.retro_rules.utility import *
+from data_source.reaction_pattern.retro_rules.utility.extraction import (
+    RetroRulesReactionPatternDatabaseExtractionUtility
+)
+
+from data_source.reaction_pattern.retro_rules.utility.formatting import (
+    RetroRulesReactionPatternDatabaseFormattingUtility
+)
 
 
 class RetroRulesReactionPatternDatabase(DataSourceBase):
@@ -26,7 +33,7 @@ class RetroRulesReactionPatternDatabase(DataSourceBase):
             "v_release_rr02_rp3_nohs": "https://doi.org/10.5281/zenodo.5827969",
         }
 
-    def download(
+    def download_(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -82,7 +89,7 @@ class RetroRulesReactionPatternDatabase(DataSourceBase):
 
             raise
 
-    def extract(
+    def extract_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -141,7 +148,7 @@ class RetroRulesReactionPatternDatabase(DataSourceBase):
 
             raise
 
-    def format(
+    def format_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

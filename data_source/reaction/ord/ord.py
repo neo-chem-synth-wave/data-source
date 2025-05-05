@@ -4,8 +4,9 @@ from os import PathLike
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
-
-from data_source.reaction.ord.utility import *
+from data_source.reaction.ord.utility.download import OpenReactionDatabaseDownloadUtility
+from data_source.reaction.ord.utility.extraction import OpenReactionDatabaseExtractionUtility
+from data_source.reaction.ord.utility.formatting import OpenReactionDatabaseFormattingUtility
 
 
 class OpenReactionDatabase(DataSourceBase):
@@ -24,7 +25,7 @@ class OpenReactionDatabase(DataSourceBase):
             "v_release_main": "https://doi.org/10.1021/jacs.1c09820",
         }
 
-    def download(
+    def download_(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -83,7 +84,7 @@ class OpenReactionDatabase(DataSourceBase):
 
             raise
 
-    def extract(
+    def extract_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -146,7 +147,7 @@ class OpenReactionDatabase(DataSourceBase):
 
             raise
 
-    def format(
+    def format_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

@@ -4,8 +4,9 @@ from os import PathLike
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
-
-from data_source.reaction.miscellaneous.utility import *
+from data_source.reaction.miscellaneous.utility.download import MiscellaneousReactionDataSourceDownloadUtility
+from data_source.reaction.miscellaneous.utility.extraction import MiscellaneousReactionDataSourceExtractionUtility
+from data_source.reaction.miscellaneous.utility.formatting import MiscellaneousReactionDataSourceFormattingUtility
 
 
 class MiscellaneousReactionDataSource(DataSourceBase):
@@ -31,7 +32,7 @@ class MiscellaneousReactionDataSource(DataSourceBase):
             "v_orderly_retro_by_20240422_wigh_d_s_et_al": "https://doi.org/10.6084/m9.figshare.23298467.v4",
         }
 
-    def download(
+    def download_(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -120,7 +121,7 @@ class MiscellaneousReactionDataSource(DataSourceBase):
 
             raise
 
-    def extract(
+    def extract_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -184,7 +185,7 @@ class MiscellaneousReactionDataSource(DataSourceBase):
 
             raise
 
-    def format(
+    def format_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

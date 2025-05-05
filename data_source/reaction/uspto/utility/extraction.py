@@ -7,7 +7,7 @@ from typing import Union
 
 from gzip import GzipFile
 
-from py7zr.py7zr import SevenZipFile
+from py7zr import SevenZipFile
 
 from zipfile import ZipFile
 

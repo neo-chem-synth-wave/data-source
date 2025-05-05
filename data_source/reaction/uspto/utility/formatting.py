@@ -6,8 +6,7 @@ from pathlib import Path
 from pickle import load
 from typing import List, Optional, Tuple, Union
 
-from pandas.core.reshape.concat import concat
-from pandas.io.parsers.readers import DataFrame, read_csv
+from pandas import DataFrame, concat, read_csv
 
 from pqdm.processes import pqdm
 

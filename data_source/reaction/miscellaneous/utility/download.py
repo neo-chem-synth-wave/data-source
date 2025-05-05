@@ -39,8 +39,14 @@ class MiscellaneousReactionDataSourceDownloadUtility:
         """
 
         file_urls = [
-            "https://raw.githubusercontent.com/jnwei/neural_reaction_fingerprint/master/data/test_questions/Wade8_47.ans_smi.txt",
-            "https://raw.githubusercontent.com/jnwei/neural_reaction_fingerprint/master/data/test_questions/Wade8_48.ans_smi.txt",
+            (
+                "https://raw.githubusercontent.com/jnwei/neural_reaction_fingerprint/master/data/test_questions/"
+                "Wade8_47.ans_smi.txt"
+            ),
+            (
+                "https://raw.githubusercontent.com/jnwei/neural_reaction_fingerprint/master/data/test_questions/"
+                "Wade8_48.ans_smi.txt"
+            ),
         ]
 
         for file_url in file_urls:

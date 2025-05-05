@@ -6,8 +6,7 @@ from pathlib import Path
 from shutil import copyfileobj
 from typing import Union
 
-from requests.api import get
-from requests.models import Response
+from requests import Response, get
 
 from tqdm.auto import tqdm
 
@@ -74,7 +73,7 @@ class DataSourceDownloadUtility:
         except:
             file_size = None
 
-        tqdm_description = "Downloading the '{file_name:s}' file".format(
+        tqdm_description = "Downloading the {file_name:s} file".format(
             file_name=file_name
         )
 

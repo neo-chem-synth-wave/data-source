@@ -4,8 +4,9 @@ from os import PathLike
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
-
-from data_source.reaction.uspto.utility import *
+from data_source.reaction.uspto.utility.download import USPTOReactionDatasetDownloadUtility
+from data_source.reaction.uspto.utility.extraction import USPTOReactionDatasetExtractionUtility
+from data_source.reaction.uspto.utility.formatting import USPTOReactionDatasetFormattingUtility
 
 
 class USPTOReactionDataset(DataSourceBase):
@@ -42,7 +43,7 @@ class USPTOReactionDataset(DataSourceBase):
             "v_mech_31k_by_20240810_chen_s_et_al": "https://doi.org/10.6084/m9.figshare.24797220.v2",
         }
 
-    def download(
+    def download_(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -170,7 +171,7 @@ class USPTOReactionDataset(DataSourceBase):
 
             raise
 
-    def extract(
+    def extract_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -290,7 +291,7 @@ class USPTOReactionDataset(DataSourceBase):
 
             raise
 
-    def format(
+    def format_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

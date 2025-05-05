@@ -4,8 +4,9 @@ from os import PathLike
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
-
-from data_source.compound.coconut.utility import *
+from data_source.compound.coconut.utility.download import COCONUTCompoundDatabaseDownloadUtility
+from data_source.compound.coconut.utility.extraction import COCONUTCompoundDatabaseExtractionUtility
+from data_source.compound.coconut.utility.formatting import COCONUTCompoundDatabaseFormattingUtility
 
 
 class COCONUTCompoundDatabase(DataSourceBase):
@@ -24,7 +25,7 @@ class COCONUTCompoundDatabase(DataSourceBase):
             "v_2_0_complete_by_20241126_chandrasekhar_v_et_al": "https://doi.org/10.5281/zenodo.13382750",
         }
 
-    def download(
+    def download_(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -83,7 +84,7 @@ class COCONUTCompoundDatabase(DataSourceBase):
 
             raise
 
-    def extract(
+    def extract_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -145,7 +146,7 @@ class COCONUTCompoundDatabase(DataSourceBase):
 
             raise
 
-    def format(
+    def format_(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

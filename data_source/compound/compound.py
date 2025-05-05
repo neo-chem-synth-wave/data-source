@@ -5,7 +5,6 @@ from os import PathLike
 from typing import Dict, List, Optional, Union
 
 from data_source.base.base import DataSourceBase
-
 from data_source.compound.chembl.chembl import ChEMBLCompoundDatabase
 from data_source.compound.coconut.coconut import COCONUTCompoundDatabase
 from data_source.compound.miscellaneous.miscellaneous import MiscellaneousCompoundDataSource
@@ -84,7 +83,7 @@ class CompoundDataSource(DataSourceBase):
 
             raise exception_handle
 
-    def download(
+    def download_(
             self,
             name: str,
             version: str,
@@ -100,9 +99,10 @@ class CompoundDataSource(DataSourceBase):
         """
 
         if name in self.get_names_of_supported_data_sources():
-            self.supported_data_sources[name].download(
+            self.supported_data_sources[name].download_(
                 version=version,
-                output_directory_path=output_directory_path
+                output_directory_path=output_directory_path,
+                **kwargs
             )
 
         else:
@@ -119,7 +119,7 @@ class CompoundDataSource(DataSourceBase):
 
             raise exception_handle
 
-    def extract(
+    def extract_(
             self,
             name: str,
             version: str,
@@ -137,10 +137,11 @@ class CompoundDataSource(DataSourceBase):
         """
 
         if name in self.get_names_of_supported_data_sources():
-            self.supported_data_sources[name].extract(
+            self.supported_data_sources[name].extract_(
                 version=version,
                 input_directory_path=input_directory_path,
-                output_directory_path=output_directory_path
+                output_directory_path=output_directory_path,
+                **kwargs
             )
 
         else:
@@ -157,7 +158,7 @@ class CompoundDataSource(DataSourceBase):
 
             raise exception_handle
 
-    def format(
+    def format_(
             self,
             name: str,
             version: str,
@@ -175,10 +176,11 @@ class CompoundDataSource(DataSourceBase):
         """
 
         if name in self.get_names_of_supported_data_sources():
-            self.supported_data_sources[name].format(
+            self.supported_data_sources[name].format_(
                 version=version,
                 input_directory_path=input_directory_path,
-                output_directory_path=output_directory_path
+                output_directory_path=output_directory_path,
+                **kwargs
             )
 
         else:
