@@ -31,7 +31,7 @@ def get_script_arguments() -> Namespace:
             "reaction",
             "reaction_pattern",
         ],
-        # required=True,
+        required=True,
         help="The indicator of the data source category."
     )
 
