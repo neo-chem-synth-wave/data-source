@@ -24,6 +24,7 @@ def get_script_arguments() -> Namespace:
     argument_parser.add_argument(
         "-dsc",
         "--data_source_category",
+        default="compound",
         type=str,
         choices=[
             "compound",
@@ -31,7 +32,6 @@ def get_script_arguments() -> Namespace:
             "reaction",
             "reaction_pattern",
         ],
-        required=True,
         help="The category of the data source."
     )
 
