@@ -46,21 +46,21 @@ class DataSourceBase(ABC):
         self._logger = value
 
     @abstractmethod
-    def download_(
+    def download(
             self,
             **kwargs
     ) -> None:
         """ Download the data from the data source. """
 
     @abstractmethod
-    def extract_(
+    def extract(
             self,
             **kwargs
     ) -> None:
         """ Extract the data from the data source. """
 
     @abstractmethod
-    def format_(
+    def format(
             self,
             **kwargs
     ) -> None:

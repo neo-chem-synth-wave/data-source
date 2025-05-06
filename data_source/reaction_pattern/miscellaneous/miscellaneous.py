@@ -35,7 +35,7 @@ class MiscellaneousReactionPatternDataSource(DataSourceBase):
             "v_auto_template_by_20240627_chen_l_and_li_y": "https://doi.org/10.1186/s13321-024-00869-2",
         }
 
-    def download_(
+    def download(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -102,7 +102,7 @@ class MiscellaneousReactionPatternDataSource(DataSourceBase):
 
             raise
 
-    def extract_(
+    def extract(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -161,7 +161,7 @@ class MiscellaneousReactionPatternDataSource(DataSourceBase):
 
             raise
 
-    def format_(
+    def format(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

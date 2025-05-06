@@ -43,7 +43,7 @@ class USPTOReactionDataset(DataSourceBase):
             "v_mech_31k_by_20240810_chen_s_et_al": "https://doi.org/10.6084/m9.figshare.24797220.v2",
         }
 
-    def download_(
+    def download(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -171,7 +171,7 @@ class USPTOReactionDataset(DataSourceBase):
 
             raise
 
-    def extract_(
+    def extract(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -291,7 +291,7 @@ class USPTOReactionDataset(DataSourceBase):
 
             raise
 
-    def format_(
+    def format(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

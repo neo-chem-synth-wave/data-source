@@ -24,7 +24,7 @@ class RDKitCompoundPatternDataset(DataSourceBase):
             "v_pains_by_20100204_baell_j_b_and_holloway_g_a": "https://doi.org/10.1021/jm901137j",
         }
 
-    def download_(
+    def download(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -84,7 +84,7 @@ class RDKitCompoundPatternDataset(DataSourceBase):
 
             raise
 
-    def extract_(
+    def extract(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -136,7 +136,7 @@ class RDKitCompoundPatternDataset(DataSourceBase):
 
             raise
 
-    def format_(
+    def format(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

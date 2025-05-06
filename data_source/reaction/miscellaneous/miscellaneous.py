@@ -32,7 +32,7 @@ class MiscellaneousReactionDataSource(DataSourceBase):
             "v_orderly_retro_by_20240422_wigh_d_s_et_al": "https://doi.org/10.6084/m9.figshare.23298467.v4",
         }
 
-    def download_(
+    def download(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -121,7 +121,7 @@ class MiscellaneousReactionDataSource(DataSourceBase):
 
             raise
 
-    def extract_(
+    def extract(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -185,7 +185,7 @@ class MiscellaneousReactionDataSource(DataSourceBase):
 
             raise
 
-    def format_(
+    def format(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

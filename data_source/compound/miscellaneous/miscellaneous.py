@@ -23,7 +23,7 @@ class MiscellaneousCompoundDataSource(DataSourceBase):
             "v_moses_by_20201218_polykovskiy_d_et_al": "https://doi.org/10.3389/fphar.2020.565644",
         }
 
-    def download_(
+    def download(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -78,7 +78,7 @@ class MiscellaneousCompoundDataSource(DataSourceBase):
 
             raise
 
-    def extract_(
+    def extract(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -130,7 +130,7 @@ class MiscellaneousCompoundDataSource(DataSourceBase):
 
             raise
 
-    def format_(
+    def format(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

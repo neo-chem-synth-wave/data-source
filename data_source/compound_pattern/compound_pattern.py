@@ -71,7 +71,7 @@ class CompoundPatternDataSource(DataSourceBase):
 
             raise exception_handle
 
-    def download_(
+    def download(
             self,
             name: str,
             version: str,
@@ -87,7 +87,7 @@ class CompoundPatternDataSource(DataSourceBase):
         """
 
         if name in self.get_names_of_supported_data_sources():
-            self.supported_data_sources[name].download_(
+            self.supported_data_sources[name].download(
                 version=version,
                 output_directory_path=output_directory_path,
                 **kwargs
@@ -107,7 +107,7 @@ class CompoundPatternDataSource(DataSourceBase):
 
             raise exception_handle
 
-    def extract_(
+    def extract(
             self,
             name: str,
             version: str,
@@ -125,7 +125,7 @@ class CompoundPatternDataSource(DataSourceBase):
         """
 
         if name in self.get_names_of_supported_data_sources():
-            self.supported_data_sources[name].extract_(
+            self.supported_data_sources[name].extract(
                 version=version,
                 input_directory_path=input_directory_path,
                 output_directory_path=output_directory_path,
@@ -146,7 +146,7 @@ class CompoundPatternDataSource(DataSourceBase):
 
             raise exception_handle
 
-    def format_(
+    def format(
             self,
             name: str,
             version: str,
@@ -164,7 +164,7 @@ class CompoundPatternDataSource(DataSourceBase):
         """
 
         if name in self.get_names_of_supported_data_sources():
-            self.supported_data_sources[name].format_(
+            self.supported_data_sources[name].format(
                 version=version,
                 input_directory_path=input_directory_path,
                 output_directory_path=output_directory_path,

@@ -25,7 +25,7 @@ class COCONUTCompoundDatabase(DataSourceBase):
             "v_2_0_complete_by_20241126_chandrasekhar_v_et_al": "https://doi.org/10.5281/zenodo.13382750",
         }
 
-    def download_(
+    def download(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -84,7 +84,7 @@ class COCONUTCompoundDatabase(DataSourceBase):
 
             raise
 
-    def extract_(
+    def extract(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -146,7 +146,7 @@ class COCONUTCompoundDatabase(DataSourceBase):
 
             raise
 
-    def format_(
+    def format(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

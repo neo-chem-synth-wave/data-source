@@ -27,7 +27,7 @@ class ChemicalReactionDatabase(DataSourceBase):
             "v_reaction_smiles_1976_to_2024": "https://doi.org/10.6084/m9.figshare.28230053.v1",
         }
 
-    def download_(
+    def download(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -88,7 +88,7 @@ class ChemicalReactionDatabase(DataSourceBase):
 
             raise
 
-    def extract_(
+    def extract(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -147,7 +147,7 @@ class ChemicalReactionDatabase(DataSourceBase):
 
             raise
 
-    def format_(
+    def format(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],

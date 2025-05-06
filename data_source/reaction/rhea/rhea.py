@@ -56,7 +56,7 @@ class RheaReactionDatabase(DataSourceBase):
 
             raise
 
-    def download_(
+    def download(
             self,
             version: str,
             output_directory_path: Union[str, PathLike[str]],
@@ -112,7 +112,7 @@ class RheaReactionDatabase(DataSourceBase):
 
             raise
 
-    def extract_(
+    def extract(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
@@ -171,7 +171,7 @@ class RheaReactionDatabase(DataSourceBase):
 
             raise
 
-    def format_(
+    def format(
             self,
             version: str,
             input_directory_path: Union[str, PathLike[str]],
