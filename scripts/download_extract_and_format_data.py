@@ -32,7 +32,7 @@ def get_script_arguments() -> Namespace:
             "reaction_pattern",
         ],
         required=True,
-        help="The indicator of the data source category."
+        help="The category of the data source."
     )
 
     argument_parser.add_argument(
@@ -58,7 +58,7 @@ def get_script_arguments() -> Namespace:
             "uspto",
             "zinc",
         ],
-        help="The indicator of the data source name."
+        help="The name of the data source."
     )
 
     argument_parser.add_argument(
@@ -73,7 +73,7 @@ def get_script_arguments() -> Namespace:
         "--data_source_version",
         default=None,
         type=str,
-        help="The version of the data source."
+        help="The indicator of the data source version."
     )
 
     argument_parser.add_argument(
@@ -187,20 +187,20 @@ if __name__ == "__main__":
 
         temporary_output_directory_path.mkdir()
 
-        data_source.download_(
+        data_source.download(
             name=script_arguments.data_source_name,
             version=script_arguments.data_source_version,
             output_directory_path=temporary_output_directory_path
         )
 
-        data_source.extract_(
+        data_source.extract(
             name=script_arguments.data_source_name,
             version=script_arguments.data_source_version,
             input_directory_path=temporary_output_directory_path,
             output_directory_path=temporary_output_directory_path
         )
 
-        data_source.format_(
+        data_source.format(
             name=script_arguments.data_source_name,
             version=script_arguments.data_source_version,
             input_directory_path=temporary_output_directory_path,
