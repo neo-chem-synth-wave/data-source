@@ -1,4 +1,4 @@
-""" The ``scripts`` package ``download_extract_and_format_data`` script. """
+""" The ``scripts`` directory ``download_extract_and_format_data`` script. """
 
 from argparse import ArgumentParser, Namespace
 from datetime import datetime
@@ -73,7 +73,7 @@ def get_script_arguments() -> Namespace:
         "--data_source_version",
         default=None,
         type=str,
-        help="The indicator of the data source version."
+        help="The version of the data source."
     )
 
     argument_parser.add_argument(
