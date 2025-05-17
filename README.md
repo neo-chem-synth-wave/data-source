@@ -83,7 +83,7 @@ The following chemical compound data sources are supported:
 
 The chemical compound data source relationships can be illustrated as follows:
 
-![chemical_compound_data_sources.png](figures/chemical_compound_data_sources.png)
+![chemical_compound_data_sources.png](figures/chemical_compound_data_source_relationships.png)
 
 
 #### ZINC
@@ -136,7 +136,7 @@ The following chemical compound pattern data sources are supported:
 
 The chemical compound pattern data source relationships can be illustrated as follows:
 
-![chemical_compound_pattern_data_sources.png](figures/chemical_compound_pattern_data_sources.png)
+![chemical_compound_pattern_data_sources.png](figures/chemical_compound_pattern_data_source_relationships.png)
 
 
 #### RDKit
@@ -161,7 +161,7 @@ The following chemical reaction data sources are supported:
 
 The chemical reaction data source relationships can be illustrated as follows:
 
-![chemical_reaction_data_sources.png](figures/chemical_reaction_data_sources.png)
+![chemical_reaction_data_sources.png](figures/chemical_reaction_data_source_relationships.png)
 
 
 #### United States Patent and Trademark Office (USPTO)
@@ -253,7 +253,7 @@ The following chemical reaction pattern data sources are supported:
 
 The chemical reaction pattern data source relationships can be illustrated as follows:
 
-![chemical_reaction_pattern_data_sources.png](figures/chemical_reaction_pattern_data_sources.png)
+![chemical_reaction_pattern_data_sources.png](figures/chemical_reaction_pattern_data_source_relationships.png)
 
 
 #### RetroRules
