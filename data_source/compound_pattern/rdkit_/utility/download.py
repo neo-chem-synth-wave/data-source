@@ -10,11 +10,11 @@ class RDKitCompoundPatternDatasetDownloadUtility:
     """ The `RDKit <https://www.rdkit.org>`_ chemical compound pattern dataset download utility class. """
 
     @staticmethod
-    def download_v_brenk_by_20080307_brenk_r_et_al(
+    def download_v_htl_by_20080307_brenk_r_et_al(
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Download the data from the `v_brenk_by_20080307_brenk_r_et_al` version of the dataset.
+        Download the data from the `v_htl_by_20080307_brenk_r_et_al` version of the dataset.
 
         :parameter output_directory_path: The path to the output directory where the data should be downloaded.
         """

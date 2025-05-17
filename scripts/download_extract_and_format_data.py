@@ -24,7 +24,6 @@ def get_script_arguments() -> Namespace:
     argument_parser.add_argument(
         "-dsc",
         "--data_source_category",
-        default="compound",
         type=str,
         choices=[
             "compound",
@@ -45,7 +44,6 @@ def get_script_arguments() -> Namespace:
     argument_parser.add_argument(
         "-dsn",
         "--data_source_name",
-        default=None,
         type=str,
         choices=[
             "chembl",
@@ -71,7 +69,6 @@ def get_script_arguments() -> Namespace:
     argument_parser.add_argument(
         "-dsv",
         "--data_source_version",
-        default=None,
         type=str,
         help="The version of the data source."
     )
@@ -79,7 +76,6 @@ def get_script_arguments() -> Namespace:
     argument_parser.add_argument(
         "-odp",
         "--output_directory_path",
-        default=None,
         type=str,
         help="The path to the output directory where the data should be downloaded, extracted, and formatted."
     )

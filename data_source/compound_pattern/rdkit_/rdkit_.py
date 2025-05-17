@@ -20,7 +20,7 @@ class RDKitCompoundPatternDataset(DataSourceBase):
         """
 
         return {
-            "v_brenk_by_20080307_brenk_r_et_al": "https://doi.org/10.1002/cmdc.200700139",
+            "v_htl_by_20080307_brenk_r_et_al": "https://doi.org/10.1002/cmdc.200700139",
             "v_pains_by_20100204_baell_j_b_and_holloway_g_a": "https://doi.org/10.1021/jm901137j",
         }
 
@@ -48,8 +48,8 @@ class RDKitCompoundPatternDataset(DataSourceBase):
                         )
                     )
 
-                if version == "v_brenk_by_20080307_brenk_r_et_al":
-                    RDKitCompoundPatternDatasetDownloadUtility.download_v_brenk_by_20080307_brenk_r_et_al(
+                if version == "v_htl_by_20080307_brenk_r_et_al":
+                    RDKitCompoundPatternDatasetDownloadUtility.download_v_htl_by_20080307_brenk_r_et_al(
                         output_directory_path=output_directory_path
                     )
 
@@ -162,8 +162,8 @@ class RDKitCompoundPatternDataset(DataSourceBase):
                         )
                     )
 
-                if version == "v_brenk_by_20080307_brenk_r_et_al":
-                    RDKitCompoundPatternDatasetFormattingUtility.format_v_brenk_by_20080307_brenk_r_et_al(
+                if version == "v_htl_by_20080307_brenk_r_et_al":
+                    RDKitCompoundPatternDatasetFormattingUtility.format_v_htl_by_20080307_brenk_r_et_al(
                         input_directory_path=input_directory_path,
                         output_directory_path=output_directory_path
                     )

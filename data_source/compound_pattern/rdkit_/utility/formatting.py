@@ -14,12 +14,12 @@ class RDKitCompoundPatternDatasetFormattingUtility:
     """ The `RDKit <https://www.rdkit.org>`_ chemical compound pattern dataset formatting utility class. """
 
     @staticmethod
-    def format_v_brenk_by_20080307_brenk_r_et_al(
+    def format_v_htl_by_20080307_brenk_r_et_al(
             input_directory_path: Union[str, PathLike[str]],
             output_directory_path: Union[str, PathLike[str]]
     ) -> None:
         """
-        Format the data from the `v_brenk_by_20080307_brenk_r_et_al` version of the dataset.
+        Format the data from the `v_htl_by_20080307_brenk_r_et_al` version of the dataset.
 
         :parameter input_directory_path: The path to the input directory where the data is extracted.
         :parameter output_directory_path: The path to the output directory where the data should be formatted.
@@ -27,7 +27,7 @@ class RDKitCompoundPatternDatasetFormattingUtility:
 
         input_file_name = "brenk.in"
 
-        output_file_name = "{timestamp:s}_rdkit_v_brenk_by_20080307_brenk_r_et_al.csv".format(
+        output_file_name = "{timestamp:s}_rdkit_v_htl_by_20080307_brenk_r_et_al.csv".format(
             timestamp=datetime.now().strftime(
                 format="%Y%m%d%H%M%S"
             )
