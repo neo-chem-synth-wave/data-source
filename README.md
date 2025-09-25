@@ -1,5 +1,5 @@
 # Data Source
-[![Static Badge](https://img.shields.io/badge/data__source-2025.5.1-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.5.1)
+[![Static Badge](https://img.shields.io/badge/data__source-2025.9.1-%23E68E36?logo=github&style=flat)](https://github.com/neo-chem-synth-wave/data-source/releases/tag/2025.9.1)
 [![Static Badge](https://img.shields.io/badge/Institute%20of%20Science%20Tokyo-%231C3177?style=flat)](https://www.isct.ac.jp)
 [![Static Badge](https://img.shields.io/badge/Elix%2C%20Inc.-%235EB6B3?style=flat)](https://www.elix-inc.com)
 
@@ -297,135 +297,74 @@ feedback, feel free to do so using [GitHub Issues](https://github.com/neo-chem-s
 
 
 ## References
-**[[1](/references/2015/20151019_sterling_t_and_irwin_j_j.md)]** Sterling, T. and Irwin, J.J. **ZINC15 – Ligand
-Discovery for Everyone**. _J. Chem. Inf. Model._, 2015, 55, 11, 2324-2337.
+**[[1](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2015/20151019_sterling_t_and_irwin_j_j.md)]** Sterling, T. and Irwin, J.J. **ZINC15 – Ligand Discovery for Everyone**. _J. Chem. Inf. Model._, 2015, 55, 11, 2324-2337.
 
-**[[2](/references/2020/20201029_irwin_j_j_et_al.md)]** Irwin, J.J., Tang, K.G., Young, J., Dandarchuluun, C., Wong,
-B.R., Khurelbaatar, M., Moroz, Y.S., Mayfield, J., and Sayle, R.A. **ZINC20 - A Free Ultralarge-Scale Chemical Database
-for Ligand Discovery**. _J. Chem. Inf. Model._, 2020, 60, 12, 6065-6073.
+**[[2](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2020/20201029_irwin_j_j_et_al.md)]** Irwin, J.J. et al. **ZINC20 - A Free Ultralarge-Scale Chemical Database for Ligand Discovery**. _J. Chem. Inf. Model._, 2020, 60, 12, 6065-6073.
 
-**[[3](/references/2023/20230215_tingle_b_i_et_al.md)]** Tingle, B.I., Tang, K.G., Castanon, M., Gutierrez, J.J.,
-Khurelbaatar, M., Dandarchuluun, C., Moroz, Y.S., and Irwin, J.J. **ZINC22 - A Free Multi-billion-scale Database of
-Tangible Compounds for Ligand Discovery**. _J. Chem. Inf. Model._, 2023, 63, 4, 1166-1176.
+**[[3](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2023/20230215_tingle_b_i_et_al.md)]** Tingle, B.I. et al. **ZINC22 - A Free Multi-billion-scale Database of Tangible Compounds for Ligand Discovery**. _J. Chem. Inf. Model._, 2023, 63, 4, 1166-1176.
 
-**[[4](/references/2023/20231102_zdrazil_b_et_al.md)]** Zdrazil, B., Felix, E., Hunter, F., Manners, E.J., Blackshaw,
-J., Corbett, S., de Veij, M., Ioannidis, H., Lopez, D.M., Mosquera, J.F., Magarinos, M.P., Bosc, N., Arcila, R.,
-Kizilören, T., Gaulton, A., Bento, A.P., Adasme, M.F., Monecke, P., Landrum, G.A., and Leach, A.R. **The ChEMBL Database
-in 2023: A Drug Discovery Platform Spanning Multiple Bioactivity Data Types and Time Periods**. _Nucleic Acids
-Research_, 52, D1, 2024, D1180-D1192.
+**[[4](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2023/20231102_zdrazil_b_et_al.md)]** Zdrazil, B. et al. **The ChEMBL Database in 2023: A Drug Discovery Platform Spanning Multiple Bioactivity Data Types and Time Periods**. _Nucleic Acids Research_, 52, D1, 2024, D1180-D1192.
 
-**[[5](/references/2021/20210110_sorokina_m_et_al.md)]** Sorokina, M., Merseburger, P., Rajan, K., Yirik, M.A., and
-Steinbeck, C. **COCONUT Online: Collection of Open Natural Products Database**. _J. Cheminform._, 13, 2, 2021.
+**[[5](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2021/20210110_sorokina_m_et_al.md)]** Sorokina, M. et al. **COCONUT Online: Collection of Open Natural Products Database**. _J. Cheminform._, 13, 2, 2021.
 
-**[[6](/references/2024/20241126_chandrasekhar_v_et_al.md)]** Chandrasekhar, V., Rajan, K., Kanakam, S.R.S., Sharma, N.,
-Weißenborn, V., Schaub, J., and Steinbeck, C. **COCONUT 2.0: A Comprehensive Overhaul and Curation of the Collection of
-Open Natural Products Database**. _Nucleic Acids Research_, 53, D1, 2025, D634–D643.
+**[[6](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2024/20241126_chandrasekhar_v_et_al.md)]** Chandrasekhar, V. et al. **COCONUT 2.0: A Comprehensive Overhaul and Curation of the Collection of Open Natural Products Database**. _Nucleic Acids Research_, 53, D1, 2025, D634–D643.
 
-**[[7](/references/2020/20201218_polykovskiy_d_et_al.md)]** Polykovskiy, D., Zhebrak, A., Sanchez-Lengeling, B.,
-Golovanov, S., Tatanov, O., Belyaev, S., Kurbanov, R., Artamonov, A., Aladinskiy, V., Veselov, M., Kadurin, A.,
-Johansson, S., Chen, H., Nikolenko, S., Aspuru-Guzik, A., and Zhavoronkov, A. **Molecular Sets (MOSES): A Benchmarking
-Platform for Molecular Generation Models**. _Front. Pharmacol._, 11, 2020.
+**[[7](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2020/20201218_polykovskiy_d_et_al.md)]** Polykovskiy, D. et al. **Molecular Sets (MOSES): A Benchmarking Platform for Molecular Generation Models**. _Front. Pharmacol._, 11, 2020.
 
-**[[8](https://www.rdkit.org)]** **RDKit: Open-source Cheminformatics**: https://www.rdkit.org. Accessed on: 2025/05/05.
+**[[8](https://www.rdkit.org)]** **RDKit: Open-source Cheminformatics**: https://www.rdkit.org. Accessed on: 2025/09/25.
 
-**[[9](/references/2008/20080307_brenk_r_et_al.md)]** Brenk, R., Schipani, A., James, D., Krasowski, A., Gilbert, I.H.,
-Frearson, J. and Wyatt, P.G. **Lessons Learnt from Assembling Screening Libraries for Drug Discovery for Neglected
-Diseases**. _ChemMedChem_, 3, 435-444.
+**[[9](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2008/20080307_brenk_r_et_al.md)]** Brenk, R. et al. **Lessons Learnt from Assembling Screening Libraries for Drug Discovery for Neglected Diseases**. _ChemMedChem_, 3, 435-444.
 
-**[[10](/references/2010/20100204_baell_j_b_and_holloway_g_a.md)]** Baell, J.B. and Holloway, G.A. **New Substructure
-Filters for Removal of Pan Assay Interference Compounds (PAINS) from Screening Libraries and for their Exclusion in
-Bioassays**. _J. Med. Chem._, 2010, 53, 7, 2719–2740.
+**[[10](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2010/20100204_baell_j_b_and_holloway_g_a.md)]** Baell, J.B. and Holloway, G.A. **New Substructure Filters for Removal of Pan Assay Interference Compounds (PAINS) from Screening Libraries and for their Exclusion in Bioassays**. _J. Med. Chem._, 2010, 53, 7, 2719–2740.
 
-**[[11](/references/2012/20121009_lowe_d_m.md)]** Lowe, D.M. **Extraction of Chemical Structures and Reactions from the
-Literature**. _Ph.D. Thesis_, University of Cambridge, Department of Chemistry, Pembroke College, 2012.
+**[[11](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2012/20121009_lowe_d_m.md)]** Lowe, D.M. **Extraction of Chemical Structures and Reactions from the Literature**. _Ph.D. Thesis_, University of Cambridge, Department of Chemistry, Pembroke College, 2012.
 
-**[[12](/references/2014/20141226_schneider_n_et_al.md)]** Schneider, N., Lowe, D.M., Sayle, R.A., and Landrum, G.A.
-**Development of a Novel Fingerprint for Chemical Reactions and Its Application to Large-scale Reaction Classification
-and Similarity**. _J. Chem. Inf. Model._, 2015, 55, 1, 39–53.
+**[[12](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2014/20141226_schneider_n_et_al.md)]** Schneider, N. et al. **Development of a Novel Fingerprint for Chemical Reactions and Its Application to Large-scale Reaction Classification and Similarity**. _J. Chem. Inf. Model._, 2015, 55, 1, 39–53.
 
-**[[13](/references/2016/20161122_schneider_n_et_al.md)]** Schneider, N., Stiefl, N., and Landrum, G.A. **What’s What:
-The (Nearly) Definitive Guide to Reaction Role Assignment**. _J. Chem. Inf. Model._, 2016, 56, 12, 2336–2346.
+**[[13](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2016/20161122_schneider_n_et_al.md)]** Schneider, N. et al. **What’s What: The (Nearly) Definitive Guide to Reaction Role Assignment**. _J. Chem. Inf. Model._, 2016, 56, 12, 2336–2346.
 
-**[[14](/references/2017/20170418_coley_c_w_et_al.md)]** Coley, C.W., Barzilay, R., Jaakkola, T.S., Green, W.H., and
-Jensen, K.F. **Prediction of Organic Reaction Outcomes using Machine Learning**. _ACS Cent. Sci._, 2017, 3, 5, 434–443.
+**[[14](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2017/20170418_coley_c_w_et_al.md)]** Coley, C.W. et al. **Prediction of Organic Reaction Outcomes using Machine Learning**. _ACS Cent. Sci._, 2017, 3, 5, 434–443.
 
-**[[15](/references/2017/20170905_liu_b_et_al.md)]** Liu, B., Ramsundar, B., Kawthekar, P., Shi, J., Gomes, J., Nguyen,
-Q.L., Ho, S., Sloane, J., Wender, P., and Pande, V. **Retrosynthetic Reaction Prediction Using Neural
-Sequence-to-sequence Models**. _ACS Cent. Sci._, 2017, 3, 10, 1103-1113.
+**[[15](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2017/20170905_liu_b_et_al.md)]** Liu, B. et al. **Retrosynthetic Reaction Prediction Using Neural Sequence-to-sequence Models**. _ACS Cent. Sci._, 2017, 3, 10, 1103-1113.
 
-**[[16](/references/2017/20171116_coley_c_w_et_al.md)]** Coley, C.W., Rogers, L., Green, W.H., and Jensen, K.F.
-**Computer-assisted Retrosynthesis Based on Molecular Similarity**. _J. Chem. Inf. Model._, 2017, 3, 12, 1237–1245.
+**[[16](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2017/20171116_coley_c_w_et_al.md)]** Coley, C.W. et al. **Computer-assisted Retrosynthesis Based on Molecular Similarity**. _J. Chem. Inf. Model._, 2017, 3, 12, 1237–1245.
 
-**[[17](/references/2017/20171204_jin_w_et_al.md)]** Jin, W., Coley, C.W., Barzilay, R., and Jaakkola. T. **Predicting
-Organic Reaction Outcomes with Weisfeiler-Lehman Network**. _Advances in Neural Information Processing Systems_,
-30, 2017.
+**[[17](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2017/20171204_jin_w_et_al.md)]** Jin, W. et al. **Predicting Organic Reaction Outcomes with Weisfeiler-Lehman Network**. _Advances in Neural Information Processing Systems_, 30, 2017.
 
-**[[18](/references/2018/20180622_schwaller_p_et_al.md)]** Schwaller, P., Gaudin, T., Lányi, D., Bekas, C., and Laino,
-T. **"Found in Translation": Predicting Outcomes of Complex Organic Chemistry Reactions using Neural
-Sequence-to-sequence Models**. _Chem. Sci._, 2018, 9, 6091-6098.
+**[[18](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2018/20180622_schwaller_p_et_al.md)]** Schwaller, P. et al. **"Found in Translation": Predicting Outcomes of Complex Organic Chemistry Reactions using Neural Sequence-to-sequence Models**. _Chem. Sci._, 2018, 9, 6091-6098.
 
-**[[19](/references/2018/20181221_bradshaw_j_et_al.md)]** Bradshaw, J., Kusner, M.J., Paige, B., Segler, M.H.S., and
-Hernández-Lobato, M.J. **A Generative Model for Electron Paths**. _International Conference on Learning
-Representations_, 2019.
+**[[19](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2018/20181221_bradshaw_j_et_al.md)]** Bradshaw, J. et al. **A Generative Model for Electron Paths**. _International Conference on Learning Representations_, 2019.
 
-**[[20](/references/2021/20210128_schwaller_p_et_al.md)]** Schwaller, P., Probst, D., Vaucher, A.C., Nair, V.H.,
-Kreutter, D., Laino, T., and Reymond, J. **Mapping the Space of Chemical Reactions using Attention-based Neural
-Networks**. _Nat. Mach. Intell._, 3, 144-152, 2021.
+**[[20](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2021/20210128_schwaller_p_et_al.md)]** Schwaller, P. et al. **Mapping the Space of Chemical Reactions using Attention-based Neural Networks**. _Nat. Mach. Intell._, 3, 144-152, 2021.
 
-**[[21](/references/2021/20210407_schwaller_p_et_al.md)]** Schwaller, P., Hoover, B., Reymond, J., Strobelt, H., and
-Laino, T. **Extraction of Organic Chemistry Grammar from Unsupervised Learning of Chemical Reactions**. _Sci. Adv._, 7,
-eabe4166, 2021.
+**[[21](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2021/20210407_schwaller_p_et_al.md)]** Schwaller, P. et al. **Extraction of Organic Chemistry Grammar from Unsupervised Learning of Chemical Reactions**. _Sci. Adv._, 7, eabe4166, 2021.
 
-**[[22](/references/2024/20240313_chen_s_et_al.md)]** Chen, S., An, S., Babazade, R., and Jung, Y. **Precise
-Atom-to-atom Mapping for Organic Reactions via Human-in-the-loop Machine Learning**.  _Nat. Commun._, 15, 2250, 2024.
+**[[22](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2024/20240313_chen_s_et_al.md)]** Chen, S. et al. **Precise Atom-to-atom Mapping for Organic Reactions via Human-in-the-loop Machine Learning**.  _Nat. Commun._, 15, 2250, 2024.
 
-**[[23](/references/2024/20240810_chen_s_et_al.md)]** Chen, S., Babazade, R., Kim, T., Han, S., and Jung, Y. **A
-Large-scale Reaction Dataset of Mechanistic Pathways of Organic Reactions**. _Sci. Data_, 11, 863, 2024.
+**[[23](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2024/20240810_chen_s_et_al.md)]** Chen, S. et al. **A Large-scale Reaction Dataset of Mechanistic Pathways of Organic Reactions**. _Sci. Data_, 11, 863, 2024.
 
-**[[24](/references/2021/20211102_kearnes_s_m_et_al.md)]** Kearnes, S.M., Maser, M.R., Wleklinski, M., Kast, A., Doyle,
-A.G., Dreher, S.D., Hawkins, J.M., Jensen, K.F., and Coley, C.W. **The Open Reaction Database**. _J. Am. Chem. Soc._,
-2021, 143, 45, 18820–18826.
+**[[24](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2021/20211102_kearnes_s_m_et_al.md)]** Kearnes, S.M. et al. **The Open Reaction Database**. _J. Am. Chem. Soc._, 2021, 143, 45, 18820–18826.
 
-**[[25](https://kmt.vander-lingen.nl)]** **The Chemical Reaction Database (CRD)**: https://kmt.vander-lingen.nl.
-Accessed on: 2025/05/05.
+**[[25](https://kmt.vander-lingen.nl)]** **The Chemical Reaction Database (CRD)**: https://kmt.vander-lingen.nl. Accessed on: 2025/09/25.
 
-**[[26](/references/2021/20211110_bansal_p_et_al.md)]** Bansal, P., Morgat, A., Axelsen, K.B., Muthukrishnan, V.,
-Coudert, E., Aimo, L., Hyka-Nouspikel, N., Gasteiger, E., Kerhornou, A., Neto, T.B., Pozzato, M., Blatter, M.,
-Ignatchenko, A., Redaschi, N., and Bridge, A. **Rhea, the Reaction Knowledgebase in 2022**. _Nucleic Acids Research_,
-50, D1, 2022, D693–D700.
+**[[26](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2021/20211110_bansal_p_et_al.md)]** Bansal, P. et al. **Rhea, the Reaction Knowledgebase in 2022**. _Nucleic Acids Research_, 50, D1, 2022, D693–D700.
 
-**[[27](/references/2013/20131008_kraut_h_et_al.md)]** Kraut, H., Eiblmaier, J., Grethe, G., Löw, P., Matuszczyk, H.,
-and Saller, H. **Algorithm for Reaction Classification**. _J. Chem. Inf. Model._, 2013, 53, 11, 2884–2895.
+**[[27](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2013/20131008_kraut_h_et_al.md)]** Kraut, H. et al. **Algorithm for Reaction Classification**. _J. Chem. Inf. Model._, 2013, 53, 11, 2884–2895.
 
-**[[28](/references/2016/20161014_wei_j_n_et_al.md)]** Wei, J.N., Duvenaud, D., and Aspuru-Guzik, A. **Neural Networks
-for the Prediction of Organic Chemistry Reactions**. _ACS Cent. Sci._, 2016, 2, 10, 725–732.
+**[[28](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2016/20161014_wei_j_n_et_al.md)]** Wei, J.N. et al. **Neural Networks for the Prediction of Organic Chemistry Reactions**. _ACS Cent. Sci._, 2016, 2, 10, 725–732.
 
-**[[29](/references/2020/20200508_grambow_c_a_et_al.md)]** Grambow, C.A., Pattanaik, L., and Green, W.H. **Reactants,
-Products, and Transition States of Elementary Chemical Reactions based on Quantum Chemistry**. _Sci. Data_, 7,
-137, 2020.
+**[[29](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2020/20200508_grambow_c_a_et_al.md)]** Grambow, C.A. et al. **Reactants, Products, and Transition States of Elementary Chemical Reactions based on Quantum Chemistry**. _Sci. Data_, 7, 137, 2020.
 
-**[[30](/references/2021/20211102_lin_a_et_al.md)]** Lin, A., Dyubankova, N., Madzhidov, T.I., Nugmanov, R.I.,
-Verhoeven, J., Gimadiev, T.R., Afonina, V.A., Ibragimova, Z., Rakhimbekova, A., Sidorov, P., Gedich, A., Suleymanov, R.,
-Mukhametgaleev, R., Wegner, J., Ceulemans, H., Varnek, A. **Atom-to-atom Mapping: A Benchmarking Study of Popular
-Mapping Algorithms and Consensus Strategies**. _Mol. Inf._, 2022, 41, 2100138.
+**[[30](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2021/20211102_lin_a_et_al.md)]** Lin, A. et al. **Atom-to-atom Mapping: A Benchmarking Study of Popular Mapping Algorithms and Consensus Strategies**. _Mol. Inf._, 2022, 41, 2100138.
 
-**[[31](/references/2022/20220718_spiekermann_k_et_al.md)]** Spiekermann, K., Pattanaik, L., and Green, W.H. **High
-Accuracy Barrier Heights, Enthalpies, and Rate Coefficients for Chemical Reactions**. _Sci. Data_, 9, 417, 2022.
+**[[31](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2022/20220718_spiekermann_k_et_al.md)]** Spiekermann, K. et al. **High Accuracy Barrier Heights, Enthalpies, and Rate Coefficients for Chemical Reactions**. _Sci. Data_, 9, 417, 2022.
 
-**[[32](/references/2024/20240422_wigh_d_s_et_al.md)]** Wigh, D.S., Arrowsmith, J., Pomberger, A., Felton, K.C., and
-Lapkin, A.A. **ORDerly: Data Sets and Benchmarks for Chemical Reaction Data**. _J. Chem. Inf. Model._, 2024, 64, 9,
-3790–3798.
+**[[32](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2024/20240422_wigh_d_s_et_al.md)]** Wigh, D.S. et al. **ORDerly: Data Sets and Benchmarks for Chemical Reaction Data**. _J. Chem. Inf. Model._, 2024, 64, 9, 3790–3798.
 
-**[[33](/references/2018/20181013_duigou_t_et_al.md)]** Duigou, T., du Lac, M., Carbonell, P., and Faulon, J.
-**RetroRules: A Database of Reaction Rules for Engineering Biology**. _Nucleic Acids Research_, 47, D1, 2019,
-D1229–D1235.
+**[[33](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2018/20181013_duigou_t_et_al.md)]** Duigou, T. et al. **RetroRules: A Database of Reaction Rules for Engineering Biology**. _Nucleic Acids Research_, 47, D1, 2019, D1229–D1235.
 
-**[[34](/references/2018/20180421_avramova_s_et_al.md)]** Avramova, S., Kochev, N., and Angelov, P. **RetroTransformDB:
-A Dataset of Generic Transforms for Retrosynthetic Analysis**. _Data_, 2018, 3, 14.
+**[[34](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2018/20180421_avramova_s_et_al.md)]** Avramova, S. et al. **RetroTransformDB: A Dataset of Generic Transforms for Retrosynthetic Analysis**. _Data_, 2018, 3, 14.
 
-**[[35](/references/2019/20190701_button_a_et_al.md)]** Button, A., Merk, D., Hiss, J.A., and Schneider, G. **Automated
-De Novo Molecular Design by Hybrid Machine Intelligence and Rule-driven Chemical Synthesis**. _Nat. Mach. Intell._, 1,
-307-315, 2019.
+**[[35](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2019/20190701_button_a_et_al.md)]** Button, A. et al. **Automated De Novo Molecular Design by Hybrid Machine Intelligence and Rule-driven Chemical Synthesis**. _Nat. Mach. Intell._, 1, 307-315, 2019.
 
-**[[36](/references/2024/20240627_chen_l_and_li_y.md)]** Chen, L. and Li, Y. **AutoTemplate: Enhancing Chemical Reaction
-Datasets for Machine Learning Applications in Organic Chemistry**. _J. Cheminform._, 16, 74, 2024.
+**[[36](https://github.com/neo-chem-synth-wave/literature/blob/main/literature/2024/20240627_chen_l_and_li_y.md)]** Chen, L. and Li, Y. **AutoTemplate: Enhancing Chemical Reaction Datasets for Machine Learning Applications in Organic Chemistry**. _J. Cheminform._, 16, 74, 2024.
