@@ -162,7 +162,6 @@ python scripts/download_extract_and_format_data.py \
 ```
 
 The full list of script arguments is as follows:
-
 - `--data_source_category` or `-dsc` → The category of the data source. (_i.e._, compound, compound_pattern, reaction, or reaction_pattern)
 - `--get_data_source_name_information` or `-gdsni` → The indicator of whether to get the data source name information.
 - `--data_source_name` or `-dsn` → The name of the data source. (_i.e._, chembl, crd, miscellaneous, ord, rdkit, retro_rules, rhea, uspto, or zinc)
