@@ -1,19 +1,17 @@
 cff-version: 1.0.0
 message: "If you use this repository, please cite it as below."
 title: "data-source"
-repository-code: "https://github.com/neo-chem-synth-wave/data-source"
 url: "https://github.com/neo-chem-synth-wave/data-source"
 
 authors:
-  - family-names: "Hasic"
-    given-names: "Haris"
-
-preferred-citation:
-  type: software
-  title: "data-source"
-  authors:
     - family-names: "Hasic"
       given-names: "Haris"
-  repository-code: "https://github.com/neo-chem-synth-wave/data-source"
-  url: "https://github.com/neo-chem-synth-wave/data-source"
-  version: "2015.9.1"
+
+preferred-citation:
+    type: software
+    title: "neo-chem-synth-wave/data-source"
+    authors:
+        - family-names: "Hasic"
+          given-names: "Haris"
+    url: "https://github.com/neo-chem-synth-wave/data-source"
+    version: "2015.9.1"
