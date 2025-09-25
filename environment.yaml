@@ -13,3 +13,5 @@ dependencies:
       - ord-schema
       - pqdm
       - pyarrow
+      - sphinx
+      - sphinx-autoapi
