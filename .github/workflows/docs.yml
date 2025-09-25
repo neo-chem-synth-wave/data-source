@@ -28,8 +28,6 @@ jobs:
       - name: Install docs dependencies
         run: |
           pip install "sphinx>=7" sphinx-autoapi
-          # add any extra Sphinx extensions you use here, e.g.:
-          # pip install sphinx-rtd-theme myst-parser
 
       - name: Build Sphinx HTML
         run: |
