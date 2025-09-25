@@ -1,32 +1,42 @@
+# CITATION.cff for neo-chem-synth-wave/data-source
+# Fill in authors below. You can repeat the author block for multiple authors.
+# Optionally set version, date-released, and any identifiers (e.g., DOI).
+
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+message: "If you use this project, please cite it as below."
+title: "neo-chem-synth-wave/data-source"
+abstract: "Data sources and ETL pipelines for the neo-chem-synth-wave project."
+repository-code: "https://github.com/neo-chem-synth-wave/data-source"
+url: "https://github.com/neo-chem-synth-wave/data-source"
+
 authors:
-- family-names: "Lisa"
-  given-names: "Mona"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
-- family-names: "Bot"
-  given-names: "Hew"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
-title: "My Research Software"
-version: 2.0.4
-doi: 10.5281/zenodo.1234
-date-released: 2017-12-18
-url: "https://github.com/github-linguist/linguist"
+  - family-names: "FILL_ME"
+    given-names: "FILL_ME"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+    # email: "fill@example.com"
+  # - family-names: "SecondAuthor"
+  #   given-names: "Another"
+  #   orcid: "https://orcid.org/0000-0000-0000-0000"
+
+keywords:
+  - chemistry
+  - synthesis
+  - data
+  - dataset
+  - ETL
+  - pipeline
+
 preferred-citation:
-  type: article
+  type: software
+  title: "neo-chem-synth-wave/data-source"
   authors:
-  - family-names: "Lisa"
-    given-names: "Mona"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
-  - family-names: "Bot"
-    given-names: "Hew"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
-  doi: "10.0000/00000"
-  journal: "Journal Title"
-  month: 9
-  start: 1 # First page number
-  end: 10 # Last page number
-  title: "My awesome research software"
-  issue: 1
-  volume: 1
-  year: 2021
+    - family-names: "FILL_ME"
+      given-names: "FILL_ME"
+      # orcid: "https://orcid.org/0000-0000-0000-0000"
+  repository-code: "https://github.com/neo-chem-synth-wave/data-source"
+  url: "https://github.com/neo-chem-synth-wave/data-source"
+  version: "0.1.0"         # Optional: update to the latest release/tag
+  date-released: "YYYY-MM-DD"  # Optional: e.g., "2025-09-25"
+  # identifiers:
+  #   - type: doi
+  #     value: "10.1234/zenodo.1234567"
