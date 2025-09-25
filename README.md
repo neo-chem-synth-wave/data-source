@@ -47,7 +47,11 @@ The [data_source](/data_source) package supports three alternatives for the down
 The first alternative is by importing and utilizing the individual data source utility classes:
 
 ```python
-from data_source.compound.zinc.utility import ZINCCompoundDatabaseDownloadUtility, ZINCCompoundDatabaseExtractionUtility, ZINCCompoundDatabaseFormattingUtility
+from data_source.compound.zinc.utility import (
+    ZINCCompoundDatabaseDownloadUtility,
+    ZINCCompoundDatabaseExtractionUtility,
+    ZINCCompoundDatabaseFormattingUtility
+)
 
 ZINCCompoundDatabaseDownloadUtility.download_v_building_block(
     version="v_building_block_bb_30",
@@ -157,11 +161,11 @@ python scripts/download_extract_and_format_data.py \
   --output_directory_path "/path/to/the/output/directory"
 ```
 
-The full list of arguments is as follows:
+The full list of script arguments is as follows:
 
-- `--data_source_category` or `-dsc` → The category of the data source: "compound", "compound_pattern", "reaction", or "reaction_pattern".
-- `--get_data_source_name_information` or `-gdsni` → The indicator of whether to get the data source name information: True or False.
-- `--data_source_name` or `-dsn` → The name of the data source: "chembl", "crd", "miscellaneous", "ord", "rdkit", "retro_rules", "rhea", "uspto", or "zinc".
+- `--data_source_category` or `-dsc` → The category of the data source. (_i.e._, compound, compound_pattern, reaction, or reaction_pattern)
+- `--get_data_source_name_information` or `-gdsni` → The indicator of whether to get the data source name information.
+- `--data_source_name` or `-dsn` → The name of the data source. (_i.e._, chembl, crd, miscellaneous, ord, rdkit, retro_rules, rhea, uspto, or zinc)
 - `--get_data_source_version_information` or `-gdsvi` → The indicator of whether to get the data source version information.
 - `--data_source_version` or `-dsv` → The version of the data source.
 - `--output_directory_path` or `-odp` → The path to the output directory where the data should be downloaded, extracted, and formatted.

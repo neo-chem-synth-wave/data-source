@@ -13,7 +13,7 @@ Consequently, the primary objective of the **Data Source** research project is t
 
 
 ## Contribution Guidelines
-The contribution guidelines of this repository are as follows:
+The contribution guidelines of this repository are structured as follows:
 
 - [General](#general)
 - [Submitting Bugs, Questions, and Feedback](#submission-of-bugs-questions-and-feedback)
