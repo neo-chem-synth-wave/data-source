@@ -1,4 +1,4 @@
-name: Build & Deploy Sphinx docs
+name: Build & Deploy Sphinx Documentation
 
 on:
   push:
@@ -34,9 +34,7 @@ jobs:
       - name: Build Sphinx HTML
         run: |
           sphinx-build -E -b html docs/source public
-          # If your sources are elsewhere, use e.g.:
-          # sphinx-build -E -b html documentation/docs/source public
-          touch public/.nojekyll  # disable Jekyll on Pages
+          touch public/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -47,7 +45,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: github-pages
+      name: documentation
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
