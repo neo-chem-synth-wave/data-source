@@ -1,0 +1,10 @@
+cff-version: 1.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Hasic"
+  given-names: "Haris"
+  orcid: "https://orcid.org/0000-0001-9962-008X"
+title: "data-source"
+version: 2025.9.1
+date-released: 2025-09-25
+url: "https://github.com/neo-chem-synth-wave/data-source"
