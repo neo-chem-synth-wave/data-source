@@ -44,10 +44,10 @@ The submission of bugs, questions, and feedback can be performed as follows:
 ### Contribution of Code and Data
 The contribution of code and data can be performed as follows:
 
-- Check out a new, appropriately titled branch. (_e.g._, `new-data-source/uspto` or `data-archive/custom-data`)
+- Check out a new branch. (_e.g._, `feature/parallel-processing` or `data/new-data-source`)
 - Implement the changes.
 - Ensure that everything is still functional by running local checks.
 - Push your branch and open a [Pull Request](https://github.com/neo-chem-synth-wave/data-source/pulls).
 - Wait for the review.
 
-Thank you for your contribution and happy coding !!!
+Thank you for your interest in this repository and the [NeoChemSynthWave](https://github.com/neo-chem-synth-wave) intiative !!!
