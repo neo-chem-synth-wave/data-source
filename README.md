@@ -5,17 +5,29 @@
 
 Welcome to the computer-assisted chemical synthesis **data source** research project !!!
 
-Over the past decade, computer-assisted chemical synthesis has re-emerged as a prominent research subject. Even though
-the idea of utilizing computers to assist chemical synthesis has existed for nearly as long as computers themselves, the
-inherent complexity repeatedly exceeded the available resources. However, recent machine learning approaches have
-exhibited the potential to break this tendency. The performance of such approaches is dependent on data that frequently
-suffer from limited quantity, quality, visibility, and accessibility, posing significant challenges to potential
-scientific breakthroughs. Consequently, the primary objective of the **Data Source** research project is to
-systematically curate and facilitate access to relevant open computer-assisted chemical synthesis data sources.
+Over the past decade, computer-assisted chemical synthesis has re-emerged as a prominent research subject.
+Even though the idea of utilizing computers to assist chemical synthesis has existed for nearly as long as computers themselves, the inherent complexity repeatedly exceeded the available resources.
+However, recent machine learning approaches have exhibited the potential to break this tendency.
+The performance of such approaches is dependent on data that frequently suffer from limited quantity, quality, visibility, and accessibility, posing significant challenges to potential scientific breakthroughs.
+Consequently, the primary objective of the **Data Source** research project is to systematically curate and facilitate access to relevant open computer-assisted chemical synthesis data sources.
 
 
-## Installation
-An environment can be created using the [git](https://git-scm.com) and [conda](https://conda.io) commands as follows:
+## Utilization Instructions
+The utilization instructions of this repository are structured as follows:
+
+- [Installation of the Package](#installation-of-the-package)
+- [Utilization of the Package](#utilization-of-the-package)
+- [Utilization of the Scripts](#utilization-of-the-scripts)
+
+
+### Installation of the Package
+The [data_source](/data_source) package can be installed in an existing environment using the [pip](https://pip.pypa.io) command as follows:
+
+```shell
+pip install data_source
+```
+
+A local environment can be created using the [git](https://git-scm.com) and [conda](https://conda.io) commands as follows:
 
 ```shell
 git clone https://github.com/neo-chem-synth-wave/data-source.git
@@ -25,29 +37,104 @@ cd data-source
 conda env create -f environment.yaml
 
 conda activate data-source-env
-```
 
-The [data_source](/data_source) package can be installed using the [pip](https://pip.pypa.io) command as follows:
-
-```shell
 pip install .
 ```
 
 
-## Utilization
-The purpose of the [scripts](/scripts) directory is to illustrate how to download, extract, and format the following
-categories of computer-assisted chemical synthesis data:
+### Utilization of the Package
+The [data_source](/data_source) package supports three alternatives for the downloading, extraction, and formatting of a specific version of computer-assisted chemical synthesis data from a specific source.
+The first alternative is by importing and utilizing the individual data source utility classes:
 
-- [Chemical Compounds](#chemical-compounds)
-- [Chemical Compound Patterns](#chemical-compound-patterns)
-- [Chemical Reactions](#chemical-reactions)
-- [Chemical Reaction Patterns](#chemical-reaction-patterns)
+```python
+from data_source.compound.zinc.utility import ZINCCompoundDatabaseDownloadUtility, ZINCCompoundDatabaseExtractionUtility, ZINCCompoundDatabaseFormattingUtility
 
+ZINCCompoundDatabaseDownloadUtility.download_v_building_block(
+    version="v_building_block_bb_30",
+    output_directory_path="/path/to/the/directory_a"
+)
+
+ZINCCompoundDatabaseExtractionUtility.extract_v_building_block(
+    version="v_building_block_bb_30",
+    input_directory_path="/path/to/the/directory_a",
+    output_directory_path="/path/to/the/directory_b"
+)
+
+ZINCCompoundDatabaseFormattingUtility.format_v_building_block(
+    version="v_building_block_bb_30",
+    input_directory_path="/path/to/the/directory_b",
+    output_directory_path="/path/to/the/directory_c"
+)
+```
+
+The second alternative is by importing and utilizing the individual data source classes:
+
+```python
+from data_source.compound.zinc import ZINCCompoundDatabase
+
+zinc_compound_db = ZINCCompoundDatabase()
+
+zinc_compound_db.get_supported_versions()
+
+zinc_compound_db.download(
+    version="v_building_block_bb_30",
+    output_directory_path="/path/to/the/directory_a"
+)
+
+zinc_compound_db.extract(
+    version="v_building_block_bb_30",
+    input_directory_path="/path/to/the/directory_a",
+    output_directory_path="/path/to/the/directory_b"
+)
+
+zinc_compound_db.format(
+    version="v_building_block_bb_30",
+    input_directory_path="/path/to/the/directory_b",
+    output_directory_path="/path/to/the/directory_c"
+)
+```
+
+The third alternative is by importing and utilizing the data source category classes:
+
+```python
+from data_source.compound import CompoundDataSource
+
+compound_data_source = CompoundDataSource()
+
+compound_data_source.get_names_of_supported_data_sources()
+
+compound_data_source.get_supported_versions(
+    name="zinc"
+)
+
+compound_data_source.download(
+    name="zinc",
+    version="v_building_block_bb_30",
+    output_directory_path="/path/to/the/directory_a"
+)
+
+compound_data_source.extract(
+    name="zinc",
+    version="v_building_block_bb_30",
+    input_directory_path="/path/to/the/directory_a",
+    output_directory_path="/path/to/the/directory_b"
+)
+
+compound_data_source.format(
+    name="zinc",
+    version="v_building_block_bb_30",
+    input_directory_path="/path/to/the/directory_b",
+    output_directory_path="/path/to/the/directory_c"
+)
+```
+
+
+### Utilization of the Scripts
+The purpose of the [scripts](/scripts) directory is to illustrate how to utilize the [data_source](/data_source) package to download, extract, and format a specific version of computer-assisted chemical synthesis data from a specific source.
 The [download_extract_and_format_data](/scripts/download_extract_and_format_data.py) script can be utilized as follows:
 
 ```shell
 # Get the chemical reaction data source name information.
-
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --get_data_source_name_information
@@ -55,7 +142,6 @@ python scripts/download_extract_and_format_data.py \
 
 ```shell
 # Get the USPTO chemical reaction dataset version information.
-
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
@@ -64,13 +150,31 @@ python scripts/download_extract_and_format_data.py \
 
 ```shell
 # Download, extract, and format the data from the USPTO chemical reaction dataset.
-
 python scripts/download_extract_and_format_data.py \
   --data_source_category "reaction" \
   --data_source_name "uspto" \
   --data_source_version "v_50k_by_20171116_coley_c_w_et_al" \
   --output_directory_path "/path/to/the/output/directory"
 ```
+
+The full list of arguments is as follows:
+
+- `--data_source_category` or `-dsc` → The category of the data source: "compound", "compound_pattern", "reaction", or "reaction_pattern".
+- `--get_data_source_name_information` or `-gdsni` → The indicator of whether to get the data source name information: True or False.
+- `--data_source_name` or `-dsn` → The name of the data source: "chembl", "crd", "miscellaneous", "ord", "rdkit", "retro_rules", "rhea", "uspto", or "zinc".
+- `--get_data_source_version_information` or `-gdsvi` → The indicator of whether to get the data source version information.
+- `--data_source_version` or `-dsv` → The version of the data source.
+- `--output_directory_path` or `-odp` → The path to the output directory where the data should be downloaded, extracted, and formatted.
+- `--number_of_processes` or `-nop` → The number of processes, if relevant.
+
+
+## Supported Data Sources
+The following data sources are supported:
+
+- [Chemical Compounds](#chemical-compounds)
+- [Chemical Compound Patterns](#chemical-compound-patterns)
+- [Chemical Reactions](#chemical-reactions)
+- [Chemical Reaction Patterns](#chemical-reaction-patterns)
 
 
 ### Chemical Compounds
@@ -282,18 +386,15 @@ The following miscellaneous chemical reaction pattern data sources are supported
 
 
 ## Data
-The purpose of the [data](/data) directory is to archive and backup the data sources that are hosted on
-[GitHub](https://github.com), [GitLab](https://gitlab.com), and [CodeOcean](https://codeocean.com) repositories.
+The purpose of the [data](/data) directory is to archive and backup the data sources that are hosted on [GitHub](https://github.com), [GitLab](https://gitlab.com), and [CodeOcean](https://codeocean.com) repositories.
 
 
 ## License Information
-The contents of this repository are published under the [MIT](/LICENSE) license. Please refer to the individual
-references for more details regarding the license information of external resources utilized within the repository.
+The contents of this repository are published under the [MIT](/LICENSE) license. Please refer to the individual references for more details regarding the license information of external resources utilized within the repository.
 
 
 ## Contact
-If you are interested in contributing to this research project by reporting bugs, suggesting improvements, or submitting
-feedback, feel free to do so using [GitHub Issues](https://github.com/neo-chem-synth-wave/data-source/issues).
+If you are interested in contributing to this research project by submitting bugs, questions, and feedback or contributing to the code and data, please refer to the [contribution guidelines](CONTRIBUTING.md).
 
 
 ## References
