@@ -1,11 +1,11 @@
-""" The ``data_source.compound_pattern.rdkit_`` package ``rdkit_`` module. """
+""" The ``data_source.compound_pattern.rdkit`` package ``rdkit`` module. """
 
 from os import PathLike
 from typing import Dict, Union
 
 from data_source.base.base import DataSourceBase
-from data_source.compound_pattern.rdkit_.utility.download import RDKitCompoundPatternDatasetDownloadUtility
-from data_source.compound_pattern.rdkit_.utility.formatting import RDKitCompoundPatternDatasetFormattingUtility
+from data_source.compound_pattern.rdkit.utility.download import RDKitCompoundPatternDatasetDownloadUtility
+from data_source.compound_pattern.rdkit.utility.formatting import RDKitCompoundPatternDatasetFormattingUtility
 
 
 class RDKitCompoundPatternDataset(DataSourceBase):

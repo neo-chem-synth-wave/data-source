@@ -1,4 +1,4 @@
-""" The ``data_source.compound_pattern.rdkit_.utility`` package ``extraction`` module. """
+""" The ``data_source.compound_pattern.rdkit.utility`` package ``extraction`` module. """
 
 
 class RDKitCompoundPatternDatasetExtractionUtility:
