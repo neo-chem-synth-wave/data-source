@@ -6,5 +6,6 @@ authors:
   orcid: "https://orcid.org/0000-0001-9962-008X"
 title: "data-source"
 version: 2025.9.1
+doi: 10.5281/zenodo.1234
 date-released: 2025-09-25
 url: "https://github.com/neo-chem-synth-wave/data-source"
