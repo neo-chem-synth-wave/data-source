@@ -24,7 +24,7 @@ The utilization instructions of this repository are structured as follows:
 The [data_source](/data_source) package can be installed in an existing environment using the [pip](https://pip.pypa.io) command as follows:
 
 ```shell
-pip install data_source
+pip install ncsw-data-source
 ```
 
 A local environment can be created using the [git](https://git-scm.com) and [conda](https://conda.io) commands as follows:
